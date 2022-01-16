@@ -21,11 +21,7 @@
     "rules": {
         "indent": [
             "error",
-            2,
-            {
-                "avoidEscape": true,
-                "allowTemplateLiterals": true
-            }
+            2
         ],
         "linebreak-style": [
             "error",
@@ -33,7 +29,11 @@
         ],
         "quotes": [
             "error",
-            "single"
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
         ],
         "semi": [
             "error",
