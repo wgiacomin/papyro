@@ -1,21 +1,37 @@
-import { React } from 'react'
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import welcomeScreen from './src/views/welcome/welcomeScreen'
+import * as Font from 'expo-font'
+import AppLoading from 'expo-app-loading'
 
-export default function App() {
+const Stack = createStackNavigator()
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+    'Poppins': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Jura': require('./assets/fonts/Jura-Regular.ttf'),
+  })
+}
+
+function App() {
+  const [dataLoaded, setDataLoaded] = useState(false)
+
+  if (!dataLoaded) {
+    return <AppLoading
+      startAsync={fetchFonts}
+      onFinish={() => setDataLoaded(true)}
+      onError={(err) => console.log(err)}
+    />
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={welcomeScreen} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+export default App
