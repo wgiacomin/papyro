@@ -1,15 +1,17 @@
+import * as Font from 'expo-font'
+import AppLoading from 'expo-app-loading'
 import React, { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import welcomeScreen from './src/views/welcome/welcomeScreen'
-import * as Font from 'expo-font'
-import AppLoading from 'expo-app-loading'
+import welcomeScreen from './src/views/welcome/WelcomeScreen'
+import loginScreen from './src/views/login/LoginScreen'
 
 const Stack = createStackNavigator()
 
 const fetchFonts = () => {
   return Font.loadAsync({
     'Poppins': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Medium': require('./assets/fonts/Poppins-Medium.ttf'),
     'Jura': require('./assets/fonts/Jura-Regular.ttf'),
   })
 }
@@ -28,7 +30,8 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={welcomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='Home' component={welcomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='Login' component={loginScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

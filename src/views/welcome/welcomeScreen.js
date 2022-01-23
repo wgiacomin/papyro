@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text, StyleSheet, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
-import safeView from '../../components/styles/safe-view'
+import safeView from '../../styles/safe-view'
 import circleButton from '../../../assets/buttons/circleButton.png'
 
-const welcomeScreen = () => {
+const welcomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.standard}>
@@ -19,8 +19,10 @@ const welcomeScreen = () => {
           <Text style={styles.welcomeMessage}>
             A nova rede social para leitores
           </Text>
-          <TouchableOpacity style={styles.circleButton}>
-            <Image source={circleButton} style={styles.imageSize}/>
+          <TouchableOpacity
+            style={styles.buttonSegment}
+            onPress={() => navigation.navigate('Login')}>
+            <Image source={circleButton} style={styles.buttonSize} />
           </TouchableOpacity>
         </View>
       </View>
@@ -33,17 +35,24 @@ const styles = StyleSheet.create({
     flex: 1,
     top: 100,
   },
+  segment:{
+    flex: 1,
+  },
+  buttonSegment:{
+    marginRight: '10%',
+    marginBottom: '10%'
+  },
   logo: {
     flex: .4,
     width: '100%',
-    left: 0,
+    marginLeft: 0,
     backgroundColor: '#324A59',
     borderRadius: 0,
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
   bottomLogo: {
-    top: '5%',
+    marginTop: '5%',
     flex: .6
   },
   title: {
@@ -77,16 +86,13 @@ const styles = StyleSheet.create({
     color: '#AAAAAA',
   },
   button:{
-    flex: .5,
     alignItems: 'flex-start',
   },
-  imageSize: {
+  buttonSize: {
     width: 60,
     height: 60,
     flexDirection: 'row',
     alignSelf: 'flex-end',
-    right: '50%',
-    bottom: '10%'
   }
 })
 
