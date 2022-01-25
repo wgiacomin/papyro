@@ -1,19 +1,15 @@
 import React from 'react'
 import { Text, StyleSheet, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
 import safeView from '../../styles/safe-view'
-import arrowButton from '../../../assets/buttons/arrowButton.png'
 import EmailBar from '../../components/email-bar'
 import PasswordBar from '../../components/password-bar'
 import circleButton from '../../../assets/buttons/circleButton.png'
+import BackButton from '../../components/back-button'
 
 const loginScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <TouchableOpacity
-        style={styles.backSegment}
-        onPress={() => navigation.goBack()}>
-        <Image source={arrowButton} style={styles.imageSize} />
-      </TouchableOpacity>
+      <BackButton navigation={navigation} />
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.title}>
@@ -28,9 +24,11 @@ const loginScreen = ({ navigation }) => {
           <PasswordBar/>
         </View>
         <View>
-          <Text style={styles.forgetPass}>
-            Esqueceu sua senha?
-          </Text>
+          <TouchableOpacity>
+            <Text style={styles.forgetPass}>
+              Esqueceu sua senha?
+            </Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
