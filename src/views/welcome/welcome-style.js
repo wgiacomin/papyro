@@ -1,36 +1,6 @@
-import React from 'react'
-import { Text, StyleSheet, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
-import safeView from '../../styles/safe-view'
-import circleButton from '../../../assets/buttons/circleButton.png'
+import { StyleSheet } from 'react-native'
 
-const welcomeScreen = ({ navigation }) => {
-  return (
-    <SafeAreaView style={safeView.AndroidSafeArea}>
-      <View style={styles.standard}>
-        <View style={styles.logo}>
-          <Text style={styles.title}>
-            Papyro
-          </Text>
-        </View>
-        <View style={styles.bottomLogo}>
-          <Text style={styles.welcome}>
-            Bem-vindo ao{'\n'}Papyro!
-          </Text>
-          <Text style={styles.welcomeMessage}>
-            A nova rede social para leitores
-          </Text>
-          <TouchableOpacity
-            style={styles.buttonSegment}
-            onPress={() => navigation.navigate('Login')}>
-            <Image source={circleButton} style={styles.buttonSize} />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </SafeAreaView>
-  )
-}
-
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   standard: {
     flex: 1,
     top: 100,
@@ -95,5 +65,3 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   }
 })
-
-export default welcomeScreen

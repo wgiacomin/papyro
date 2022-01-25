@@ -3,8 +3,9 @@ import AppLoading from 'expo-app-loading'
 import React, { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import welcomeScreen from './src/views/welcome/WelcomeScreen'
-import loginScreen from './src/views/login/LoginScreen'
+import welcomeScreen from './src/views/welcome/welcome'
+import loginScreen from './src/views/login/login'
+import forgetPassword from './src/views/login/forget-password'
 
 const Stack = createStackNavigator()
 
@@ -32,6 +33,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name='Home' component={welcomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name='Login' component={loginScreen} options={{ headerShown: false }} />
+        <Stack.Screen name='ForgetPassword' component={forgetPassword} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
