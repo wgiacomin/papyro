@@ -54,6 +54,14 @@
                 "args": "after-used",
                 "ignoreRestSiblings": false
             }
+        ],
+        "react/prop-types": [
+            "error",
+            {
+                "ignore": [
+                    "navigation"
+                ]
+            }
         ]
     }
 }
