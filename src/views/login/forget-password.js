@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Text, SafeAreaView, View, StyleSheet, TouchableOpacity, Image, Pressable, Modal, Alert } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Pressable, Modal } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
 import EmailBar from '../../components/email-bar'
