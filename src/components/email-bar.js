@@ -11,10 +11,11 @@ const EmailBar = () => {
           <Image source={messageIcon} style={styles.imageSize} />
           <Image source={vertical} style={styles.verticalLine} />
           <TextInput
-            autoCapitalize="none"
+            autoCapitalize='none'
             autoCorrect={false}
-            placeholder="E-mail"
+            placeholder='E-mail'
             style={styles.textInput}
+            autoCompleteType='email'
           />
         </View>
       </View>
