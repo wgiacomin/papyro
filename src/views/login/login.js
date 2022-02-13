@@ -47,7 +47,9 @@ const Login = ({ navigation }) => {
               </Text>
             </View>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Register')}
+              >
                 <Text style={styles.bold}>
                   Cadastre-se.
                 </Text>
