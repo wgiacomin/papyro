@@ -109,7 +109,7 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   progress:{
-    width: 70,
+    width: 50,
     height: 8,
     marginTop: 25,
     flexDirection: 'row',

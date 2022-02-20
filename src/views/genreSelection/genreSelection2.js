@@ -6,7 +6,7 @@ import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
-import progress from '../../../assets/buttons/progressGenre1.png'
+import progress from '../../../assets/buttons/progressGenre2.png'
 
 const GenreSelection = ({ navigation }) => {
   return (
@@ -79,7 +79,7 @@ const GenreSelection = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('GenreSelection2')}>
+              onPress={() => navigation.navigate('Login')}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>
