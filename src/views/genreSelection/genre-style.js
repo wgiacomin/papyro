@@ -47,7 +47,9 @@ export default StyleSheet.create({
   continueSegment:{
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    marginTop: '13%',
   },
   button: {
     borderRadius: 20,
@@ -72,15 +74,45 @@ export default StyleSheet.create({
     color: '#AAAAAA',
   },
   bold:{
+    marginTop: 30,
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 14,
-    lineHeight:27,
-    textAlign: 'center',
+    lineHeight: 21,
+    textAlign: 'left',
     color: '#324A59',
-    marginLeft: 10
   },
-  
-
+  description:{
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 10,
+    lineHeight: 15,
+    textAlign: 'left',
+    marginRight: 215,
+    color: '#AAAAAA',
+  },
+  buttonSize2: {
+    width: 76,
+    height: 32,
+    flexDirection: 'row',
+    alignSelf: 'flex-end',
+  },
+  buttonSegment2:{
+    marginRight: '19%',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  continueSegment2:{
+    marginBottom: 15,
+    marginTop: 20,
+  },
+  progress:{
+    width: 70,
+    height: 8,
+    marginTop: 25,
+    flexDirection: 'row',
+    alignSelf: 'center',
+  }
 })

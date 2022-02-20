@@ -4,6 +4,9 @@ import safeView from '../../styles/safe-view'
 import styles from './genre-style'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
+import AddButton from '../../../assets/buttons/addButton.png'
+import RemoveButton from '../../../assets/buttons/removeButton.png'
+import progress from '../../../assets/buttons/progressGenre.png'
 
 const GenreSelection = ({ navigation }) => {
   return (
@@ -18,6 +21,61 @@ const GenreSelection = ({ navigation }) => {
               Para começar, gostaríamos de saber quais são os seus gêneros literários favoritos
           </Text>
         </View>
+        <View style={styles.segment}>
+          <Text style={styles.bold}>
+              Romântico
+          </Text>
+          <View style={styles.buttonSegment2}>
+            <View style={styles.continueSegment2}>
+              <TouchableOpacity>
+                <Image source={AddButton} style={styles.buttonSize2} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <Text style={styles.description}>
+              Romances de autores como Nickolas Spark, Nora Roberts entre outros       
+          </Text>
+          <Text style={styles.bold}>
+              Ficção Científica
+          </Text>
+          <View style={styles.buttonSegment2}>
+            <View style={styles.continueSegment2}>
+              <TouchableOpacity>
+                <Image source={AddButton} style={styles.buttonSize2} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <Text style={styles.description}>
+              Inclui autores como Isaac Asimov, Wilson Gibson e Frank Herbert       
+          </Text>
+          <Text style={styles.bold}>
+              Clássicos de Época
+          </Text>
+          <View style={styles.buttonSegment2}>
+            <View style={styles.continueSegment2}>
+              <TouchableOpacity>
+                <Image source={AddButton} style={styles.buttonSize2} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <Text style={styles.description}>
+              Livros como Morro dos Ventos Uivantes, Orgulho e Preconceito ou ainda Crime e Castigo.      
+          </Text>
+          <Text style={styles.bold}>
+              Infanto-Juvenis
+          </Text>
+          <View style={styles.buttonSegment2}>
+            <View style={styles.continueSegment2}>
+              <TouchableOpacity>
+                <Image source={RemoveButton} style={styles.buttonSize2} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <Text style={styles.description}>
+              Livros como Percy Jakson, Harry Potter ou ainda Jogos Vorazes.      
+          </Text>
+        </View>
+        <Image source={progress} style={styles.progress} />
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
