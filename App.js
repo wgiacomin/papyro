@@ -9,6 +9,7 @@ import forgetPassword from './src/views/login/forget-password'
 import register from './src/views/sign-up/register'
 import genreSelection from './src/views/genreSelection/genreSelection'
 import genreSelection2 from './src/views/genreSelection/genreSelection2'
+import userProfile from './src/views/profile/user-profile'
 
 const Stack = createStackNavigator()
 
@@ -41,6 +42,7 @@ function App() {
         <Stack.Screen name='Register' component={register} options={{ headerShown: false}} />
         <Stack.Screen name='GenreSelection' component={genreSelection} options={{ headerShown: false}} />
         <Stack.Screen name='GenreSelection2' component={genreSelection2} options={{ headerShown: false}} />
+        <Stack.Screen name='UserProfile' component={userProfile} options={{ headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   )

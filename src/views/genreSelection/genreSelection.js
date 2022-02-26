@@ -86,7 +86,8 @@ const GenreSelection = ({ navigation }) => {
           <View style={styles.skip}>
             <View>
               <TouchableOpacity
-                onPress={() => navigation.navigate('GenreSelection')}
+                //direciona para o feed
+                onPress={() => navigation.navigate('UserProfile')}
               >
                 <Text style={styles.normal}>
                   Pular?
