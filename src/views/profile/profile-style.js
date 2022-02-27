@@ -8,15 +8,12 @@ export default StyleSheet.create({
   segment:{
     paddingBottom: '5%'
   },
-  title: {  
-    fontFamily: 'Poppins-Medium',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 32,
-    lineHeight: 48,
-    textAlign: 'center',
-    right: '6%',
-    color: '#181D2D',
+  horizontalLine: {
+    alignSelf: 'center',
+    height: 1,
+    width: 360,
+    marginBottom: 2,
+    marginTop: 20
   },
   normal:{
     fontFamily: 'Poppins',
@@ -25,8 +22,8 @@ export default StyleSheet.create({
     fontSize: 12,
     lineHeight: 23,
     textAlign: 'left',
+    marginLeft: 72,
     color: '#000000',
-    marginLeft: 73
   },
   infos:{
     fontFamily: 'Roboto',
@@ -35,6 +32,7 @@ export default StyleSheet.create({
     fontSize: 14,
     lineHeight: 17,
     left: 180,
+    marginBottom: -14,
     color: '#000000',
   },
   bold:{
@@ -48,26 +46,17 @@ export default StyleSheet.create({
     marginLeft: 26
   },
   seeMore:{
-    fontFamily: 'DM Sans',
+    fontFamily: 'DM-Sans',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 13,
     lineHeight: 22,
+    letterSpacing: -0.408,
     textAlign: 'left',
     color: '#007AFF',
-    marginLeft: 26
-  },
-  buttonEdit: {
-    left: 320,
-    width: 20,
-    height: 20,
-    flexDirection: 'row',
-  },
-  buttonMsg: {
-    left: 350,
-    width: 25,
-    height: 25,
-    flexDirection: 'row'
+    marginLeft: 26,
+    marginTop: 15,
+    marginBottom: 30 
   },
   imageSize: {
     width: 22,
@@ -83,11 +72,18 @@ export default StyleSheet.create({
     height: 118,
   },
   bookSize: {
+    flexDirection: 'row',
     alignSelf: 'flex-start',
     width: 41,
     height: 60,
-    marginLeft: 26
-  }
-  
-
+  },
+  continueSegment:{
+    marginBottom: 120,
+    marginTop: 20,
+  },
+  buttonSegment:{
+    marginLeft: '6%',
+    flex: 1,
+    justifyContent: 'center',
+  },
 })
