@@ -1,16 +1,8 @@
 import * as Font from 'expo-font'
 import AppLoading from 'expo-app-loading'
 import React, { useState } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import welcomeScreen from './src/views/welcome/welcome'
-import loginScreen from './src/views/login/login'
-import forgetPassword from './src/views/login/forget-password'
-import register from './src/views/sign-up/register'
-import genreSelection from './src/views/genreSelection/genreSelection'
-import genreSelection2 from './src/views/genreSelection/genreSelection2'
-
-const Stack = createStackNavigator()
+import { AuthProvider } from './src/context/auth-context'
+import AppNavigator from './src/navigation/app-navigator'
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -21,7 +13,7 @@ const fetchFonts = () => {
   })
 }
 
-function App() {
+export default function App() {
   const [dataLoaded, setDataLoaded] = useState(false)
 
   if (!dataLoaded) {
@@ -33,17 +25,8 @@ function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Home' component={welcomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name='Login' component={loginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name='ForgetPassword' component={forgetPassword} options={{ headerShown: false }} />
-        <Stack.Screen name='Register' component={register} options={{ headerShown: false}} />
-        <Stack.Screen name='GenreSelection' component={genreSelection} options={{ headerShown: false}} />
-        <Stack.Screen name='GenreSelection2' component={genreSelection2} options={{ headerShown: false}} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <AppNavigator />
+    </AuthProvider>
   )
 }
-
-export default App
