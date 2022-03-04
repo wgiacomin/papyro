@@ -25,6 +25,8 @@ const MainNavigator = () => (
       tabBarStyle: [
         {
           display: 'flex',
+          margin: 0,
+          padding: 0
         },
         null
       ]
