@@ -22,12 +22,12 @@ const DefaultBar = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.icons_segment}>
-          <View style={styles.chat_segment}>
+          <TouchableOpacity style={styles.chat_segment}>
             <Image source={chat} style={styles.chat}/>
-          </View>
-          <View style={styles.profile_segment}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.profile_segment}>
             <Image source={profile} style={styles.profile}/>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
       <Image source={horizontal} style={styles.horizontalLine} />
