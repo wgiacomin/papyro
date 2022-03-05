@@ -5,8 +5,8 @@ import welcomeScreen from '../views/welcome/welcome'
 import loginScreen from '../views/login/login'
 import forgetPassword from '../views/login/forget-password'
 import register from '../views/sign-up/register'
-import genreSelection from '../views/genreSelection/genreSelection'
-import genreSelection2 from '../views/genreSelection/genreSelection2'
+import genreSelection from '../views/genre-selection/genre-selection'
+import genreSelectionSec from '../views/genre-selection/genre-selection-sec'
 
 
 const Stack = createStackNavigator()
@@ -18,7 +18,7 @@ const WelcomeNavigator = () => (
     <Stack.Screen name='ForgetPassword' component={forgetPassword} options={{ headerShown: false }} />
     <Stack.Screen name='Register' component={register} options={{ headerShown: false}} />
     <Stack.Screen name='GenreSelection' component={genreSelection} options={{ headerShown: false}} />
-    <Stack.Screen name='GenreSelection2' component={genreSelection2} options={{ headerShown: false}} />
+    <Stack.Screen name='GenreSelection2' component={genreSelectionSec} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image, TextInput, StyleSheet } from 'react-native'
-import usernameIcon from '../../assets/icons/Nickname.png'
+import usernameIcon from '../../assets/icons/nickname.png'
 import vertical from '../../assets/lines/straight.png'
 
 const NicknameBar = () => {
