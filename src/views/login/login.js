@@ -6,8 +6,11 @@ import EmailBar from '../../components/email-bar'
 import PasswordBar from '../../components/password-bar'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
+import { useAuthDispatch } from '../../context/auth-context'
 
 const Login = ({ navigation }) => {
+  const { signIn } = useAuthDispatch()
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <BackButton navigation={navigation} />
@@ -36,7 +39,10 @@ const Login = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Login')}>
+              onPress={() => {
+                signIn('sim', 'sim')
+                navigation.navigate('Login')
+              }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>

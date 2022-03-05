@@ -23,7 +23,7 @@ const fetchFonts = () => {
   })
 }
 
-function App() {
+export default function App() {
   const [dataLoaded, setDataLoaded] = useState(false)
 
   if (!dataLoaded) {
@@ -48,5 +48,3 @@ function App() {
     </NavigationContainer>
   )
 }
-
-export default App
