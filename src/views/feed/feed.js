@@ -36,7 +36,7 @@ let mocks = [{
   'curtidas': 5,
   'texto_abreviado': 'Não concordo com você, Ana',
   'data': '20/05/2021',
-  'foto': 'https://github.com/wgiacomin/papyro/blob/87d91e4acf5661c659f1022c80c67380d61b2e36/assets/icons/Nickname.png'
+  'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 2,
