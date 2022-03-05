@@ -79,7 +79,7 @@ const GenreSelection = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Login')}>
+              onPress={() => navigation.navigate('Feed')}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>
@@ -87,7 +87,7 @@ const GenreSelection = ({ navigation }) => {
             <View>
               <TouchableOpacity
               //direciona para o feed
-                onPress={() => navigation.navigate('UserProfile')}
+                onPress={() => navigation.navigate('Feed')}
               >
                 <Text style={styles.normal}>
                   Pular?

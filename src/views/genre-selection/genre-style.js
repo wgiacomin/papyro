@@ -101,12 +101,12 @@ export default StyleSheet.create({
   },
   buttonSegment2:{
     marginRight: '19%',
-    flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
   },
   continueSegment2:{
-    marginBottom: 15,
-    marginTop: 20,
+    marginBottom: -20,
+    marginTop: -15,
   },
   progress:{
     width: 50,
