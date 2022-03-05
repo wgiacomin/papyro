@@ -11,6 +11,8 @@ const fetchFonts = () => {
     'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
     'Jura': require('./assets/fonts/Jura-Regular.ttf'),
     'DM-Sans' : require('./assets/fonts/DMSans-Regular.ttf')
+    'Roboto': require('./assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
   })
 }
 

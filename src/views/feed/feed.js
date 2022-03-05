@@ -1,20 +1,15 @@
 import React from 'react'
-import { SafeAreaView, FlatList, Text, View, StyleSheet } from 'react-native'
+import { SafeAreaView, View, StyleSheet } from 'react-native'
 import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
+import FeedEntries from './feed-entries'
 
 const Feed = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <DefaultBar/>
-        <FlatList
-          data={mocks}
-          numColumns={1}
-          renderItem={(post) => {
-            return <Text>{post.item.nome}</Text>
-          }}
-        />
+        <FeedEntries mocks={mocks} />
       </View>
     </SafeAreaView>
   )
@@ -24,9 +19,10 @@ export default Feed
 
 const styles = StyleSheet.create({
   container: {
-    marginLeft: '5%',
-    marginRight: '5%',
-    marginBottom: '2%'
+    flex: 1,
+    marginLeft: '7%',
+    marginRight: '7%',
+    marginBottom: '5%'
   },
 })
 
