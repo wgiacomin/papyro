@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, StyleSheet, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './welcome-style'
 import circleButton from '../../../assets/buttons/circleButton.png'
