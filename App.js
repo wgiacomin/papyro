@@ -7,8 +7,8 @@ import welcomeScreen from './src/views/welcome/welcome'
 import loginScreen from './src/views/login/login'
 import forgetPassword from './src/views/login/forget-password'
 import register from './src/views/sign-up/register'
-import genreSelection from './src/views/genreSelection/genreSelection'
-import genreSelection2 from './src/views/genreSelection/genreSelection2'
+import genreSelection from './src/views/genre-selection/genreSelection'
+import genreSelection2 from './src/views/genre-selection/genreSelection2'
 import userProfile from './src/views/profile/user-profile'
 
 const Stack = createStackNavigator()
