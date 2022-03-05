@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image, TextInput, StyleSheet } from 'react-native'
-import calendar from '../../assets/icons/Calendar.png'
+import calendar from '../../assets/icons/calendar.png'
 import vertical from '../../assets/lines/straight.png'
 
 const DateBar = () => {
