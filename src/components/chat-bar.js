@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
     width: '100%',
     marginLeft: 0,
     height: 1,
-    marginBottom: 10
+    marginTop: 5,
+    marginBottom: 5
   },
 })
   
