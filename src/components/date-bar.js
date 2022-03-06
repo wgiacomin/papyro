@@ -20,10 +20,12 @@ const DateBar = ({data, setData}) => {
 
   const onChange = (event, selectedDate) => {
     setShow(false)
-    const dd = pad(selectedDate.getDate(), 2)
-    const mm = pad(selectedDate.getMonth() + 1, 2)
-    const yyyy = selectedDate.getFullYear()
-    setData({...data, 'data': selectedDate, 'data_string': dd + '/' + mm + '/' + yyyy})
+    if (selectedDate){
+      const dd = pad(selectedDate.getDate(), 2)
+      const mm = pad(selectedDate.getMonth() + 1, 2)
+      const yyyy = selectedDate.getFullYear()
+      setData({...data, 'data': selectedDate, 'data_string': dd + '/' + mm + '/' + yyyy})
+    }
   }
 
   const showMode = () => {
