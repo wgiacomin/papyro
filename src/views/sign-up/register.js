@@ -12,13 +12,19 @@ import BackButton from '../../components/back-button'
 import useRegister from './use-register'
 
 const Register = ({ navigation }) => {
+  const dateOffset = 24*60*60*1000
+  let actual_date = new Date()
+  actual_date.setFullYear(actual_date.getFullYear() - 18)
+  actual_date.setTime(actual_date.getTime() - dateOffset)
+
   const [data, setData] = useState({
     'nome':'',
     'apelido': '',
     'email': '',
     'senha': '',
-    'data': new Date(),
-    'data_string': ''
+    'data': actual_date,
+    'data_string': '',
+    'data_post': ''
   })
 
   return (
@@ -57,7 +63,7 @@ const Register = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => useRegister(data)}>
+              onPress={() => useRegister({ data })}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>

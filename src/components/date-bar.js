@@ -17,6 +17,10 @@ function pad(number, length) {
 
 const DateBar = ({data, setData}) => {
   const [show, setShow] = useState(false)
+  const dateOffset = 24*60*60*1000
+  let actual_date = new Date()
+  actual_date.setFullYear(actual_date.getFullYear() - 18)
+  actual_date.setTime(actual_date.getTime() - dateOffset)
 
   const onChange = (event, selectedDate) => {
     setShow(false)
@@ -24,7 +28,7 @@ const DateBar = ({data, setData}) => {
       const dd = pad(selectedDate.getDate(), 2)
       const mm = pad(selectedDate.getMonth() + 1, 2)
       const yyyy = selectedDate.getFullYear()
-      setData({...data, 'data': selectedDate, 'data_string': dd + '/' + mm + '/' + yyyy})
+      setData({...data, 'data': selectedDate, 'data_string': dd + '/' + mm + '/' + yyyy, 'data_post': yyyy + '-' + mm + '-' + dd})
     }
   }
 
@@ -65,7 +69,7 @@ const DateBar = ({data, setData}) => {
           mode={'date'}
           display="default"
           onChange={onChange}
-          maximumDate={new Date()}
+          maximumDate={actual_date}
         />)}
     </View>
   )
