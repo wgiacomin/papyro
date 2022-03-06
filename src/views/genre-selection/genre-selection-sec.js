@@ -7,6 +7,7 @@ import BackButton from '../../components/back-button'
 import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
 import progress from '../../../assets/buttons/progressGenre2.png'
+import MainNavigator from '../../navigation/main-navigator'
 
 const GenreSelection = ({ navigation }) => {
   return (
@@ -79,7 +80,7 @@ const GenreSelection = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Feed')}>
+              onPress={() => navigation.navigate(MainNavigator)}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>

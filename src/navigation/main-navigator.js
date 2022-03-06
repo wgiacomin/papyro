@@ -13,6 +13,7 @@ import groups from '../../assets/icons/groups.png'
 import groups_focused from '../../assets/icons/groups_focused.png'
 import people from '../views/profile/user-profile'
 import genre from '../views/genre-selection/genre-selection'
+import friend from '../views/profile/friend-profile'
 
 const Tab = createBottomTabNavigator()
 
@@ -44,7 +45,7 @@ const MainNavigator = () => (
         ),
       }} />
 
-    <Tab.Screen name="Notifications" component={feed} options={{ 
+    <Tab.Screen name="Notifications" component={friend} options={{ 
       headerShown: false, 
       tabBarShowLabel: false, 
       tabBarIcon: ({focused, color, size }) => (
