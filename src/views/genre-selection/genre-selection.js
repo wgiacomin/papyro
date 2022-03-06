@@ -79,7 +79,7 @@ const GenreSelection = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('GenreSelection2')}>
+              onPress={() => navigation.navigate('GenreSelectionSec')}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>

@@ -9,7 +9,7 @@ const DescriptionBar = () => {
           <TextInput
             autoCapitalize='none'
             autoCorrect={false}
-            placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+            placeholder='Lorem ipsum dolor sit amet'
             style={styles.textInput}
           />
         </View>
