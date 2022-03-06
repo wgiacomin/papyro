@@ -1,9 +1,9 @@
 import React from 'react'
 
 
-const useRegister = ({ }) => {
+const useRegister = ({ data }) => {
 
-
+    
 
 }
 

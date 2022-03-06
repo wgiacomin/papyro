@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     letterSpacing: -0.2,
   },
   imageSize: {
-    width: 15.16,
-    height: 19.13,
+    width: 18,
+    height: 18,
     flexDirection: 'row',
     alignSelf: 'center',
   },

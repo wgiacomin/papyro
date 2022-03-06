@@ -9,6 +9,7 @@ import PasswordBar from '../../components/password-bar'
 import DateBar from'../../components/date-bar.js'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
+import useRegister from './use-register'
 
 const Register = ({ navigation }) => {
   const [data, setData] = useState({
@@ -56,7 +57,7 @@ const Register = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('GenreSelection')}>
+              onPress={() => useRegister(data)}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>
