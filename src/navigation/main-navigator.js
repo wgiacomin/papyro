@@ -14,6 +14,7 @@ import groups_focused from '../../assets/icons/groups_focused.png'
 import people from '../views/profile/user-profile'
 import genre from '../views/genre-selection/genre-selection'
 import friend from '../views/profile/friend-profile'
+import conversations from '../views/chat/conversations'
 
 const Tab = createBottomTabNavigator()
 
@@ -53,7 +54,7 @@ const MainNavigator = () => (
       ),
     }} />
 
-    <Tab.Screen name="Books" component={genre}
+    <Tab.Screen name="Books" component={conversations}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
