@@ -3,7 +3,7 @@ import { View, Image, TextInput, StyleSheet } from 'react-native'
 import usernameIcon from '../../assets/icons/nickname.png'
 import vertical from '../../assets/lines/straight.png'
 
-const NicknameBar = () => {
+const NicknameBar = ({data, setData}) => {
   return (
     <View>
       <View style={styles.container}>
@@ -16,6 +16,8 @@ const NicknameBar = () => {
             placeholder='Como gostaria de ser chamado?'
             style={styles.textInput}
             autoCompleteType='username'
+            onChangeText={text => setData({...data, 'apelido': text})}
+            value={data.apelido}
           />
         </View>
       </View>

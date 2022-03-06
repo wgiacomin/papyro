@@ -3,7 +3,7 @@ import { View, Image, TextInput, StyleSheet } from 'react-native'
 import profileIcon from '../../assets/icons/profile.png'
 import vertical from '../../assets/lines/straight.png'
 
-const ProfileBar = () => {
+const ProfileBar = ({data, setData}) => {
   return (
     <View>
       <View style={styles.container}>
@@ -16,6 +16,8 @@ const ProfileBar = () => {
             placeholder='Nome Completo'
             style={styles.textInput}
             autoCompleteType='name'
+            onChangeText={text => setData({...data, 'nome': text})}
+            value={data.nome}
           />
         </View>
       </View>

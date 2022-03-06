@@ -3,7 +3,7 @@ import { View, Image, TextInput, StyleSheet } from 'react-native'
 import lock from '../../assets/icons/Lock.png'
 import vertical from '../../assets/lines/straight.png'
 
-const PasswordBar = () => {
+const PasswordBar = ({data, setData}) => {
   return (
     <View>
       <View style={styles.container}>
@@ -18,6 +18,8 @@ const PasswordBar = () => {
             secureTextEntry
             enablesReturnKeyAutomatically
             style={styles.textInput}
+            onChangeText={text => setData({...data, 'senha': text})}
+            value={data.senha}
           />
         </View>
       </View>

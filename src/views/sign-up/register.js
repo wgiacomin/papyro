@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './register-style'
@@ -11,6 +11,15 @@ import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 
 const Register = ({ navigation }) => {
+  const [data, setData] = useState({
+    'nome':'',
+    'apelido': '',
+    'email': '',
+    'senha': '',
+    'data': new Date(),
+    'data_string': ''
+  })
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <BackButton navigation={navigation} />
@@ -24,11 +33,11 @@ const Register = ({ navigation }) => {
           </Text>
         </View>
         <View style={styles.segment}>
-          <ProfileBar/>
-          <NicknameBar/>
-          <EmailBar/>
-          <PasswordBar/>
-          <DateBar/>
+          <ProfileBar data={data} setData={setData} />
+          <NicknameBar data={data} setData={setData} />
+          <EmailBar data={data} setData={setData} />
+          <PasswordBar data={data} setData={setData} />
+          <DateBar data={data} setData={setData} />
         </View>
         <View style={styles.term}>
           <View>
@@ -59,7 +68,7 @@ const Register = ({ navigation }) => {
             </View>
             <View>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Login')}
+                onPress={() => {console.log(data)}}
               >
                 <Text style={styles.bold}>
                   Faça login.

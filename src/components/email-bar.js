@@ -1,9 +1,21 @@
 import React from 'react'
-import { View, Image, TextInput, StyleSheet } from 'react-native'
+import { View, Image, TextInput, StyleSheet, Alert } from 'react-native'
 import messageIcon from '../../assets/icons/message.png'
 import vertical from '../../assets/lines/straight.png'
 
-const EmailBar = () => {
+const EmailBar = ({data, setData}) => {
+
+  function validateEmail(email){
+    // eslint-disable-next-line no-useless-escape
+    if (/^\w+([\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+    {
+      return (true)
+    }
+    Alert.alert('Atenção!', 'E-mail inválido!')
+    setData({...data, 'email': ''})
+    return (false)
+  }
+
   return (
     <View>
       <View style={styles.container}>
@@ -16,6 +28,10 @@ const EmailBar = () => {
             placeholder='E-mail'
             style={styles.textInput}
             autoCompleteType='email'
+            onChangeText={text => setData({...data, 'email': text})}
+            value={data.email}
+            keyboardType={'email-address'}
+            onEndEditing={() => validateEmail(data.email)}
           />
         </View>
       </View>

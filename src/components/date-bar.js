@@ -1,27 +1,70 @@
-import React from 'react'
-import { View, Image, TextInput, StyleSheet } from 'react-native'
+import React, {useState} from 'react'
+import { View, Image, TextInput, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import calendar from '../../assets/icons/calendar.png'
 import vertical from '../../assets/lines/straight.png'
+import DateTimePicker from '@react-native-community/datetimepicker'
 
-const DateBar = () => {
+function pad(number, length) {
+   
+  var str = '' + number
+  while (str.length < length) {
+    str = '0' + str
+  }
+ 
+  return str
+
+}
+
+const DateBar = ({data, setData}) => {
+  const [show, setShow] = useState(false)
+
+  const onChange = (event, selectedDate) => {
+    setShow(false)
+    const dd = pad(selectedDate.getDate(), 2)
+    const mm = pad(selectedDate.getMonth() + 1, 2)
+    const yyyy = selectedDate.getFullYear()
+    setData({...data, 'data': selectedDate, 'data_string': dd + '/' + mm + '/' + yyyy})
+  }
+
+  const showMode = () => {
+    setShow(true)
+  }
+
+  const showDatepicker = () => {
+    showMode('date')
+  }
+
   return (
     <View>
       <View style={styles.container}>
-        <View style={styles.segment}>
-          <Image source={calendar} style={styles.imageSize} />
-          <Image source={vertical} style={styles.verticalLine} />
-          <TextInput
-            autoCapitalize='none'
-            autoCorrect={false}
-            placeholder='Data de Nascimento'
-            style={styles.textInput}
-            autoComplete='birthdate-full'
-          />
-        </View>
+        <TouchableWithoutFeedback
+          onPress={showDatepicker}
+        >
+          <View style={styles.segment}>
+            <Image source={calendar} style={styles.imageSize} />
+            <Image source={vertical} style={styles.verticalLine} />
+            <TextInput
+              autoCapitalize='none'
+              autoCorrect={false}
+              placeholder='Data de Nascimento'
+              style={styles.textInput}
+              value={data.data_string}
+              editable={false}
+            />
+          </View>
+        </TouchableWithoutFeedback>
       </View>
       <View>
         <Image source={vertical} style={styles.HorizontalLine} />
       </View>
+      {show && (
+        <DateTimePicker
+          value={data.data}
+          mode={'date'}
+          display="default"
+          onChange={onChange}
+          maximumDate={new Date()}
+        />)}
     </View>
   )
 }
@@ -43,7 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     alignSelf: 'center',
-    letterSpacing: -0.2
+    letterSpacing: -0.2,
   },
   imageSize: {
     width: 15.16,
