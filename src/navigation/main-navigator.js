@@ -17,6 +17,7 @@ import genre from '../views/genre-selection/genre-selection'
 import friend from '../views/profile/friend-profile'
 import conversations from '../views/chat/conversations'
 import comments from '../views/comments/comment'
+import notification from '../views/notification/notification'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -58,7 +59,7 @@ const MainNavigator = () => (
         ),
       }} />
 
-    <Tab.Screen name="Notifications" component={friend} options={{ 
+    <Tab.Screen name="Notifications" component={notification} options={{ 
       headerShown: false, 
       tabBarShowLabel: false, 
       tabBarIcon: ({focused, color, size }) => (
