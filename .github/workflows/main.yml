@@ -13,8 +13,6 @@ jobs:
             exit 1
           fi
       - uses: actions/checkout@v2
-      - name: Run ESLint
-        run: yarn run eslint . --ext .js,.jsx,.ts,.tsx
       - uses: actions/setup-node@v2
         with:
           node-version: 16.x
@@ -26,5 +24,7 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
       - name: Install dependencies
         run: yarn install
+      - name: Run ESLint
+        run: yarn run eslint . --ext .js,.jsx,.ts,.tsx
       - name: Publish update
         run: eas update --auto
