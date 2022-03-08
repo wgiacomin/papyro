@@ -2,6 +2,7 @@
 import React from 'react'
 import { Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
 import feed from '../views/feed/feed'
 import home from '../../assets/icons/home.png'
 import home_focused from '../../assets/icons/home_focused.png'
@@ -15,8 +16,19 @@ import people from '../views/profile/user-profile'
 import genre from '../views/genre-selection/genre-selection'
 import friend from '../views/profile/friend-profile'
 import conversations from '../views/chat/conversations'
+import comments from '../views/comments/comment'
 
 const Tab = createBottomTabNavigator()
+const Stack = createStackNavigator()
+
+const StackNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen name='Feed' component={feed} options={{ headerShown: false }} />
+    <Stack.Screen name='People' component={people} options={{ headerShown: false }} />
+    <Stack.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
+    <Stack.Screen name='Comments' component={comments} options={{ headerShown: false }} />
+  </Stack.Navigator>
+)
 
 const MainNavigator = () => (
   <Tab.Navigator
@@ -37,7 +49,7 @@ const MainNavigator = () => (
     }}
   >
 
-    <Tab.Screen name="Feed" component={feed} 
+    <Tab.Screen name="FeedTab" component={StackNavigator} 
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
@@ -54,7 +66,7 @@ const MainNavigator = () => (
       ),
     }} />
 
-    <Tab.Screen name="Books" component={conversations}
+    <Tab.Screen name="Books" component={StackNavigator}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
@@ -63,7 +75,7 @@ const MainNavigator = () => (
         ),
       }} />
 
-    <Tab.Screen name="Profile" component={people}
+    <Tab.Screen name="Profile" component={StackNavigator}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
@@ -71,7 +83,6 @@ const MainNavigator = () => (
           <Image source={focused ? groups_focused : groups} style={{ width: size+5, height: size+5,}} />
         ),
       }} />
-
   </Tab.Navigator>
 )
 

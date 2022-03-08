@@ -5,7 +5,7 @@ import profile from '../../assets/icons/options.png'
 import search from '../../assets/icons/search.png'
 import horizontal from '../../assets/lines/straight.png'
 
-const DefaultBar = () => {
+const DefaultBar = ({navigation}) => {
   return (
     <View>
       <View style={styles.container}>
@@ -22,10 +22,14 @@ const DefaultBar = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.icons_segment}>
-          <TouchableOpacity style={styles.chat_segment}>
+          <TouchableOpacity style={styles.chat_segment}
+            onPress={() => navigation.navigate('Conversations')}
+          >
             <Image source={chat} style={styles.chat}/>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.profile_segment}>
+          <TouchableOpacity style={styles.profile_segment}
+            onPress={() => navigation.navigate('People')}
+          >
             <Image source={profile} style={styles.profile}/>
           </TouchableOpacity>
         </View>
