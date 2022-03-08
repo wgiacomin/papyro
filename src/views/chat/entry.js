@@ -1,6 +1,5 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import horizontal from '../../../assets/lines/straight.png'
 import mocked_image from '../../../assets/icons/profile_image.png'
 
 // eslint-disable-next-line react/prop-types
