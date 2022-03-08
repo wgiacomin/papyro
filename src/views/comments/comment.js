@@ -1,21 +1,18 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet } from 'react-native'
-import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
-import FeedEntries from './feed-entries'
 
-const Feed = ({ navigation }) => {
+const Comment = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
-        <FeedEntries mocks={mocks} navigation={ navigation }/>
+
       </View>
     </SafeAreaView>
   )
 }
 
-export default Feed
+export default Comment
 
 const styles = StyleSheet.create({
   container: {
