@@ -28,7 +28,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.segment}>
           <Image source={profile} style={styles.profileSize} />
           <TouchableOpacity
-            onPress={() => navigation.navigate('Login')}>
+            onPress={() => navigation.navigate('People')}>
             <Image source={editPhotoButton} style={styles.buttonSize} />
           </TouchableOpacity>
         </View>
@@ -53,7 +53,7 @@ const EditProfile = ({ navigation }) => {
           </Text>  
           <EditProfileBar/>
           <TouchableOpacity
-            onPress={() => navigation.navigate('PersonalizeProfile')}>
+            onPress={() => navigation.navigate('Personalize')}>
             <Image source={personalizeButton} style={styles.buttonSizeEdit} />
           </TouchableOpacity> 
         </View>
@@ -74,7 +74,7 @@ const EditProfile = ({ navigation }) => {
           </Text>
           <EditProfileBar/>
           <TouchableOpacity
-            onPress={() => navigation.navigate('UserProfile')}>
+            onPress={() => navigation.navigate('People')}>
             <View style={styles.continueSegment}>
               <Text style={styles.buttonSave}> Salvar </Text>
             </View>
