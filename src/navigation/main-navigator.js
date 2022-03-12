@@ -15,6 +15,8 @@ import groups_focused from '../../assets/icons/groups_focused.png'
 import people from '../views/profile/user-profile'
 import genre from '../views/genre-selection/genre-selection'
 import friend from '../views/profile/friend-profile'
+import PersonalizeProfile from '../views/edit-profile/personalize-profile'
+import EditProfile from '../views/edit-profile/edit-profile'
 import conversations from '../views/chat/conversations'
 import comments from '../views/comments/comment'
 import notification from '../views/notification/notification'
@@ -67,7 +69,7 @@ const MainNavigator = () => (
       ),
     }} />
 
-    <Tab.Screen name="Books" component={StackNavigator}
+    <Tab.Screen name="Books" component={EditProfile}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
