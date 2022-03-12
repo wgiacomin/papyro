@@ -6,7 +6,7 @@ import full_star from '../../../assets/icons/full_star.png'
 import star from '../../../assets/icons/star.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({book, autor, avaliacoes, image, navigation}) => {
+const Entry = ({book, autor, image, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
@@ -25,7 +25,6 @@ const Entry = ({book, autor, avaliacoes, image, navigation}) => {
               <Image source={full_star} style={styles.star}/> 
               <Image source={full_star} style={styles.star}/> 
               <Image source={star} style={styles.star}/> 
-              <Text style={styles.book_avaliations}> ({avaliacoes}) </Text>
               <TouchableOpacity
                 onPress={() => navigation.navigate('Comments')}
               >
@@ -71,12 +70,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
   },
-  book_avaliations:{
-    fontFamily: 'Poppins',
-    fontStyle: 'normal',
-    fontSize: 9,
-    lineHeight: 18,
-  },
   book_description_container:{
     flex: 1,
     flexDirection: 'row',
@@ -119,7 +112,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     color: '#007AFF',
     letterSpacing: -0.408,
-    paddingLeft: 130,
+    paddingLeft: 162,
     marginTop: -27
   },
 })
