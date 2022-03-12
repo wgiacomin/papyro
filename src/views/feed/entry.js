@@ -9,7 +9,7 @@ import full_star from '../../../assets/icons/full_star.png'
 import star from '../../../assets/icons/star.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image}) => {
+const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
@@ -40,7 +40,9 @@ const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image
           </View>
           <View style={styles.book_description_container}>
             <Text style={styles.book_description}>{texto_abreviado}</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Comments')}
+            >
               <Text style={styles.see_more}>Ver mais</Text>
             </TouchableOpacity>
           </View>
