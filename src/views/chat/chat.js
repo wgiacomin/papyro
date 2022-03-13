@@ -15,6 +15,7 @@ class Chat extends React.Component {
       <GiftedChat
         messages={this.state.messages}
       />
+      
     )
   }
 }
