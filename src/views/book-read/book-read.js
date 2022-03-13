@@ -8,9 +8,9 @@ const BookToRead = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <DefaultBar/>
+        <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Livros que Eu Li</Text>
-        <BookReadEntries mocks={mocks} />
+        <BookReadEntries mocks={mocks} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )

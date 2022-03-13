@@ -8,9 +8,9 @@ const Notification = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <DefaultBar/>
+        <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Notificações</Text>
-        <NotificationEntries mocks={mocks} />
+        <NotificationEntries mocks={mocks} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )

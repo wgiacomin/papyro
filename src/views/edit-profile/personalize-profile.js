@@ -10,7 +10,7 @@ const PersonalizeProfile = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <DefaultBar/>
+        <DefaultBar navigation={ navigation }/>
       </View>
       <View style={styles.standard}>
         <View style={styles.textSegment}>
