@@ -71,9 +71,6 @@ const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginLeft: '7%',
-    marginRight: '7%',
-    marginBottom: '5%'
   },
   person_image:{
     width: 27,

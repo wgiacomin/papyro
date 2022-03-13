@@ -18,8 +18,8 @@ const Register = ({ navigation }) => {
   actual_date.setTime(actual_date.getTime() - dateOffset)
 
   const [res, setRes] = useState({
-    'status': 0,
-    'msg': '' 
+    status: 0,
+    msg: '' 
   })
 
   useEffect(() => {
@@ -34,13 +34,13 @@ const Register = ({ navigation }) => {
   
 
   const [data, setData] = useState({
-    'nome':'',
-    'apelido': '',
-    'email': '',
-    'senha': '',
-    'data': actual_date,
-    'data_string': '',
-    'data_post': ''
+    nome:'',
+    apelido: '',
+    email: '',
+    senha: '',
+    data: actual_date,
+    data_string: '',
+    data_post: ''
   })
 
   return (
