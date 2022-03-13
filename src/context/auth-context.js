@@ -10,7 +10,6 @@ function authReducer(state, action) {
     return {
       ...state,
       access_token: action.access,
-      refresh_token: state.refresh_token ? state.refresh_token : action.refresh,
       error: '',
     }
   case 'error':
@@ -23,7 +22,6 @@ function authReducer(state, action) {
     return {
       ...state,
       access_token: null,
-      refresh_token: null,
       error: '',
       name: null,
     }
@@ -36,18 +34,14 @@ function authReducer(state, action) {
 function AuthProvider({ children }) {
   const [authState, dispatch] = useReducer(authReducer, {
     access_token: null,
-    refresh_token: null,
     error: '',
     name: ''
   })
 
-  const signIn = async (access_token, refresh_token) => {
+  const signIn = async (access_token) => {
     try {
-      if (refresh_token) {
-        await AsyncStorage.setItem('refresh_token', refresh_token)
-      }
       await AsyncStorage.setItem('access_token', access_token)
-      dispatch({ type: 'signIn', access: access_token, refresh: refresh_token })
+      dispatch({ type: 'signIn', access: access_token })
     } catch (err) {
       dispatch({
         type: 'error',
@@ -59,7 +53,6 @@ function AuthProvider({ children }) {
   const logout = async () => {
     try {
       await AsyncStorage.removeItem('access_token')
-      await AsyncStorage.removeItem('refresh_token')
       dispatch({ type: 'signOut' })
     } catch (err) {
       dispatch({
