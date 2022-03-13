@@ -55,7 +55,7 @@ const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image
             <Image source={like} style={styles.icons}/>
             <Text style={styles.icon_text}>{curtidas}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttons}>
+          <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Comments')}>
             <Image source={comments} style={styles.icons}/>
             <Text style={styles.icon_text}>{comentarios}</Text>
           </TouchableOpacity>
@@ -69,6 +69,12 @@ const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginLeft: '7%',
+    marginRight: '7%',
+    marginBottom: '5%'
+  },
   person_image:{
     width: 27,
     height: 27
@@ -153,9 +159,6 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: 'row',
     alignItems: 'center'
-  },
-  container:{
-    flex: 1,
   },
   horizontalLine: {
     marginLeft: 0,
