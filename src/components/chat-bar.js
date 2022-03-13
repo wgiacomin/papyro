@@ -27,7 +27,8 @@ const ChatBar = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={styles.icons_segment}>
-          <TouchableOpacity style={styles.profile_segment}>
+          <TouchableOpacity style={styles.profile_segment}
+            onPress={() => navigation.navigate('People')}>
             <Image source={profile} style={styles.profile}/>
           </TouchableOpacity>
         </View>

@@ -13,10 +13,16 @@ import books_focused from '../../assets/icons/books_focused.png'
 import groups from '../../assets/icons/groups.png'
 import groups_focused from '../../assets/icons/groups_focused.png'
 import people from '../views/profile/user-profile'
-import EditProfile from '../views/edit-profile/edit-profile'
+import genreSelection from '../views/genre-selection/genre-selection'
+import genreSelectionSec from '../views/genre-selection/genre-selection-sec'
 import conversations from '../views/chat/conversations'
 import comments from '../views/comments/comment'
 import notification from '../views/notification/notification'
+import editProfile from '../views/edit-profile/edit-profile'
+import personalize from '../views/edit-profile/personalize-profile'
+import bookToRead from '../views/book-to-read/book-to-read'
+import bookRead from '../views/book-read/book-read'
+import bookReading from '../views/book-reading/book-reading'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -27,6 +33,13 @@ const StackNavigator = () => (
     <Stack.Screen name='People' component={people} options={{ headerShown: false }} />
     <Stack.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
     <Stack.Screen name='Comments' component={comments} options={{ headerShown: false }} />
+    <Stack.Screen name='GenreSelection' component={genreSelection} options={{ headerShown: false}} />
+    <Stack.Screen name='GenreSelectionSec' component={genreSelectionSec} options={{ headerShown: false}} />
+    <Stack.Screen name='EditProfile' component={editProfile} options={{ headerShown: false}} />
+    <Stack.Screen name='Personalize' component={personalize} options={{ headerShown: false}} />
+    <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false}} />
+    <Stack.Screen name='BookRead' component={bookRead} options={{ headerShown: false}} />
+    <Stack.Screen name='BookReading' component={bookReading} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 
@@ -66,7 +79,7 @@ const MainNavigator = () => (
       ),
     }} />
 
-    <Tab.Screen name="Books" component={EditProfile}
+    <Tab.Screen name="Books" component={people}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
