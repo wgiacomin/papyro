@@ -5,7 +5,7 @@ import vertical from '../../assets/lines/straight.png'
 
 const PasswordBar = ({data, setData}) => {
   function validatePassword(password){
-    if (password.length >= 8)
+    if (password.length >= 8 | password.length == 0)
     {
       return (true)
     }
@@ -31,6 +31,7 @@ const PasswordBar = ({data, setData}) => {
             onChangeText={text => setData({...data, 'senha': text})}
             value={data.senha}
             onEndEditing={() => validatePassword(data.senha)}
+            returnKeyType={'done'}
           />
         </View>
       </View>

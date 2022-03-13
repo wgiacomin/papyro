@@ -18,6 +18,7 @@ const ProfileBar = ({data, setData}) => {
             autoCompleteType='name'
             onChangeText={text => setData({...data, 'nome': text})}
             value={data.nome}
+            returnKeyType={'done'}
           />
         </View>
       </View>

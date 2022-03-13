@@ -7,7 +7,7 @@ const EmailBar = ({data, setData}) => {
 
   function validateEmail(email){
     // eslint-disable-next-line no-useless-escape
-    if (/^\w+([\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+    if (/^\w+([\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(email) | email.length == 0)
     {
       return (true)
     }
@@ -32,6 +32,7 @@ const EmailBar = ({data, setData}) => {
             value={data.email}
             keyboardType={'email-address'}
             onEndEditing={() => validateEmail(data.email)}
+            returnKeyType={'done'}
           />
         </View>
       </View>

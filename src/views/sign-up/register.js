@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './register-style'
 import ProfileBar from '../../components/profile-bar'
@@ -16,6 +16,22 @@ const Register = ({ navigation }) => {
   let actual_date = new Date()
   actual_date.setFullYear(actual_date.getFullYear() - 18)
   actual_date.setTime(actual_date.getTime() - dateOffset)
+
+  const [res, setRes] = useState({
+    'status': 0,
+    'msg': '' 
+  })
+
+  useEffect(() => {
+    if (res.status > 300 & res.msg != ''){
+      Alert.alert('Atenção!', res.msg)
+      setRes('')
+    } else if (res.status == 201){
+      Alert.alert('Sucesso!', 'Cadastro finalizado com sucesso!')
+      navigation.navigate('Login')
+    }
+  }, [res])
+  
 
   const [data, setData] = useState({
     'nome':'',
@@ -63,7 +79,7 @@ const Register = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => useRegister({ data })}>
+              onPress={() => useRegister({ data, setRes })}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>

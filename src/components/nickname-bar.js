@@ -18,6 +18,7 @@ const NicknameBar = ({data, setData}) => {
             autoCompleteType='username'
             onChangeText={text => setData({...data, 'apelido': text})}
             value={data.apelido}
+            returnKeyType={'done'}
           />
         </View>
       </View>
