@@ -72,7 +72,7 @@ const FriendProfile = ({ navigation }) => {
             </View>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('GenreSelection')}>
+            onPress={() => navigation.navigate('BookReading')}>
             <Text style={styles.seeMore}>
               Ver mais(X)
             </Text>
@@ -92,7 +92,7 @@ const FriendProfile = ({ navigation }) => {
             </View>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('GenreSelection')}>
+            onPress={() => navigation.navigate('BookToRead')}>
             <Text style={styles.seeMore}>
               Ver mais(X)
             </Text>
@@ -112,7 +112,7 @@ const FriendProfile = ({ navigation }) => {
             </View>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('GenreSelection')}>
+            onPress={() => navigation.navigate('BookRead')}>
             <Text style={styles.seeMore}>
               Ver mais(X)
             </Text>

@@ -17,12 +17,12 @@ const UserProfileBar = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.backSegment}
-            onPress={() => navigation.navigate('Login')}>
+            onPress={() => navigation.navigate('EditProfile')}>
             <Image source={editButton} style={styles.buttonEdit} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.backSegment}
-            onPress={() => navigation.navigate('Login')}>
+            onPress={() => navigation.navigate('Conversations')}>
             <Image source={msgButton} style={styles.buttonMsg} />
           </TouchableOpacity>
           <Text style={styles.title}>
