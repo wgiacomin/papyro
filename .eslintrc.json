@@ -51,13 +51,6 @@
                 "ignoreRestSiblings": false
             }
         ],
-        "react/prop-types": [
-            "error",
-            {
-                "ignore": [
-                    "navigation"
-                ]
-            }
-        ]
+        "react/prop-types": 0
     }
 }

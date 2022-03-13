@@ -1,9 +1,19 @@
 import React from 'react'
-import { View, Image, TextInput, StyleSheet } from 'react-native'
+import { View, Image, TextInput, StyleSheet, Alert } from 'react-native'
 import lock from '../../assets/icons/Lock.png'
 import vertical from '../../assets/lines/straight.png'
 
-const PasswordBar = () => {
+const PasswordBar = ({data, setData}) => {
+  function validatePassword(password){
+    if (password.length >= 8 | password.length == 0)
+    {
+      return (true)
+    }
+    Alert.alert('Atenção!', 'A senha deve conter ao menos 8 dígitos.')
+    setData({...data, 'senha': ''})
+    return (false)
+  }
+
   return (
     <View>
       <View style={styles.container}>
@@ -18,6 +28,10 @@ const PasswordBar = () => {
             secureTextEntry
             enablesReturnKeyAutomatically
             style={styles.textInput}
+            onChangeText={text => setData({...data, 'senha': text})}
+            value={data.senha}
+            onEndEditing={() => validatePassword(data.senha)}
+            returnKeyType={'done'}
           />
         </View>
       </View>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
@@ -10,6 +10,11 @@ import { useAuthDispatch } from '../../context/auth-context'
 
 const Login = ({ navigation }) => {
   const { signIn } = useAuthDispatch()
+
+  const [data, setData] = useState({
+    'email': '',
+    'senha': '',
+  })
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
@@ -24,8 +29,8 @@ const Login = ({ navigation }) => {
           </Text>
         </View>
         <View style={styles.segment}>
-          <EmailBar/>
-          <PasswordBar/>
+          <EmailBar data={data} setData={setData}/>
+          <PasswordBar data={data} setData={setData}/>
         </View>
         <View>
           <TouchableOpacity
