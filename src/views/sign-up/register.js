@@ -1,5 +1,5 @@
-import React from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './register-style'
 import ProfileBar from '../../components/profile-bar'
@@ -9,8 +9,40 @@ import PasswordBar from '../../components/password-bar'
 import DateBar from'../../components/date-bar.js'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
+import useRegister from './use-register'
 
 const Register = ({ navigation }) => {
+  const dateOffset = 24*60*60*1000
+  let actual_date = new Date()
+  actual_date.setFullYear(actual_date.getFullYear() - 18)
+  actual_date.setTime(actual_date.getTime() - dateOffset)
+
+  const [res, setRes] = useState({
+    'status': 0,
+    'msg': '' 
+  })
+
+  useEffect(() => {
+    if (res.status > 300 & res.msg != ''){
+      Alert.alert('Atenção!', res.msg)
+      setRes('')
+    } else if (res.status == 201){
+      Alert.alert('Sucesso!', 'Cadastro finalizado com sucesso!')
+      navigation.navigate('Login')
+    }
+  }, [res])
+  
+
+  const [data, setData] = useState({
+    'nome':'',
+    'apelido': '',
+    'email': '',
+    'senha': '',
+    'data': actual_date,
+    'data_string': '',
+    'data_post': ''
+  })
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <BackButton navigation={navigation} />
@@ -24,11 +56,11 @@ const Register = ({ navigation }) => {
           </Text>
         </View>
         <View style={styles.segment}>
-          <ProfileBar/>
-          <NicknameBar/>
-          <EmailBar/>
-          <PasswordBar/>
-          <DateBar/>
+          <ProfileBar data={data} setData={setData} />
+          <NicknameBar data={data} setData={setData} />
+          <EmailBar data={data} setData={setData} />
+          <PasswordBar data={data} setData={setData} />
+          <DateBar data={data} setData={setData} />
         </View>
         <View style={styles.term}>
           <View>
@@ -47,7 +79,7 @@ const Register = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('GenreSelection')}>
+              onPress={() => useRegister({ data, setRes })}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>
@@ -59,7 +91,7 @@ const Register = ({ navigation }) => {
             </View>
             <View>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Login')}
+                onPress={() => {console.log(data)}}
               >
                 <Text style={styles.bold}>
                   Faça login.
