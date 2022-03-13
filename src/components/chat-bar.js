@@ -1,19 +1,24 @@
 import React from 'react'
 import { StyleSheet, View, Image, TextInput, TouchableOpacity } from 'react-native'
-import chat from '../../assets/icons/chat.png'
 import profile from '../../assets/icons/options.png'
 import search from '../../assets/icons/search.png'
 import horizontal from '../../assets/lines/straight.png'
+import arrowButton from '../../assets/buttons/arrowButton.png'
 
-const DefaultBar = ({navigation}) => {
+const ChatBar = ({ navigation }) => {
   return (
     <View>
       <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.backSegment}
+          onPress={() => navigation.goBack()}>
+          <Image source={arrowButton} style={styles.imageSize} />
+        </TouchableOpacity>
         <View style={styles.segment}>
           <TextInput
             autoCapitalize='none'
             autoCorrect={false}
-            placeholder='Livros, autores ou ISBN'
+            placeholder='Usuários'
             style={styles.textInput}
             autoCompleteType='name'
           />
@@ -22,14 +27,7 @@ const DefaultBar = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View style={styles.icons_segment}>
-          <TouchableOpacity style={styles.chat_segment}
-            onPress={() => navigation.navigate('Conversations')}
-          >
-            <Image source={chat} style={styles.chat}/>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.profile_segment}
-            onPress={() => navigation.navigate('People')}
-          >
+          <TouchableOpacity style={styles.profile_segment}>
             <Image source={profile} style={styles.profile}/>
           </TouchableOpacity>
         </View>
@@ -58,20 +56,25 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     alignSelf: 'center',
     letterSpacing: -0.2,
-    height: 30
+    height: 30,
+  },
+  backSegment:{
+    left: 15,
   },
   imageSize: {
-    width: 18,
-    height: 18,
+    width: 22,
+    height: 22,
     flexDirection: 'row',
-    alignSelf: 'center',
+    alignSelf: 'flex-start'
   },
   segment:{
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#ECEDF1',
     borderRadius: 10,
-    alignItems: 'center'
+    alignItems: 'center',
+    width: 251,
+    left: 25
   },
   search_segment:{
     marginRight: '5%'
@@ -81,18 +84,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginLeft: '5%'
   },
-  chat_segment:{
-    flex: 1,
-    flexDirection: 'row',
-  },
   profile_segment:{
     flex: 1,
     flexDirection: 'row',
-    marginLeft: '20%'
-  },
-  chat:{
-    width: 25,
-    height: 25
+    marginLeft: '30%'
   },
   profile:{
     width: 24,
@@ -106,8 +101,9 @@ const styles = StyleSheet.create({
     width: '100%',
     marginLeft: 0,
     height: 1,
-    marginBottom: 10
+    marginTop: 5,
+    marginBottom: 5
   },
 })
   
-export default DefaultBar
+export default ChatBar

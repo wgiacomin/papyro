@@ -2,10 +2,9 @@ import React from 'react'
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import vertical from '../../assets/lines/straight.png'
 import arrowButton from '../../assets/buttons/arrowButton.png'
-import editButton from '../../assets/buttons/editButton.png'
-import msgButton from '../../assets/buttons/messagesButton.png'
+import likeButton from '../../assets/buttons/likeButton.png'
 
-const UserProfileBar = ({ navigation }) => {
+const FriendProfileBar = ({ navigation }) => {
   return (
     <View>
       <View style={styles.container}>
@@ -18,15 +17,10 @@ const UserProfileBar = ({ navigation }) => {
           <TouchableOpacity
             style={styles.backSegment}
             onPress={() => navigation.navigate('Login')}>
-            <Image source={editButton} style={styles.buttonEdit} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.backSegment}
-            onPress={() => navigation.navigate('Login')}>
-            <Image source={msgButton} style={styles.buttonMsg} />
+            <Image source={likeButton} style={styles.buttonSize} />
           </TouchableOpacity>
           <Text style={styles.title}>
-              Meu Perfil
+              Ana Luíza
           </Text>
         </View>
       </View>
@@ -65,17 +59,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: -7
   },
-  buttonEdit: {
+  buttonSize: {
     width: 20,
     height: 20,
     flexDirection: 'row',
-    marginLeft: 285,
-  },
-  buttonMsg: {
-    width: 25,
-    height: 25,
-    flexDirection: 'row',
-    marginLeft: 10,
+    marginLeft: 321,
   },
   title: {  
     fontFamily: 'Poppins-Medium',
@@ -83,10 +71,10 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 32,
     lineHeight: 48,
-    marginLeft: -270,
+    marginLeft: -265,
     color: '#181D2D',
-    marginTop: '-5%'
+    marginTop: '-6%'
   }
 })
 
-export default UserProfileBar
+export default FriendProfileBar

@@ -2,12 +2,20 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   standard: {
-    flex: 1,
     marginTop: '8%',
   },
+  container: {
+    marginLeft: '7%',
+    marginRight: '7%',
+  },
   segment:{
-    left: '10%',
-    paddingBottom: '5%'
+    left: 35,
+    paddingBottom: '5%',
+    marginTop: -15
+  },
+  textSegment:{
+    left: 22,
+    marginTop: '-7%'
   },
   title: {  
     fontFamily: 'Poppins-Medium',
@@ -15,54 +23,27 @@ export default StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 22,
     lineHeight: 33,
-    textAlign: 'center',
+    textAlign: 'left',
     color: '#181D2D',
-    alignSelf: 'flex-start',
     marginBottom: '5%',
   },
-  subtitle: {
-    fontFamily: 'Poppins',
+  continueSegment:{
+    borderRadius: 50,
+    backgroundColor: '#324A59',
+    width: 104,
+    height: 43.79,
+    alignSelf: 'center',
+    marginTop: 38
+  },
+  buttonSave:{
+    fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 14,
-    lineHeight: 27,
-    textAlign: 'left',
-    color: '#AAAAAA',
-    alignSelf: 'flex-start',
-    marginLeft: 2,
-    marginRight: 78,
-  },
-  buttonSize: {
-    width: 60,
-    height: 60,
-    flexDirection: 'row',
-    alignSelf: 'flex-end',
-  },
-  buttonSegment:{
-    marginRight: '10%',
-    marginBottom: '10%',
-    flex: 1,
-    justifyContent: 'center'
-  },
-  continueSegment:{
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-end',
-    marginTop: '13%',
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  skip:{
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-end',
-    marginLeft: '10%',
-    marginBottom: '10%',
+    lineHeight: 21,
+    textAlign: 'center',
+    color: '#FFFFFF',
+    marginTop: '10%',
   },
   normal:{
     fontFamily: 'Poppins',
@@ -74,7 +55,7 @@ export default StyleSheet.create({
     color: '#AAAAAA',
   },
   bold:{
-    marginTop: 30,
+    marginTop: 35,
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -82,6 +63,7 @@ export default StyleSheet.create({
     lineHeight: 21,
     textAlign: 'left',
     color: '#324A59',
+    paddingBottom: 5
   },
   description:{
     fontFamily: 'Poppins',
@@ -90,7 +72,7 @@ export default StyleSheet.create({
     fontSize: 10,
     lineHeight: 15,
     textAlign: 'left',
-    marginRight: 215,
+    marginRight: 230,
     color: '#AAAAAA',
   },
   buttonSize2: {
@@ -108,11 +90,4 @@ export default StyleSheet.create({
     marginBottom: -20,
     marginTop: -15,
   },
-  progress:{
-    width: 50,
-    height: 8,
-    marginTop: 25,
-    flexDirection: 'row',
-    alignSelf: 'center',
-  }
 })

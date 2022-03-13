@@ -3,7 +3,7 @@ import {FlatList } from 'react-native'
 import Entry from './entry'
 
 // eslint-disable-next-line react/prop-types
-const FeedEntries = ({mocks, navigation}) => {
+const ChatEntries = ({mocks}) => {
   return (
     <FlatList
       data={mocks}
@@ -11,17 +11,12 @@ const FeedEntries = ({mocks, navigation}) => {
       renderItem={(post) => {
         return <Entry 
           name={post.item.nome}
-          comentarios={post.item.comentarios}
-          curtidas={post.item.curtidas}
-          texto_abreviado={post.item.texto_abreviado}
-          livro={post.item.livro}
+          text={post.item.text}
           image={post.item.image}
-          data={post.item.data}
-          navigation={ navigation }
         />
       } } />
   )
 }
 
 
-export default FeedEntries
+export default ChatEntries

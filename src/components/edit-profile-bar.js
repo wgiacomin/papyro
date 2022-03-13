@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, TextInput, StyleSheet } from 'react-native'
 
-const DescriptionBar = () => {
+const EditProfileBar = () => {
   return (
     <View>
       <View style={styles.container}>
@@ -20,17 +20,12 @@ const DescriptionBar = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 337,
-    height: 74,
-    flexDirection: 'row',
-    alignSelf: 'center',
-    padding: 5,
-    backgroundColor: '#ECEBEB',
     borderRadius: 20,
-    marginTop: 33,
-    marginBottom: 15,
-    marginLeft: 23,
-    marginRight: 15,
+    width: 296,
+    height: 28,
+    flexDirection: 'row',
+    backgroundColor: '#ECEBEB',
+    marginLeft: 46
   },
   textInput: {
     fontFamily: 'Poppins-Medium',
@@ -49,4 +44,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default DescriptionBar
+export default EditProfileBar
