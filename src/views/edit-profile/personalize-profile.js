@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './personalize-profile-style'
-import DefaultBar from '../../components/default-bar'
+import DefaultBar from '../../components/default-bar-back'
 import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
 
