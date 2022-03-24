@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
-import DefaultBar from '../../components/standart-default-bar'
+import DefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
 import SearchEntries from '../search-book/search-book-entries'
 import horizontal from '../../../assets/lines/straight.png'
