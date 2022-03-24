@@ -31,6 +31,14 @@ const SearchBook = ({ navigation }) => {
           <Image source={horizontal} style={styles.horizontalLine} />
         </View>
         <SearchEntries mocks={mocks} navigation={ navigation }/>
+        <View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('People')}>
+            <View style={styles.continueSegment}>
+              <Text style={styles.buttonAdd}> Adicionar Novo </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   )
@@ -90,6 +98,24 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     height: 1,
     marginBottom: 10
+  },
+  continueSegment:{
+    borderRadius: 50,
+    backgroundColor: '#324A59',
+    width: 160,
+    height: 32,
+    alignSelf: 'center',
+    marginTop: 20
+  },
+  buttonAdd:{
+    fontFamily: 'Poppins-Medium',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 13,
+    lineHeight: 20,
+    textAlign: 'center',
+    color: '#FFFFFF',
+    marginTop: '3%',
   },
 })
 
