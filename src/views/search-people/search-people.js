@@ -105,21 +105,20 @@ let mocks = [{
   'id': 2,
   'name': 'Ana Dolata',
   'commom_books': '10 livros em comum',
-  'note': 'Você leu 5 livros desse grupo.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 3,
   'name': 'Ana Dolata',
   'commom_books': '10 livros em comum',
-  'note': 'Você leu 5 livros desse grupo.',
+  'note': 'Você e Ana deram a mesma nota em 5 livros.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 4,
   'name': 'Ana Dolata',
   'commom_books': '10 livros em comum',
-  'note': 'Você leu 5 livros desse grupo.',
+  'note': 'Você e Ana deram a mesma nota em 5 livros.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {

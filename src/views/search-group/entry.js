@@ -9,10 +9,10 @@ import horizontal from '../../../assets/lines/straight.png'
 const Entry = ({group, note, commom_books, image}) => {
   return (
     <View style={styles.container}>
+      <View style={styles.note_container}>
+        <Text style={styles.note}>{note}</Text>
+      </View>
       <View style={styles.group}>
-        <View style={styles.note_container}>
-          <Text style={styles.note}>{note}</Text>
-        </View>
         <TouchableOpacity>
           <Image source={mocked_image} style={styles.group_image}/>
         </TouchableOpacity>
@@ -47,6 +47,7 @@ const Entry = ({group, note, commom_books, image}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginLeft: 7
   },
   group: {
     flex: 1,
@@ -65,7 +66,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 16,
-    lineHeight: 31,
+    lineHeight: 24,
+    marginBottom: 5,
+    marginTop: 3
   },
   group_title_container: {
     flex: 1,
@@ -74,8 +77,8 @@ const styles = StyleSheet.create({
   commom_books:{
     fontFamily: 'Roboto',
     fontStyle: 'normal',
-    fontSize: 11,
-    lineHeight: 16,
+    fontSize: 14,
+    lineHeight: 17,
   },
   commom_books_container: {
     flex: 1,
@@ -85,18 +88,19 @@ const styles = StyleSheet.create({
   note:{
     fontFamily: 'Roboto',
     fontStyle: 'normal',
-    fontSize: 11,
-    lineHeight: 16,
+    fontSize: 12,
+    lineHeight: 14,
+    color: '#BFB4B4'
   },
   note_container: {
     flex: 1,
     flexWrap: 'wrap',
-    marginTop: -9
+    marginTop: 3
   },
   line:{
     flex: 1,
-    marginTop: 10,
-    marginBottom: 10
+    marginTop: 28,
+    marginBottom: 8
   },
   horizontalLine: {
     marginLeft: 0,
@@ -104,17 +108,20 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     alignItems: 'center'
   },
   button_segment: {
     flex: 1,
     flexDirection: 'row-reverse',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingLeft: 5,
+    marginTop: -50
   },
   button_size:{
     width: 24,
-    height: 24
+    height: 24,
+    marginLeft: 9,
   }
 })
   
