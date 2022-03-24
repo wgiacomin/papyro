@@ -27,6 +27,7 @@ import chat from '../views/chat/chat'
 import myGroups from '../views/my-groups/my-groups'
 import addBook from '../views/add-book/add-book'
 
+
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
 
@@ -85,7 +86,7 @@ const MainNavigator = () => (
       ),
     }} />
 
-    <Tab.Screen name="Books" component={addBook}
+    <Tab.Screen name="Books" component={myGroups}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
