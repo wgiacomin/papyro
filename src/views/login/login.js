@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
+import React, {useState, useEffect} from 'react'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
 import EmailBar from '../../components/email-bar'
@@ -7,14 +7,31 @@ import PasswordBar from '../../components/password-bar'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 import { useAuthDispatch } from '../../context/auth-context'
+import useLogin from './use-login'
 
 const Login = ({ navigation }) => {
   const { signIn } = useAuthDispatch()
 
-  const [data, setData] = useState({
-    'email': '',
-    'senha': '',
+  const [res, setRes] = useState({
+    status: 0,
+    msg: '' ,
+    access_token: ''
   })
+
+  const [data, setData] = useState({
+    email: '',
+    senha: '',
+  })
+
+  useEffect(() => {
+    if (res.status > 300 & res.msg != ''){
+      Alert.alert('Atenção!', res.msg)
+      setRes('')
+    } else if (res.status == 200){
+      signIn(res.access_token)
+      navigation.navigate('Feed')
+    }
+  }, [res])
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
@@ -45,8 +62,7 @@ const Login = ({ navigation }) => {
           <View style={styles.continueSegment}>
             <TouchableOpacity
               onPress={() => {
-                signIn('sim', 'sim')
-                navigation.navigate('Login')
+                useLogin({data, setRes})
               }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
