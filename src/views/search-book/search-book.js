@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   line:{
     flex: 1,
-    marginTop: 10,
+    marginTop: 1,
     marginBottom: 10
   },
   horizontalLine: {
