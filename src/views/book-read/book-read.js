@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text } from 'react-native'
-import DefaultBar from '../../components/default-bar'
+import DefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
 import BookReadEntries from './book-read-entries'
 
@@ -8,9 +8,9 @@ const BookToRead = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <DefaultBar/>
+        <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Livros que Eu Li</Text>
-        <BookReadEntries mocks={mocks} />
+        <BookReadEntries mocks={mocks} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )

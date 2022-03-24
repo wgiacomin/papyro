@@ -8,9 +8,9 @@ const Conversation = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <ChatBar/>
+        <ChatBar navigation={ navigation }/>
         <Text style={styles.title}>Conversas</Text>
-        <ConversationEntries mocks={mocks} />
+        <ConversationEntries mocks={mocks} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )

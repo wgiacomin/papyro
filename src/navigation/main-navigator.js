@@ -23,6 +23,9 @@ import personalize from '../views/edit-profile/personalize-profile'
 import bookToRead from '../views/book-to-read/book-to-read'
 import bookRead from '../views/book-read/book-read'
 import bookReading from '../views/book-reading/book-reading'
+import chat from '../views/chat/chat'
+import myGroups from '../views/my-groups/my-groups'
+import addBook from '../views/add-book/add-book'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -40,6 +43,9 @@ const StackNavigator = () => (
     <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false}} />
     <Stack.Screen name='BookRead' component={bookRead} options={{ headerShown: false}} />
     <Stack.Screen name='BookReading' component={bookReading} options={{ headerShown: false}} />
+    <Stack.Screen name='MyGroups' component={myGroups} options={{ headerShown: false}} />
+    <Stack.Screen name='Chat' component={chat} options={{ headerShown: false}} />
+    <Stack.Screen name='AddBook' component={addBook} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 
@@ -79,7 +85,7 @@ const MainNavigator = () => (
       ),
     }} />
 
-    <Tab.Screen name="Books" component={people}
+    <Tab.Screen name="Books" component={addBook}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
@@ -88,7 +94,7 @@ const MainNavigator = () => (
         ),
       }} />
 
-    <Tab.Screen name="Profile" component={StackNavigator}
+    <Tab.Screen name="Profile" component={people}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 

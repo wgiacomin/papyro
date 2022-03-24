@@ -44,7 +44,7 @@ const UserProfile = ({ navigation }) => {
             </View>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('GenreSelection')}>
+            onPress={() => navigation.navigate('MyGroups')}>
             <Text style={styles.seeMore}>
               Ver mais(X)
             </Text>

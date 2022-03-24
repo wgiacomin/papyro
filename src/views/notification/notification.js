@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text } from 'react-native'
-import DefaultBar from '../../components/default-bar'
+import DefaultBar from '../../components/standart-default-bar'
 import safeView from '../../styles/safe-view'
 import NotificationEntries from '../notification/notification-entries'
 
@@ -8,9 +8,9 @@ const Notification = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <DefaultBar/>
+        <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Notificações</Text>
-        <NotificationEntries mocks={mocks} />
+        <NotificationEntries mocks={mocks} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )
