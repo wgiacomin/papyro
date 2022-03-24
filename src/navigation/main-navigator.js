@@ -26,6 +26,8 @@ import bookReading from '../views/book-reading/book-reading'
 import chat from '../views/chat/chat'
 import myGroups from '../views/my-groups/my-groups'
 import searchBook from '../views/search-book/search-book'
+import searchGroup from '../views/search-group/search-group'
+import searchPeople from '../views/search-people/search-people'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -46,6 +48,8 @@ const StackNavigator = () => (
     <Stack.Screen name='MyGroups' component={myGroups} options={{ headerShown: false}} />
     <Stack.Screen name='Chat' component={chat} options={{ headerShown: false}} />
     <Stack.Screen name='SearchBook' component={searchBook} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchGroup' component={searchGroup} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchPeople' component={searchPeople} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 

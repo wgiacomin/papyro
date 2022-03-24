@@ -2,7 +2,7 @@ import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text } from 'react-native'
 import DefaultBar from '../../components/standart-default-bar'
 import safeView from '../../styles/safe-view'
-import SearchEntries from '../search-book/search-people-entries'
+import SearchEntries from '../search-people/search-people-entries'
 
 const SearchPeople = ({ navigation }) => {
   return (
