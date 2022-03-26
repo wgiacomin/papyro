@@ -23,7 +23,12 @@ function authReducer(state, action) {
       ...state,
       access_token: null,
       error: '',
-      name: null,
+      profile: null,
+    }
+  case 'profile':
+    return {
+      ...state,
+      profile: action.payload
     }
   default:
     return { ...state }
@@ -35,7 +40,7 @@ function AuthProvider({ children }) {
   const [authState, dispatch] = useReducer(authReducer, {
     access_token: null,
     error: '',
-    name: ''
+    profile: {description: '', name: '', nickname: ''}
   })
 
   const signIn = async (access_token) => {
@@ -62,23 +67,23 @@ function AuthProvider({ children }) {
     }
   }
 
-  const setName = (name) => {
+  const setProfile = ({name, nickname, description}) => {
     try {
       dispatch({
-        type: 'name',
-        payload: name
+        type: 'profile',
+        payload: {name, nickname, description}
       })
     } catch (err) {
       dispatch({
         type: 'error',
-        payload: 'Problemas no login.',
+        payload: 'Problemas no perfil.',
       })
     }
   }
 
   return (
     <AuthContext.Provider value={authState}>
-      <AuthDispatch.Provider value={{ signIn, setName, logout }} >
+      <AuthDispatch.Provider value={{ signIn, setProfile, logout }} >
         {children}
       </AuthDispatch.Provider>
     </AuthContext.Provider>
