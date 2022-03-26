@@ -30,15 +30,24 @@ import addBook from '../views/add-book/add-book'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
+const StackGenre = createStackNavigator()
+
+const StackNavigatorGenre = () => (
+  <Stack.Navigator>
+    <Stack.Screen name='GenreSelection' component={genreSelection} options={{ headerShown: false}} />
+    <Stack.Screen name='GenreSelectionSec' component={genreSelectionSec} options={{ headerShown: false}} />
+  </Stack.Navigator>
+)
 
 const StackNavigator = () => (
-  <Stack.Navigator>
+  <Stack.Navigator
+    initialRouteName="Feed"
+  >
     <Stack.Screen name='Feed' component={feed} options={{ headerShown: false }} />
     <Stack.Screen name='People' component={people} options={{ headerShown: false }} />
     <Stack.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
     <Stack.Screen name='Comments' component={comments} options={{ headerShown: false }} />
-    <Stack.Screen name='GenreSelection' component={genreSelection} options={{ headerShown: false}} />
-    <Stack.Screen name='GenreSelectionSec' component={genreSelectionSec} options={{ headerShown: false}} />
+    <Stack.Screen name='GenreSelection' component={StackNavigatorGenre} options={{ headerShown: false}} />
     <Stack.Screen name='EditProfile' component={editProfile} options={{ headerShown: false}} />
     <Stack.Screen name='Personalize' component={personalize} options={{ headerShown: false}} />
     <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false}} />

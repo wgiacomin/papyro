@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, TextInput, StyleSheet } from 'react-native'
 
-const EditProfileBar = () => {
+const EditProfileBar = ({ content }) => {
   return (
     <View>
       <View style={styles.container}>
@@ -9,9 +9,10 @@ const EditProfileBar = () => {
           <TextInput
             autoCapitalize='none'
             autoCorrect={false}
-            placeholder='Lorem ipsum dolor sit amet'
             style={styles.textInput}
-          />
+          >
+            {content}
+          </TextInput>
         </View>
       </View>
     </View>

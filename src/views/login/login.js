@@ -10,6 +10,7 @@ import { useAuthDispatch } from '../../context/auth-context'
 import useLogin from './use-login'
 
 const Login = ({ navigation }) => {
+  const { setProfile } = useAuthDispatch()
   const { signIn } = useAuthDispatch()
 
   const [res, setRes] = useState({
@@ -29,7 +30,6 @@ const Login = ({ navigation }) => {
       setRes('')
     } else if (res.status == 200){
       signIn(res.access_token)
-      navigation.navigate('Feed')
     }
   }, [res])
 
@@ -62,7 +62,7 @@ const Login = ({ navigation }) => {
           <View style={styles.continueSegment}>
             <TouchableOpacity
               onPress={() => {
-                useLogin({data, setRes})
+                useLogin({data, setRes, setProfile})
               }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>

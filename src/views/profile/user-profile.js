@@ -13,19 +13,18 @@ import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 
-async function useProfile({ setRes, setProfile }){
-  await api.get(ROUTES.profile + '0').then((response) => {
+async function useProfile({ setRes, setProfile, profile }){
+  
+  await api.get(ROUTES.edit_profile).then((response) => {
     setRes({
-      nickname:  response.data.apelido,
       description:  response.data.descricao,
-      name:  response.data.nome,
       status: response.status,
     })
-
     setProfile({
-      nickname: response.data.apelido, 
-      description: response.data.descricao, 
-      name: response.data.nome
+      ...profile,
+      id: response.data.id,
+      email: response.data.email,
+      birthday: response.data.data_nascimento
     })
   }
   ).catch((error) => {
@@ -36,22 +35,19 @@ async function useProfile({ setRes, setProfile }){
   })
 }
 
-
 const UserProfile = ({ navigation }) => { 
   const { setProfile } = useAuthDispatch()
   const { profile } = useAuthState()
 
   const [res, setRes] = useState({
     status: 0,
-    nickname: '',
     description: '',
-    name: '',
     msg: '' ,
   })
 
   useEffect(() => {
-    setRes(profile)
-    useProfile({setRes, setProfile, res})
+    setRes({...res, description: profile.description})
+    useProfile({setRes, setProfile, profile})
   }, [])
 
   useEffect(() => {
@@ -63,7 +59,7 @@ const UserProfile = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <UserProfileBar navigation={navigation} />
+      <UserProfileBar navigation={navigation}/>
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Image source={profile_image} style={styles.profileSize} />
