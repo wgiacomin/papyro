@@ -14,7 +14,6 @@ import api from '../../routes/api'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 
 async function useProfile({ setRes, setProfile, profile }){
-  
   await api.get(ROUTES.edit_profile).then((response) => {
     setRes({
       description:  response.data.descricao,
