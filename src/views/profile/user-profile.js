@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './profile-style'
 import vertical from '../../../assets/lines/straight.png'
@@ -11,7 +11,7 @@ import UserProfileBar from '../../components/user-profile-bar'
 import DescriptionBar from '../../components/description-bar'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import useProfile from './use-profile'
-import spinner from '../../components/spinner'
+import spinner from '../../styles/spinner'
 
 
 const UserProfile = ({ navigation }) => { 
@@ -39,15 +39,11 @@ const UserProfile = ({ navigation }) => {
     useProfile({setRes, setProfile, profile, setBooks})
   }, [])
 
-  // useEffect(() => {
-  //   if (res.status > 300 & res.msg != ''){
-  //     Alert.alert('Atenção!', res.msg)
-  //   }
-  // }, [res])
-
   if (!books.state) {
     return (
-      spinner
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
     )
   }
 

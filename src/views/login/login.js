@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
 import EmailBar from '../../components/email-bar'
@@ -8,7 +8,7 @@ import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 import { useAuthDispatch } from '../../context/auth-context'
 import useLogin from './use-login'
-import spinner from '../../components/spinner'
+import spinner from '../../styles/spinner'
 
 const Login = ({ navigation }) => {
   const { setProfile } = useAuthDispatch()
@@ -38,7 +38,9 @@ const Login = ({ navigation }) => {
 
   if (loading) {
     return (
-      spinner
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
     )
   }
 
