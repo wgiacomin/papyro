@@ -33,10 +33,10 @@ const Stack = createStackNavigator()
 const StackGenre = createStackNavigator()
 
 const StackNavigatorGenre = () => (
-  <Stack.Navigator>
-    <Stack.Screen name='GenreSelection' component={genreSelection} options={{ headerShown: false}} />
-    <Stack.Screen name='GenreSelectionSec' component={genreSelectionSec} options={{ headerShown: false}} />
-  </Stack.Navigator>
+  <StackGenre.Navigator>
+    <StackGenre.Screen name='GenreSelection' component={genreSelection} options={{ headerShown: false}} />
+    <StackGenre.Screen name='GenreSelectionSec' component={genreSelectionSec} options={{ headerShown: false}} />
+  </StackGenre.Navigator>
 )
 
 const StackNavigator = () => (

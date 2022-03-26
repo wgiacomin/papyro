@@ -15,7 +15,7 @@ async function useProfile({ setRes, setProfile, profile, setBooks }){
       groups: response.data.grupos,
       groups_count: response.data.grupos.length,
     })
-    console.log(response.data)
+
   }).catch((error) => {
     Alert.alert('Atenção', error.response.data.detail)
   })
