@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, TextInput, StyleSheet } from 'react-native'
 
-const DescriptionBar = () => {
+const DescriptionBar = ({description, setRes}) => {
   return (
     <View>
       <View style={styles.container}>
@@ -9,9 +9,11 @@ const DescriptionBar = () => {
           <TextInput
             autoCapitalize='none'
             autoCorrect={false}
-            placeholder='Lorem ipsum dolor sit amet'
+            placeholder={description ? '' : 'Conte sobre você :)'}
             style={styles.textInput}
-          />
+          >
+            {description}
+          </TextInput>
         </View>
       </View>
     </View>

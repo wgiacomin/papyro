@@ -1,22 +1,72 @@
-import React from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './profile-style'
 import vertical from '../../../assets/lines/straight.png'
-import profile from '../../../assets/icons/profile_image.png'
+import profile_image from '../../../assets/icons/profile_image.png'
 import followers from '../../../assets/icons/followers.png'
 import booksReaded from '../../../assets/icons/books_readed.png'
 import book from '../../../assets/icons/book.png'
 import UserProfileBar from '../../components/user-profile-bar'
 import DescriptionBar from '../../components/description-bar'
+import ROUTES from '../../routes/routes'
+import api from '../../routes/api'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 
-const UserProfile = ({ navigation }) => {
+async function useProfile({ setRes, setProfile }){
+  await api.get(ROUTES.profile + '0').then((response) => {
+    setRes({
+      nickname:  response.data.apelido,
+      description:  response.data.descricao,
+      name:  response.data.nome,
+      status: response.status,
+    })
+
+    setProfile({
+      nickname: response.data.apelido, 
+      description: response.data.descricao, 
+      name: response.data.nome
+    })
+  }
+  ).catch((error) => {
+    setRes({
+      status: error.response.status,
+      msg: error.response.data.detail
+    })
+  })
+}
+
+
+const UserProfile = ({ navigation }) => { 
+  const { setProfile } = useAuthDispatch()
+  const { profile } = useAuthState()
+
+  const [res, setRes] = useState({
+    status: 0,
+    nickname: '',
+    description: '',
+    name: '',
+    msg: '' ,
+  })
+
+  useEffect(() => {
+    setRes(profile)
+    useProfile({setRes, setProfile, res})
+  }, [])
+
+  useEffect(() => {
+    if (res.status > 300 & res.msg != ''){
+      Alert.alert('Atenção!', res.msg)
+    }
+  }, [res])
+
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <UserProfileBar navigation={navigation} />
       <View style={styles.standard}>
         <View style={styles.segment}>
-          <Image source={profile} style={styles.profileSize} />
+          <Image source={profile_image} style={styles.profileSize} />
           <Image source={followers} style={styles.imageSize} />
           <Text style={styles.infos}>
               Seguidores
@@ -25,7 +75,7 @@ const UserProfile = ({ navigation }) => {
           <Text style={styles.infos}>
               Livros Lidos
           </Text>
-          <DescriptionBar />
+          <DescriptionBar description={res.description} setRes={setRes}/>
           <Image source={vertical} style={styles.horizontalLine} />
         </View>
         <View style={styles.segment}>
