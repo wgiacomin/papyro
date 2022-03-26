@@ -8,6 +8,7 @@ import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 import { useAuthDispatch } from '../../context/auth-context'
 import useLogin from './use-login'
+import spinner from '../../components/spinner'
 
 const Login = ({ navigation }) => {
   const { setProfile } = useAuthDispatch()
@@ -32,6 +33,14 @@ const Login = ({ navigation }) => {
       signIn(res.access_token)
     }
   }, [res])
+
+  const [loading, setLoading] = useState(false)
+
+  if (loading) {
+    return (
+      spinner
+    )
+  }
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
@@ -62,7 +71,8 @@ const Login = ({ navigation }) => {
           <View style={styles.continueSegment}>
             <TouchableOpacity
               onPress={() => {
-                useLogin({data, setRes, setProfile})
+                setLoading(true)
+                useLogin({data, setRes, setProfile, setLoading})
               }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>

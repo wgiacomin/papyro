@@ -2,7 +2,7 @@ import { Alert } from 'react-native'
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 
-async function useLogin({ data, setRes, setProfile }){
+async function useLogin({ data, setRes, setProfile, setLoading }){
   if (data.email == '' || data.senha == ''){
     Alert.alert('Atenção!', 'Preencha todos os campos!')
   } else {
@@ -22,6 +22,7 @@ async function useLogin({ data, setRes, setProfile }){
       })
     }
     ).catch((error) => {
+      setLoading(false)
       setRes({
         status: error.response.status,
         msg: error.response.data.detail

@@ -3,14 +3,28 @@ import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './edit-profile-style'
 import vertical from '../../../assets/lines/straight.png'
-import profile from '../../../assets/icons/profile_image.png'
+import profile_image from '../../../assets/icons/profile_image.png'
 import BackButton from '../../components/back-button'
 import EditProfileBar from '../../components/edit-profile-bar'
 import editPhotoButton from '../../../assets/buttons/editPhoto.png'
 import personalizeButton from '../../../assets/buttons/personalizeButton.png'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import ROUTES from '../../routes/routes'
+import api from '../../routes/api'
 
+// async function useEditProfile({ setRes, setProfile, profile }){
+//   await api.put(ROUTES.edit_profile, {}).then((response) => {
+    
+//   }
+//   ).catch((error) => {
+
+//   })
+// }
 
 const EditProfile = ({ navigation }) => {
+  const { setProfile } = useAuthDispatch()
+  const { profile } = useAuthState()
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
@@ -26,7 +40,7 @@ const EditProfile = ({ navigation }) => {
       </View>
       <View style={styles.standard}>
         <View style={styles.segment}>
-          <Image source={profile} style={styles.profileSize} />
+          <Image source={profile_image} style={styles.profileSize} />
           <TouchableOpacity
             onPress={() => navigation.navigate('People')}>
             <Image source={editPhotoButton} style={styles.buttonSize} />
@@ -39,19 +53,19 @@ const EditProfile = ({ navigation }) => {
           <Text style={styles.normal}>
               Nome Completo
           </Text>
-          <EditProfileBar/>
+          <EditProfileBar content={profile.name}/>
           <Text style={styles.normal}>
               Nome do Usuário
           </Text> 
-          <EditProfileBar/>
+          <EditProfileBar content={profile.nickname}/>
           <Text style={styles.normal}>
               Data de Nascimento
           </Text>
-          <EditProfileBar/>
+          <EditProfileBar content={profile.birthday}/>
           <Text style={styles.normal}>
               Descrição
           </Text>  
-          <EditProfileBar/>
+          <EditProfileBar content={profile.description}/>
           <TouchableOpacity
             onPress={() => navigation.navigate('Personalize')}>
             <Image source={personalizeButton} style={styles.buttonSizeEdit} />
