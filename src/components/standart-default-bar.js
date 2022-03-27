@@ -23,7 +23,9 @@ const StandartDefaultBar = ({navigation}) => {
             style={styles.textInput}
             autoCompleteType='name'
           />
-          <TouchableOpacity style={styles.search_segment}>
+          <TouchableOpacity style={styles.search_segment}
+            onPress={() => navigation.navigate('SearchBook')}
+          >
             <Image source={search} style={styles.search}/>
           </TouchableOpacity>
         </View>
