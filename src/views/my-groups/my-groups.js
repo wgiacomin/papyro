@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity } from 'react-native'
-import StandartDefaultBar from '../../components/standart-default-bar'
+import StandartDefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
 import MyGroupsEntries from './my-groups-entries'
 

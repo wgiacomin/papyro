@@ -1,27 +1,23 @@
 import React from 'react'
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import vertical from '../../assets/lines/straight.png'
-import arrowButton from '../../assets/buttons/arrowButton.png'
 import editButton from '../../assets/buttons/editButton.png'
 import msgButton from '../../assets/buttons/messagesButton.png'
+import BackButton from './back-button'
 
 const UserProfileBar = ({ navigation }) => {
   return (
     <View>
       <View style={styles.container}>
         <View style={styles.segment}>
+          <View style={styles.back_button}>
+            <BackButton navigation={navigation}/>
+          </View>
           <TouchableOpacity
-            style={styles.backSegment}
-            onPress={() => navigation.goBack()}>
-            <Image source={arrowButton} style={styles.imageSize} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.backSegment}
             onPress={() => navigation.navigate('EditProfile')}>
             <Image source={editButton} style={styles.buttonEdit} />
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.backSegment}
             onPress={() => navigation.navigate('Conversations')}>
             <Image source={msgButton} style={styles.buttonMsg} />
           </TouchableOpacity>
@@ -53,10 +49,10 @@ const styles = StyleSheet.create({
   },
   segment:{
     flexDirection: 'row',
-    left: '5%',
+    left: '4%',
   },
-  backSegment:{
-    left: '2%',
+  back_button: {
+    paddingRight: 10
   },
   HorizontalLine: {
     alignSelf: 'center',
@@ -69,13 +65,13 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     flexDirection: 'row',
-    marginLeft: 285,
+    marginLeft: 275,
   },
   buttonMsg: {
     width: 25,
     height: 25,
     flexDirection: 'row',
-    marginLeft: 10,
+    marginLeft: 8
   },
   title: {  
     fontFamily: 'Poppins-Medium',
@@ -83,7 +79,7 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 32,
     lineHeight: 48,
-    marginLeft: -270,
+    marginLeft: -260,
     color: '#181D2D',
     marginTop: '-5%'
   }
