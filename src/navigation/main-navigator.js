@@ -22,7 +22,6 @@ import bookToRead from '../views/book-to-read/book-to-read'
 import bookRead from '../views/book-read/book-read'
 import bookReading from '../views/book-reading/book-reading'
 import addBook from '../views/add-book/add-book'
-import chat from '../views/chat/chat'
 import myGroups from '../views/my-groups/my-groups'
 import searchBook from '../views/search-book/search-book'
 import searchGroup from '../views/search-group/search-group'
@@ -32,7 +31,9 @@ const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
 
 const StackNavigator = () => (
-  <Stack.Navigator>
+  <Stack.Navigator
+    initialRouteName="Feed"
+  >
     <Stack.Screen name='Feed' component={feed} options={{ headerShown: false }} />
     <Stack.Screen name='People' component={people} options={{ headerShown: false }} />
     <Stack.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />

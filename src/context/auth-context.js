@@ -40,7 +40,7 @@ function AuthProvider({ children }) {
   const [authState, dispatch] = useReducer(authReducer, {
     access_token: null,
     error: '',
-    profile: {description: '', name: '', nickname: ''}
+    profile: {description: '', name: '', nickname: '', id: 0, email: '', birthday:''}
   })
 
   const signIn = async (access_token) => {
@@ -67,11 +67,11 @@ function AuthProvider({ children }) {
     }
   }
 
-  const setProfile = ({name, nickname, description}) => {
+  const setProfile = (profile) => {
     try {
       dispatch({
         type: 'profile',
-        payload: {name, nickname, description}
+        payload: {...profile}
       })
     } catch (err) {
       dispatch({

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert, ScrollView } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator, ScrollView } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './profile-style'
 import vertical from '../../../assets/lines/straight.png'
@@ -9,61 +9,42 @@ import booksReaded from '../../../assets/icons/books_readed.png'
 import book from '../../../assets/icons/book.png'
 import UserProfileBar from '../../components/user-profile-bar'
 import DescriptionBar from '../../components/description-bar'
-import ROUTES from '../../routes/routes'
-import api from '../../routes/api'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
-
-async function useProfile({ setRes, setProfile }){
-  await api.get(ROUTES.profile + '0').then((response) => {
-    setRes({
-      nickname:  response.data.apelido,
-      description:  response.data.descricao,
-      name:  response.data.nome,
-      status: response.status,
-    })
-
-    setProfile({
-      nickname: response.data.apelido, 
-      description: response.data.descricao, 
-      name: response.data.nome
-    })
-  }
-  ).catch((error) => {
-    setRes({
-      status: error.response.status,
-      msg: error.response.data.detail
-    })
-  })
-}
+import spinner from '../../styles/spinner'
+import useProfile from './use-profile'
 
 
 const UserProfile = ({ navigation }) => { 
   const { setProfile } = useAuthDispatch()
   const { profile } = useAuthState()
 
-  const [res, setRes] = useState({
-    status: 0,
-    nickname: '',
-    description: '',
-    name: '',
-    msg: '' ,
+  const [books, setBooks] = useState({
+    state: false,
+    reading_books: [],
+    reading_books_count: 0,
+    read_books: [],
+    read_books_count: 0,
+    to_read:  [],
+    to_read_count: 0,
+    groups: [],
+    groups_count: 0,
   })
 
   useEffect(() => {
-    setRes(profile)
-    useProfile({setRes, setProfile, res})
+    useProfile({setProfile, profile, setBooks})
   }, [])
 
-  useEffect(() => {
-    if (res.status > 300 & res.msg != ''){
-      Alert.alert('Atenção!', res.msg)
-    }
-  }, [res])
-
+  if (!books.state) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <UserProfileBar navigation={navigation} />
+      <UserProfileBar navigation={navigation}/>
       <ScrollView>
         <View style={styles.standard}>
           <View style={styles.segment}>
@@ -76,7 +57,7 @@ const UserProfile = ({ navigation }) => {
             <Text style={styles.infos}>
               Livros Lidos
             </Text>
-            <DescriptionBar description={res.description} setRes={setRes}/>
+            <DescriptionBar description={profile.description} />
             <Image source={vertical} style={styles.horizontalLine} />
           </View>
           <View style={styles.segment}>
@@ -117,7 +98,7 @@ const UserProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('BookReading')}>
               <Text style={styles.seeMore}>
-              Ver mais(X)
+                {books.reading_books_count > 1 ? ' Ver mais (' + books.reading_books_count - 1 + ')': ''} 
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
@@ -137,7 +118,7 @@ const UserProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('BookToRead')}>
               <Text style={styles.seeMore}>
-              Ver mais(X)
+                {books.to_read_count > 1 ? ' Ver mais (' + books.to_read_count - 1 + ')': ''} 
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
@@ -157,7 +138,7 @@ const UserProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('BookRead')}>
               <Text style={styles.seeMore}>
-              Ver mais(X)
+                {books.read_books > 1 ? ' Ver mais (' + books.read_books - 1 + ')': ''} 
               </Text>
             </TouchableOpacity>  
           </View>
@@ -166,6 +147,5 @@ const UserProfile = ({ navigation }) => {
     </SafeAreaView>
   )
 }
-
 
 export default UserProfile
