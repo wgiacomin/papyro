@@ -1,6 +1,7 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { Alert } from 'react-native'
+import FIELDS from '../../routes/field_match'
 
 async function useProfile({ setProfile, profile, setBooks }){
   await api.get(ROUTES.profile + 0).then((response) => {
@@ -27,9 +28,9 @@ async function useProfile({ setProfile, profile, setBooks }){
     setProfile({
       ...profile,
       id: response.data.id,
-      email: response.data.email,
-      birthday: response.data.data_nascimento,
-      description:  response.data.descricao,
+      email: response.data[FIELDS.email],
+      birthday: response.data[FIELDS.birthday],
+      description:  response.data[FIELDS.description],
     })
   }
   ).catch((error) => {
