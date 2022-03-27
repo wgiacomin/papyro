@@ -1,19 +1,19 @@
 import React from 'react'
-import { View, TextInput, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 const DescriptionBar = ({description, setRes}) => {
   return (
     <View>
       <View style={styles.container}>
         <View style={styles.segment}>
-          <TextInput
+          <Text
             autoCapitalize='none'
             autoCorrect={false}
             placeholder={description ? '' : 'Conte sobre você :)'}
             style={styles.textInput}
           >
             {description}
-          </TextInput>
+          </Text>
         </View>
       </View>
     </View>
@@ -22,16 +22,11 @@ const DescriptionBar = ({description, setRes}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 337,
-    height: 74,
     flexDirection: 'row',
     alignSelf: 'center',
-    padding: 5,
-    backgroundColor: '#ECEBEB',
-    borderRadius: 20,
     marginTop: 33,
     marginBottom: 15,
-    marginLeft: 23,
+    marginLeft: 95,
     marginRight: 15,
   },
   textInput: {
@@ -40,9 +35,9 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 12,
     lineHeight: 18,
-    textAlign: 'left',
-    left: 18,
-    color: '#000000'
+    textAlign: 'center',
+    color: '#000000',
+    width: 225
   },
   segment:{
     flex: 1,

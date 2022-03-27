@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     textAlign: 'left',
     left: 18,
-    color: '#000000'
+    color: '#000000',
+    width: 266
   },
   segment:{
     flex: 1,
