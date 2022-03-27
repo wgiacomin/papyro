@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-const DescriptionBar = ({description, setRes}) => {
+const DescriptionBar = ({description}) => {
   return (
     <View>
       <View style={styles.container}>

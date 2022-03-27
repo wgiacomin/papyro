@@ -2,7 +2,7 @@ import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { Alert } from 'react-native'
 
-async function useProfile({ setRes, setProfile, profile, setBooks }){
+async function useProfile({ setProfile, profile, setBooks }){
   await api.get(ROUTES.profile + 0).then((response) => {
     setBooks({
       state: true,
@@ -17,19 +17,19 @@ async function useProfile({ setRes, setProfile, profile, setBooks }){
     })
 
   }).catch((error) => {
+    setBooks({
+      state: false,
+    })
     Alert.alert('Atenção', error.response.data.detail)
   })
 
   await api.get(ROUTES.edit_profile).then((response) => {
-    setRes({
-      description:  response.data.descricao,
-      status: response.status,
-    })
     setProfile({
       ...profile,
       id: response.data.id,
       email: response.data.email,
-      birthday: response.data.data_nascimento
+      birthday: response.data.data_nascimento,
+      description:  response.data.descricao,
     })
   }
   ).catch((error) => {

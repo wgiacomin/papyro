@@ -11,40 +11,12 @@ import UserProfileBar from '../../components/user-profile-bar'
 import DescriptionBar from '../../components/description-bar'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
-import ROUTES from '../../routes/routes'
-import api from '../../routes/api'
-
-async function useProfile({ setRes, setProfile }){
-  await api.get(ROUTES.profile + '0').then((response) => {
-    setRes({
-      nickname:  response.data.apelido,
-      description:  response.data.descricao,
-      name:  response.data.nome,
-      status: response.status,
-    })
-
-    setProfile({
-      nickname: response.data.apelido, 
-      description: response.data.descricao, 
-      name: response.data.nome
-    })
-  }
-  ).catch((error) => {
-    setRes({
-      status: error.response.status,
-      msg: error.response.data.detail
-    })
-  })
-}
+import useProfile from './use-profile'
 
 
 const UserProfile = ({ navigation }) => { 
   const { setProfile } = useAuthDispatch()
   const { profile } = useAuthState()
-
-  const [res, setRes] = useState({
-    status: 0,
-  })
 
   const [books, setBooks] = useState({
     state: false,
@@ -59,8 +31,7 @@ const UserProfile = ({ navigation }) => {
   })
 
   useEffect(() => {
-    setRes({...res, description: profile.description})
-    useProfile({setRes, setProfile, profile, setBooks})
+    useProfile({setProfile, profile, setBooks})
   }, [])
 
   if (!books.state) {
@@ -86,7 +57,7 @@ const UserProfile = ({ navigation }) => {
             <Text style={styles.infos}>
               Livros Lidos
             </Text>
-            <DescriptionBar description={res.description} setRes={setRes}/>
+            <DescriptionBar description={profile.description} />
             <Image source={vertical} style={styles.horizontalLine} />
           </View>
           <View style={styles.segment}>
@@ -127,7 +98,7 @@ const UserProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('BookReading')}>
               <Text style={styles.seeMore}>
-              Ver mais(X)
+                {books.reading_books_count > 1 ? ' Ver mais (' + books.reading_books_count - 1 + ')': ''} 
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
@@ -147,7 +118,7 @@ const UserProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('BookToRead')}>
               <Text style={styles.seeMore}>
-              Ver mais(X)
+                {books.to_read_count > 1 ? ' Ver mais (' + books.to_read_count - 1 + ')': ''} 
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
@@ -167,7 +138,7 @@ const UserProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('BookRead')}>
               <Text style={styles.seeMore}>
-              Ver mais(X)
+                {books.read_books > 1 ? ' Ver mais (' + books.read_books - 1 + ')': ''} 
               </Text>
             </TouchableOpacity>  
           </View>
