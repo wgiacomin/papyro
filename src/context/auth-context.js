@@ -40,11 +40,7 @@ function AuthProvider({ children }) {
   const [authState, dispatch] = useReducer(authReducer, {
     access_token: null,
     error: '',
-<<<<<<< HEAD
     profile: {description: '', name: '', nickname: '', id: 0, email: '', birthday:''}
-=======
-    profile: {description: '', name: '', nickname: ''}
->>>>>>> 6bcd8a9910dd03f2b707594a63ac75159cf6a6da
   })
 
   const signIn = async (access_token) => {
