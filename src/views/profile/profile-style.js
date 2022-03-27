@@ -55,7 +55,7 @@ export default StyleSheet.create({
     textAlign: 'left',
     color: '#007AFF',
     marginLeft: 26,
-    marginTop: 15,
+    marginTop: 10,
     marginBottom: 30 
   },
   imageSize: {
@@ -78,8 +78,8 @@ export default StyleSheet.create({
     height: 60,
   },
   continueSegment:{
-    marginBottom: 120,
-    marginTop: 20,
+    flex: 1,
+    marginTop: -50
   },
   buttonSegment:{
     marginLeft: '6%',
