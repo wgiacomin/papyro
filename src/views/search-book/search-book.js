@@ -33,7 +33,7 @@ const SearchBook = ({ navigation }) => {
         <SearchEntries mocks={mocks} navigation={ navigation }/>
         <View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('People')}>
+            onPress={() => navigation.navigate('AddBook')}>
             <View style={styles.continueSegment}>
               <Text style={styles.buttonAdd}> Adicionar Novo </Text>
             </View>
