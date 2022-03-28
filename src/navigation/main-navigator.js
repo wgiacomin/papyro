@@ -26,6 +26,7 @@ import myGroups from '../views/my-groups/my-groups'
 import searchBook from '../views/search-book/search-book'
 import searchGroup from '../views/search-group/search-group'
 import searchPeople from '../views/search-people/search-people'
+import bookSuggestion from '../views/book-suggestion/book-suggestion'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -48,6 +49,8 @@ const StackNavigator = () => (
     <Stack.Screen name='SearchBook' component={searchBook} options={{ headerShown: false}} />
     <Stack.Screen name='SearchGroup' component={searchGroup} options={{ headerShown: false}} />
     <Stack.Screen name='SearchPeople' component={searchPeople} options={{ headerShown: false}} />
+    <Stack.Screen name='BookSuggestion' component={bookSuggestion} options={{ headerShown: false}} />
+
   </Stack.Navigator>
 )
 
@@ -87,7 +90,7 @@ const MainNavigator = () => (
       ),
     }} />
 
-    <Tab.Screen name="Books" component={myGroups}
+    <Tab.Screen name="Books" component={bookSuggestion}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
