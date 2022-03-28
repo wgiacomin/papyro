@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
 import EmailBar from '../../components/email-bar'
@@ -8,8 +8,10 @@ import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 import { useAuthDispatch } from '../../context/auth-context'
 import useLogin from './use-login'
+import spinner from '../../styles/spinner'
 
 const Login = ({ navigation }) => {
+  const { setProfile } = useAuthDispatch()
   const { signIn } = useAuthDispatch()
 
   const [res, setRes] = useState({
@@ -29,9 +31,18 @@ const Login = ({ navigation }) => {
       setRes('')
     } else if (res.status == 200){
       signIn(res.access_token)
-      navigation.navigate('Feed')
     }
   }, [res])
+
+  const [loading, setLoading] = useState(false)
+
+  if (loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
@@ -62,7 +73,8 @@ const Login = ({ navigation }) => {
           <View style={styles.continueSegment}>
             <TouchableOpacity
               onPress={() => {
-                useLogin({data, setRes})
+                setLoading(true)
+                useLogin({data, setRes, setProfile, setLoading})
               }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
