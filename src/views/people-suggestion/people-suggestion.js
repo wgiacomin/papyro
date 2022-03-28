@@ -1,11 +1,11 @@
 import React from 'react'
-import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
+import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
 import DefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
-import SuggestionEntries from '../book-suggestion/book-suggestion-entries'
+import SuggestionEntries from './people-suggestion-entries'
 import horizontal from '../../../assets/lines/straight.png'
 
-const BookSuggestion = ({ navigation }) => {
+const PeopleSuggestion = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
@@ -13,14 +13,14 @@ const BookSuggestion = ({ navigation }) => {
         <View style={styles.segment}>
           <TouchableOpacity
             onPress={() => navigation.navigate('PeopleSuggestion')}>
-            <Text style={styles.title}>Pessoas</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('BookSuggestion')}>
-            <Text style={styles.title_selected}>Livros</Text>
+            <Text style={styles.title_selected}>Pessoas</Text>
             <View style={styles.line_selected}>
               <Image source={horizontal} style={styles.selectedLine} />
             </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('BookSuggestion')}>
+            <Text style={styles.title}>Livros</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.line}>
@@ -32,7 +32,7 @@ const BookSuggestion = ({ navigation }) => {
   )
 }
   
-export default BookSuggestion
+export default PeopleSuggestion
 
 const styles = StyleSheet.create({
   container: {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 10,
     marginLeft: 75,
-    marginRight: 13
+    marginRight: 22
   },
   selectedLine: {
     width: '163%',
@@ -91,43 +91,51 @@ const styles = StyleSheet.create({
 
 let mocks = [{
   'id': 1,
-  'livro': 'Sankofa: A Novel',
-  'note': 'Você leu 5 livros desse grupo.',
+  'name': 'Ana Dolata',
+  'commom_books': '10 livros em comum',
+  'commom_genre': '3 gêneros em comum',
+  'note': 'Você e Ana deram a mesma nota em 5 livros.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 2,
-  'livro': 'Harry Potter e o Enigma do Príncipe',
-  'note': 'É de um gênero que você curte.',
+  'name': 'Ana Dolata',
+  'commom_books': '10 livros em comum',
+  'note': 'Você e Ana deram a mesma nota em 5 livros.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 3,
-  'livro': 'Romeu e Julieta',
-  'note': 'Mesmo autor de um nota 5.',
+  'name': 'Ana Dolata',
+  'commom_books': '10 livros em comum',
+  'note': 'Você e Ana deram a mesma nota em 5 livros.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 4,
-  'livro': 'Sankofa: A Novel',
-  'note': 'Mesmo autor de um nota 5.',
+  'name': 'Ana Dolata',
+  'commom_books': '10 livros em comum',
+  'note': 'Você e Ana deram a mesma nota em 5 livros.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 5,
-  'livro': 'Sankofa: A Novel',
+  'name': 'Ana Dolata',
+  'commom_books': '10 livros em comum',
   'note': 'Você leu 5 livros desse grupo.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 6,
-  'livro': 'Sankofa: A Novel',
+  'name': 'Ana Dolata',
+  'commom_books': '10 livros em comum',
   'note': 'Você leu 5 livros desse grupo.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {
   'id': 7,
-  'livro': 'Sankofa: A Novel',
+  'name': 'Ana Dolata',
+  'commom_books': '10 livros em comum',
   'note': 'Você leu 5 livros desse grupo.',
   'foto': '../../../assets/icons/Nickname.png'
 },
