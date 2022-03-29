@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
-import DefaultBar from '../../components/default-bar-back'
+import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
 import SearchEntries from '../search-group/search-group-entries'
 import horizontal from '../../../assets/lines/straight.png'
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
 
 let mocks = [{
   'id': 1,
-  'group': 'Sankofa Group',
+  'group': 'HP Group and other things',
   'commom_books': '10 livros em comum',
   'note': 'Você leu 5 livros desse grupo.',
   'foto': '../../../assets/icons/Nickname.png'

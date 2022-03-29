@@ -63,12 +63,13 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   name_title:{
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 5,
-    marginTop: 3
+    marginTop: 3,
+    marginRight: 100
   },
   name_title_container: {
     flex: 1,
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
   commom_container: {
     flex: 1,
     flexWrap: 'wrap',
-    marginTop: -9
+    marginTop: -5
   },
   note:{
     fontFamily: 'Roboto',
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'center',
     paddingLeft: 5,
-    marginTop: -50
+    marginTop: -55
   },
   button_size:{
     width: 24,

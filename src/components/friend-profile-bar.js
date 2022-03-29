@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Image, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import vertical from '../../assets/lines/straight.png'
 import arrowButton from '../../assets/buttons/arrowButton.png'
 import likeButton from '../../assets/buttons/likeButton.png'
@@ -16,7 +16,7 @@ const FriendProfileBar = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.backSegment}
-            onPress={() => navigation.navigate('Login')}>
+            onPress={() => Alert.alert('','Você agora é amigo de Ana Luíza!')}>
             <Image source={likeButton} style={styles.buttonSize} />
           </TouchableOpacity>
           <Text style={styles.title}>

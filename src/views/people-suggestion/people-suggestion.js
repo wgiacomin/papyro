@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
-import DefaultBar from '../../components/default-bar-back'
+import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
 import SuggestionEntries from './people-suggestion-entries'
 import horizontal from '../../../assets/lines/straight.png'
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 
 let mocks = [{
   'id': 1,
-  'name': 'Ana Dolata',
+  'name': 'Wanderson R. Giacomin Junior',
   'commom_books': '10 livros em comum',
   'commom_genre': '3 gêneros em comum',
   'note': 'Você e Ana deram a mesma nota em 5 livros.',

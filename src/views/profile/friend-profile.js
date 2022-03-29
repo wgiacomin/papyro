@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, Alert } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './friend-profile-style'
 import vertical from '../../../assets/lines/straight.png'
@@ -29,7 +29,9 @@ const FriendProfile = ({ navigation }) => {
               Livros Lidos
             </Text>
             <DescriptionBar />
-            <TouchableOpacity style={styles.follow_segment}>
+            <TouchableOpacity 
+              onPress={() => Alert.alert('','Você agora é amigo de Ana Luíza!')}
+              style={styles.follow_segment}>
               <Image source={followButton} style={styles.followButton} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.talk_segment}>
@@ -53,7 +55,7 @@ const FriendProfile = ({ navigation }) => {
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('GenreSelection')}>
+              onPress={() => navigation.navigate('MyGroups')}>
               <Text style={styles.seeMore}>
               Ver mais(X)
               </Text>
