@@ -13,7 +13,8 @@ const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image
   return (
     <View style={styles.container}>
       <View style={styles.title}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Friend')}>
           <Image source={image_mocked} style={styles.person_image}/>  
         </TouchableOpacity>
         <TouchableOpacity>
