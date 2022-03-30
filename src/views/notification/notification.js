@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text } from 'react-native'
-import DefaultBar from '../../components/default-bar-back'
+import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
 import NotificationEntries from '../notification/notification-entries'
 

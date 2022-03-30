@@ -53,10 +53,11 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   book_title:{
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
-    lineHeight: 31,
+    lineHeight: 25,
+    marginRight: 100,
   },
   book_title_container: {
     flex: 1,
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
   autor_container: {
     flex: 1,
     flexWrap: 'wrap',
-    marginTop: -9
+    marginTop: -5
   },
   book_image: {
     width: 62,
