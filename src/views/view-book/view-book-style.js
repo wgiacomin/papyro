@@ -55,12 +55,22 @@ export default StyleSheet.create({
     width: 20,
     height: 20,
   },
+  star_comments:{
+    width: 12,
+    height: 12,
+  },
   star_container: {
     flex: 1,
     flexDirection: 'row',
     paddingTop: 0,
     marginTop: 5,
     alignSelf: 'center'
+  },
+  star_container_comments: {
+    flexDirection: 'row',
+    paddingTop: 0,
+    marginTop: 20,
+    marginLeft: -45
   },
   star_number: {  
     fontFamily: 'Poppins',
@@ -135,7 +145,6 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignSelf: 'center',
-    marginRight: 55
   },
   star_number_resume: {  
     fontFamily: 'Poppins',
@@ -144,13 +153,13 @@ export default StyleSheet.create({
     lineHeight: 14,
     color: '#181D2D',
     textAlign: 'right',
-    paddingRight: 90,
-    marginTop: -15
+    paddingTop: 5,
+    marginBottom: 12
   },
   line:{
     flex: 1,
-    marginTop: 20,
-    marginBottom: 10
+    marginTop: 5,
+    marginBottom: 5
   },
   horizontalLine: {
     marginLeft: 0,
@@ -163,32 +172,191 @@ export default StyleSheet.create({
     lineHeight: 24,
     color: '#181D2D',
     textAlign: 'left',
+  },
+  comments_title: {  
+    fontFamily: 'Poppins-Medium',
+    fontStyle: 'normal',
+    fontSize: 16,
+    lineHeight: 24,
+    color: '#181D2D',
+    textAlign: 'center',
     marginTop: 13
   },
-  image:{
+  group_and_people: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 12
+  },
+  group_image:{
     width: 34,
     height: 34,
-    marginLeft: 69,
-    marginTop: 12,
-    marginBottom: 2
+    marginLeft: 49
   },
-  image_normal: {  
+  person_image:{
+    width: 22,
+    height: 22,
+    marginLeft: 49
+  },
+  group_title: {  
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
     lineHeight: 17,
     color: '#000000',
-    marginLeft: 115,
-    marginTop: -24
+    textAlign: 'center',
+    marginLeft: 6
   },
-  image_normal_number: {  
+  avaliations:{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 5,
+    marginBottom: 12
+  },
+  group_subtitle: {  
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 10,
     lineHeight: 12,
     color: '#000000',
-    marginLeft: 75,
-    marginTop: 5
+    marginLeft: 55
+  },
+  person_subtitle: {  
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontSize: 10,
+    lineHeight: 12,
+    color: '#000000',
+    marginLeft: 121
+  },
+  user_image:{
+    width: 43,
+    height: 43
+  },
+  comment_title: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 5,
+    marginTop: 10,
+  },
+  person: {
+    fontFamily: 'Poppins-Medium',
+    fontStyle: 'normal',
+    fontSize: 16,
+    lineHeight: 24,
+    paddingLeft: 5,
+    paddingRight: 5,
+    paddingBottom: 15
+  },
+  edit_segment: {
+    flex: 1,
+    marginTop: -20,  
+    marginLeft: 198  
+  },
+  editButton: {
+    width: 20,
+    height: 20,
+    marginRight: 8,
+  },
+  post_type:{
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontSize: 14,
+    lineHeight: 27,
+  },
+  footer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 15
+  },
+  data: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontSize: 11,
+    lineHeight: 13,
+  },
+  buttons: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  icons: {
+    width: 20,
+    height: 20
+  },
+  icon_text: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontSize: 11,
+    lineHeight: 13,
+    paddingLeft: 5,
+    paddingRight: 15
+  },
+  book_image: {
+    maxWidth: 80,
+    resizeMode: 'contain',
+    marginLeft: 10
+  },
+  container_book: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 5,
+    alignItems: 'center',
+  },
+  container_book_title:{
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 15
+  },
+  book_subtitle: {
+    fontFamily: 'Poppins',
+    fontSize: 11,
+    lineHeight: 16,
+    textAlign: 'center',
+    alignSelf: 'center',
+    paddingBottom: 10
+  },
+  text: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontSize: 14,
+    lineHeight: 17,
+    marginTop: 5,
+    marginLeft: 50,
+  },
+  like_and_comments: {
+    flex: 1,
+    flexDirection: 'row-reverse',
+    alignItems: 'center'
+  },
+  date:{
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontSize: 11,
+    lineHeight: 13,
+  },
+  see_more:{
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontSize: 12,
+    lineHeight: 22,
+    color: '#007AFF',
+    paddingLeft: 7,
+  },
+  book_description:{
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontSize: 14,
+    lineHeight: 17,
+  },
+  book_description_container:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
   
 })

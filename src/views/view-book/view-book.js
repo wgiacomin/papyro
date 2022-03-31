@@ -11,6 +11,10 @@ import star from '../../../assets/icons/star.png'
 import horizontal from '../../../assets/lines/straight.png'
 import groups from '../../../assets/icons/groups.png'
 import profile from '../../../assets/icons/profile.png'
+import image_mocked from '../../../assets/icons/image.png'
+import like from '../../../assets/icons/like.png'
+import comments from '../../../assets/icons/chat.png'
+import editButton from '../../../assets/buttons/editButton.png'
 
 const ViewBook = ({ navigation }) => {
   const [show, setShow ] = useState(false)
@@ -72,11 +76,13 @@ const ViewBook = ({ navigation }) => {
               <Image source={full_star} style={styles.star}/> 
               <Image source={full_star} style={styles.star}/> 
               <Image source={full_star} style={styles.star}/> 
-              <Image source={star} style={styles.star}/> 
+              <Image source={star} style={styles.star}/>
+              <TouchableOpacity>
+                <Text style={styles.star_number_resume}>
+                (Avaliar)
+                </Text>
+              </TouchableOpacity> 
             </View>
-            <Text style={styles.star_number_resume}>
-              (Avaliar)
-            </Text>
             <View style={styles.line}>
               <Image source={horizontal} style={styles.horizontalLine} />
             </View>
@@ -85,31 +91,90 @@ const ViewBook = ({ navigation }) => {
             <Text style={styles.title}>
               Procurando Companhia?
             </Text>
-            <Image source={groups} style={styles.image} />
-            <Text style={styles.image_normal}>
-              Grupos
-            </Text>
-            <Text style={styles.image_normal_number}>
-              (15)
-            </Text>
-          </View>
-          <View>
-            <Image source={profile} style={styles.image} />
-            <Text style={styles.image_normal}>
-              Pessoas
-            </Text>
-            <Text style={styles.image_normal_number}>
-              (2)
-            </Text>
+            <View style={styles.group_and_people}>
+              <TouchableOpacity>
+                <Image source={groups} style={styles.group_image} />
+              </TouchableOpacity>
+              <Text style={styles.group_title}>
+                Grupos
+              </Text>
+              <TouchableOpacity>
+                <Image source={profile} style={styles.person_image} />
+              </TouchableOpacity>
+              <Text style={styles.group_title}>
+                Pessoas
+              </Text>
+            </View>
+            <View style={styles.avaliations}>
+              <Text style={styles.group_subtitle}>
+                (15)
+              </Text>
+              <Text style={styles.person_subtitle}>
+                (15)
+              </Text>
+            </View>
             <View style={styles.line}>
               <Image source={horizontal} style={styles.horizontalLine} />
             </View>
           </View>
           <View>
-            <Text style={styles.title}>
-              402 avaliações
-            </Text>
+            <Text style={styles.comments_title}> 402 avaliações </Text>
           </View>
+          {
+            mocks.map((item, key) => {
+              return (
+                <>
+                  <View style={styles.comment_title}>
+                    <TouchableOpacity>
+                      <Image source={image_mocked} style={styles.user_image}/>  
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                      <Text style={styles.person}>Júlia</Text>
+                    </TouchableOpacity>
+                    <View style={styles.star_container_comments}>
+                      <Image source={full_star} style={styles.star_comments}/> 
+                      <Image source={full_star} style={styles.star_comments}/> 
+                      <Image source={full_star} style={styles.star_comments}/> 
+                      <Image source={full_star} style={styles.star_comments}/> 
+                      <Image source={star} style={styles.star_comments}/> 
+                    </View>
+                    <View style={styles.edit_segment}>
+                      <TouchableOpacity
+                        onPress={() => navigation.navigate('Comments')}>
+                        <Image source={editButton} style={styles.editButton}/>
+                      </TouchableOpacity>
+                    </View> 
+                  </View>
+                  <View style={styles.book_description_container}>
+                    <Text style={styles.book_description}>{item.texto_abreviado}</Text>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('Comments')}
+                    >
+                      <Text style={styles.see_more}>Ver mais</Text>
+                    </TouchableOpacity>
+                  </View>
+                  <View style={styles.footer}>
+                    <Text style={styles.date}>20/05/2021</Text>
+                    <View style={styles.like_and_comments}>
+                      <TouchableOpacity style={styles.buttons}>
+                        <Image source={like} style={styles.icons}/>
+                        <Text style={styles.icon_text}>5</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity style={styles.buttons}
+                        onPress={() => navigation.navigate('Comments')}>
+                        <Image source={comments} style={styles.icons}/>
+                        <Text style={styles.icon_text}>10</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                  <View style={styles.line}>
+                    <Image source={horizontal} style={styles.horizontalLine} />
+                  </View>
+                </>
+              )
+            }
+            )
+          }
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -118,3 +183,54 @@ const ViewBook = ({ navigation }) => {
 
 
 export default ViewBook
+
+
+let mocks = [{
+  'id': 1,
+  'nome': 'Ana Dolata',
+  'livro': 'Sankofa: A Novel',
+  'tipo': 'review',
+  'nota': 4,
+  'comentarios': 5,
+  'curtidas': 5,
+  'texto_abreviado': 'Não concordo com você, Ana',
+  'data': '20/05/2021',
+  'foto': '../../../assets/icons/Nickname.png'
+},
+{
+  'id': 2,
+  'nome': 'Ana Dolata',
+  'livro': 'Sankofa: A Novel',
+  'tipo': 'review',
+  'nota': 4,
+  'comentarios': 5,
+  'curtidas': 5,
+  'texto_abreviado': 'Não concordo com você, Ana',
+  'data': '20/05/2021',
+  'foto': '../../../assets/icons/Nickname.png'
+},
+{
+  'id': 3,
+  'nome': 'Ana Dolata',
+  'livro': 'Sankofa: A Novel',
+  'tipo': 'review',
+  'nota': 4,
+  'comentarios': 5,
+  'curtidas': 5,
+  'texto_abreviado': 'Não concordo com você, Ana',
+  'data': '20/05/2021',
+  'foto': '../../../assets/icons/Nickname.png'
+},
+{
+  'id': 4,
+  'nome': 'Ana Dolata',
+  'livro': 'Sankofa: A Novel',
+  'tipo': 'review',
+  'nota': 4,
+  'comentarios': 5,
+  'curtidas': 5,
+  'texto_abreviado': 'Não concordo com você, Ana',
+  'data': '20/05/2021',
+  'foto': '../../../assets/icons/Nickname.png'
+},
+]
