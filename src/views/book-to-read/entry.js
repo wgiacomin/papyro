@@ -10,14 +10,10 @@ const Entry = ({book, autor, avaliacoes, image, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <TouchableOpacity>
-          <Image source={mocked_book} style={styles.book_image}/>
-        </TouchableOpacity>
+        <Image source={mocked_book} style={styles.book_image}/>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
-            <TouchableOpacity>
-              <Text style={styles.book_style}>{book}</Text>
-            </TouchableOpacity>
+            <Text style={styles.book_style}>{book}</Text>
             <Text style={styles.autor_style}>{autor}</Text>
             <View style={styles.star_container}>
               <Image source={full_star} style={styles.star}/> 
@@ -26,9 +22,9 @@ const Entry = ({book, autor, avaliacoes, image, navigation}) => {
               <Image source={full_star} style={styles.star}/> 
               <Image source={star} style={styles.star}/> 
               <Text style={styles.book_avaliations}> ({avaliacoes}) </Text>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Comments')}
-              >
+            </View>
+            <View style={styles.see_more_container}>
+              <TouchableOpacity>
                 <Text style={styles.see_more}>Ver</Text>
               </TouchableOpacity>
             </View>
@@ -111,6 +107,13 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginLeft: 11
   },
+  see_more_container: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingTop: 0,
+    marginLeft: 11,
+    marginTop: -55
+  },
   see_more:{
     fontFamily: 'DM-Sans',
     fontStyle: 'normal',
@@ -119,8 +122,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     color: '#007AFF',
     letterSpacing: -0.408,
-    paddingLeft: 130,
-    marginTop: -27
+    paddingLeft: 232,
   },
 })
   

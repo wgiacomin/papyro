@@ -7,16 +7,18 @@ import star from '../../../assets/icons/star.png'
 
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({livro, autor, image}) => {
+const Entry = ({livro, autor, image, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ViewBook')}>
           <Image source={mocked_image} style={styles.book_image}/>
         </TouchableOpacity>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ViewBook')}>
               <Text style={styles.book_title}>{livro}</Text>
             </TouchableOpacity>
             <View style={styles.autor_container}>
