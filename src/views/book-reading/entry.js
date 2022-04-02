@@ -1,14 +1,13 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import horizontal from '../../../assets/lines/straight.png'
-import mocked_book from '../../../assets/icons/mocked_book.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({book, autor, image, navigation}) => {
+const Entry = ({book, autor, image, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <Image source={mocked_book} style={styles.book_image}/>
+        <Image source={{uri: image}} style={styles.book_image}/>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
             <Text style={styles.book_style}>{book}</Text>

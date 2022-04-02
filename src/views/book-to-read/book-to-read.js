@@ -4,13 +4,13 @@ import DefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
 import BookToReadEntries from './book-to-read-entries'
 
-const BookToRead = ({ navigation }) => {
+const BookToRead = ({ navigation, route }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Livros Para Ler</Text>
-        <BookToReadEntries mocks={mocks} navigation={ navigation }/>
+        <BookToReadEntries book={route.params} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )

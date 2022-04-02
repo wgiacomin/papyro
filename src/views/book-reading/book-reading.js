@@ -4,19 +4,19 @@ import DefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
 import BookReadingEntries from './book-reading-entries'
 
-const BookToRead = ({ navigation }) => {
+const bookReading = ({ navigation, route }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Livros que Estou Lendo</Text>
-        <BookReadingEntries mocks={mocks} navigation={ navigation }/>
+        <BookReadingEntries books={route.params} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )
 }
 
-export default BookToRead
+export default bookReading
 
 const styles = StyleSheet.create({
   container: {
@@ -37,31 +37,6 @@ const styles = StyleSheet.create({
   }
 })
 
-let mocks = [{
-  'id': 1,
-  'book': 'Sankofa: A Novel',
-  'autor': 'Chibundu Onuzo',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 2,
-  'book': 'O morro dos ventos uivantes',
-  'autor': 'Emily Bronte',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 3,
-  'book': 'Admiravel mundo novo',
-  'autor': 'Aldous Huxley',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 4,
-  'book': 'O morro dos ventos uivantes',
-  'autor': 'Emily Bronte',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-]
 
 
 
