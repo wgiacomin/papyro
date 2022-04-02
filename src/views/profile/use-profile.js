@@ -6,7 +6,6 @@ import FIELDS from '../../routes/field_match'
 async function useProfile({ setProfile, profile, setBooks }){
 
   await api.get(ROUTES.profile + 0).then((response) => {
-    console.log(response.data)
     setBooks({
       state: true,
       reading_books: response.data.livros_lendo,
