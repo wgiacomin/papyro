@@ -4,24 +4,20 @@ import horizontal from '../../../assets/lines/straight.png'
 import mocked_book from '../../../assets/icons/mocked_book.png'
 import full_star from '../../../assets/icons/full_star.png'
 import star from '../../../assets/icons/star.png'
+import Rate from '../../components/rate-stars'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({book, autor, avaliacoes, image, navigation}) => {
+const Entry = ({book, autor, image, navigation, rate}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <Image source={mocked_book} style={styles.book_image}/>
+        <Image source={{uri: image}} style={styles.book_image}/>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
             <Text style={styles.book_style}>{book}</Text>
             <Text style={styles.autor_style}>{autor}</Text>
             <View style={styles.star_container}>
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={star} style={styles.star}/> 
-              <Text style={styles.book_avaliations}> ({avaliacoes}) </Text>
+              <Rate stars={rate} />
             </View>
             <View style={styles.see_more_container}>
               <TouchableOpacity>
