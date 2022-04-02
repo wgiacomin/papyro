@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, TextInput, SafeAreaView, View, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView } from 'react-native'
 import { useState } from 'react'
 import safeView from '../../styles/safe-view'
 import styles from './view-book-style'
