@@ -7,16 +7,18 @@ import star from '../../../assets/icons/star.png'
 
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({livro, autor, image}) => {
+const Entry = ({livro, autor, image, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ViewBook')}>
           <Image source={mocked_image} style={styles.book_image}/>
         </TouchableOpacity>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ViewBook')}>
               <Text style={styles.book_title}>{livro}</Text>
             </TouchableOpacity>
             <View style={styles.autor_container}>
@@ -53,10 +55,11 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   book_title:{
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
-    lineHeight: 31,
+    lineHeight: 25,
+    marginRight: 100,
   },
   book_title_container: {
     flex: 1,
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
   autor_container: {
     flex: 1,
     flexWrap: 'wrap',
-    marginTop: -9
+    marginTop: -5
   },
   book_image: {
     width: 62,

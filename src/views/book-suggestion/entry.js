@@ -6,27 +6,23 @@ import delete_button_list from '../../../assets/icons/delete_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({name, note, commom_books, commom_genre, image, navigation}) => {
+const Entry = ({livro, note, image, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.note_container}>
         <Text style={styles.note}>{note}</Text>
       </View>
-      <View style={styles.name}>
+      <View style={styles.livro}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Friend')}>
-          <Image source={mocked_image} style={styles.person_image}/>
+          onPress={() => navigation.navigate('ViewBook')}>
+          <Image source={mocked_image} style={styles.livro_image}/>
         </TouchableOpacity>
-        <View style={styles.name_block}>
-          <View style={styles.name_title_container}>
+        <View style={styles.livro_block}>
+          <View style={styles.livro_title_container}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Friend')}>
-              <Text style={styles.name_title}>{name}</Text>
+              onPress={() => navigation.navigate('ViewBook')}>
+              <Text style={styles.livro_title}>{livro}</Text>
             </TouchableOpacity>
-            <View style={styles.commom_container}>
-              <Text style={styles.commom}>{commom_books}</Text>
-              <Text style={styles.commom}>{commom_genre}</Text>
-            </View>
           </View>
         </View>
       </View>
@@ -50,43 +46,33 @@ const Entry = ({name, note, commom_books, commom_genre, image, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginLeft: 7
   },
-  name: {
+  livro: {
     flex: 1,
     flexDirection: 'row',
     marginTop: 10,
     marginBottom: 10
   },
-  person_image: {
+  livro_image: {
     width: 62,
     height: 60
   },
-  name_block:{
+  livro_block:{
     marginLeft: 10
   },
-  name_title:{
+  livro_title:{
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 5,
-    marginTop: 3,
-    marginRight: 100
+    marginTop: 13,
+    marginRight: 130
   },
-  name_title_container: {
+  livro_title_container: {
     flex: 1,
     flexWrap: 'wrap',
-  },
-  commom:{
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontSize: 14,
-    lineHeight: 17,
-  },
-  commom_container: {
-    flex: 1,
-    flexWrap: 'wrap',
-    marginTop: -5
   },
   note:{
     fontFamily: 'Roboto',
@@ -98,7 +84,8 @@ const styles = StyleSheet.create({
   note_container: {
     flex: 1,
     flexWrap: 'wrap',
-    marginTop: 3
+    marginTop: 2,
+    marginBottom: -2
   },
   line:{
     flex: 1,
@@ -119,7 +106,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'center',
     paddingLeft: 5,
-    marginTop: -55
+    marginTop: -53
   },
   button_size:{
     width: 24,

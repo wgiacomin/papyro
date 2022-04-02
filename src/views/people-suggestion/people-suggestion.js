@@ -2,41 +2,37 @@ import React from 'react'
 import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
 import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
-import SearchEntries from '../search-people/search-people-entries'
+import SuggestionEntries from './people-suggestion-entries'
 import horizontal from '../../../assets/lines/straight.png'
 
-const SearchPeople = ({ navigation }) => {
+const PeopleSuggestion = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <DefaultBar navigation={ navigation }/>
         <View style={styles.segment}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('SearchPeople')}>
+            onPress={() => navigation.navigate('PeopleSuggestion')}>
             <Text style={styles.title_selected}>Pessoas</Text>
             <View style={styles.line_selected}>
               <Image source={horizontal} style={styles.selectedLine} />
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate('SearchGroup')}>
-            <Text style={styles.title}>Grupos</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SearchBook')}>
+            onPress={() => navigation.navigate('BookSuggestion')}>
             <Text style={styles.title}>Livros</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.line}>
           <Image source={horizontal} style={styles.horizontalLine} />
         </View>
-        <SearchEntries mocks={mocks} navigation={ navigation }/>
+        <SuggestionEntries mocks={mocks} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )
 }
   
-export default SearchPeople
+export default PeopleSuggestion
 
 const styles = StyleSheet.create({
   container: {
@@ -56,7 +52,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     textAlign: 'center',
     color: '#D8D8D8',
-    paddingLeft: 45
+    marginLeft: 72
   },
   title_selected: {
     fontFamily: 'Poppins',
@@ -66,13 +62,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
     textAlign: 'center',
     color: '#001833',
-    paddingLeft: 50
+    marginLeft: 89
   },
   line_selected:{
     flex: 1,
     marginTop: 10,
-    marginLeft: 40,
-    marginRight: 21
+    marginLeft: 75,
+    marginRight: 22
   },
   selectedLine: {
     width: '163%',
@@ -105,6 +101,7 @@ let mocks = [{
   'id': 2,
   'name': 'Ana Dolata',
   'commom_books': '10 livros em comum',
+  'note': 'Você e Ana deram a mesma nota em 5 livros.',
   'foto': '../../../assets/icons/Nickname.png'
 },
 {

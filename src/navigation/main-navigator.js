@@ -13,6 +13,7 @@ import books_focused from '../../assets/icons/books_focused.png'
 import groups from '../../assets/icons/groups.png'
 import groups_focused from '../../assets/icons/groups_focused.png'
 import people from '../views/profile/user-profile'
+import friend from '../views/profile/friend-profile'
 import conversations from '../views/chat/conversations'
 import comments from '../views/comments/comment'
 import notification from '../views/notification/notification'
@@ -26,6 +27,10 @@ import myGroups from '../views/my-groups/my-groups'
 import searchBook from '../views/search-book/search-book'
 import searchGroup from '../views/search-group/search-group'
 import searchPeople from '../views/search-people/search-people'
+import bookSuggestion from '../views/book-suggestion/book-suggestion'
+import peopleSuggestion from '../views/people-suggestion/people-suggestion'
+import viewBook from '../views/view-book/view-book'
+import review from '../views/review/review'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -36,6 +41,7 @@ const StackNavigator = () => (
   >
     <Stack.Screen name='Feed' component={feed} options={{ headerShown: false }} />
     <Stack.Screen name='People' component={people} options={{ headerShown: false }} />
+    <Stack.Screen name='Friend' component={friend} options={{ headerShown: false }} />
     <Stack.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
     <Stack.Screen name='Comments' component={comments} options={{ headerShown: false }} />
     <Stack.Screen name='EditProfile' component={editProfile} options={{ headerShown: false}} />
@@ -48,6 +54,10 @@ const StackNavigator = () => (
     <Stack.Screen name='SearchBook' component={searchBook} options={{ headerShown: false}} />
     <Stack.Screen name='SearchGroup' component={searchGroup} options={{ headerShown: false}} />
     <Stack.Screen name='SearchPeople' component={searchPeople} options={{ headerShown: false}} />
+    <Stack.Screen name='BookSuggestion' component={bookSuggestion} options={{ headerShown: false}} />
+    <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false}} />
+    <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false}} />
+    <Stack.Screen name='Review' component={review} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 
@@ -87,7 +97,7 @@ const MainNavigator = () => (
       ),
     }} />
 
-    <Tab.Screen name="Books" component={myGroups}
+    <Tab.Screen name="Books" component={bookSuggestion}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
@@ -96,7 +106,7 @@ const MainNavigator = () => (
         ),
       }} />
 
-    <Tab.Screen name="Profile" component={people}
+    <Tab.Screen name="Profile" component={peopleSuggestion}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
