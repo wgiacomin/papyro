@@ -23,7 +23,8 @@ const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image
         <Text style={styles.post_type}>avaliou o livro:</Text>
       </View>
       <View style={styles.book}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ViewBook')}>
           <Image source={mocked_book} style={styles.book_image}/>
         </TouchableOpacity>
         <View style={styles.book_block}>

@@ -2,30 +2,22 @@ import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import horizontal from '../../../assets/lines/straight.png'
 import mocked_book from '../../../assets/icons/mocked_book.png'
-import full_star from '../../../assets/icons/full_star.png'
-import star from '../../../assets/icons/star.png'
 
 // eslint-disable-next-line react/prop-types
 const Entry = ({book, autor, image, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <TouchableOpacity>
-          <Image source={mocked_book} style={styles.book_image}/>
-        </TouchableOpacity>
+        <Image source={mocked_book} style={styles.book_image}/>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
-            <TouchableOpacity>
-              <Text style={styles.book_style}>{book}</Text>
-            </TouchableOpacity>
+            <Text style={styles.book_style}>{book}</Text>
             <Text style={styles.autor_style}>{autor}</Text>
-            <View style={styles.star_container}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Comments')}
-              >
-                <Text style={styles.see_more}>Ver</Text>
-              </TouchableOpacity>
-            </View>
+          </View>
+          <View style={styles.see_more_container}>
+            <TouchableOpacity>
+              <Text style={styles.see_more}>Ver</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -88,16 +80,12 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     width: '100%',
   },
-  star:{
-    width: 14,
-    height: 14,
-  },
-  star_container: {
+  see_more_container: {
     flex: 1,
     flexDirection: 'row',
     paddingTop: 0,
-    marginTop: 0,
-    marginLeft: 11
+    marginLeft: 11,
+    marginTop: -45
   },
   see_more:{
     fontFamily: 'DM-Sans',
@@ -108,7 +96,6 @@ const styles = StyleSheet.create({
     color: '#007AFF',
     letterSpacing: -0.408,
     paddingLeft: 232,
-    marginTop: -27
   },
 })
   
