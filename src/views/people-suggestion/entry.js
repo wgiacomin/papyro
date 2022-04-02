@@ -6,19 +6,21 @@ import delete_button_list from '../../../assets/icons/delete_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({name, note, commom_books, commom_genre, image}) => {
+const Entry = ({name, note, commom_books, commom_genre, image, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.note_container}>
         <Text style={styles.note}>{note}</Text>
       </View>
       <View style={styles.name}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Friend')}>
           <Image source={mocked_image} style={styles.person_image}/>
         </TouchableOpacity>
         <View style={styles.name_block}>
           <View style={styles.name_title_container}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Friend')}>
               <Text style={styles.name_title}>{name}</Text>
             </TouchableOpacity>
             <View style={styles.commom_container}>

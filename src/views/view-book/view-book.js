@@ -77,7 +77,7 @@ const ViewBook = ({ navigation }) => {
               <Image source={full_star} style={styles.star}/> 
               <Image source={full_star} style={styles.star}/> 
               <Image source={star} style={styles.star}/>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('Review')}>
                 <Text style={styles.star_number_resume}>
                 (Avaliar)
                 </Text>
@@ -120,6 +120,12 @@ const ViewBook = ({ navigation }) => {
           <View>
             <Text style={styles.comments_title}> 402 avaliações </Text>
           </View>
+          <View style={styles.edit_segment}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Review')}>
+              <Image source={editButton} style={styles.editButton}/>
+            </TouchableOpacity>
+          </View> 
           {
             mocks.map((item, key) => {
               return (
@@ -138,12 +144,6 @@ const ViewBook = ({ navigation }) => {
                       <Image source={full_star} style={styles.star_comments}/> 
                       <Image source={star} style={styles.star_comments}/> 
                     </View>
-                    <View style={styles.edit_segment}>
-                      <TouchableOpacity
-                        onPress={() => navigation.navigate('Comments')}>
-                        <Image source={editButton} style={styles.editButton}/>
-                      </TouchableOpacity>
-                    </View> 
                   </View>
                   <View style={styles.book_description_container}>
                     <Text style={styles.book_description}>{item.texto_abreviado}</Text>

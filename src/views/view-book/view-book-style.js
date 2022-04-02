@@ -252,8 +252,8 @@ export default StyleSheet.create({
   },
   edit_segment: {
     flex: 1,
-    marginTop: -20,  
-    marginLeft: 198  
+    marginBottom: -20,  
+    alignSelf: 'flex-end'  
   },
   editButton: {
     width: 20,
