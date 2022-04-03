@@ -2,7 +2,16 @@ const FIELDS_INVERTED = {
   nome: 'name',
   apelido: 'nickname',
   data_nascimento: 'birthday',
-  descricao: 'description'
+  descricao: 'description',
+  book_title: 'nome',
+  livros_lendo: 'reading',
+  livros_lerei: 'to_read',
+  livros_lidos: 'read',
+  capa: 'cover',
+  nota: 'rate',
+  grupos: 'groups',
+  id: 'id',
+  email: 'email'
 }
     
 export default FIELDS_INVERTED
