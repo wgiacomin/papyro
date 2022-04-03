@@ -8,17 +8,17 @@ async function useProfile({ setProfile, profile, setBooks }){
   await api.get(ROUTES.profile + 0).then((response) => {
     setBooks({
       state: true,
-      reading_books: response.data.livros_lendo,
-      reading_books_count: response.data.livros_lendo.length,
-      read_books: response.data.livros_lidos,
-      read_books_count: response.data.livros_lidos.length,
-      to_read: response.data.livros_lerei,
-      to_read_count: response.data.livros_lerei.length,
-      groups: response.data.grupos,
-      groups_count: response.data.grupos.length,
-      image_reading: response.data.livros_lendo[0].capa,
-      image_read: response.data.livros_lidos[0].capa,
-      image_to_read: response.data.livros_lerei[0].capa,
+      reading: response.data[FIELDS.reading],
+      reading_count: response.data[FIELDS.reading].length,
+      read: response.data[FIELDS.read],
+      read_count: response.data[FIELDS.read].length,
+      to_read: response.data[FIELDS.to_read],
+      to_read_count: response.data[FIELDS.to_read].length,
+      groups: response.data[FIELDS.groups],
+      groups_count: response.data[FIELDS.groups].length,
+      image_reading: response.data[FIELDS.reading][0].capa,
+      image_read: response.data[FIELDS.read][0].capa,
+      image_to_read: response.data[FIELDS.to_read][0].capa,
     })
 
   }).catch((error) => {
