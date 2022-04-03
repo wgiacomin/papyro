@@ -28,7 +28,7 @@ const ViewGroup = ({ navigation }) => {
               <TouchableOpacity>
                 <Image source={seeMoreButton} style={styles.seeMoreButton}/>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('EditGroup')}>
                 <Image source={configButton} style={styles.configButton}/>
               </TouchableOpacity>
             </View> 
