@@ -3,7 +3,7 @@ import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({book, autor, image, navigation }) => {
+const Entry = ({book, autor, image, navigation, id }) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
@@ -14,7 +14,9 @@ const Entry = ({book, autor, image, navigation }) => {
             <Text style={styles.autor_style}>{autor}</Text>
           </View>
           <View style={styles.see_more_container}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ViewBook', { id })}
+            >
               <Text style={styles.see_more}>Ver</Text>
             </TouchableOpacity>
           </View>

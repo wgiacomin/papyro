@@ -1,5 +1,5 @@
-import React from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView } from 'react-native'
+import React, { useEffect } from 'react'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, ActivityIndicator, Alert } from 'react-native'
 import { useState } from 'react'
 import safeView from '../../styles/safe-view'
 import styles from './view-book-style'
@@ -15,11 +15,57 @@ import image_mocked from '../../../assets/icons/image.png'
 import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
 import editButton from '../../../assets/buttons/editButton.png'
+import FIELDS from '../../routes/field_match'
+import spinner from '../../styles/spinner'
+import ROUTES from '../../routes/routes'
+import api from '../../routes/api'
 
-const ViewBook = ({ navigation }) => {
+async function useGetBook({ setBook, id }){
+  await api.get(ROUTES.get_book + id).then((response) => {
+    setBook({
+      loading: false,
+      error: false,
+      book_info: response.data
+    })
+    console.log(response.data)
+  }).catch((error) => {
+    setBook({
+      state: false,
+      error: true,
+    })
+    Alert.alert('Atenção', error.response.data.detail)
+  })
+}
+
+const ViewBook = ({ navigation, route }) => {
   const [show, setShow ] = useState(false)
 
+  const [book, setBook] = useState({
+    loading: true,
+    error: false,
+    book_info: {}
+  })
+
+  useEffect(() => {
+    useGetBook({id:route.params.id, setBook})
+  }, [])
+  
+  if(book.error){
+    navigation.goBack()
+  }
+
+  if (book.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
+
+
   return (
+
+
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <ScrollView>
         <View style={styles.standart}>
@@ -36,7 +82,7 @@ const ViewBook = ({ navigation }) => {
           </View>
           <View style={styles.book_segment}>
             <Text style={styles.book_title}>
-              Sankofa: A Novel
+              aaa
             </Text>
             <Text style={styles.book_autor}>
               Chibundu Onuzo

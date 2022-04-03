@@ -11,7 +11,11 @@ const FIELDS_INVERTED = {
   nota: 'rate',
   grupos: 'groups',
   id: 'id',
-  email: 'email'
+  email: 'email',
+  sinopse: 'description',
+  ano: 'year',
+  avaliacoes: 'rates',
+  genero: 'genre'
 }
     
 export default FIELDS_INVERTED
