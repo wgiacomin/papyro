@@ -31,6 +31,9 @@ import bookSuggestion from '../views/book-suggestion/book-suggestion'
 import peopleSuggestion from '../views/people-suggestion/people-suggestion'
 import viewBook from '../views/view-book/view-book'
 import review from '../views/review/review'
+import viewGroup from '../views/view-group/view-group'
+import createGroup from '../views/new-group/create-group'
+import editGroup from '../views/new-group/edit-group'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -58,6 +61,9 @@ const StackNavigator = () => (
     <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false}} />
     <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false}} />
     <Stack.Screen name='Review' component={review} options={{ headerShown: false}} />
+    <Stack.Screen name='ViewGroup' component={viewGroup} options={{ headerShown: false}} />
+    <Stack.Screen name='CreateGroup' component={createGroup} options={{ headerShown: false}} />
+    <Stack.Screen name='EditGroup' component={editGroup} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 
@@ -106,7 +112,7 @@ const MainNavigator = () => (
         ),
       }} />
 
-    <Tab.Screen name="Profile" component={peopleSuggestion}
+    <Tab.Screen name="Profile" component={viewGroup}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
