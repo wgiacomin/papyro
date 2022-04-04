@@ -34,6 +34,7 @@ import review from '../views/review/review'
 import viewGroup from '../views/view-group/view-group'
 import createGroup from '../views/new-group/create-group'
 import editGroup from '../views/new-group/edit-group'
+import searchReaders from '../views/search-readers/search-readers'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -64,6 +65,7 @@ const StackNavigator = () => (
     <Stack.Screen name='ViewGroup' component={viewGroup} options={{ headerShown: false}} />
     <Stack.Screen name='CreateGroup' component={createGroup} options={{ headerShown: false}} />
     <Stack.Screen name='EditGroup' component={editGroup} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReaders' component={searchReaders} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 

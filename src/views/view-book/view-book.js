@@ -98,7 +98,7 @@ const ViewBook = ({ navigation }) => {
               <Text style={styles.group_title}>
                 Grupos
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('SearchReaders')}>
                 <Image source={profile} style={styles.person_image} />
               </TouchableOpacity>
               <Text style={styles.group_title}>
