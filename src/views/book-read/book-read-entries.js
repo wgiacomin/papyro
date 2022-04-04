@@ -1,20 +1,20 @@
 import React from 'react'
 import {FlatList } from 'react-native'
+import FIELDS from '../../routes/field_match'
 import Entry from './entry'
 
 // eslint-disable-next-line react/prop-types
-const BookToReadEntries = ({mocks}) => {
+const BookToReadEntries = ({ books }) => {
   return (
     <FlatList
-      data={mocks}
+      data={books}
       numColumns={1}
       renderItem={(post) => {
         return <Entry 
-          book={post.item.book}
-          autor={post.item.autor}
-          nota={post.item.nota}
-          avaliacoes={post.item.avaliacoes}
-          image={post.item.image}
+          book={post.item[FIELDS.book_title]}
+          autor='INDISPONIVEL'
+          rate={post.item[FIELDS.rate]}
+          image={post.item[FIELDS.cover]}
         />
       } } />
   )

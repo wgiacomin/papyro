@@ -12,7 +12,7 @@ const BookToRead = ({ navigation }) => {
         <Text style={styles.title}>Meus Grupos</Text>
         <View style={styles.continueSegment}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('People')}>
+            onPress={() => navigation.navigate('CreateGroup')}>
             <Text style={styles.buttonSize}> Criar </Text>
           </TouchableOpacity>
         </View>

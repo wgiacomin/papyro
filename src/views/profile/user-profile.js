@@ -12,6 +12,7 @@ import DescriptionBar from '../../components/description-bar'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
+import FIELDS from '../../routes/field_match'
 
 const UserProfile = ({ navigation }) => { 
   const { setProfile } = useAuthDispatch()
@@ -19,10 +20,10 @@ const UserProfile = ({ navigation }) => {
 
   const [books, setBooks] = useState({
     state: false,
-    reading_books: [],
-    reading_books_count: 0,
-    read_books: [],
-    read_books_count: 0,
+    reading: [],
+    reading_count: 0,
+    read: [],
+    read_count: 0,
     to_read:  [],
     to_read_count: 0,
     groups: [],
@@ -88,7 +89,7 @@ const UserProfile = ({ navigation }) => {
               Lendo
             </Text>
             <Text style={styles.normal}>
-              {books.to_read[0].nome}
+              {books.reading[0][FIELDS.book_title]}
             </Text>
             <Text style={styles.normal}>
               Autor
@@ -99,16 +100,16 @@ const UserProfile = ({ navigation }) => {
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookReading')}>
+              onPress={() => navigation.navigate('BookReading', books.reading)}>
               <Text style={styles.seeMore}>
-                {books.reading_books_count > 1 ? ' Ver mais (' + books.reading_books_count - 1 + ')': 'Ver mais'} 
+                {books.reading_count > 1 ? ' Ver mais (' + books.reading_count - 1 + ')': 'Ver mais'} 
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
               Lerei
             </Text>
             <Text style={styles.normal}>
-              {books.to_read[0].nome}
+              {books.to_read[0][FIELDS.book_title]}
             </Text>
             <Text style={styles.normal}>
               Autor
@@ -119,7 +120,7 @@ const UserProfile = ({ navigation }) => {
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookToRead')}>
+              onPress={() => navigation.navigate('BookToRead', books.to_read)}>
               <Text style={styles.seeMore}>
                 {books.to_read_count > 1 ? ' Ver mais (' + books.to_read_count - 1 + ')': 'Ver mais'} 
               </Text>
@@ -128,7 +129,7 @@ const UserProfile = ({ navigation }) => {
               Lidos
             </Text>
             <Text style={styles.normal}>
-              {books.read_books[0].nome}
+              {books.read[0][FIELDS.book_title]}
             </Text>
             <Text style={styles.normal}>
               Autor
@@ -139,9 +140,9 @@ const UserProfile = ({ navigation }) => {
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookRead')}>
+              onPress={() => navigation.navigate('BookRead', books.read)}>
               <Text style={styles.seeMore}>
-                {books.read_books > 1 ? ' Ver mais (' + books.read_books - 1 + ')': 'Ver mais'} 
+                {books.read > 1 ? ' Ver mais (' + books.read - 1 + ')': 'Ver mais'} 
               </Text>
             </TouchableOpacity>  
           </View>
