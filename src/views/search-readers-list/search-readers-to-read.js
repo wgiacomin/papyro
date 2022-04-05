@@ -1,17 +1,18 @@
 import React from 'react'
 import { SafeAreaView, View, Text, TouchableOpacity, Image} from 'react-native'
-import styles from './search-readers-style'
+import styles from './search-readers-list-style'
 import DefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
 import mocked_image from '../../../assets/icons/image.png'
 
-const SearchReaders = ({ navigation }) => {
+const SearchReadersToRead = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <DefaultBar navigation={ navigation }/>
         <View style={styles.segment}>
           <Text style={styles.title}>Quem está lendo?</Text>
+          <Text style={styles.subtitle}>Em breve</Text>
           <View style={styles.people_segment}>
             <TouchableOpacity onPress={() => navigation.navigate('Friend')}>
               <Image source={mocked_image} style={styles.person_image}/>
@@ -79,17 +80,11 @@ const SearchReaders = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('Friend')}>
               <Text style={styles.person}>Ana Dolata</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.see_more_segment}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SearchReadersReading')}>
-              <Text style={styles.see_more}> Ver mais (5) </Text>
             </TouchableOpacity>
           </View>
         </View>
         <View style={styles.segment}>
-          <Text style={styles.title}>Quem vai ler?</Text>
+          <Text style={styles.subtitle}>Na próxima semana</Text>
           <View style={styles.people_segment}>
             <TouchableOpacity onPress={() => navigation.navigate('Friend')}>
               <Image source={mocked_image} style={styles.person_image}/>
@@ -157,17 +152,11 @@ const SearchReaders = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('Friend')}>
               <Text style={styles.person}>Ana Dolata</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.see_more_segment}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SearchReadersToRead')}>
-              <Text style={styles.see_more}> Ver mais (5) </Text>
             </TouchableOpacity>
           </View>
         </View>
         <View style={styles.segment}>
-          <Text style={styles.title}>Quem já leu?</Text>
+          <Text style={styles.subtitle}>Próximo mês</Text>
           <View style={styles.people_segment}>
             <TouchableOpacity onPress={() => navigation.navigate('Friend')}>
               <Image source={mocked_image} style={styles.person_image}/>
@@ -237,12 +226,6 @@ const SearchReaders = ({ navigation }) => {
               <Text style={styles.person}>Ana Dolata</Text>
             </TouchableOpacity>
           </View>
-        </View>
-        <View style={styles.see_more_segment}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SearchReadersRead')}>
-            <Text style={styles.see_more}> Ver mais (5) </Text>
-          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
@@ -250,7 +233,7 @@ const SearchReaders = ({ navigation }) => {
 }
   
 
-export default SearchReaders
+export default SearchReadersToRead
 
 
 
