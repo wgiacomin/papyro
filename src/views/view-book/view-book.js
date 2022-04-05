@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, Alert } from 'react-native'
 import { useState } from 'react'
 import safeView from '../../styles/safe-view'
 import styles from './view-book-style'
@@ -19,6 +19,27 @@ import editButton from '../../../assets/buttons/editButton.png'
 const ViewBook = ({ navigation }) => {
   const [show, setShow ] = useState(false)
 
+  const showAlert = () =>
+    Alert.alert(
+      'Compartilhar com..',
+      ' ',
+      [
+        {
+          text: 'Um amigo',
+          onPress: () => navigation.navigate('Review'),
+          style: 'default'
+        },
+        {
+          text: 'Copiar Link',
+          onPress: () => navigation.navigate('Friend'),
+          style: 'default',
+        },
+      ],
+      {
+        cancelable: true,
+      }
+    )
+  
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <ScrollView>
@@ -29,7 +50,8 @@ const ViewBook = ({ navigation }) => {
               Gênero: Modernos
             </Text>
             <View style={styles.share_segment}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={showAlert}>
                 <Image source={shareButton} style={styles.shareButton}/>
               </TouchableOpacity>
             </View> 
