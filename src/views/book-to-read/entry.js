@@ -5,13 +5,14 @@ import mocked_book from '../../../assets/icons/mocked_book.png'
 import full_star from '../../../assets/icons/full_star.png'
 import star from '../../../assets/icons/star.png'
 import Rate from '../../components/rate-stars'
+import APIROUTES from '../../routes/open_api'
 
 // eslint-disable-next-line react/prop-types
 const Entry = ({book, autor, image, navigation, rate}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <Image source={{uri: image}} style={styles.book_image}/>
+        <Image source={{uri:  APIROUTES.cover + image + '.jpg'}} style={styles.book_image}/>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
             <Text style={styles.book_style}>{book}</Text>

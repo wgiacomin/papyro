@@ -12,7 +12,7 @@ const BookToReadEntries = ({ books, navigation }) => {
       renderItem={(post) => {
         return <Entry 
           book={post.item[FIELDS.book_title]}
-          autor='indisponível'
+          autor={post.item[FIELDS.author][0][FIELDS.name]}
           image={post.item[FIELDS.cover]}
           id={post.item.id}
           navigation={navigation}

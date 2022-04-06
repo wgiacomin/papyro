@@ -15,7 +15,8 @@ const FIELDS_INVERTED = {
   sinopse: 'description',
   ano: 'year',
   avaliacoes: 'rates',
-  genero: 'genre'
+  genero: 'genre',
+  teste2: 'author'
 }
     
 export default FIELDS_INVERTED

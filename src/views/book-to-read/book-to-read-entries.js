@@ -12,7 +12,7 @@ const BookToReadEntries = ({book}) => {
       renderItem={(post) => {
         return <Entry 
           book={post.item[FIELDS.book_title]}
-          autor='indisponivel'
+          autor={post.item[FIELDS.author][0][FIELDS.name]}
           rate={post.item[FIELDS.rate]}
           image={post.item[[FIELDS.cover]]}
         />

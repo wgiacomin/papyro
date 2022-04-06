@@ -2,6 +2,7 @@ import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { Alert } from 'react-native'
 import FIELDS from '../../routes/field_match'
+import APIROUTES from '../../routes/open_api'
 
 async function useProfile({ setProfile, profile, setBooks }){
 
@@ -16,11 +17,11 @@ async function useProfile({ setProfile, profile, setBooks }){
       to_read_count: response.data[FIELDS.to_read].length,
       groups: response.data[FIELDS.groups],
       groups_count: response.data[FIELDS.groups].length,
-      image_reading: response.data[FIELDS.reading][0].capa,
-      image_read: response.data[FIELDS.read][0].capa,
-      image_to_read: response.data[FIELDS.to_read][0].capa,
+      image_reading: APIROUTES.cover + response.data[FIELDS.reading][0].capa + '.jpg',
+      image_read: APIROUTES.cover + response.data[FIELDS.read][0].capa + '.jpg',
+      image_to_read: APIROUTES.cover + response.data[FIELDS.to_read][0].capa + '.jpg',
     })
-
+    console.log(response.data[FIELDS.to_read])
   }).catch((error) => {
     setBooks({
       state: true,
