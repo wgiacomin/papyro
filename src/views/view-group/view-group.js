@@ -10,7 +10,7 @@ import addButton from '../../../assets/icons/add_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
 import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
-import { addValidStylePropTypes } from 'react-native/Libraries/StyleSheet/StyleSheetValidation'
+
 
 const ViewGroup = ({ navigation }) => {
 
@@ -69,7 +69,7 @@ const ViewGroup = ({ navigation }) => {
             <Text style={styles.reading_subtitle}> de 01/10 até 20/10 </Text>
             <Text style={styles.reading_forun}> Foruns desse livro: </Text>
             <View style={styles.add_segment}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('NewForum')}>
                 <Image source={addButton} style={styles.addButton}/>
               </TouchableOpacity>
             </View>
@@ -79,6 +79,11 @@ const ViewGroup = ({ navigation }) => {
                   <>
                     <View style={styles.container}>
                       <View style={styles.comment_title}>
+                        <View style={styles.see_more_segment}>
+                          <TouchableOpacity onPress={() => navigation.navigate('ViewForum')}>
+                            <Image source={seeMoreButton} style={styles.seeMoreButton}/>
+                          </TouchableOpacity>
+                        </View>
                         <Text style={styles.forun_title}>{item.title}</Text>
                         <View style={styles.tag_segment}>
                           <View style={styles.book_forun_segment}>
@@ -120,6 +125,11 @@ const ViewGroup = ({ navigation }) => {
                   <>
                     <View style={styles.container}>
                       <View style={styles.comment_title}>
+                        <View style={styles.see_more_segment}>
+                          <TouchableOpacity onPress={() => navigation.navigate('ViewForum')}>
+                            <Image source={seeMoreButton} style={styles.seeMoreButton}/>
+                          </TouchableOpacity>
+                        </View>
                         <Text style={styles.forun_title}>{item.title}</Text>
                         <View style={styles.tag_segment}>
                           <View style={styles.book_forun_segment}>

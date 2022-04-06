@@ -1,142 +1,91 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  standart: {
-    flex: 1,
-    marginLeft: '7%',
-    marginRight: '7%',
-    marginBottom: '5%'
+  container: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    alignItems: 'center',
+    marginBottom: 10,
+    marginTop: 10,
   },
-  segment:{
-    paddingBottom: '3%'
+  back_button: {
+    flexDirection: 'row',
+    left: '6%',
   },
-  group_title: {  
+  HorizontalLine: {
+    alignSelf: 'center',
+    height: 1,
+    width: 360
+  },
+  title: {  
     fontFamily: 'Poppins-Bold',
     fontStyle: 'normal',
+    fontWeight: 'normal',
     fontSize: 18,
     lineHeight: 27,
     color: '#181D2D',
+    marginLeft: '12%',
+    marginTop: 1
   },
-  group_subtitle: {  
-    fontFamily: 'Poppins',
-    fontStyle: 'normal',
-    fontSize: 9,
-    lineHeight: 18,
-    color: '#000000',
-    marginLeft: 2
-  },
-  edit_segment: {
-    flexDirection: 'row-reverse',
-    marginTop: -40,   
-    marginBottom: 15 
-  },
-  configButton: {
-    width: 18,
-    height: 17.19,
-    marginRight: 5,
-  },
-  seeMoreButton: {
-    width: 29,
-    height: 18,
-    marginRight: 5,
-  },
-  book_segment:{
-    paddingBottom: '5%',
-  },
-  enquete_title: {  
-    fontFamily: 'Poppins-Medium',
-    fontStyle: 'normal',
-    fontSize: 14,
-    lineHeight: 31,
-    color: '#181D2D',
-  },
-  enquete_subtitle: {  
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontSize: 9,
-    lineHeight: 11,
-    color: '#000000',
-    marginTop: -5,
-    marginLeft: 2
-  },
-  book_container: {
+  standard: {
     flex: 1,
-    flexDirection: 'row',
-    paddingTop: 0,
-    marginTop: 10,
+    marginLeft: '7%',
+    marginRight: '7%',
+    marginTop: '3%'
   },
-  bookImage:{
-    width: 41,
-    height: 61,
-    marginLeft: 26
-  },
-  button_segment:{
-    alignSelf: 'center',
-    marginTop: 11,
-    flexDirection: 'column',
-  },
-  buttonSegment:{
-    borderRadius: 50,
-    backgroundColor: '#324A59',
-    width: 316,
-    height: 34,
-    marginBottom: 6
-  },
-  button:{
+  name: {  
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 10,
-    lineHeight: 15,
-    textAlign: 'center',
-    color: '#FFFFFF',
-    marginTop: '2.5%',
-  },
-  reading_segment:{
-    paddingBottom: '5%',
-  },
-  reading_title: {  
-    fontFamily: 'Poppins-Medium',
-    fontStyle: 'normal',
     fontSize: 14,
     lineHeight: 21,
-    color: '#181D2D',
-    marginTop: -10,
+    color: '#181D2D'
   },
-  reading_subtitle: {  
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontSize: 9,
-    lineHeight: 11,
-    color: '#000000',
-    marginLeft: 2
+  book_container: {
+    flex: 1,
+    paddingTop: 0,
+    marginTop: 5,
+    marginLeft: 5,
   },
-  reading_forun: {  
+  bookImage:{
+    width: 59,
+    height: 91,
+  },
+  book_segment: {
+    flex: 1,
+    marginTop: -88,
+    marginLeft: 65,
+    flexDirection: 'column',
+  },
+  book_title: {  
     fontFamily: 'Poppins',
     fontStyle: 'normal',
+    fontWeight: 'normal',
     fontSize: 12,
     lineHeight: 23,
     color: '#000000',
+    marginTop: -7
   },
-  add_segment: {
-    flexDirection: 'row-reverse',
-    marginTop: -40,   
-    marginBottom: 15,
+  book_data: {  
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 9,
+    lineHeight: 11,
+    color: '#000000',
+    marginLeft: 2,
+    marginTop: -3
   },
-  addButton:{
-    width: 24,
-    height: 24,
-    marginRight: 10 
+  book_desc: {  
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 10,
+    lineHeight: 19,
+    color: '#000000',
+    marginTop: 7,
   },
-  line:{
-    flex: 1,
-    marginTop: 5,
-  },
-  horizontalLine: {
-    marginLeft: 0,
-    width: '100%',
-  },
-  container:{
+  mocks_container:{
     backgroundColor: '#F4F4F4',
     width: 346,
     height: 80,
@@ -153,7 +102,7 @@ export default StyleSheet.create({
     fontSize: 12,
     lineHeight: 23,
     marginLeft: 5,
-    marginTop: -30
+    marginTop: -8
   },
   tag_segment:{
     flex: 1,
@@ -165,7 +114,7 @@ export default StyleSheet.create({
     height: 14,
     marginLeft: 5,
   },
-  book_title:{
+  book_title_mocks:{
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -204,6 +153,12 @@ export default StyleSheet.create({
     marginLeft: 3,
     marginTop: 10
   },
+  button_segment:{
+    alignSelf: 'center',
+    marginTop: 11,
+    flexDirection: 'column',
+    marginBottom: 20
+  },
   buttons: {
     flexDirection: 'row',
     alignItems: 'flex-start'
@@ -227,7 +182,21 @@ export default StyleSheet.create({
     marginLeft: 5,
     marginTop: -8
   },
-  see_more_segment: {
-    flexDirection: 'row-reverse',  
+  buttonSegment:{
+    borderRadius: 50,
+    backgroundColor: '#324A59',
+    width: 316,
+    height: 34,
+    marginTop: 65
+  },
+  button:{
+    fontFamily: 'Poppins-Medium',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 10,
+    lineHeight: 15,
+    textAlign: 'center',
+    color: '#FFFFFF',
+    marginTop: '2.5%',
   },
 })

@@ -35,6 +35,7 @@ import viewGroup from '../views/view-group/view-group'
 import createGroup from '../views/new-group/create-group'
 import editGroup from '../views/new-group/edit-group'
 import newForum from '../views/new-forum/new-forum'
+import viewForum from '../views/view-forum/view-forum'
 import searchReaders from '../views/search-readers/search-readers'
 import searchReadersReading from '../views/search-readers-list/search-readers-reading'
 import SearchReadersToRead from '../views/search-readers-list/search-readers-to-read'
@@ -70,6 +71,7 @@ const StackNavigator = () => (
     <Stack.Screen name='CreateGroup' component={createGroup} options={{ headerShown: false}} />
     <Stack.Screen name='EditGroup' component={editGroup} options={{ headerShown: false}} />
     <Stack.Screen name='NewForum' component={newForum} options={{ headerShown: false}} />
+    <Stack.Screen name='ViewForum' component={viewForum} options={{ headerShown: false}} />
     <Stack.Screen name='SearchReaders' component={searchReaders} options={{ headerShown: false}} />
     <Stack.Screen name='SearchReadersReading' component={searchReadersReading} options={{ headerShown: false}} />
     <Stack.Screen name='SearchReadersToRead' component={SearchReadersToRead} options={{ headerShown: false}} />
