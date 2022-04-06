@@ -1,14 +1,14 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import horizontal from '../../../assets/lines/straight.png'
-import APIROUTES from '../../routes/open_api'
+import EXTERNALROUTES from '../../routes/external_routes'
 
 // eslint-disable-next-line react/prop-types
 const Entry = ({book, autor, image, navigation, id }) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <Image source={{uri: APIROUTES.cover + image + '.jpg'}} style={styles.book_image}/>
+        <Image source={{uri: EXTERNALROUTES.cover + image + '.jpg'}} style={styles.book_image}/>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
             <Text style={styles.book_style}>{book}</Text>

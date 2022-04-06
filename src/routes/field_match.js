@@ -15,7 +15,8 @@ const FIELDS = {
   year: 'ano',
   rates: 'avaliacoes',
   genre: 'genero',
-  author: 'test2'
+  author: 'test2',
+  key: 'chave'
 }
   
 export default FIELDS
