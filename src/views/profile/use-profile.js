@@ -21,7 +21,6 @@ async function useProfile({ setProfile, profile, setBooks }){
       image_read: APIROUTES.cover + response.data[FIELDS.read][0].capa + '.jpg',
       image_to_read: APIROUTES.cover + response.data[FIELDS.to_read][0].capa + '.jpg',
     })
-    console.log(response.data[FIELDS.to_read])
   }).catch((error) => {
     setBooks({
       state: true,

@@ -27,7 +27,7 @@ async function useGetBook({ setBook, id }){
       error: false,
       book_info: response.data
     })
-    console.log(response.data)
+
   }).catch((error) => {
     setBook({
       state: false,
