@@ -151,7 +151,7 @@ const ViewGroup = ({ navigation }) => {
             }
           </View>
           <View style={styles.button_segment}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('NewForum')}>
               <View style={styles.buttonSegment}>
                 <Text style={styles.button}> Criar </Text>
               </View>
