@@ -4,7 +4,7 @@ import FIELDS from '../../routes/field_match'
 import Entry from './entry'
 
 // eslint-disable-next-line react/prop-types
-const BookToReadEntries = ({ books }) => {
+const BookToReadEntries = ({ books, navigation }) => {
   return (
     <FlatList
       data={books}
@@ -12,9 +12,11 @@ const BookToReadEntries = ({ books }) => {
       renderItem={(post) => {
         return <Entry 
           book={post.item[FIELDS.book_title]}
-          autor='INDISPONIVEL'
+          autor={post.item[FIELDS.author][0][FIELDS.name]}
           rate={post.item[FIELDS.rate]}
           image={post.item[FIELDS.cover]}
+          id={post.item.id}
+          navigation={navigation}
         />
       } } />
   )

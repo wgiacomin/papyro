@@ -92,7 +92,7 @@ const UserProfile = ({ navigation }) => {
               {books.reading[0][FIELDS.book_title]}
             </Text>
             <Text style={styles.normal}>
-              Autor
+              {books.reading[0][FIELDS.author][0][FIELDS.name]}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
@@ -112,7 +112,7 @@ const UserProfile = ({ navigation }) => {
               {books.to_read[0][FIELDS.book_title]}
             </Text>
             <Text style={styles.normal}>
-              Autor
+              {books.to_read[0][FIELDS.author][0][FIELDS.name]}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
@@ -132,7 +132,7 @@ const UserProfile = ({ navigation }) => {
               {books.read[0][FIELDS.book_title]}
             </Text>
             <Text style={styles.normal}>
-              Autor
+              {books.read[0][FIELDS.author][0][FIELDS.name]}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>

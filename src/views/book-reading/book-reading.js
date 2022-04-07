@@ -4,7 +4,7 @@ import DefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
 import BookReadingEntries from './book-reading-entries'
 
-const bookReading = ({ navigation, route }) => {
+const BookReading = ({ navigation, route }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
@@ -16,7 +16,7 @@ const bookReading = ({ navigation, route }) => {
   )
 }
 
-export default bookReading
+export default BookReading
 
 const styles = StyleSheet.create({
   container: {
