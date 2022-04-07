@@ -5,6 +5,7 @@ import api from '../../routes/api'
 async function useLogin({ data, setRes, setProfile, setLoading }){
   if (data.email == '' || data.senha == ''){
     Alert.alert('Atenção!', 'Preencha todos os campos!')
+    setLoading(false)
   } else {
     await api.post(ROUTES.login, {
       'email': data.email,

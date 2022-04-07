@@ -2,7 +2,7 @@ const FIELDS = {
   name: 'nome',
   nickname: 'apelido',
   birthday: 'data_nascimento',
-  description: 'descricao' | 'sinopse',
+  description: 'descricao',
   book_title: 'nome',
   reading: 'livros_lendo',
   to_read: 'livros_lerei',
@@ -16,7 +16,10 @@ const FIELDS = {
   rates: 'avaliacoes',
   genre: 'genero',
   author: 'test2',
-  key: 'chave'
+  key: 'chave',
+  date: 'data_criacao',
+  text: 'texto',
+  likes: 'likes'
 }
   
 export default FIELDS

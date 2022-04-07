@@ -5,7 +5,7 @@ import Rate from '../../components/rate-stars'
 import EXTERNALROUTES from '../../routes/external_routes'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({book, autor, image, navigation, rate}) => {
+const Entry = ({book, autor, image, navigation, rate, id}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
@@ -18,7 +18,9 @@ const Entry = ({book, autor, image, navigation, rate}) => {
               <Rate stars={rate} />
             </View>
             <View style={styles.see_more_container}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('ViewBook', { id })}
+              >
                 <Text style={styles.see_more}>Ver</Text>
               </TouchableOpacity>
             </View>

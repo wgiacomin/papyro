@@ -9,9 +9,7 @@ async function useEditProfile({ setProfile, props, profile }){
     .then(() => setProfile({...profile, ...props}))
     .catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
-    })
-
-    
+    })  
 }
   
   
