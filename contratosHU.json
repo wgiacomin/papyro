@@ -1,0 +1,443 @@
+Anotações:
+- HU3 desenho das telas tem uma descrição do genero literario, mas isso não tem nos diagramas (eu acho ahsuhasu).
+- Não fiz os botões de like ainda
+- HU10 fazer um endpoint para cada coisa(pessoa, grupo, livro).
+- HU19 - Visualizar grupo
+
+HU1 - Realizar login
+POST - /login/
+
+Recebe: {
+	"senha": "string",
+	"email": "string"
+}
+
+Retorna(caso sucesso): {
+	"access_token": "string",
+	"token_type": "string"
+}
+
+Retorna(caso erro): {
+	"msg": "String"
+}
+
+HU2 - Realizar cadastro
+
+POST - /usuario/
+
+Recebe: {
+	"nome": "string",
+	"apelido": "string",
+	"email": "string",
+	"senha": "string",
+	"data_nascimento": "2022-02-17"
+}
+
+Retorna(caso erro): {
+	"msg": "string"
+}
+
+HU3 - Personalizar perfil
+GET - /generos/
+
+Retorna: [
+	{
+		"id": 0,
+		"genero": "string"
+	}
+]
+
+POST - /generos/gravarGenerosUsuario
+
+Recebe: [
+	{
+		"id": 0
+	}
+]
+
+Retorna(caso erro): {
+	"msg": "string"
+}
+
+**HU4 - Visualizar feed
+
+GET - /usuario/feed
+
+Retorna: {
+	"comentario": [
+		{
+			"id": 0,
+			"data_criacao": "2022-02-17",
+			"texto": "string",
+			"likes": 0,
+**		"comentariosQtd": 0,
+			"usuario": {
+				"id": 0,
+				"apelido": "string",
+				"foto": "string"
+			},
+			"livro": {
+				"id": 0,
+				"nome": "string",
+				"capa": "string"
+			}
+		}
+	],
+	"avaliacao": [
+		{
+			"id": 0,
+			"texto": "string",
+			"data_criacao": "2022-07-12",
+			"likes": 0,
+**		"comentariosQtd": 0,
+			"usuario": {
+				"id": 0,
+				"apelido": "string",
+				"foto": "string"
+			},
+			"livro": {
+				"id": 0,
+				"nome": "string",
+				"capa": "string",
+				"nota": 0
+			}
+		}
+	]
+}
+
+HU5 - Visualizar conversas
+
+GET - /usuario/conversas
+
+Retorna: [
+	{
+		"id": 0,
+		"texto": "string"
+	"usuario": {
+			"id": 0,
+			"apelido": "string",
+			"foto": "string"
+		}
+	}
+]
+
+HU6 - Visualizar sugestão de livvros
+
+GET - /livro/sugestao
+
+Retorna: [
+	{
+		"id": 0,
+		"nome": "string",
+		"capa": "string",
+	}
+]
+
+HU7 - Visualizar notificações
+
+GET - /usuario/notificacoes
+Retorna: {
+	"solicitacoes": [
+		{
+			"data_criacao": "2002-12-12",
+			"pendente": 0,
+			"usuario": {
+				"id": 0,
+				"apelido": "string",
+				"foto": "string"
+			}
+		}
+	],
+	"avaliacao": [
+		{
+			"id": 0,
+			"livro": {
+				"id": 0,
+				"nome": "string"
+			},
+			"usuario": {
+				"id": 0,
+				"apelido": "string",
+				"foto": "string"
+			}
+		}
+	],
+**	"forum": [
+		{}
+	]
+}
+
+HU8 - Manter chat
+
+POST - /mensagem/
+Recebe: {
+	"mensagem": "string"
+}
+
+Retorna(caso erro): {
+	"msg": "string"
+}
+** terminar
+GET - /mensagem/
+Retorna: [
+	{
+		"id": 0,
+		"mensagem": "string",
+	}
+]
+
+HU9 - Visualizar sugestões de amigos
+
+GET - /usuario/sugestaoAmigos
+Retorna: [
+	{
+		"id": 0,
+		"apelido": "string",
+		"foto": "string",
+		"livros": 0,
+		"generos": 0
+	}
+]
+
+HU10 - Pesquisar
+
+HU11 - Cadastrar livro
+
+HU12 - Visualizar livro
+
+GET - /livro/{id
+}
+Retorna: {
+	"id": 0,
+	"nome": "string",
+	"ano": "2000-02-12",
+	"nota": 0,
+	"sinopse": "string",
+	"capa": "string",
+	"avaliacoesQtd": 0,
+	"gruposQtd": 0,
+	"pessoasQtd": 0,
+	"livroStatusUsuario": {
+		"id": 0,
+		"status": "string"
+	},
+	"genero": {
+		"id": 0,
+		"nome": "string"
+	},
+	"autor": [
+		{
+			"nome": "string",
+			"id": 0
+		}
+	],
+	"avaliacoes": [
+		{
+			"id": 0,
+			"data_criacao": "2022-03-26T23:05:08.239252",
+			"texto": "string",
+			"nota": 0,
+			"likes": 0,
+			"comentariosQtd": 0,
+			"usuario": {
+				"id": 0,
+				"apelido": "string",
+				"foto": "string"
+			}
+		}
+	],
+	"statusLivro": [
+		{
+			"id": 0,
+			"status": "string"
+		}
+	]
+}
+	
+POST - /usuarios/addLivroBiblioteca/
+Recebe: {
+	"id_livro": 0,
+	"id_status": 0
+}
+
+Retorna(caso erro): {
+	"msg": "string"
+}
+
+HU13 - Visualizar perfil
+GET - 
+Retorna: {
+	"id": 0,
+	"apelido": "string",
+	"nome": "string",
+	"foto": "string",
+	"livrosLidosQtd": 0,
+	"seguidores": 0,
+	"grupos": {
+		"id": 0,
+		"nome": "string",
+		"membrosQtd": 0
+	},
+	"livrosLidos": {
+		"id": 0,
+		"nome": "string",
+		"livrosLidosQtd": 0
+	},
+	"livrosLerei": {
+		"id": 0,
+		"nome": "string",
+		"livrosLereiQtd": 0
+	},
+	"livrosLendo": {
+		"id": 0,
+		"nome": "string",
+		"livrosLendoQtd": 0
+	}
+}
+
+HU14 - Editar perfil
+
+GET - /usuario/meusDados
+Retorna: {
+	"id": 0,
+	"nome": "string",
+	"apelido": "string",
+	"foto": "string",
+	"descricao": "string",
+	"email": "string",
+	"data_nascimento": "2000-02-23"
+}
+
+PUT -  /usuarios/atualizarDados
+Recebe: {
+	"id": 0,
+	"nome": "string",
+	"apelido": "string",
+	"foto": "string",
+	"descricao": "string ",
+	"email": "string",
+	"senha": "string",
+	"senha_confirmacao": "string",
+	"data_nascimento": "2000-03-13"
+}
+
+Retorna(caso erro): {
+	"msg": "string"
+}
+
+Wanderson Giacomin 
+19 de março de 2022 12: 31
+
+o que é parâmetro opcional e o que não é? 
+
+HU15 - Visualizar livros lidos
+GET - /usuarios/{id
+}/livrosLidos/
+Retorna: [
+	{
+		"id": 0,
+		"nota": 0,
+		"capa": "string",
+		"nome": "string",
+		"autor": {
+			"id": 0,
+			"nome": "string"
+		}
+	}
+]
+
+HU16 - Visualizar livros que serão lidos
+GET - /usuarios/{id
+}/livrosSeraoLidos/
+Retorna: [
+	{
+		"id": 0,
+		"nota": 0,
+		"capa": "string",
+		"nome": "string",
+		"autor": {
+			"id": 0,
+			"nome": "string"
+		}
+	}
+]
+
+HU17 - Visualizar livros que estou lendo
+GET - /usuarios/{id
+}/livrosLendo/
+Retorna: [
+	{
+		"id": 0,
+		"nota": 0,
+		"capa": "string",
+		"nome": "string",
+		"autor": {
+			"id": 0,
+			"nome": "string"
+		}
+	}
+]
+
+HU18 - Visualizar pessoa no livro
+GET - /livros/{id
+}/pessoas
+Retorna: [
+	{
+		"id": 0,
+		"apelido": "string",
+		"foto": "string"
+	}
+]
+
+**HU19 - Visualizar grupo
+**HU20 - Manter grupo
+**HU21 - Visualizar Fórum do grupo
+**HU22 - Participar de enequete
+**HU23 - Manter enquete no grupo
+**HU24 - Criar tag no grupo
+**HU25 - Criar post no grupo
+**HU26 - Manter moderador do grupo
+
+HU27 - Resetar senha 
+GET - /usuario/recuperarSenha
+Recebe: {
+	"email": "string"
+}
+
+Retorna: {
+	"msg": "string"
+}
+
+HU28 - Compartilhar livro
+HU29 - Compartilhar livro entre usuários
+GET - /usuario/amigos
+Retorna: [
+	{
+		"id": 0,
+		"apelido": "string",
+		"foto": "string"
+	}
+]
+
+HU30 - Avaliar livro
+GET - /livro/{id
+}/avaliar
+{
+	"id": 0,
+	"nome": "string",
+	"capa": "string",
+	"autor": {
+		"id": "string",
+		"nome": "string"
+	}
+}
+
+PUT - /livro/avaliar
+Recebe: {
+	"id": 0,
+	"texto": "string"
+}
+
+HU31 - Visualizar comentário
+GET - 
+Retorna:
