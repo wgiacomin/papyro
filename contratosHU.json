@@ -18,7 +18,7 @@ Retorna(caso sucesso): {
 }
 
 Retorna(caso erro): {
-	"msg": "String"
+	"msg": "string"
 }
 
 HU2 - Realizar cadastro
@@ -30,7 +30,8 @@ Recebe: {
 	"apelido": "string",
 	"email": "string",
 	"senha": "string",
-	"data_nascimento": "2022-02-17"
+	"data_nascimento": "2022-02-17",
+**	"termoAceitacao": 0
 }
 
 Retorna(caso erro): {
@@ -104,6 +105,8 @@ Retorna: {
 		}
 	]
 }
+
+
 
 HU5 - Visualizar conversas
 
