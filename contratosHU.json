@@ -1,14 +1,3 @@
-Anotações:
-- HU1 Rever se é isso mesmo que tenho que retorna em caso de sucesso.
-- HU2 não precisa de um campo confirmar senha e um checkbox para aceitar os termos?
-- HU3 desenho das telas tem uma descrição do genero literario, mas isso não tem nos diagramas (eu acho ahsuhasu).
-- Não fiz os botões de like ainda
-- HU10 fazer um endpoint para cada coisa(pessoa, grupo, livro).
-- Livro tem mais de um genero e autor.
-- Falta tela para listar seguidores.
-- HU19 - Visualizar grupo
-- Livro tem dois tipos de isbn, que são o isbn13 e isbn10
-
 HU1 - Realizar login
 POST - /login/
 
