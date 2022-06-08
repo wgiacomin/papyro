@@ -1,4 +1,5 @@
 Anotações:
+- HU2 não precisa de um campo confirmar senha e um checkbox para aceitar os termos?
 - HU3 desenho das telas tem uma descrição do genero literario, mas isso não tem nos diagramas (eu acho ahsuhasu).
 - Não fiz os botões de like ainda
 - HU10 fazer um endpoint para cada coisa(pessoa, grupo, livro).
@@ -116,7 +117,7 @@ Retorna: [
 	{
 		"id": 0,
 		"texto": "string"
-	"usuario": {
+		"usuario": {
 			"id": 0,
 			"apelido": "string",
 			"foto": "string"
@@ -135,6 +136,18 @@ Retorna: [
 		"capa": "string",
 	}
 ]
+
+P - /livro/addLerei
+Recebe:
+{
+	"id": 0
+}
+
+P - /livro/naoLerei
+Recebe:
+{
+	"id": 0
+}
 
 HU7 - Visualizar notificações
 
@@ -164,9 +177,6 @@ Retorna: {
 				"foto": "string"
 			}
 		}
-	],
-**	"forum": [
-		{}
 	]
 }
 
@@ -180,7 +190,7 @@ Recebe: {
 Retorna(caso erro): {
 	"msg": "string"
 }
-** terminar
+
 GET - /mensagem/
 Retorna: [
 	{
@@ -197,10 +207,34 @@ Retorna: [
 		"id": 0,
 		"apelido": "string",
 		"foto": "string",
-		"livros": 0,
-		"generos": 0
+		"livrosQtd": 0,
+		"generosQtd": 0
 	}
 ]
+
+P - /usuario/addAmigo
+Recebe:
+{
+	"idOrigem": 0,
+	"idDestino" 0
+}
+
+Retorna(caso erro):
+{
+	"msg": "string"
+}
+
+P - /usuario/ignorarAmigo
+Recebe:
+{
+	"idOrigem": 0,
+	"idDestino" 0
+}
+
+Retorna(caso erro):
+{
+	"msg": "string"
+}
 
 HU10 - Pesquisar
 
@@ -218,7 +252,6 @@ Retorna: {
 	"sinopse": "string",
 	"capa": "string",
 	"avaliacoesQtd": 0,
-	"gruposQtd": 0,
 	"pessoasQtd": 0,
 	"livroStatusUsuario": {
 		"id": 0,
@@ -267,6 +300,8 @@ Retorna(caso erro): {
 	"msg": "string"
 }
 
+P - 
+
 HU13 - Visualizar perfil
 GET - 
 Retorna: {
@@ -275,12 +310,7 @@ Retorna: {
 	"nome": "string",
 	"foto": "string",
 	"livrosLidosQtd": 0,
-	"seguidores": 0,
-	"grupos": {
-		"id": 0,
-		"nome": "string",
-		"membrosQtd": 0
-	},
+	"seguidoresQtd": 0,
 	"livrosLidos": {
 		"id": 0,
 		"nome": "string",
@@ -328,18 +358,13 @@ Retorna(caso erro): {
 	"msg": "string"
 }
 
-Wanderson Giacomin 
-19 de março de 2022 12: 31
-
-o que é parâmetro opcional e o que não é? 
-
 HU15 - Visualizar livros lidos
-GET - /usuarios/{id
-}/livrosLidos/
+GET - /usuarios/{id}/livrosLidos/
 Retorna: [
 	{
 		"id": 0,
 		"nota": 0,
+		"avalicoesQtd": 0,
 		"capa": "string",
 		"nome": "string",
 		"autor": {
@@ -350,12 +375,12 @@ Retorna: [
 ]
 
 HU16 - Visualizar livros que serão lidos
-GET - /usuarios/{id
-}/livrosSeraoLidos/
+GET - /usuarios/{id}/livrosSeraoLidos/
 Retorna: [
 	{
 		"id": 0,
 		"nota": 0,
+		"avalicoesQtd": 0,
 		"capa": "string",
 		"nome": "string",
 		"autor": {
@@ -366,12 +391,12 @@ Retorna: [
 ]
 
 HU17 - Visualizar livros que estou lendo
-GET - /usuarios/{id
-}/livrosLendo/
+GET - /usuarios/{id}/livrosLendo/
 Retorna: [
 	{
 		"id": 0,
 		"nota": 0,
+		"avalicoesQtd": 0,
 		"capa": "string",
 		"nome": "string",
 		"autor": {
@@ -382,8 +407,7 @@ Retorna: [
 ]
 
 HU18 - Visualizar pessoa no livro
-GET - /livros/{id
-}/pessoas
+GET - /livros/{id}/pessoas
 Retorna: [
 	{
 		"id": 0,
@@ -423,12 +447,15 @@ Retorna: [
 ]
 
 HU30 - Avaliar livro
-GET - /livro/{id
-}/avaliar
+GET - /livro/{id}/avaliar
 {
 	"id": 0,
 	"nome": "string",
 	"capa": "string",
+	"sinopse": "string",
+	"genero": {
+		"nome": "string"
+	}
 	"autor": {
 		"id": "string",
 		"nome": "string"
