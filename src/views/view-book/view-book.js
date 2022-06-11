@@ -6,7 +6,6 @@ import styles from './view-book-style'
 import DefaultBar from '../../components/default-bar-back'
 import shareButton from '../../../assets/icons/share.png'
 import horizontal from '../../../assets/lines/straight.png'
-import groups from '../../../assets/icons/groups.png'
 import profile from '../../../assets/icons/profile.png'
 import image_mocked from '../../../assets/icons/image.png'
 import like from '../../../assets/icons/like.png'
@@ -117,17 +116,11 @@ const ViewBook = ({ navigation, route }) => {
             <Text style={styles.title}>
               Procurando Companhia?
             </Text>
-            <View style={styles.group_and_people}>
-              <TouchableOpacity>
-                <Image source={groups} style={styles.group_image} />
-              </TouchableOpacity>
-              <Text style={styles.group_title}>
-                Grupos
-              </Text>
-              <TouchableOpacity>
+            <View style={styles.company}>
+              <TouchableOpacity onPress={() => navigation.navigate('SearchReaders')}>
                 <Image source={profile} style={styles.person_image} />
               </TouchableOpacity>
-              <Text style={styles.group_title}>
+              <Text style={styles.company_title}>
                 Pessoas
               </Text>
             </View>

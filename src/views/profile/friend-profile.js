@@ -39,27 +39,7 @@ const FriendProfile = ({ navigation }) => {
             </TouchableOpacity>
             <Image source={vertical} style={styles.horizontalLine} />
           </View>
-          <View style={styles.segment}>
-            <Text style={styles.bold}>
-              Grupos
-            </Text>
-            <Text style={styles.normal}>
-              nome Grupo
-            </Text>
-            <Text style={styles.normal}>
-              X membros
-            </Text>
-            <View style={styles.buttonSegment}>
-              <View style={styles.continueSegment}>
-                <Image source={book} style={styles.bookSize}/>
-              </View>
-            </View>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('MyGroups')}>
-              <Text style={styles.seeMore}>
-              Ver mais(X)
-              </Text>
-            </TouchableOpacity>  
+          <View style={styles.segment}> 
             <Text style={styles.bold}>
               Lendo
             </Text>

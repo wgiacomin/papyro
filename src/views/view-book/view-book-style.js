@@ -182,23 +182,18 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginTop: 13
   },
-  group_and_people: {
+  company: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     paddingTop: 12
   },
-  group_image:{
-    width: 34,
-    height: 34,
-    marginLeft: 49
-  },
   person_image:{
     width: 22,
     height: 22,
-    marginLeft: 49
+    marginLeft: 135
   },
-  group_title: {  
+  company_title: {  
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -213,14 +208,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingTop: 5,
     marginBottom: 12
-  },
-  group_subtitle: {  
-    fontFamily: 'Poppins',
-    fontStyle: 'normal',
-    fontSize: 10,
-    lineHeight: 12,
-    color: '#000000',
-    marginLeft: 55
   },
   person_subtitle: {  
     fontFamily: 'Poppins',
