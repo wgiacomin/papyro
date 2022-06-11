@@ -5,15 +5,11 @@ import convertKeys from '../../routes/field_converter'
 
 
 async function useEditProfile({ setProfile, props, profile }){
-  const response = await api.get(ROUTES.edit_profile)
-    .catch((error) => {
-      Alert.alert('Atenção', error.response.data.detail)
-    })
-  await api.put(ROUTES.update_profile, {...response.data, ...convertKeys({toChange: props, API: false})})
+  await api.put(ROUTES.update_profile, convertKeys({toChange: props, API: false}))
     .then(() => setProfile({...profile, ...props}))
     .catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
-    })
+    })  
 }
   
   

@@ -9,7 +9,17 @@ const FIELDS = {
   read: 'livros_lidos',
   cover: 'capa',
   rate: 'nota',
-  groups: 'grupos'
+  groups: 'grupos',
+  id: 'id',
+  email: 'email',
+  year: 'ano',
+  rates: 'avaliacoes',
+  genre: 'genero',
+  author: 'test2',
+  key: 'chave',
+  date: 'data_criacao',
+  text: 'texto',
+  likes: 'likes'
 }
   
 export default FIELDS
