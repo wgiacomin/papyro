@@ -2,6 +2,7 @@ import { Alert } from 'react-native'
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { BRANCH, SIGNUP } from '@env'
+import CONTRACTS from '../../routes/contracts'
 
 function setValues({ setRes, response }) {
   setRes({
@@ -15,7 +16,7 @@ async function useRegister({ data, setRes }) {
       setRes({
         status: CONTRACTS.signup.error.status,
         msg: CONTRACTS.signup.error.data.detail
-      })
+      }) 
     } else {
       setValues({ setRes, response: CONTRACTS.signup.success })
     }

@@ -11,7 +11,7 @@ function setValues({ setProfile, setRes, response }) {
   })
 
   setProfile({
-    id: responde.data.usuario.id
+    id: response.data.usuario.id,
     name: response.data.usuario.nome,
     nickname: response.data.usuario.apelido,
     description: response.data.usuario.descricao,
