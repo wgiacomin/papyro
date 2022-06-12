@@ -11,12 +11,13 @@ function setValues({ setProfile, setRes, response }) {
   })
 
   setProfile({
+    id: responde.data.usuario.id
     name: response.data.usuario.nome,
     nickname: response.data.usuario.apelido,
     description: response.data.usuario.descricao,
+    photo: response.data.usuario.foto,
   })
 }
-
 
 async function useLogin({ data, setRes, setProfile, setLoading }) {
   if (BRANCH == 'dev') {
