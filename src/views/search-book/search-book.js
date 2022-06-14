@@ -16,10 +16,6 @@ const SearchBook = ({ navigation }) => {
             <Text style={styles.title}>Pessoas</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate('SearchGroup')}>
-            <Text style={styles.title}>Grupos</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
             onPress={() => navigation.navigate('SearchBook')}>
             <Text style={styles.title_selected}>Livros</Text>
             <View style={styles.line_selected}>
@@ -64,7 +60,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     textAlign: 'center',
     color: '#D8D8D8',
-    paddingLeft: 45
+    paddingLeft: 65
   },
   title_selected: {
     fontFamily: 'Poppins',
@@ -74,13 +70,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
     textAlign: 'center',
     color: '#001833',
-    paddingLeft: 50
+    paddingLeft: 95
   },
   line_selected:{
     flex: 1,
     marginTop: 10,
-    marginLeft: 40,
-    marginRight: 14
+    marginLeft: 80,
+    marginRight: 12
   },
   selectedLine: {
     width: '163%',

@@ -23,17 +23,13 @@ import bookToRead from '../views/book-to-read/book-to-read'
 import bookRead from '../views/book-read/book-read'
 import bookReading from '../views/book-reading/book-reading'
 import addBook from '../views/add-book/add-book'
-import myGroups from '../views/my-groups/my-groups'
 import searchBook from '../views/search-book/search-book'
-import searchGroup from '../views/search-group/search-group'
 import searchPeople from '../views/search-people/search-people'
 import bookSuggestion from '../views/book-suggestion/book-suggestion'
 import peopleSuggestion from '../views/people-suggestion/people-suggestion'
 import viewBook from '../views/view-book/view-book'
 import review from '../views/review/review'
-import viewGroup from '../views/view-group/view-group'
-import createGroup from '../views/new-group/create-group'
-import editGroup from '../views/new-group/edit-group'
+
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -52,18 +48,13 @@ const StackNavigator = () => (
     <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false}} />
     <Stack.Screen name='BookRead' component={bookRead} options={{ headerShown: false}} />
     <Stack.Screen name='BookReading' component={bookReading} options={{ headerShown: false}} />
-    <Stack.Screen name='MyGroups' component={myGroups} options={{ headerShown: false}} />
     <Stack.Screen name='AddBook' component={addBook} options={{ headerShown: false}} />
     <Stack.Screen name='SearchBook' component={searchBook} options={{ headerShown: false}} />
-    <Stack.Screen name='SearchGroup' component={searchGroup} options={{ headerShown: false}} />
     <Stack.Screen name='SearchPeople' component={searchPeople} options={{ headerShown: false}} />
     <Stack.Screen name='BookSuggestion' component={bookSuggestion} options={{ headerShown: false}} />
     <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false}} />
     <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false}} />
     <Stack.Screen name='Review' component={review} options={{ headerShown: false}} />
-    <Stack.Screen name='ViewGroup' component={viewGroup} options={{ headerShown: false}} />
-    <Stack.Screen name='CreateGroup' component={createGroup} options={{ headerShown: false}} />
-    <Stack.Screen name='EditGroup' component={editGroup} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 
@@ -112,7 +103,7 @@ const MainNavigator = () => (
         ),
       }} />
 
-    <Tab.Screen name="Profile" component={viewGroup}
+    <Tab.Screen name="Profile" component={peopleSuggestion}
       options={{ 
         headerShown: false, 
         tabBarShowLabel: false, 
