@@ -22,7 +22,7 @@ const Login = ({ navigation }) => {
 
   const [data, setData] = useState({
     email: '',
-    senha: '',
+    password: '',
   })
 
   useEffect(() => {

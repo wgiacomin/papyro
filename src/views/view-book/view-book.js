@@ -11,7 +11,6 @@ import image_mocked from '../../../assets/icons/image.png'
 import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
 import editButton from '../../../assets/buttons/editButton.png'
-import FIELDS from '../../routes/field_match'
 import spinner from '../../styles/spinner'
 import EXTERNALROUTES from '../../routes/external_routes'
 import EXTERNAL_FIELDS from '../../routes/external_fields'
@@ -70,18 +69,18 @@ const ViewBook = ({ navigation, route }) => {
           </View>
           <View style={styles.book_segment}>
             <Text style={styles.book_title}>
-              {book.book_info[FIELDS.book_title]}
+              {book.book_info.book_title}
             </Text>
             <Text style={styles.book_autor}>
-              {book.book_info[FIELDS.author][0][FIELDS.name]}
+              {book.book_info.author[0].name}
             </Text>
             <View style={styles.star_container}>
-              <Rate stars={book.book_info[FIELDS.rate]} style={styles.star} />
+              <Rate stars={book.book_info.rate} style={styles.star} />
             </View>
             <Text style={styles.star_number}>
-              ({book.book_info[FIELDS.rates].length})
+              ({book.book_info.rates.length})
             </Text>
-            <Image source={{uri: EXTERNALROUTES.cover + book.book_info[FIELDS.cover] + '.jpg'}} style={styles.bookImage}/>
+            <Image source={{uri: EXTERNALROUTES.cover + book.book_info.cover + '.jpg'}} style={styles.bookImage}/>
           </View>
           <View style={styles.resume_segment}>
             <Text style={styles.resume}>
@@ -130,7 +129,7 @@ const ViewBook = ({ navigation, route }) => {
             </View>
           </View>
           <View>
-            <Text style={styles.comments_title}> {book.book_info[FIELDS.rates].length} avaliações </Text>
+            <Text style={styles.comments_title}> {book.book_info.rates.length} avaliações </Text>
           </View>
           <View style={styles.edit_segment}>
             <TouchableOpacity
@@ -139,7 +138,7 @@ const ViewBook = ({ navigation, route }) => {
             </TouchableOpacity>
           </View> 
           {
-            book.book_info[FIELDS.rates].map((item, key) => {
+            book.book_info.rates.map((item, key) => {
               return (
                 <>
                   <View style={styles.comment_title}>
@@ -147,25 +146,25 @@ const ViewBook = ({ navigation, route }) => {
                       <Image source={image_mocked} style={styles.user_image}/>  
                     </TouchableOpacity>
                     <TouchableOpacity>
-                      <Text style={styles.person}>{item.usuario[FIELDS.name]}</Text>
+                      <Text style={styles.person}>{item.usuario.name}</Text>
                     </TouchableOpacity>
                     <View style={styles.star_container_comments}>
-                      <Rate stars={item[FIELDS.rate]} style={styles.star_comments} />
+                      <Rate stars={item.rate} style={styles.star_comments} />
                     </View>
                   </View>
                   <View style={styles.book_description_container}>
-                    <Text style={styles.book_description}>{item[FIELDS.text]}</Text>
+                    <Text style={styles.book_description}>{item.text}</Text>
                     <TouchableOpacity
                       onPress={() => navigation.navigate('Comments')}
                     >
                     </TouchableOpacity>
                   </View>
                   <View style={styles.footer}>
-                    <Text style={styles.date}>{item[FIELDS.date].slice(0, 10)}</Text>
+                    <Text style={styles.date}>{item.date.slice(0, 10)}</Text>
                     <View style={styles.like_and_comments}>
                       <TouchableOpacity style={styles.buttons}>
                         <Image source={like} style={styles.icons}/>
-                        <Text style={styles.icon_text}>{item[FIELDS.likes]}</Text>
+                        <Text style={styles.icon_text}>{item.likes}</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={styles.buttons}
                         onPress={() => navigation.navigate('Comments')}>

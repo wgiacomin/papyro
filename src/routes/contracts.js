@@ -329,12 +329,12 @@ const CONTRACTS = {
       'data': {
         'access_token': 'STRINGEXEMPLO',
         'token_type': 'Bearer',
-        'usuario': {
-          'apelido': 'Exemplinho',
-          'descricao': 'Sou rica',
-          'foto': 'string',
+        'user': {
+          'nickname': 'Exemplinho',
+          'description': 'Sou rica',
+          'photo': 'string',
           'id': 0,
-          'nome': 'Exemplo'
+          'name': 'Exemplo'
         }
       },
       'status': 200

@@ -16,7 +16,7 @@ const ProfileBar = ({data, setData}) => {
             placeholder='Nome Completo'
             style={styles.textInput}
             autoCompleteType='name'
-            onChangeText={text => setData({...data, 'nome': text})}
+            onChangeText={text => setData({...data, 'name': text})}
             value={data.nome}
             returnKeyType={'done'}
           />

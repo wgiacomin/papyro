@@ -1,7 +1,6 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { Alert } from 'react-native'
-import FIELDS from '../../routes/field_match'
 import EXTERNALROUTES from '../../routes/external_routes'
 
 async function useProfile({ setProfile, profile, setBooks }){
@@ -9,17 +8,17 @@ async function useProfile({ setProfile, profile, setBooks }){
   await api.get(ROUTES.profile + 0).then((response) => {
     setBooks({
       state: true,
-      reading: response.data[FIELDS.reading],
-      reading_count: response.data[FIELDS.reading].length,
-      read: response.data[FIELDS.read],
-      read_count: response.data[FIELDS.read].length,
-      to_read: response.data[FIELDS.to_read],
-      to_read_count: response.data[FIELDS.to_read].length,
-      groups: response.data[FIELDS.groups],
-      groups_count: response.data[FIELDS.groups].length,
-      image_reading: EXTERNALROUTES.cover + response.data[FIELDS.reading][0].capa + '.jpg',
-      image_read: EXTERNALROUTES.cover + response.data[FIELDS.read][0].capa + '.jpg',
-      image_to_read: EXTERNALROUTES.cover + response.data[FIELDS.to_read][0].capa + '.jpg',
+      reading: response.data.reading,
+      reading_count: response.data.reading.length,
+      read: response.data.read,
+      read_count: response.data.read.length,
+      to_read: response.data.to_read,
+      to_read_count: response.data.to_read.length,
+      groups: response.data.groups,
+      groups_count: response.data.groups.length,
+      image_reading: EXTERNALROUTES.cover + response.data.reading[0].capa + '.jpg',
+      image_read: EXTERNALROUTES.cover + response.data.read[0].capa + '.jpg',
+      image_to_read: EXTERNALROUTES.cover + response.data.to_read[0].capa + '.jpg',
     })
   }).catch((error) => {
     setBooks({
@@ -32,9 +31,9 @@ async function useProfile({ setProfile, profile, setBooks }){
     setProfile({
       ...profile,
       id: response.data.id,
-      email: response.data[FIELDS.email],
-      birthday: response.data[FIELDS.birthday],
-      description:  response.data[FIELDS.description],
+      email: response.data.email,
+      birthday: response.data.birthday,
+      description:  response.data.description,
     })
   }
   ).catch((error) => {

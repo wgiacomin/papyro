@@ -28,7 +28,7 @@ const DateBar = ({data, setData}) => {
       const dd = pad(selectedDate.getDate(), 2)
       const mm = pad(selectedDate.getMonth() + 1, 2)
       const yyyy = selectedDate.getFullYear()
-      setData({...data, 'data': selectedDate, 'data_string': dd + '/' + mm + '/' + yyyy, 'data_post': yyyy + '-' + mm + '-' + dd})
+      setData({...data, 'date': selectedDate, 'date_string': dd + '/' + mm + '/' + yyyy, 'birthday': yyyy + '-' + mm + '-' + dd})
     }
   }
 
