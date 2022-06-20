@@ -5,6 +5,7 @@ import styles from './login-style'
 import EmailBar from '../../components/email-bar'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
+import useForgetPassword from './use-forget-password'
 
 const ForgetPassword = ({ navigation }) => {
   const [data, setData] = useState({
@@ -28,7 +29,10 @@ const ForgetPassword = ({ navigation }) => {
         </View>
         <View style={styles.buttonSegment}>
           <TouchableOpacity
-            onPress={() => Alert.alert('Atenção!', 'Você receberá um e-mail contendo instruções para a troca de senha.')}>
+            onPress={() => {
+              useForgetPassword(data, navigation)
+              navigation.navigate('Login')
+            }}>
             <Image source={circleButton} style={styles.buttonSize} />
           </TouchableOpacity>
         </View>

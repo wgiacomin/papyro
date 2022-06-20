@@ -3,16 +3,15 @@ import {FlatList } from 'react-native'
 import Entry from './entry'
 
 // eslint-disable-next-line react/prop-types
-const NotificationEntries = ({mocks}) => {
+const NotificationEntries = ({ data, navigation }) => {
   return (
     <FlatList
-      data={mocks}
+      data={data}
       numColumns={1}
       renderItem={(post) => {
         return <Entry 
-          text={post.item.text}
-          image={post.item.image}
-          data={post.item.data}
+          navigation={navigation}
+          data={post.item}
         />
       } } />
   )

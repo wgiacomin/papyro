@@ -318,26 +318,26 @@ const CONTRACTS = {
       'status': 200
     }
   },
-  'login': {
-    'error': {
-      'data': {
-        'detail': 'Falha ao realizar login!'
+  login: {
+    error: {
+      data: {
+        detail: 'Falha ao realizar login!'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': {
-        'access_token': 'STRINGEXEMPLO',
-        'token_type': 'Bearer',
-        'usuario': {
-          'apelido': 'Exemplinho',
-          'descricao': 'Sou rica',
-          'foto': 'string',
-          'id': 0,
-          'nome': 'Exemplo'
+    success: {
+      data: {
+        access_token: 'STRINGEXEMPLO',
+        token_type: 'Bearer',
+        user: {
+          nickname: 'Exemplinho',
+          description: 'Sou rica',
+          photo: 'string',
+          id: 0,
+          name: 'Exemplo'
         }
       },
-      'status': 200
+      status: 200
     }
   },
   'mensages': {
@@ -357,42 +357,59 @@ const CONTRACTS = {
       'status': 200
     }
   },
-  'notificacoes': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  notifications: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': {
-        'avaliacao': [
+    success: {
+      data: {
+        notifications: [
           {
-            'id': 0,
-            'livro': {
-              'id': 0,
-              'nome': 'string'
+            id: 0,
+            book: {
+              id: 0,
+              name: 'Foundation',
+              cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg'
             },
-            'usuario': {
-              'apelido': 'string',
-              'foto': 'string',
-              'id': 0
+            user: {
+              nickname: 'Emily May',
+              photo: 'https://images.gr-assets.com/users/1528390751p2/4622890.jpg',
+              id: 0
+            },
+            notification: {
+              id: 0,
+              text: 'Emily comentou "Legal" na sua avaliação.',
+              date: '20/05/2021',
+              refer: 'comment',
+              refer_id: '1'
+            }
+          },
+          {
+            id: 1,
+            book: {
+              id: 1,
+              name: 'Foundation and Empire',
+              cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1391454612l/29581.jpg'
+            },
+            user: {
+              nickname: 'Antti Palmén',
+              photo: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              id: 1
+            },
+            notification: {
+              id: 1,
+              text: 'Antti curtiu sua avaliação sobre o livro.',
+              date: '20/05/2021',
+              refer: 'comment',
+              refer_id: '1'
             }
           }
         ],
-        'solicitacoes': [
-          {
-            'data_criacao': '2002-12-12',
-            'pendente': 0,
-            'usuario': {
-              'apelido': 'string',
-              'foto': 'string',
-              'id': 0
-            }
-          }
-        ]
       },
-      'status': 200
+      status: 200
     }
   },
   'pesquisar': {
@@ -461,15 +478,15 @@ const CONTRACTS = {
       'status': 200
     }
   },
-  'signup': {
-    'error': {
-      'data': {
-        'detail': 'Falha ao cadastrar!'
+  signup: {
+    error: {
+      data: {
+        detail: 'Falha ao cadastrar!'
       },
-      'status': 400
+      status: 400
     },
-    'success': {
-      'status': 201
+    success: {
+      status: 201
     }
   },
   'sugestaoAmigos': {

@@ -3,7 +3,6 @@ import api from '../../routes/api'
 import external_api from '../../routes/external_api'
 import { Alert } from 'react-native'
 import EXTERNALROUTES from '../../routes/external_routes'
-import FIELDS from '../../routes/field_match'
 import EXTERNAL_FIELDS from '../../routes/external_fields'
 
 async function useGetBook({ setBook, id, setExternal }){
@@ -24,7 +23,7 @@ async function useGetBook({ setBook, id, setExternal }){
     Alert.alert('Atenção', error.response.data.detail)
   })
   
-  await external_api.get(EXTERNALROUTES.books + key[FIELDS.key] + '.json').then((response) => {
+  await external_api.get(EXTERNALROUTES.books + key.key + '.json').then((response) => {
     let description = response.data[EXTERNAL_FIELDS.description] ? response.data[EXTERNAL_FIELDS.description] : 'Ops, ainda não temos uma descrição!'
     if (Object.keys(description).length == 2 ){
       description = description.value
