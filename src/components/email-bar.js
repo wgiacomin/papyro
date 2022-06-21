@@ -1,18 +1,17 @@
 import React from 'react'
 import { View, Image, TextInput, StyleSheet, Alert } from 'react-native'
-import messageIcon from '../../assets/icons/message.png'
+import messageIcon from '../../assets/icons/Message.png'
 import vertical from '../../assets/lines/straight.png'
 
-const EmailBar = ({data, setData}) => {
+const EmailBar = ({ data, setData }) => {
 
-  function validateEmail(email){
+  function validateEmail(email) {
     // eslint-disable-next-line no-useless-escape
-    if (/^\w+([\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(email) | email.length == 0)
-    {
+    if (/^\w+([\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(email) | email.length == 0) {
       return (true)
     }
     Alert.alert('Atenção!', 'E-mail inválido!')
-    setData({...data, 'email': ''})
+    setData({ ...data, 'email': '' })
     return (false)
   }
 
@@ -28,7 +27,7 @@ const EmailBar = ({data, setData}) => {
             placeholder='E-mail'
             style={styles.textInput}
             autoCompleteType='email'
-            onChangeText={text => setData({...data, 'email': text})}
+            onChangeText={text => setData({ ...data, 'email': text })}
             value={data.email}
             keyboardType={'email-address'}
             onEndEditing={() => validateEmail(data.email)}
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  segment:{
+  segment: {
     flex: 1,
     marginTop: 5,
     flexDirection: 'row',

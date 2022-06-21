@@ -6,7 +6,7 @@ import styles from './view-book-style'
 import DefaultBar from '../../components/default-bar-back'
 import shareButton from '../../../assets/icons/share.png'
 import horizontal from '../../../assets/lines/straight.png'
-import profile from '../../../assets/icons/profile.png'
+import profile from '../../../assets/icons/Profile.png'
 import image_mocked from '../../../assets/icons/image.png'
 import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
@@ -20,7 +20,7 @@ import useGetBook from './useBook'
 
 
 const ViewBook = ({ navigation, route }) => {
-  const [show, setShow ] = useState(false)
+  const [show, setShow] = useState(false)
 
   const [external, setExternal] = useState({
     loading: true,
@@ -31,16 +31,27 @@ const ViewBook = ({ navigation, route }) => {
   const [book, setBook] = useState({
     loading: true,
     error: false,
-    book_info: {},
+    book_info: {}
   })
 
   useEffect(() => {
-    if (book.loading & external.loading){
-      useGetBook({id:route.params.id, setBook, setExternal})
+    if (book.loading & external.loading) {
+      useGetBook({ id: route.params?.id, setBook, setExternal })
     }
   }, [])
-  
-  if(book.error){
+
+  //mocks
+  setBook({
+    loading: false,
+    error: false,
+    book_info: {
+      nome: "livro1",
+    },
+  })
+  //mocks
+  setExternal({ loading: false })
+
+  if (book.error) {
     navigation.goBack()
   }
 
@@ -54,20 +65,23 @@ const ViewBook = ({ navigation, route }) => {
 
 
   return (
+
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <ScrollView>
         <View style={styles.standart}>
-          <DefaultBar navigation={ navigation }/>
-          <View style={styles.segment}>
+          <DefaultBar navigation={navigation} />
+
+          {/* <View style={styles.segment}>
             <Text style={styles.gender_title}>
               Gênero: {external.external_info[EXTERNAL_FIELDS.genre][0]}
             </Text>
             <View style={styles.share_segment}>
               <TouchableOpacity>
-                <Image source={shareButton} style={styles.shareButton}/>
+                <Image source={shareButton} style={styles.shareButton} />
               </TouchableOpacity>
-            </View> 
+            </View>
           </View>
+
           <View style={styles.book_segment}>
             <Text style={styles.book_title}>
               {book.book_info[FIELDS.book_title]}
@@ -81,16 +95,17 @@ const ViewBook = ({ navigation, route }) => {
             <Text style={styles.star_number}>
               ({book.book_info[FIELDS.rates].length})
             </Text>
-            <Image source={{uri: EXTERNALROUTES.cover + book.book_info[FIELDS.cover] + '.jpg'}} style={styles.bookImage}/>
+            <Image source={{ uri: EXTERNALROUTES.cover + book.book_info[FIELDS.cover] + '.jpg' }} style={styles.bookImage} />
           </View>
+
           <View style={styles.resume_segment}>
             <Text style={styles.resume}>
               {external.description}
             </Text>
             <View style={styles.want_to_read_container}>
-              <TouchableOpacity 
-                onPress={() => {setShow(!show)}}>
-                <Text style={styles.want_to_read}> Quero Ler </Text>    
+              <TouchableOpacity
+                onPress={() => { setShow(!show) }}>
+                <Text style={styles.want_to_read}> Quero Ler </Text>
               </TouchableOpacity>
               {
                 show ? (
@@ -98,15 +113,15 @@ const ViewBook = ({ navigation, route }) => {
                     <Text style={styles.want_to_read_list}>Quero Ler</Text>
                     <Text style={styles.want_to_read_list}>Não Ler</Text>
                   </View>
-                ) : null 
-              } 
+                ) : null
+              }
             </View>
             <View style={styles.star_container_resume}>
               <TouchableOpacity onPress={() => navigation.navigate('Review')}>
                 <Text style={styles.star_number_resume}>
-                (Avaliar)
+                  (Avaliar)
                 </Text>
-              </TouchableOpacity> 
+              </TouchableOpacity>
             </View>
             <View style={styles.line}>
               <Image source={horizontal} style={styles.horizontalLine} />
@@ -135,16 +150,16 @@ const ViewBook = ({ navigation, route }) => {
           <View style={styles.edit_segment}>
             <TouchableOpacity
               onPress={() => navigation.navigate('Review')}>
-              <Image source={editButton} style={styles.editButton}/>
+              <Image source={editButton} style={styles.editButton} />
             </TouchableOpacity>
-          </View> 
+          </View>
           {
             book.book_info[FIELDS.rates].map((item, key) => {
               return (
                 <>
                   <View style={styles.comment_title}>
                     <TouchableOpacity>
-                      <Image source={image_mocked} style={styles.user_image}/>  
+                      <Image source={image_mocked} style={styles.user_image} />
                     </TouchableOpacity>
                     <TouchableOpacity>
                       <Text style={styles.person}>{item.usuario[FIELDS.name]}</Text>
@@ -164,12 +179,12 @@ const ViewBook = ({ navigation, route }) => {
                     <Text style={styles.date}>{item[FIELDS.date].slice(0, 10)}</Text>
                     <View style={styles.like_and_comments}>
                       <TouchableOpacity style={styles.buttons}>
-                        <Image source={like} style={styles.icons}/>
+                        <Image source={like} style={styles.icons} />
                         <Text style={styles.icon_text}>{item[FIELDS.likes]}</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={styles.buttons}
                         onPress={() => navigation.navigate('Comments')}>
-                        <Image source={comments} style={styles.icons}/>
+                        <Image source={comments} style={styles.icons} />
                         <Text>  </Text>
                       </TouchableOpacity>
                     </View>
@@ -181,7 +196,7 @@ const ViewBook = ({ navigation, route }) => {
               )
             }
             )
-          }
+          } */}
         </View>
       </ScrollView>
     </SafeAreaView>

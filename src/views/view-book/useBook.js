@@ -6,7 +6,7 @@ import EXTERNALROUTES from '../../routes/external_routes'
 import FIELDS from '../../routes/field_match'
 import EXTERNAL_FIELDS from '../../routes/external_fields'
 
-async function useGetBook({ setBook, id, setExternal }){
+async function useGetBook({ setBook, id, setExternal }) {
   let key = ''
   await api.get(ROUTES.get_book + id).then((response) => {
     setBook({
@@ -23,19 +23,19 @@ async function useGetBook({ setBook, id, setExternal }){
     })
     Alert.alert('Atenção', error.response.data.detail)
   })
-  
-  await external_api.get(EXTERNALROUTES.books + key[FIELDS.key] + '.json').then((response) => {
-    let description = response.data[EXTERNAL_FIELDS.description] ? response.data[EXTERNAL_FIELDS.description] : 'Ops, ainda não temos uma descrição!'
-    if (Object.keys(description).length == 2 ){
-      description = description.value
-    }
-    setExternal({loading: false, external_info: response.data, description})
-  }).catch((error) => {
-    setExternal({
-      loading: false,
-      error: true,
-    })
-  })
+
+  // await external_api.get(EXTERNALROUTES.books + key[FIELDS.key] + '.json').then((response) => {
+  //   let description = response.data[EXTERNAL_FIELDS.description] ? response.data[EXTERNAL_FIELDS.description] : 'Ops, ainda não temos uma descrição!'
+  //   if (Object.keys(description).length == 2) {
+  //     description = description.value
+  //   }
+  //   setExternal({ loading: false, external_info: response.data, description })
+  // }).catch((error) => {
+  //   setExternal({
+  //     loading: false,
+  //     error: true,
+  //   })
+  // })
 }
 
 export default useGetBook

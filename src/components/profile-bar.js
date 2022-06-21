@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Image, TextInput, StyleSheet } from 'react-native'
-import profileIcon from '../../assets/icons/profile.png'
+import profileIcon from '../../assets/icons/Profile.png'
 import vertical from '../../assets/lines/straight.png'
 
-const ProfileBar = ({data, setData}) => {
+const ProfileBar = ({ data, setData }) => {
   return (
     <View>
       <View style={styles.container}>
@@ -16,7 +16,7 @@ const ProfileBar = ({data, setData}) => {
             placeholder='Nome Completo'
             style={styles.textInput}
             autoCompleteType='name'
-            onChangeText={text => setData({...data, 'nome': text})}
+            onChangeText={text => setData({ ...data, 'nome': text })}
             value={data.nome}
             returnKeyType={'done'}
           />
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  segment:{
+  segment: {
     flex: 1,
     marginTop: 5,
     flexDirection: 'row',
