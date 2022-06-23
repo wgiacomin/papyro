@@ -6,7 +6,7 @@ import styles from './view-book-style'
 import DefaultBar from '../../components/default-bar-back'
 import shareButton from '../../../assets/icons/share.png'
 import horizontal from '../../../assets/lines/straight.png'
-import profile from '../../../assets/icons/Profile.png'
+import profile from '../../../assets/icons/profile.png'
 import image_mocked from '../../../assets/icons/image.png'
 import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
@@ -40,17 +40,6 @@ const ViewBook = ({ navigation, route }) => {
     }
   }, [])
 
-  //mocks
-  setBook({
-    loading: false,
-    error: false,
-    book_info: {
-      nome: "livro1",
-    },
-  })
-  //mocks
-  setExternal({ loading: false })
-
   if (book.error) {
     navigation.goBack()
   }
@@ -71,7 +60,7 @@ const ViewBook = ({ navigation, route }) => {
         <View style={styles.standart}>
           <DefaultBar navigation={navigation} />
 
-          {/* <View style={styles.segment}>
+          <View style={styles.segment}>
             <Text style={styles.gender_title}>
               Gênero: {external.external_info[EXTERNAL_FIELDS.genre][0]}
             </Text>
@@ -196,7 +185,7 @@ const ViewBook = ({ navigation, route }) => {
               )
             }
             )
-          } */}
+          }
         </View>
       </ScrollView>
     </SafeAreaView>

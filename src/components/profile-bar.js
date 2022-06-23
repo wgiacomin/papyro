@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image, TextInput, StyleSheet } from 'react-native'
-import profileIcon from '../../assets/icons/Profile.png'
+import profileIcon from '../../assets/icons/profile.png'
 import vertical from '../../assets/lines/straight.png'
 
 const ProfileBar = ({ data, setData }) => {

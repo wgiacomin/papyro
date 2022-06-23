@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image, TextInput, StyleSheet, Alert } from 'react-native'
-import messageIcon from '../../assets/icons/Message.png'
+import messageIcon from '../../assets/icons/message.png'
 import vertical from '../../assets/lines/straight.png'
 
 const EmailBar = ({ data, setData }) => {
