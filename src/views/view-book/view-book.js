@@ -44,16 +44,13 @@ const ViewBook = ({ navigation, route }) => {
       </View>
     )
   }
-
+  console.log(book)
 
   return (
 
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <ScrollView>
         <View style={styles.standart}>
-          <Text>test tirar isso depois HUHUHSAUHSUDHAUHDUSHUDUHAUDHAUSHD
-            dasdad
-          </Text>
           <DefaultBar navigation={navigation} />
 
           {/* <View style={styles.segment}>
@@ -69,18 +66,18 @@ const ViewBook = ({ navigation, route }) => {
 
           <View style={styles.book_segment}>
             <Text style={styles.book_title}>
-              {book.book_info[FIELDS.book_title]}
+              {book}
             </Text>
-            <Text style={styles.book_autor}>
-              {book.book_info[FIELDS.author][0][FIELDS.name]}
+            {/* <Text style={styles.book_autor}>
+              {book.[FIELDS.author][0][FIELDS.name]}
             </Text>
             <View style={styles.star_container}>
-              <Rate stars={book.book_info[FIELDS.rate]} style={styles.star} />
+              <Rate stars={book.[FIELDS.rate]} style={styles.star} />
             </View>
             <Text style={styles.star_number}>
-              ({book.book_info[FIELDS.rates].length})
+              ({book.[FIELDS.rates].length})
             </Text>
-            <Image source={{ uri: EXTERNALROUTES.cover + book.book_info[FIELDS.cover] + '.jpg' }} style={styles.bookImage} />
+            <Image source={{ uri: EXTERNALROUTES.cover + book.book_info[FIELDS.cover] + '.jpg' }} style={styles.bookImage} /> */}
           </View>
           {/*
           <View style={styles.resume_segment}>

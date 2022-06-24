@@ -12,10 +12,10 @@ import EXTERNAL_FIELDS from '../../routes/external_fields'
 
 
 function setValues({ setBook, response }) {
-  setBook({ viewbook: response.data.get_book, loading: false })
+  setBook({ book: response.data.get_book, loading: false })
 }
 
-async function useGetBook({ setBook, id }) {
+async function useGetBook({ id, setBook }) {
 
   if (BRANCH == 'dev') {
     if (GET_BOOK == 1) {
