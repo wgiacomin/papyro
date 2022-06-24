@@ -2,7 +2,7 @@ import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { Alert } from 'react-native'
 
-import { BRANCH, VIEWBOOK } from '@env'
+import { BRANCH, GET_BOOK } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
 import external_api from '../../routes/external_api'
@@ -12,27 +12,20 @@ import EXTERNAL_FIELDS from '../../routes/external_fields'
 
 
 function setValues({ setBook, response }) {
-  setBook({ viewbook: response.data.viewbook, loading: false })
+  setBook({ viewbook: response.data.get_book, loading: false })
 }
 
 async function useGetBook({ setBook, id }) {
 
-  if (BRANCH === 'dev') {
-    // setValues({ setBook, response: CONTRACTS.livro.success })
-    // setBook({
-    //   loading: false,
-    //   loading_book: false,
-    //   error: true,
-    //   book_info: {
-    //     status: CONTRACTS.livro.error.status,
-    //     msg: CONTRACTS.livro.error.data.detail
-    //   }
-    // })
-    setBook({
-      loading: false,
-      loading_book: false,
-      error: true,
-    })
+  if (BRANCH == 'dev') {
+    if (GET_BOOK == 1) {
+      setBook({
+        status: CONTRACTS.get_book.error.status,
+        msg: CONTRACTS.get_book.error.data.detail
+      })
+    } else {
+      setValues({ setBook, response: CONTRACTS.get_book.success })
+    }
     return
   }
 

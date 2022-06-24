@@ -181,44 +181,70 @@ const CONTRACTS = {
     },
     'success': {
       'data': {
-        'ano': '2000-02-12',
-        'autor': [
+        'id': 1,
+        'year': '2000-02-12',
+        'assessments_count': 3,
+        'cover': '1984',
+        'nome': 'string',
+        'note': 0,
+        'people_count': 0,
+        'synopsis': '2 + 2 = qualquer coisa',
+        'author': [
           {
-            'id': 0,
-            'nome': 'string'
+            'id': 1,
+            'name': 'kakkaka'
           }
         ],
-        'avaliacoes': [
+        'assessments': [
           {
-            'comentariosQtd': 0,
-            'data_criacao': '2022-03-26T23:05:08.239252',
-            'id': 0,
-            'likes': 0,
-            'nota': 0,
-            'texto': 'string',
-            'usuario': {
-              'apelido': 'string',
-              'foto': 'string',
-              'id': 0
+            'comments_count': 3,
+            'date_create': '2022-03-26T23:05:08.239252',
+            'id': 1,
+            'likes_count': 3,
+            'note': 2,
+            'text': 'bla bla bla bla',
+            'user': {
+              'nickname': 'nome123',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
             }
-          }
+          },
+          {
+            'comments_count': 3,
+            'date_create': '2022-03-26T23:33:08.239252',
+            'id': 1,
+            'likes_count': 3,
+            'note': 2,
+            'text': 'bla bla bla bla',
+            'user': {
+              'nickname': 'grauber',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 2
+            }
+          },
+          {
+            'comments_count': 3,
+            'date_create': '2022-03-27T23:05:08.239252',
+            'id': 3,
+            'likes_count': 3,
+            'note': 2,
+            'text': 'KKKKKKKK',
+            'user': {
+              'nickname': 'nome123',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
+            }
+          },
         ],
-        'avaliacoesQtd': 0,
-        'capa': 'string',
-        'genero': {
-          'id': 0,
-          'nome': 'string'
+        'genre': {
+          'id': 1,
+          'name': 'ficção'
         },
-        'id': 0,
-        'livroStatusUsuario': {
+        'book_status_user': {
           'id': 0,
           'status': 'string'
         },
-        'nome': 'string',
-        'nota': 0,
-        'pessoasQtd': 0,
-        'sinopse': 'string',
-        'statusLivro': [
+        'book_status': [
           {
             'id': 0,
             'status': 'string'

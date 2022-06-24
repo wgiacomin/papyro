@@ -29,22 +29,15 @@ const ViewBook = ({ navigation, route }) => {
   })
 
   const [book, setBook] = useState({
-    loading: true,
-    error: false,
-    book_info: {}
+    book: [],
+    loading: false,
   })
 
   useEffect(() => {
-    if (book.loading & external.loading) {
-      useGetBook({ id: route.params?.id, setBook, setExternal })
-    }
+    useGetBook({ id: route.params?.id, setBook })
   }, [])
 
-  if (book.error) {
-    navigation.goBack()
-  }
-
-  if (external.loading | book.loading) {
+  if (book.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
         <ActivityIndicator size="large" color="#00000" />
@@ -58,9 +51,12 @@ const ViewBook = ({ navigation, route }) => {
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <ScrollView>
         <View style={styles.standart}>
+          <Text>test tirar isso depois HUHUHSAUHSUDHAUHDUSHUDUHAUDHAUSHD
+            dasdad
+          </Text>
           <DefaultBar navigation={navigation} />
 
-          <View style={styles.segment}>
+          {/* <View style={styles.segment}>
             <Text style={styles.gender_title}>
               Gênero: {external.external_info[EXTERNAL_FIELDS.genre][0]}
             </Text>
@@ -69,7 +65,7 @@ const ViewBook = ({ navigation, route }) => {
                 <Image source={shareButton} style={styles.shareButton} />
               </TouchableOpacity>
             </View>
-          </View>
+          </View> */}
 
           <View style={styles.book_segment}>
             <Text style={styles.book_title}>
@@ -86,7 +82,7 @@ const ViewBook = ({ navigation, route }) => {
             </Text>
             <Image source={{ uri: EXTERNALROUTES.cover + book.book_info[FIELDS.cover] + '.jpg' }} style={styles.bookImage} />
           </View>
-
+          {/*
           <View style={styles.resume_segment}>
             <Text style={styles.resume}>
               {external.description}
@@ -185,7 +181,7 @@ const ViewBook = ({ navigation, route }) => {
               )
             }
             )
-          }
+          } */}
         </View>
       </ScrollView>
     </SafeAreaView>
