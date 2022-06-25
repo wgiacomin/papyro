@@ -29,7 +29,10 @@ import bookSuggestion from '../views/book-suggestion/book-suggestion'
 import peopleSuggestion from '../views/people-suggestion/people-suggestion'
 import viewBook from '../views/view-book/view-book'
 import review from '../views/review/review'
-
+import searchReaders from '../views/search-readers/search-readers'
+import searchReadersReading from '../views/search-readers-list/search-readers-reading'
+import SearchReadersToRead from '../views/search-readers-list/search-readers-to-read'
+import SearchReadersRead from '../views/search-readers-list/search-readers-read'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -56,6 +59,10 @@ const StackNavigator = () => (
     <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false}} />
     <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false}} />
     <Stack.Screen name='Review' component={review} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReaders' component={searchReaders} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReadersReading' component={searchReadersReading} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReadersToRead' component={SearchReadersToRead} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReadersRead' component={SearchReadersRead} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 
