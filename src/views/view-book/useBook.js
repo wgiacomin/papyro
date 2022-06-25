@@ -12,7 +12,7 @@ import EXTERNAL_FIELDS from '../../routes/external_fields'
 
 
 function setValues({ setBook, response }) {
-  setBook({ book: response.data.get_book, loading: false })
+  setBook({ book: response.data.book, loading: false })
 }
 
 async function useGetBook({ id, setBook }) {
