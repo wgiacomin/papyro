@@ -22,15 +22,9 @@ import useGetBook from './useBook'
 const ViewBook = ({ navigation, route }) => {
   const [show, setShow] = useState(false)
 
-  const [external, setExternal] = useState({
-    loading: true,
-    error: false,
-    external_info: {}
-  })
-
   const [book, setBook] = useState({
     book: [],
-    loading: false,
+    loading: true,
   })
 
   useEffect(() => {
