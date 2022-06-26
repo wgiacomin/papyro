@@ -1,35 +1,29 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import mocked_image from '../../../assets/icons/image.png'
 import horizontal from '../../../assets/lines/straight.png'
-import full_star from '../../../assets/icons/full_star.png'
-import star from '../../../assets/icons/star.png'
+import Rate from '../../components/rate-stars'
 
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({livro, autor, image, navigation}) => {
+const Entry = ({name, author, cover, navigation, rate}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
         <TouchableOpacity
           onPress={() => navigation.navigate('ViewBook')}>
-          <Image source={mocked_image} style={styles.book_image}/>
+          <Image source={{uri: cover}} style={styles.book_image}/>
         </TouchableOpacity>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
             <TouchableOpacity
               onPress={() => navigation.navigate('ViewBook')}>
-              <Text style={styles.book_title}>{livro}</Text>
+              <Text style={styles.book_title}>{name}</Text>
             </TouchableOpacity>
             <View style={styles.autor_container}>
-              <Text style={styles.autor}>{autor}</Text>
+              <Text style={styles.autor}>{author}</Text>
             </View>
             <View style={styles.star_container}>
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={star} style={styles.star}/> 
+              <Rate stars={rate} />
             </View>
           </View>
         </View>

@@ -7,28 +7,12 @@ import horizontal from '../../../assets/lines/straight.png'
 
 const SearchPeople = ({ navigation }) => {
   return (
-    <SafeAreaView style={safeView.AndroidSafeArea}>
-      <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
-        <View style={styles.segment}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SearchPeople')}>
-            <Text style={styles.title_selected}>Pessoas</Text>
-            <View style={styles.line_selected}>
-              <Image source={horizontal} style={styles.selectedLine} />
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SearchBook')}>
-            <Text style={styles.title}>Livros</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.line}>
-          <Image source={horizontal} style={styles.horizontalLine} />
-        </View>
-        <SearchEntries mocks={mocks} navigation={ navigation }/>
+    <View style={styles.container}>
+      <View style={styles.line}>
+        <Image source={horizontal} style={styles.horizontalLine} />
       </View>
-    </SafeAreaView>
+      <SearchEntries mocks={mocks} navigation={ navigation }/>
+    </View>
   )
 }
   
@@ -38,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginLeft: '7%',
-    marginRight: '7%',
+    marginRight: '5%',
     marginBottom: '5%'
   },
   segment:{

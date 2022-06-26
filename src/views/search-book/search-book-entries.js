@@ -3,16 +3,20 @@ import { FlatList } from 'react-native'
 import Entry from './entry'
 
 // eslint-disable-next-line react/prop-types
-const SearchBookEntries = ({mocks, navigation}) => {
+const SearchBookEntries = ({data, navigation, refreshing, setData, setBooks, books, useSearch, setRefresing}) => {
   return (
     <FlatList
-      data={mocks}
+      data={books}
       numColumns={1}
+      keyExtractor={(item) => item.id.toString()}
+      onEndReached={() => useSearch({ setData, data, setBooks, books, page: data.page, refreshing, setRefresing})}
+      onEndReachedThreshold={3}
       renderItem={(post) => {
         return <Entry 
-          livro={post.item.livro}
-          image={post.item.image}
-          autor={post.item.autor}
+          name={post.item.name}
+          cover={post.item.cover}
+          author={post.item.author.name}
+          rate={post.item.rate}
           navigation={ navigation }
         />
       } } />
