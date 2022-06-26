@@ -5,11 +5,6 @@ import { Alert } from 'react-native'
 import { BRANCH, GET_BOOK } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
-import external_api from '../../routes/external_api'
-import EXTERNALROUTES from '../../routes/external_routes'
-import EXTERNAL_FIELDS from '../../routes/external_fields'
-
-
 function setValues({ setBook, response }) {
   setBook({ book: response.data.book, loading: false })
 }
