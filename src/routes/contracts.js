@@ -505,14 +505,63 @@ const CONTRACTS = {
                 name: 'The Five Wounds'
               },
             ],
-            usuarios: [
+            people: [
               {
-                apelido: 'string',
-                foto: 'string',
-                generosEmComum: 0,
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
                 id: 0,
-                livrosEmComum: 0
-              }
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 1,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 2,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 6,
+                id: 3,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 4,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 5,
+                id: 5,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 6,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 7,
+                common_books: 1,
+              },
             ]
           },
           page: 1,
@@ -604,14 +653,63 @@ const CONTRACTS = {
                 name: 'Troubles in Paradise'
               },
             ],
-            usuarios: [
+            people: [
               {
-                apelido: 'string',
-                foto: 'string',
-                generosEmComum: 0,
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
                 id: 0,
-                livrosEmComum: 0
-              }
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 5,
+                id: 0,
+                common_books: 10,
+              },
             ]
           },
           page:2,

@@ -1,18 +1,64 @@
-import React from 'react'
-import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
-import DefaultBar from '../../components/default-bar'
-import safeView from '../../styles/safe-view'
+import React, {useState, useEffect} from 'react'
+import { ActivityIndicator, View, StyleSheet, TextInput, YellowBox, Image, TouchableOpacity} from 'react-native'
 import SearchEntries from '../search-people/search-people-entries'
 import horizontal from '../../../assets/lines/straight.png'
+import useSearch from './use-search-people'
+import spinner from '../../styles/spinner'
+import search from '../../../assets/icons/search.png'
 
 const SearchPeople = ({ navigation }) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.line}>
-        <Image source={horizontal} style={styles.horizontalLine} />
+  YellowBox.ignoreWarnings([''])
+  
+  const [data, setData] = useState({
+    page: 1,
+    loading: false,
+  })
+  
+  const [people, setPeople] = useState([])
+  const [refreshing, setRefresing] = useState(false)
+  
+  useEffect(() => {
+    useSearch({setData, page: 1, setPeople, people, data, setRefresing, refreshing})
+  }, [])
+  
+  if (data.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
       </View>
-      <SearchEntries mocks={mocks} navigation={ navigation }/>
-    </View>
+    )
+  }
+
+  return ( 
+    <>
+      <View style={styles.search_segment}>
+        <TextInput
+          autoCapitalize='none'
+          autoCorrect={false}
+          placeholder='Digite para pesquisar...'
+          style={styles.textInput}
+          autoCompleteType='name'
+        />
+        <TouchableOpacity style={styles.search_segment_click}
+          onPress={() => useSearch(setData)}
+        >
+          <Image source={search} style={styles.search}/>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.line}>
+          <Image source={horizontal} style={styles.horizontalLine} />
+        </View>
+        <SearchEntries data={data} 
+          people={people} 
+          setPeople={setPeople} 
+          navigation={ navigation } 
+          useSearch={useSearch}
+          setRefresing={setRefresing}
+          refreshing={refreshing}
+          setData />
+      </View>
+    </>
   )
 }
   
@@ -48,6 +94,31 @@ const styles = StyleSheet.create({
     color: '#001833',
     paddingLeft: 75
   },
+  textInput: {
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 12,
+    lineHeight: 18,
+    marginLeft: 10,
+    alignSelf: 'center',
+    letterSpacing: -0.2,
+    height: 40,
+    flex: 1
+  },
+  search_segment:{
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: '5%',
+    marginTop: '5%',
+    marginLeft: '5%',
+    marginRight: '5%'
+  },
+  search_segment_click:{
+    marginRight: '5%'
+  },
   line_selected:{
     flex: 1,
     marginTop: 10,
@@ -72,56 +143,3 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
 })
-
-let mocks = [{
-  'id': 1,
-  'name': 'Wanderson R. Giacomin Junior',
-  'commom_books': '10 livros em comum',
-  'commom_genre': '3 gêneros em comum',
-  'note': 'Você e Ana deram a mesma nota em 5 livros.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 2,
-  'name': 'Ana Dolata',
-  'commom_books': '10 livros em comum',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 3,
-  'name': 'Ana Dolata',
-  'commom_books': '10 livros em comum',
-  'note': 'Você e Ana deram a mesma nota em 5 livros.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 4,
-  'name': 'Ana Dolata',
-  'commom_books': '10 livros em comum',
-  'note': 'Você e Ana deram a mesma nota em 5 livros.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 5,
-  'name': 'Ana Dolata',
-  'commom_books': '10 livros em comum',
-  'note': 'Você leu 5 livros desse grupo.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 6,
-  'name': 'Ana Dolata',
-  'commom_books': '10 livros em comum',
-  'note': 'Você leu 5 livros desse grupo.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 7,
-  'name': 'Ana Dolata',
-  'commom_books': '10 livros em comum',
-  'note': 'Você leu 5 livros desse grupo.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-]
-
-
