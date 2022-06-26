@@ -48,7 +48,7 @@ const CONTRACTS = {
         },
         'id': 0,
         'nome': 'string',
-        'nota': 0,
+        'rate': 0,
         'sinopse': 'string'
       },
       'status': 200
@@ -122,7 +122,7 @@ const CONTRACTS = {
               'capa': 'string',
               'id': 0,
               'nome': 'string',
-              'nota': 0
+              'rate': 0
             },
             'texto': 'string',
             'usuario': {
@@ -195,7 +195,7 @@ const CONTRACTS = {
             'data_criacao': '2022-03-26T23:05:08.239252',
             'id': 0,
             'likes': 0,
-            'nota': 0,
+            'rate': 0,
             'texto': 'string',
             'usuario': {
               'apelido': 'string',
@@ -216,7 +216,7 @@ const CONTRACTS = {
           'status': 'string'
         },
         'nome': 'string',
-        'nota': 0,
+        'rate': 0,
         'pessoasQtd': 0,
         'sinopse': 'string',
         'statusLivro': [
@@ -265,7 +265,7 @@ const CONTRACTS = {
           'capa': 'string',
           'id': 0,
           'nome': 'string',
-          'nota': 0
+          'rate': 0
         }
       ],
       'status': 200
@@ -289,7 +289,7 @@ const CONTRACTS = {
           'capa': 'string',
           'id': 0,
           'nome': 'string',
-          'nota': 0
+          'rate': 0
         }
       ],
       'status': 200
@@ -313,7 +313,7 @@ const CONTRACTS = {
           'capa': 'string',
           'id': 0,
           'nome': 'string',
-          'nota': 0
+          'rate': 0
         }
       ],
       'status': 200
@@ -413,37 +413,311 @@ const CONTRACTS = {
       status: 200
     }
   },
-  'pesquisar': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  search: {
+    error: { 
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': {
-        'livros': [
-          {
-            'autor': {
-              'nome': 'string'
-            },
-            'capa': 'string',
-            'id': 0,
-            'nota': 0
-          }
-        ],
-        'usuarios': [
-          {
-            'apelido': 'string',
-            'foto': 'string',
-            'generosEmComum': 0,
-            'id': 0,
-            'livrosEmComum': 0
-          }
-        ]
+    success: {
+      page1: {
+        data: {
+          result: {
+            books: [
+              {
+                author: {
+                  name: 'Kirstin Valdez Quade',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612030905l/53597769.jpg',
+                id: 1,
+                rate: 3,
+                name: 'The Five Wounds'
+              },
+              {
+                author: {
+                  name: 'Kirstin Valdez Quade',
+                  id: 2
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612030905l/53597769.jpg',
+                id: 3,
+                rate: 1,
+                name: 'The Five Wounds'
+              },
+              {
+                author: {
+                  rate: 'Kirstin Valdez Quade',
+                  id: 4
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612030905l/53597769.jpg',
+                id: 5,
+                rate: 0,
+                name: 'The Five Wounds'
+              },
+              {
+                author: {
+                  name: 'Kirstin Valdez Quade',
+                  id: 6
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612030905l/53597769.jpg',
+                id: 7,
+                rate: 2,
+                name: 'The Five Wounds'
+              },
+              {
+                author: {
+                  name: 'Kirstin Valdez Quade',
+                  id: 8
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612030905l/53597769.jpg',
+                id: 9,
+                rate: 4,
+                name: 'The Five Wounds'
+              },
+              {
+                author: {
+                  name: 'Kirstin Valdez Quade',
+                  id: 10
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612030905l/53597769.jpg',
+                id: 11,
+                rate: 5,
+                name: 'The Five Wounds'
+              },
+              {
+                author: {
+                  name: 'Kirstin Valdez Quade',
+                  id: 12
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612030905l/53597769.jpg',
+                id: 13,
+                rate: 3,
+                name: 'The Five Wounds'
+              },
+              {
+                author: {
+                  name: 'Kirstin Valdez Quade',
+                  id: 14
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1612030905l/53597769.jpg',
+                id: 15,
+                rate: 1,
+                name: 'The Five Wounds'
+              },
+            ],
+            people: [
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 1,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 2,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 6,
+                id: 3,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 4,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 5,
+                id: 5,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 6,
+                common_books: 1,
+              },
+              {
+                nickname: 'Ana Dolata',
+                photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+                common_genre: 0,
+                id: 7,
+                common_books: 1,
+              },
+            ]
+          },
+          page: 1,
+        },
+        status: 200
       },
-      'status': 200
-    }
+      page2: {
+        data: {
+          result: {
+            books: [
+              {
+                author: {
+                  name: 'Elin Hilderbrand ',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+                id: 0,
+                rate: 0,
+                name: 'Troubles in Paradise'
+              },
+              {
+                author: {
+                  name: 'Elin Hilderbrand ',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+                id: 0,
+                rate: 0,
+                name: 'Troubles in Paradise'
+              },
+              {
+                author: {
+                  name: 'Elin Hilderbrand ',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+                id: 0,
+                rate: 0,
+                name: 'Troubles in Paradise'
+              },
+              {
+                author: {
+                  name: 'Elin Hilderbrand ',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+                id: 0,
+                rate: 0,
+                name: 'Troubles in Paradise'
+              },
+              {
+                author: {
+                  name: 'Elin Hilderbrand ',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+                id: 0,
+                rate: 0,
+                name: 'Troubles in Paradise'
+              },
+              {
+                author: {
+                  name: 'Elin Hilderbrand ',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+                id: 0,
+                rate: 0,
+                name: 'Troubles in Paradise'
+              },
+              {
+                author: {
+                  name: 'Elin Hilderbrand ',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+                id: 0,
+                rate: 0,
+                name: 'Troubles in Paradise'
+              },
+              {
+                author: {
+                  name: 'Elin Hilderbrand ',
+                  id: 0
+                },
+                cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+                id: 1,
+                rate: 0,
+                name: 'Troubles in Paradise'
+              },
+            ],
+            people: [
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 0,
+                id: 0,
+                common_books: 10,
+              },
+              {
+                nickname: 'Alfredo',
+                photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+                common_genre: 5,
+                id: 0,
+                common_books: 10,
+              },
+            ]
+          },
+          page:2,
+        },
+        status: 200
+      }
+    },
   },
   'profile': {
     'error': {
@@ -562,7 +836,7 @@ const CONTRACTS = {
           },
           'nome': 'string'
         },
-        'nota': 0,
+        'rate': 0,
         'usuario': {
           'apelido': 'string',
           'foto': 'string',
