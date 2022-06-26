@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
-import { useState } from 'react'
 import safeView from '../../styles/safe-view'
 import styles from './personalize-profile-style'
 import DefaultBar from '../../components/default-bar-back'
 import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import { ScrollView } from 'react-native-gesture-handler'
+import usePersonalize from './use-personalize'
 
 const PersonalizeProfile = ({ navigation }) => {
+
+  const [genders, setPersonalize] = useState({
+    notifications: [],
+    loading: false,
+    name: [],
+    description: [],
+  })
+
+  useEffect(() => {
+    usePersonalize({setPersonalize})
+  }, [])
 
   const [image, setImage] = useState(AddButton)
   const [image1, setImage1] = useState(RemoveButton)
@@ -70,7 +82,7 @@ const PersonalizeProfile = ({ navigation }) => {
         <ScrollView>
           <View style={styles.segment}>
             <Text style={styles.bold}>
-              Romântico
+              {genders.name[0]}
             </Text>
             <View style={styles.buttonSegment2}>
               <View style={styles.continueSegment2}>
@@ -81,7 +93,7 @@ const PersonalizeProfile = ({ navigation }) => {
               </View>
             </View>
             <Text style={styles.description}>
-              Romances de autores como Nickolas Spark, Nora Roberts entre outros       
+              {genders.description[0]}       
             </Text>
             <Text style={styles.bold}>
               Ficção Científica

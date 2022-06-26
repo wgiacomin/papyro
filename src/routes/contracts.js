@@ -155,21 +155,22 @@ const CONTRACTS = {
       'status': 200
     }
   },
-  'generos': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  gender: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': [
+    success: {
+      data: [
         {
-          'genero': 'string',
-          'id': 0
+          name: 'Ficção Científica',
+          description: 'Livros como Percy Jackson e Harry Potter',
+          id: 0
         }
       ],
-      'status': 200
+      status: 200
     }
   },
   'get_book': {
