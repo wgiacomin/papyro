@@ -1,32 +1,63 @@
-import React from 'react'
-import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
-import DefaultBar from '../../components/default-bar'
-import safeView from '../../styles/safe-view'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, TouchableOpacity, Image, TextInput, ActivityIndicator, YellowBox } from 'react-native'
 import SearchEntries from '../search-book/search-book-entries'
 import horizontal from '../../../assets/lines/straight.png'
+import search from '../../../assets/icons/search.png'
+import useSearch from './use-search-book'
+import spinner from '../../styles/spinner'
 
 const SearchBook = ({ navigation }) => {
+  YellowBox.ignoreWarnings([''])
+
+  const [data, setData] = useState({
+    page: 1,
+    loading: false,
+  })
+
+  const [books, setBooks] = useState([])
+  const [refreshing, setRefresing] = useState(false)
+
+  useEffect(() => {
+    useSearch({setData, page: 1, setBooks, books, data, setRefresing, refreshing})
+  }, [])
+
+  
+  if (data.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
+
   return (
-    <SafeAreaView style={safeView.AndroidSafeArea}>
+    <>
+      <View style={styles.search_segment}>
+        <TextInput
+          autoCapitalize='none'
+          autoCorrect={false}
+          placeholder='Digite para pesquisar...'
+          style={styles.textInput}
+          autoCompleteType='name'
+        />
+        <TouchableOpacity style={styles.search_segment_click}
+          onPress={() => useSearch(setData)}
+        >
+          <Image source={search} style={styles.search}/>
+        </TouchableOpacity>
+      </View>
       <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
-        <View style={styles.segment}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SearchPeople')}>
-            <Text style={styles.title}>Pessoas</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SearchBook')}>
-            <Text style={styles.title_selected}>Livros</Text>
-            <View style={styles.line_selected}>
-              <Image source={horizontal} style={styles.selectedLine} />
-            </View>
-          </TouchableOpacity>
-        </View>
         <View style={styles.line}>
           <Image source={horizontal} style={styles.horizontalLine} />
         </View>
-        <SearchEntries mocks={mocks} navigation={ navigation }/>
+        <SearchEntries data={data} 
+          books={books} 
+          setBooks={setBooks} 
+          navigation={ navigation } 
+          useSearch={useSearch}
+          setRefresing={setRefresing}
+          refreshing={refreshing}
+          setData />         
         <View>
           <TouchableOpacity
             onPress={() => navigation.navigate('AddBook')}>
@@ -36,7 +67,7 @@ const SearchBook = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+    </>
   )
 }
   
@@ -46,8 +77,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginLeft: '7%',
-    marginRight: '7%',
+    marginRight: '5%',
     marginBottom: '5%'
+  },
+  search:{
+    width: 20,
+    height: 20
   },
   segment:{
     flexDirection: 'row',
@@ -71,6 +106,31 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#001833',
     paddingLeft: 95
+  },
+  textInput: {
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 12,
+    lineHeight: 18,
+    marginLeft: 10,
+    alignSelf: 'center',
+    letterSpacing: -0.2,
+    height: 40,
+    flex: 1
+  },
+  search_segment:{
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: '5%',
+    marginTop: '5%',
+    marginLeft: '5%',
+    marginRight: '5%'
+  },
+  search_segment_click:{
+    marginRight: '5%'
   },
   line_selected:{
     flex: 1,
@@ -114,56 +174,3 @@ const styles = StyleSheet.create({
     marginTop: '3%',
   },
 })
-
-let mocks = [{
-  'id': 1,
-  'livro': 'Harry Potter e o Enigma do Príncipe',
-  'autor': 'Chibundu Onuzo',
-  'nota': 4,
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 2,
-  'livro': 'Sankofa: A Novel',
-  'autor': 'Chibundu Onuzo',
-  'nota': 4,
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 3,
-  'livro': 'Sankofa: A Novel',
-  'autor': 'Chibundu Onuzo',
-  'nota': 4,
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 4,
-  'livro': 'Sankofa: A Novel',
-  'autor': 'Chibundu Onuzo',
-  'nota': 4,
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 5,
-  'livro': 'Sankofa: A Novel',
-  'autor': 'Chibundu Onuzo',
-  'nota': 4,
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 6,
-  'livro': 'Sankofa: A Novel',
-  'autor': 'Chibundu Onuzo',
-  'nota': 4,
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 7,
-  'livro': 'Sankofa: A Novel',
-  'autor': 'Chibundu Onuzo',
-  'nota': 4,
-  'foto': '../../../assets/icons/Nickname.png'
-},
-]
-
-

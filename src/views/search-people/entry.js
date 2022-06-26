@@ -1,21 +1,15 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import mocked_image from '../../../assets/icons/image.png'
-import add_button_list from '../../../assets/icons/add_button_list.png'
-import delete_button_list from '../../../assets/icons/delete_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({name, note, commom_books, commom_genre, image, navigation}) => {
+const Entry = ({name, commom_books, commom_genre, image, navigation}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.note_container}>
-        <Text style={styles.note}>{note}</Text>
-      </View>
       <View style={styles.name}>
         <TouchableOpacity
           onPress={() => navigation.navigate('Friend')}>
-          <Image source={mocked_image} style={styles.person_image}/>
+          <Image source={{uri: image}} style={styles.person_image}/>
         </TouchableOpacity>
         <View style={styles.name_block}>
           <View style={styles.name_title_container}>
@@ -24,20 +18,10 @@ const Entry = ({name, note, commom_books, commom_genre, image, navigation}) => {
               <Text style={styles.name_title}>{name}</Text>
             </TouchableOpacity>
             <View style={styles.commom_container}>
-              <Text style={styles.commom}>{commom_books}</Text>
-              <Text style={styles.commom}>{commom_genre}</Text>
+              <Text style={styles.commom}>{commom_books > 0 ? `${commom_books} livros em comum.` : null}</Text>
+              <Text style={styles.commom}>{commom_genre > 0 ? `${commom_genre} gêneros em comum.` : null}</Text>
             </View>
           </View>
-        </View>
-      </View>
-      <View style={styles.button_segment}>
-        <View style={styles.footer}>
-          <TouchableOpacity>
-            <Image source={add_button_list} style={styles.button_size}/>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={delete_button_list} style={styles.button_size}/>
-          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.line}>
@@ -54,8 +38,8 @@ const styles = StyleSheet.create({
   name: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 10,
-    marginBottom: 10
+    marginTop: 15,
+    marginBottom: 5
   },
   person_image: {
     width: 62,
@@ -102,7 +86,7 @@ const styles = StyleSheet.create({
   },
   line:{
     flex: 1,
-    marginTop: 28,
+    marginTop: 15,
     marginBottom: 8
   },
   horizontalLine: {
