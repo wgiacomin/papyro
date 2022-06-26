@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image, TextInput, StyleSheet, Alert } from 'react-native'
-import lock from '../../assets/icons/Lock.png'
+import lock from '../../assets/icons/lock.png'
 import vertical from '../../assets/lines/straight.png'
 
 const PasswordBar = ({data, setData}) => {
