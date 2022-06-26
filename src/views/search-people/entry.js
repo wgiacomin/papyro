@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
   name: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 10,
-    marginBottom: 10
+    marginTop: 15,
+    marginBottom: 5
   },
   person_image: {
     width: 62,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   line:{
     flex: 1,
-    marginTop: 28,
+    marginTop: 15,
     marginBottom: 8
   },
   horizontalLine: {
