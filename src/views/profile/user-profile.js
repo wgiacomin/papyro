@@ -6,13 +6,11 @@ import vertical from '../../../assets/lines/straight.png'
 import profile_image from '../../../assets/icons/profile_image.png'
 import followers from '../../../assets/icons/followers.png'
 import booksReaded from '../../../assets/icons/books_readed.png'
-import book from '../../../assets/icons/book.png'
 import UserProfileBar from '../../components/user-profile-bar'
 import DescriptionBar from '../../components/description-bar'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
-import FIELDS from '../../routes/field_match'
 
 const UserProfile = ({ navigation }) => { 
   const { setProfile } = useAuthDispatch()
@@ -69,10 +67,10 @@ const UserProfile = ({ navigation }) => {
               Lendo
             </Text>
             <Text style={styles.normal}>
-              {books.reading[0][FIELDS.book_title]}
+              {books.reading[0].book_title}
             </Text>
             <Text style={styles.normal}>
-              {books.reading[0][FIELDS.author][0][FIELDS.name]}
+              {books.reading[0].author[0].name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
@@ -89,10 +87,10 @@ const UserProfile = ({ navigation }) => {
               Lerei
             </Text>
             <Text style={styles.normal}>
-              {books.to_read[0][FIELDS.book_title]}
+              {books.to_read[0].book_title}
             </Text>
             <Text style={styles.normal}>
-              {books.to_read[0][FIELDS.author][0][FIELDS.name]}
+              {books.to_read[0].author[0].name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
@@ -109,10 +107,10 @@ const UserProfile = ({ navigation }) => {
               Lidos
             </Text>
             <Text style={styles.normal}>
-              {books.read[0][FIELDS.book_title]}
+              {books.read[0].book_title}
             </Text>
             <Text style={styles.normal}>
-              {books.read[0][FIELDS.author][0][FIELDS.name]}
+              {books.read[0].author[0].name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>

@@ -16,7 +16,7 @@ const NicknameBar = ({ data, setData }) => {
             placeholder='Como gostaria de ser chamado?'
             style={styles.textInput}
             autoCompleteType='username'
-            onChangeText={text => setData({ ...data, 'apelido': text })}
+            onChangeText={text => setData({...data, 'nickname': text})}
             value={data.apelido}
             returnKeyType={'done'}
           />

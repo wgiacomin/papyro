@@ -11,7 +11,6 @@ import image_mocked from '../../../assets/icons/image.png'
 import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
 import editButton from '../../../assets/buttons/editButton.png'
-import FIELDS from '../../routes/field_match'
 import spinner from '../../styles/spinner'
 import EXTERNALROUTES from '../../routes/external_routes'
 import EXTERNAL_FIELDS from '../../routes/external_fields'
@@ -126,6 +125,7 @@ const ViewBook = ({ navigation, route }) => {
 
           <View>
             <Text style={styles.comments_title}> {book.book.rates.length} avaliações </Text>
+
           </View>
 
           <View style={styles.edit_segment}>
@@ -136,6 +136,7 @@ const ViewBook = ({ navigation, route }) => {
           </View>
 
           {
+
             book.book.rates.map((item, key) => {
               return (
                 <>
@@ -144,6 +145,7 @@ const ViewBook = ({ navigation, route }) => {
                       onPress={() => navigation.navigate('People')}>
                       <Image source={{ uri: item.user.photo }} style={styles.user_image} />
                     </TouchableOpacity>
+
                     <TouchableOpacity
                       onPress={() => navigation.navigate('People')}>
                       <Text style={styles.person}>{item.user.nickname}</Text>

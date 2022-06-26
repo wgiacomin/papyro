@@ -23,15 +23,15 @@ async function useRegister({ data, setRes }) {
     return
   }
 
-  if (data.nome == '' || data.apelido == '' || data.email == '' || data.senha == '' || data.data == '') {
+  if (data.name == '' || data.nickname == '' || data.email == '' || data.password == '' || data.birthday == '') {
     Alert.alert('Atenção!', 'Preencha todos os campos!')
   } else {
     await api.post(ROUTES.signup, {
-      'nome': data.nome,
-      'apelido': data.apelido,
+      'name': data.name,
+      'nickname': data.nickname,
       'email': data.email,
-      'senha': data.senha,
-      'data_nascimento': data.data_post
+      'password': data.password,
+      'birthday': data.birthday
     }).then((response) =>
       setRes({
         status: response.status

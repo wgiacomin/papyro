@@ -1,66 +1,48 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import mocked_image from '../../../assets/icons/profile_image.png'
-import see_more from '../../../assets/icons/see_more_options.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({text, data, image}) => {
+const Entry = ({data, navigation}) => { 
   return (
-    <View style={styles.container}>
-      <View style={styles.profile}>
-        <TouchableOpacity>
-          <Image source={mocked_image} style={styles.profile_image}/>
-        </TouchableOpacity> 
-      </View>
-      <View style={styles.block}>
-        <View style={styles.description_container}>
-          <Text style={styles.text}>{text}</Text>
-          <Text style={styles.data}>{data}</Text>
-        </View>
-      </View>
-      <View style={styles.footer}>
-        <View style={styles.option}>
-          <TouchableOpacity style={styles.buttons}>
-            <Image source={see_more} style={styles.see_more_image}/>
+    <TouchableOpacity
+      onPress={() => {
+        switch(data.notification.refer) {
+        case 'comment':
+          navigation.navigate('Comments')
+          break
+        case 'follow':
+          navigation.navigate('Friend')
+          break
+        }
+      }}
+      style={{flex: 1, flexDirection: 'column'}}    
+    >
+      <View style={styles.container}>
+        <View style={styles.profile}>
+          <TouchableOpacity>
+            <Image source={{uri:data.user.photo}} style={styles.profile_image}/>
           </TouchableOpacity> 
         </View>
+        <View style={styles.block}>
+          <View style={styles.description_container}>
+            <Text style={styles.text}>{data.notification.text}</Text>
+            <Text style={styles.data}>{data.notification.date}</Text>
+          </View>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
   profile: {
-    flex: 1,
-    flexDirection: 'row',
-    marginTop: 10,
-    marginBottom: 10
-  },
-  footer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    marginLeft: 316,
-  },
-  buttons: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    marginBottom: 20,
-    left: -18
-  },
-  option: {
-    flex: 1,
-    flexDirection: 'row-reverse',
-    alignItems: 'flex-end',
+    marginBottom: 10,
+    marginLeft: 0
   },
   profile_image: {
     width: 50,
-    height: 47.8,
+    height: 50,
     borderRadius: 100
-  },
-  see_more_image:{
-    width: 29,
-    height: 18,
   },
   block:{
     flex: 1,
@@ -68,29 +50,27 @@ const styles = StyleSheet.create({
   text:{
     fontFamily: 'Poppins',
     fontStyle: 'normal',
-    fontSize: 12,
+    fontSize: 14,
     lineHeight: 18,
     color: '#181D2D',
-    marginTop: '-8%',
-    width: 212
   },
   data: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
-    fontSize: 9,
+    fontSize: 11,
     lineHeight: 18,
     color: '#000000',
-    marginBottom: '-3%'
   },
   description_container:{
     flexDirection: 'column',
     flex: 1,
-    marginLeft: '18%'
+    marginLeft: '7%',
+    width: 212
   },
   container:{
-    height: 56,
-    width: 317,
-    marginTop: 6,
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: '7%',
   },
 })
   

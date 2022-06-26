@@ -11,11 +11,11 @@ function setValues({ setProfile, setRes, response }) {
   })
 
   setProfile({
-    id: response.data.usuario.id,
-    name: response.data.usuario.nome,
-    nickname: response.data.usuario.apelido,
-    description: response.data.usuario.descricao,
-    photo: response.data.usuario.foto,
+    id: response.data.user.id,
+    name: response.data.user.name,
+    nickname: response.data.user.nickname,
+    description: response.data.user.description,
+    photo: response.data.user.photo,
   })
 }
 
@@ -38,7 +38,7 @@ async function useLogin({ data, setRes, setProfile, setLoading }) {
   } else {
     await api.post(ROUTES.login, {
       'email': data.email,
-      'senha': data.senha,
+      'password': data.password,
     }).then((response) => {
       setValues({ setProfile, setRes, response })
     }

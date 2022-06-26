@@ -7,7 +7,6 @@ import CONTRACTS from '../../routes/contracts'
 
 import external_api from '../../routes/external_api'
 import EXTERNALROUTES from '../../routes/external_routes'
-import FIELDS from '../../routes/field_match'
 import EXTERNAL_FIELDS from '../../routes/external_fields'
 
 

@@ -30,10 +30,14 @@ import bookSuggestion from '../views/book-suggestion/book-suggestion'
 import peopleSuggestion from '../views/people-suggestion/people-suggestion'
 import viewBook from '../views/view-book/view-book'
 import review from '../views/review/review'
-
+import searchReaders from '../views/search-readers/search-readers'
+import searchReadersReading from '../views/search-readers-list/search-readers-reading'
+import SearchReadersToRead from '../views/search-readers-list/search-readers-to-read'
+import SearchReadersRead from '../views/search-readers-list/search-readers-read'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
+const StackN = createStackNavigator()
 
 const StackNavigator = () => (
   <Stack.Navigator
@@ -58,6 +62,19 @@ const StackNavigator = () => (
     <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false }} />
     <Stack.Screen name='Review' component={review} options={{ headerShown: false }} />
   </Stack.Navigator>
+)
+
+const StackNavigatorNotification = () => (
+  <StackN.Navigator
+    initialRouteName="Notifications"
+  >
+    <StackN.Screen name='Notifications' component={notification} options={{ headerShown: false }} />
+    <StackN.Screen name='Friend' component={friend} options={{ headerShown: false }} />
+    <StackN.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
+    <StackN.Screen name='Comments' component={comments} options={{ headerShown: false }} />
+    <StackN.Screen name='ViewBook' component={viewBook} options={{ headerShown: false}} />
+    <StackN.Screen name='Review' component={review} options={{ headerShown: false}} />
+  </StackN.Navigator>
 )
 
 const MainNavigator = () => (
@@ -88,11 +105,12 @@ const MainNavigator = () => (
         ),
       }} />
 
-    <Tab.Screen name="Notifications" component={notification} options={{
-      headerShown: false,
-      tabBarShowLabel: false,
-      tabBarIcon: ({ focused, color, size }) => (
-        <Image source={focused ? notifications_focused : notifications} style={{ width: size, height: size, }} />
+
+    <Tab.Screen name="NotificationsTab" component={StackNavigatorNotification} options={{ 
+      headerShown: false, 
+      tabBarShowLabel: false, 
+      tabBarIcon: ({focused, color, size }) => (
+        <Image source={focused ? notifications_focused : notifications} style={{ width: size, height: size,}} />
       ),
     }} />
 

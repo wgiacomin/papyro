@@ -34,13 +34,13 @@ const Register = ({ navigation }) => {
   
 
   const [data, setData] = useState({
-    nome:'',
-    apelido: '',
+    name:'',
+    nickname: '',
     email: '',
-    senha: '',
-    data: actual_date,
-    data_string: '',
-    data_post: ''
+    password: '',
+    date: actual_date,
+    date_string: '',
+    birthday: ''
   })
 
   return (
