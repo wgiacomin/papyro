@@ -522,31 +522,31 @@ const CONTRACTS = {
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 1,
-            'book_title': '1984',
+            'name': '1984',
             'rate': 10,
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 2,
-            'book_title': 'Admirável mundo novo',
+            'name': 'Admirável mundo novo',
             'rate': 10,
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 3,
-            'book_title': 'livro 3',
+            'name': 'livro 3',
             'rate': 3,
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-            'id': 1,
-            'book_title': 'livro 5',
+            'id': 4,
+            'name': 'livro 5',
             'rate': 2,
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-            'id': 1,
-            'book_title': 'livro 21321312',
+            'id': 5,
+            'name': 'livro 21321312',
             'rate': 33,
           }
         ],

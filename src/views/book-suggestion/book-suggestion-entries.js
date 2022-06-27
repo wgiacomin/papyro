@@ -10,7 +10,7 @@ const BookSuggestionEntries = ({ data, navigation }) => {
       numColumns={1}
       renderItem={(post) => {
         return <Entry
-          book_title={post.item.book_title}
+          name={post.item.name}
           rate={post.item.rate}
           cover={post.item.cover}
           navigation={navigation}

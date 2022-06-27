@@ -28,8 +28,6 @@ const BookSuggestion = ({ navigation }) => {
     )
   }
 
-  console.log(bookSuggestion)
-
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
