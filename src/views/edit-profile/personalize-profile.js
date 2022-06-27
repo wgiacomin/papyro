@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './personalize-profile-style'
 import DefaultBar from '../../components/default-bar-back'
@@ -7,20 +7,10 @@ import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import { ScrollView } from 'react-native-gesture-handler'
-import usePersonalize from './use-personalize'
+import spinner from '../../styles/spinner'
+import useGender from './use-personalize'
 
 const PersonalizeProfile = ({ navigation }) => {
-
-  const [genders, setPersonalize] = useState({
-    notifications: [],
-    loading: false,
-    name: [],
-    description: [],
-  })
-
-  useEffect(() => {
-    usePersonalize({setPersonalize})
-  }, [])
 
   const [image, setImage] = useState(AddButton)
   const [image1, setImage1] = useState(RemoveButton)
@@ -68,6 +58,25 @@ const PersonalizeProfile = ({ navigation }) => {
     }
   }
 
+  const { profile } = useAuthState()
+
+  const [gender, setGender] = useState({
+    genders: [],
+    loading: false,
+  })
+
+  useEffect(() => {
+    useGender({setGender, profile})
+  }, [])
+
+  if (gender.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
@@ -82,7 +91,7 @@ const PersonalizeProfile = ({ navigation }) => {
         <ScrollView>
           <View style={styles.segment}>
             <Text style={styles.bold}>
-              {genders.name[0]}
+              {gender.genders}
             </Text>
             <View style={styles.buttonSegment2}>
               <View style={styles.continueSegment2}>
@@ -93,7 +102,7 @@ const PersonalizeProfile = ({ navigation }) => {
               </View>
             </View>
             <Text style={styles.description}>
-              {genders.description[0]}       
+              {gender.genders}      
             </Text>
             <Text style={styles.bold}>
               Ficção Científica

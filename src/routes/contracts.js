@@ -163,13 +163,15 @@ const CONTRACTS = {
       status: 404
     },
     success: {
-      data: [
-        {
-          name: 'Ficção Científica',
-          description: 'Livros como Percy Jackson e Harry Potter',
-          id: 0
-        }
-      ],
+      data: {
+        genders: [
+          {
+            name: 'Ficção Científica',
+            description: 'Livros como Percy Jackson e Harry Potter',
+            id: 0
+          },
+        ]
+      },
       status: 200
     }
   },
