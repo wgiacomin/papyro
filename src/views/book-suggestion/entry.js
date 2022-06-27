@@ -6,22 +6,22 @@ import delete_button_list from '../../../assets/icons/delete_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({livro, note, image, navigation}) => {
+const Entry = ({ name, rate, cover, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.note_container}>
-        <Text style={styles.note}>{note}</Text>
+        <Text style={styles.note}>Avaliação: {rate}</Text>
       </View>
       <View style={styles.livro}>
         <TouchableOpacity
           onPress={() => navigation.navigate('ViewBook')}>
-          <Image source={mocked_image} style={styles.livro_image}/>
+          <Image source={{ uri: cover }} style={styles.livro_image} />
         </TouchableOpacity>
         <View style={styles.livro_block}>
           <View style={styles.livro_title_container}>
             <TouchableOpacity
               onPress={() => navigation.navigate('ViewBook')}>
-              <Text style={styles.livro_title}>{livro}</Text>
+              <Text style={styles.livro_title}>{name}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -29,10 +29,10 @@ const Entry = ({livro, note, image, navigation}) => {
       <View style={styles.button_segment}>
         <View style={styles.footer}>
           <TouchableOpacity>
-            <Image source={add_button_list} style={styles.button_size}/>
+            <Image source={add_button_list} style={styles.button_size} />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Image source={delete_button_list} style={styles.button_size}/>
+            <Image source={delete_button_list} style={styles.button_size} />
           </TouchableOpacity>
         </View>
       </View>
@@ -58,10 +58,10 @@ const styles = StyleSheet.create({
     width: 62,
     height: 60
   },
-  livro_block:{
+  livro_block: {
     marginLeft: 10
   },
-  livro_title:{
+  livro_title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
   },
-  note:{
+  note: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 12,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
     marginBottom: -2
   },
-  line:{
+  line: {
     flex: 1,
     marginTop: 28,
     marginBottom: 8
@@ -108,11 +108,11 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     marginTop: -53
   },
-  button_size:{
+  button_size: {
     width: 24,
     height: 24,
     marginLeft: 9,
   }
 })
-  
+
 export default Entry

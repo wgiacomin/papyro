@@ -1,15 +1,37 @@
-import React from 'react'
-import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import SuggestionEntries from '../book-suggestion/book-suggestion-entries'
 import horizontal from '../../../assets/lines/straight.png'
+import spinner from '../../styles/spinner'
+import useBookSuggestion from './use-book-suggestion'
 
 const BookSuggestion = ({ navigation }) => {
+  const { profile } = useAuthState()
+
+  const [bookSuggestion, setBookSuggestion] = useState({
+    bookSuggestion: [],
+    loading: true,
+  })
+
+  useEffect(() => {
+    useBookSuggestion({ setBookSuggestion, profile })
+  }, [])
+
+  if (bookSuggestion.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
+        <DefaultBar navigation={navigation} />
         <View style={styles.segment}>
           <TouchableOpacity
             onPress={() => navigation.navigate('PeopleSuggestion')}>
@@ -26,12 +48,12 @@ const BookSuggestion = ({ navigation }) => {
         <View style={styles.line}>
           <Image source={horizontal} style={styles.horizontalLine} />
         </View>
-        <SuggestionEntries mocks={mocks} navigation={ navigation }/>
+        <SuggestionEntries data={bookSuggestion.bookSuggestion} navigation={navigation} />
       </View>
     </SafeAreaView>
   )
 }
-  
+
 export default BookSuggestion
 
 const styles = StyleSheet.create({
@@ -41,7 +63,7 @@ const styles = StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
-  segment:{
+  segment: {
     flexDirection: 'row',
   },
   title: {
@@ -64,7 +86,7 @@ const styles = StyleSheet.create({
     color: '#001833',
     marginLeft: 89
   },
-  line_selected:{
+  line_selected: {
     flex: 1,
     marginTop: 10,
     marginLeft: 75,
@@ -76,7 +98,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
   },
-  line:{
+  line: {
     flex: 1,
     marginTop: 1,
     marginBottom: 10
@@ -88,49 +110,3 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
 })
-
-let mocks = [{
-  'id': 1,
-  'livro': 'Sankofa: A Novel',
-  'note': 'Você leu 5 livros desse grupo.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 2,
-  'livro': 'Harry Potter e o Enigma do Príncipe',
-  'note': 'É de um gênero que você curte.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 3,
-  'livro': 'Romeu e Julieta',
-  'note': 'Mesmo autor de um nota 5.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 4,
-  'livro': 'Sankofa: A Novel',
-  'note': 'Mesmo autor de um nota 5.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 5,
-  'livro': 'Sankofa: A Novel',
-  'note': 'Você leu 5 livros desse grupo.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 6,
-  'livro': 'Sankofa: A Novel',
-  'note': 'Você leu 5 livros desse grupo.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 7,
-  'livro': 'Sankofa: A Novel',
-  'note': 'Você leu 5 livros desse grupo.',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-]
-
-

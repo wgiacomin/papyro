@@ -810,21 +810,48 @@ const CONTRACTS = {
       'status': 200
     }
   },
-  'sugestaoLivros': {
+  'book_suggestion': {
     'error': {
       'data': {
-        'detail': 'string'
+        'detail': 'erro'
       },
       'status': 404
     },
     'success': {
-      'data': [
-        {
-          'capa': 'string',
-          'id': 0,
-          'nome': 'string'
-        }
-      ],
+      'data': {
+        'book_suggestion': [
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 1,
+            'name': '1984',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 2,
+            'name': 'Admirável mundo novo',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 3,
+            'name': 'livro 3',
+            'rate': 3,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 4,
+            'name': 'livro 5',
+            'rate': 2,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 5,
+            'name': 'livro 21321312',
+            'rate': 33,
+          }
+        ],
+      },
       'status': 200
     }
   },
