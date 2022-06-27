@@ -23,7 +23,6 @@ import bookToRead from '../views/book-to-read/book-to-read'
 import bookRead from '../views/book-read/book-read'
 import bookReading from '../views/book-reading/book-reading'
 import addBook from '../views/add-book/add-book'
-import searchBook from '../views/search-book/search-book'
 import searchPeople from '../views/search-people/search-people'
 import searchReaders from '../views/search-readers/search-readers'
 import bookSuggestion from '../views/book-suggestion/book-suggestion'
@@ -33,6 +32,7 @@ import review from '../views/review/review'
 import searchReadersReading from '../views/search-readers-list/search-readers-reading'
 import SearchReadersToRead from '../views/search-readers-list/search-readers-to-read'
 import SearchReadersRead from '../views/search-readers-list/search-readers-read'
+import SearchNavigator from './search-navigator'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -47,19 +47,22 @@ const StackNavigator = () => (
     <Stack.Screen name='Friend' component={friend} options={{ headerShown: false }} />
     <Stack.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
     <Stack.Screen name='Comments' component={comments} options={{ headerShown: false }} />
-    <Stack.Screen name='EditProfile' component={editProfile} options={{ headerShown: false }} />
-    <Stack.Screen name='Personalize' component={personalize} options={{ headerShown: false }} />
-    <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false }} />
-    <Stack.Screen name='BookRead' component={bookRead} options={{ headerShown: false }} />
-    <Stack.Screen name='BookReading' component={bookReading} options={{ headerShown: false }} />
-    <Stack.Screen name='AddBook' component={addBook} options={{ headerShown: false }} />
-    <Stack.Screen name='SearchBook' component={searchBook} options={{ headerShown: false }} />
-    <Stack.Screen name='SearchPeople' component={searchPeople} options={{ headerShown: false }} />
-    <Stack.Screen name='SearchReaders' component={searchReaders} options={{ headerShown: false }} />
-    <Stack.Screen name='BookSuggestion' component={bookSuggestion} options={{ headerShown: false }} />
-    <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false }} />
-    <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false }} />
-    <Stack.Screen name='Review' component={review} options={{ headerShown: false }} />
+    <Stack.Screen name='EditProfile' component={editProfile} options={{ headerShown: false}} />
+    <Stack.Screen name='Personalize' component={personalize} options={{ headerShown: false}} />
+    <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false}} />
+    <Stack.Screen name='BookRead' component={bookRead} options={{ headerShown: false}} />
+    <Stack.Screen name='BookReading' component={bookReading} options={{ headerShown: false}} />
+    <Stack.Screen name='AddBook' component={addBook} options={{ headerShown: false}} />
+    <Stack.Screen name='Pesquisa' component={SearchNavigator} options={{ headerShown: true}} />
+    <Stack.Screen name='SearchPeople' component={searchPeople} options={{ headerShown: false}} />
+    <Stack.Screen name='BookSuggestion' component={bookSuggestion} options={{ headerShown: false}} />
+    <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false}} />
+    <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false}} />
+    <Stack.Screen name='Review' component={review} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReaders' component={searchReaders} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReadersReading' component={searchReadersReading} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReadersToRead' component={SearchReadersToRead} options={{ headerShown: false}} />
+    <Stack.Screen name='SearchReadersRead' component={SearchReadersRead} options={{ headerShown: false}} />
   </Stack.Navigator>
 )
 

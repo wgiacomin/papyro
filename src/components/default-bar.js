@@ -18,7 +18,7 @@ const DefaultBar = ({navigation}) => {
             autoCompleteType='name'
           />
           <TouchableOpacity style={styles.search_segment}
-            onPress={() => navigation.navigate('SearchBook')}
+            onPress={() => navigation.navigate('Pesquisa')}
           >
             <Image source={search} style={styles.search}/>
           </TouchableOpacity>
