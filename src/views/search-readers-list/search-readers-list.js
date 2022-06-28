@@ -10,34 +10,34 @@ import SearchReadersListEntries from './search-readers-list-entries'
 
 const SearchReadersList = ({ navigation }) => {
 
-    const [readers, setReaders] = useState({
-        readers: [],
-        loading: true,
-    })
+	const [readers, setReaders] = useState({
+		readers: [],
+		loading: true,
+	})
 
-    useEffect(() => {
-        useSearchReadersList({ id: ROUTES.params?.id, id_status: ROUTES.params?.id_status, setReaders })
-    }, [])
+	useEffect(() => {
+		useSearchReadersList({ id: ROUTES.params?.id, id_status: ROUTES.params?.id_status, setReaders })
+	}, [])
 
-    if (readers.loading) {
-        return (
-            <View style={[spinner.container, spinner.horizontal]}>
-                <ActivityIndicator size="large" color="#00000" />
-            </View>
-        )
-    }
+	if (readers.loading) {
+		return (
+			<View style={[spinner.container, spinner.horizontal]}>
+				<ActivityIndicator size="large" color="#00000" />
+			</View>
+		)
+	}
 
-    return (
-        <SafeAreaView style={safeView.AndroidSafeArea}>
-            <View style={styles.container}>
-                <DefaultBar navigation={navigation} />
-                <View style={styles.segment}>
-                    <Text style={styles.title}>{readers.readers.status}</Text>
-                </View>
-                <SearchReadersListEntries data={readers.readers.list} navigation={navigation} />
-            </View>
-        </SafeAreaView>
-    )
+	return (
+		<SafeAreaView style={safeView.AndroidSafeArea}>
+			<View style={styles.container}>
+				<DefaultBar navigation={navigation} />
+				<View style={styles.segment}>
+					<Text style={styles.title}>{readers.readers.status}</Text>
+				</View>
+				<SearchReadersListEntries data={readers.readers.list} navigation={navigation} />
+			</View>
+		</SafeAreaView>
+	)
 }
 
 
