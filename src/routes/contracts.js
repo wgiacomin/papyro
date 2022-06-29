@@ -189,49 +189,76 @@ const CONTRACTS = {
     },
     'success': {
       'data': {
-        'ano': '2000-02-12',
-        'autor': [
-          {
-            'id': 0,
-            'nome': 'string'
-          }
-        ],
-        'avaliacoes': [
-          {
-            'comentariosQtd': 0,
-            'data_criacao': '2022-03-26T23:05:08.239252',
-            'id': 0,
-            'likes': 0,
-            'rate': 0,
-            'texto': 'string',
-            'usuario': {
-              'apelido': 'string',
-              'foto': 'string',
-              'id': 0
+        'book': {
+          'id': 1,
+          'year': '2000-02-12',
+          'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+          'book_title': '1984',
+          'rate': 0,
+          'peoples': 10,
+          'description': '2 + 2 = qualquer coisa',
+          'author': [
+            {
+              'id': 1,
+              'name': 'kakkaka'
             }
-          }
-        ],
-        'avaliacoesQtd': 0,
-        'capa': 'string',
-        'genero': {
-          'id': 0,
-          'nome': 'string'
-        },
-        'id': 0,
-        'livroStatusUsuario': {
-          'id': 0,
-          'status': 'string'
-        },
-        'nome': 'string',
-        'rate': 0,
-        'pessoasQtd': 0,
-        'sinopse': 'string',
-        'statusLivro': [
-          {
+          ],
+          'rates': [
+            {
+              'comments': 34,
+              'date': '2022-03-26T23:05:08.239252',
+              'id': 1,
+              'likes': 3,
+              'rate': 10,
+              'text': 'bla bla bla bla',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+            {
+              'comments': 13,
+              'date': '2022-03-26T23:33:08.239252',
+              'id': 1,
+              'likes': 3,
+              'rate': 2,
+              'text': 'bla bla bla bla',
+              'user': {
+                'nickname': 'grauber',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              }
+            },
+            {
+              'comments': 33,
+              'date': '2022-03-27T23:05:08.239252',
+              'id': 3,
+              'likes': 3,
+              'rate': 2,
+              'text': 'KKKKKKKK',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+          ],
+          'genre': {
+            'id': 1,
+            'name': 'ficção'
+          },
+          'book_status_user': {
             'id': 0,
             'status': 'string'
-          }
-        ]
+          },
+          'book_status': [
+            {
+              'id': 0,
+              'status': 'string'
+            }
+          ]
+        }
       },
       'status': 200
     }
@@ -791,21 +818,48 @@ const CONTRACTS = {
       'status': 200
     }
   },
-  'sugestaoLivros': {
+  'book_suggestion': {
     'error': {
       'data': {
-        'detail': 'string'
+        'detail': 'erro'
       },
       'status': 404
     },
     'success': {
-      'data': [
-        {
-          'capa': 'string',
-          'id': 0,
-          'nome': 'string'
-        }
-      ],
+      'data': {
+        'book_suggestion': [
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 1,
+            'name': '1984',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 2,
+            'name': 'Admirável mundo novo',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 3,
+            'name': 'livro 3',
+            'rate': 3,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 4,
+            'name': 'livro 5',
+            'rate': 2,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 5,
+            'name': 'livro 21321312',
+            'rate': 33,
+          }
+        ],
+      },
       'status': 200
     }
   },

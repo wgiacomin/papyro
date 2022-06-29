@@ -1,30 +1,30 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { View, Image, TextInput, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import calendar from '../../assets/icons/calendar.png'
 import vertical from '../../assets/lines/straight.png'
 import DateTimePicker from '@react-native-community/datetimepicker'
 
 function pad(number, length) {
-   
+
   var str = '' + number
   while (str.length < length) {
     str = '0' + str
   }
- 
+
   return str
 
 }
 
-const DateBar = ({data, setData}) => {
+const DateBar = ({ data, setData }) => {
   const [show, setShow] = useState(false)
-  const dateOffset = 24*60*60*1000
+  const dateOffset = 24 * 60 * 60 * 1000
   let actual_date = new Date()
   actual_date.setFullYear(actual_date.getFullYear() - 18)
   actual_date.setTime(actual_date.getTime() - dateOffset)
 
   const onChange = (event, selectedDate) => {
     setShow(false)
-    if (selectedDate){
+    if (selectedDate) {
       const dd = pad(selectedDate.getDate(), 2)
       const mm = pad(selectedDate.getMonth() + 1, 2)
       const yyyy = selectedDate.getFullYear()
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  segment:{
+  segment: {
     flex: 1,
     marginTop: 5,
     flexDirection: 'row',

@@ -3,7 +3,7 @@ import { View, Image, TextInput, StyleSheet } from 'react-native'
 import profileIcon from '../../assets/icons/profile.png'
 import vertical from '../../assets/lines/straight.png'
 
-const ProfileBar = ({data, setData}) => {
+const ProfileBar = ({ data, setData }) => {
   return (
     <View>
       <View style={styles.container}>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  segment:{
+  segment: {
     flex: 1,
     marginTop: 5,
     flexDirection: 'row',

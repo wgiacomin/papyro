@@ -3,14 +3,13 @@ import { View, Image, TextInput, StyleSheet, Alert } from 'react-native'
 import lock from '../../assets/icons/lock.png'
 import vertical from '../../assets/lines/straight.png'
 
-const PasswordBar = ({data, setData}) => {
-  function validatePassword(password){
-    if (password.length >= 8 | password.length == 0)
-    {
+const PasswordBar = ({ data, setData }) => {
+  function validatePassword(password) {
+    if (password.length >= 8 | password.length == 0) {
       return (true)
     }
     Alert.alert('Atenção!', 'A senha deve conter ao menos 8 dígitos.')
-    setData({...data, 'senha': ''})
+    setData({ ...data, 'senha': '' })
     return (false)
   }
 
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  segment:{
+  segment: {
     flex: 1,
     marginTop: 5,
     flexDirection: 'row',

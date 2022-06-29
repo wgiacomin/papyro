@@ -252,5 +252,3 @@ const SearchReaders = ({ navigation }) => {
 
 export default SearchReaders
 
-
-
