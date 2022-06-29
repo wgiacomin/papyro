@@ -155,7 +155,7 @@ const CONTRACTS = {
       'status': 200
     }
   },
-  gender: {
+  genders: {
     error: {
       data: {
         detail: 'string'
@@ -167,13 +167,23 @@ const CONTRACTS = {
         genders: [
           {
             name: 'Ficção Científica',
-            description: 'Livros como Percy Jackson e Harry Potter',
+            description: 'Inclui autores como Isaac Asimov, Wilson Gibson e Frank Herbert.',
             id: 0
           },
           {
-            name: 'Romance',
-            description: 'Livros como Jane Austen e Crepúsculo',
+            name: 'Clássicos de Época',
+            description: 'Livros como Morro dos Ventos Uivantes, Orgulho e Preconceito ou ainda Crime e Castigo.',
             id: 1
+          },
+          {
+            name: 'Infanto-Juvenis',
+            description: 'Livros como Percy Jakson, Harry Potter ou ainda Jogos Vorazes.',
+            id: 2
+          },
+          {
+            name: 'Filosofia',
+            description: 'Inclui autores como  René Descasrtes, Karl Marx e Sócrates.',
+            id: 3
           },
         ]
       },

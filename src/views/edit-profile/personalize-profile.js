@@ -60,16 +60,16 @@ const PersonalizeProfile = ({ navigation }) => {
 
   const { profile } = useAuthState()
 
-  const [gender, setGender] = useState({
+  const [genders, setGenders] = useState({
     genders: [],
     loading: false,
   })
 
   useEffect(() => {
-    useGender({setGender, profile})
+    useGender({setGenders, profile})
   }, [])
 
-  if (gender.loading) {
+  if (genders.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
         <ActivityIndicator size="large" color="#00000" />
@@ -91,7 +91,7 @@ const PersonalizeProfile = ({ navigation }) => {
         <ScrollView>
           <View style={styles.segment}>
             <Text style={styles.bold}>
-              {gender.genders}
+              {genders.genders[0].name}
             </Text>
             <View style={styles.buttonSegment2}>
               <View style={styles.continueSegment2}>
@@ -102,10 +102,10 @@ const PersonalizeProfile = ({ navigation }) => {
               </View>
             </View>
             <Text style={styles.description}>
-              {gender.genders}      
+              {genders.genders[0].description}     
             </Text>
             <Text style={styles.bold}>
-              Ficção Científica
+              {genders.genders[1].name}
             </Text>
             <View style={styles.buttonSegment2}>
               <View style={styles.continueSegment2}>
@@ -116,10 +116,10 @@ const PersonalizeProfile = ({ navigation }) => {
               </View>
             </View>
             <Text style={styles.description}>
-              Inclui autores como Isaac Asimov, Wilson Gibson e Frank Herbert       
+              {genders.genders[1].description}       
             </Text>
             <Text style={styles.bold}>
-              Clássicos de Época
+              {genders.genders[2].name}
             </Text>
             <View style={styles.buttonSegment2}>
               <View style={styles.continueSegment2}>
@@ -130,10 +130,10 @@ const PersonalizeProfile = ({ navigation }) => {
               </View>
             </View>
             <Text style={styles.description}>
-              Livros como Morro dos Ventos Uivantes, Orgulho e Preconceito ou ainda Crime e Castigo.      
+              {genders.genders[2].description} 
             </Text>
             <Text style={styles.bold}>
-              Infanto-Juvenis
+              {genders.genders[3].name}
             </Text>
             <View style={styles.buttonSegment2}>
               <View style={styles.continueSegment2}>
@@ -144,10 +144,10 @@ const PersonalizeProfile = ({ navigation }) => {
               </View>
             </View>
             <Text style={styles.description}>
-              Livros como Percy Jakson, Harry Potter ou ainda Jogos Vorazes.      
+              {genders.genders[3].description}       
             </Text>
             <Text style={styles.bold}>
-              Filosofia
+              {genders.genders[0].name}
             </Text>
             <View style={styles.buttonSegment2}>
               <View style={styles.continueSegment2}>
@@ -158,7 +158,7 @@ const PersonalizeProfile = ({ navigation }) => {
               </View>
             </View>
             <Text style={styles.description}>
-             Inclui autores como  René Descasrtes, Karl Marx e Sócrates.      
+              {genders.genders[0].description}       
             </Text>
           </View>
           <TouchableOpacity

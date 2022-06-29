@@ -67,10 +67,10 @@ const UserProfile = ({ navigation }) => {
               Lendo
             </Text>
             <Text style={styles.normal}>
-              {books.reading[0].book_title}
+              
             </Text>
             <Text style={styles.normal}>
-              {books.reading[0].author[0].name}
+              
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
@@ -87,10 +87,10 @@ const UserProfile = ({ navigation }) => {
               Lerei
             </Text>
             <Text style={styles.normal}>
-              {books.to_read[0].book_title}
+              
             </Text>
             <Text style={styles.normal}>
-              {books.to_read[0].author[0].name}
+              
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
@@ -107,10 +107,10 @@ const UserProfile = ({ navigation }) => {
               Lidos
             </Text>
             <Text style={styles.normal}>
-              {books.read[0].book_title}
+              
             </Text>
             <Text style={styles.normal}>
-              {books.read[0].author[0].name}
+              
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>

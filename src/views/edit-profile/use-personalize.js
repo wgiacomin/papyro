@@ -1,32 +1,32 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { Alert } from 'react-native'
-import { BRANCH, GENDER } from '@env'
+import { BRANCH, GENDERS } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
-function setValues({ setGender, response }) {
-  setGender({gender: response.data.gender, loading: false})
+function setValues({ setGenders, response }) {
+  setGenders({genders: response.data.genders, loading: false})
 }
 
-async function useGender({profile, setGender }){
+async function useGender({profile, setGenders }){
   if (BRANCH == 'dev') {
-    if (GENDER == 1) {
-      setGender({
-        status: CONTRACTS.gender.error.status,
-        msg: CONTRACTS.gender.error.data.detail
+    if (GENDERS == 1) {
+      setGenders({
+        status: CONTRACTS.genders.error.status,
+        msg: CONTRACTS.genders.error.data.detail
       })
     } else {
-      setValues({ setGender, response: CONTRACTS.gender.success})
+      setValues({ setGenders, response: CONTRACTS.genders.success})
     }
     return
   }
 
   await api.get(ROUTES.gender + profile.id)
     .then((response) => {
-      setValues(setGender, response)
+      setValues(setGenders, response)
     }).catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
-      setGender({loading: false})
+      setGenders({loading: false})
     })
 }
 
