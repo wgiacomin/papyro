@@ -5,7 +5,7 @@ import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 // eslint-disable-next-line react/prop-types
 const Entry = ({ nickname, photo, navigation }) => {
     return (
-        <View style={styles.container}>
+        <View style={styles.people_segment}>
             <View style={styles.livro}>
                 <TouchableOpacity
                     onPress={() => navigation.navigate('Friend')}>

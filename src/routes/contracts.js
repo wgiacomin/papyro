@@ -217,66 +217,119 @@ const CONTRACTS = {
     'success': {
       'data': {
         'get_reading_people': {
-          'id_readers_read': 1,
-          'readers_read': [
+          'readers_read': {
+            'id': 1,
+            'status': 'Quem já leu?',
+            'list': [
+              {
+                'nickname': 'Jana',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              },
+              {
+                'nickname': 'Ina',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              },
+              {
+                'nickname': 'Marcos',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 3
+              },
+              {
+                'nickname': 'Mister X',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 4
+              },
+              {
+                'nickname': 'Roger',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 5
+              },
+            ]
+          },
+          'readers_reading': {
+            'id': 2,
+            'status': 'Quem está lendo?',
+            'list': [
+              {
+                'nickname': 'JAVA',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              },
+              {
+                'nickname': 'C',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              },
+              {
+                'nickname': 'SQL',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 3
+              },
+              {
+                'nickname': 'PASCAL(ZINHO)',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 4
+              },
+              {
+                'nickname': 'JAVASCRIPT',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 5
+              },
+            ]
+          },
+          'readers_to_read': {
+            'id': 3,
+            'status': 'Quem está lendo?',
+            'list': [
+              {
+                'nickname': 'Pessoa Um',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              },
+              {
+                'nickname': 'PEssoa II',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              },
+              {
+                'nickname': 'Pessoa C',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 3
+              },
+              {
+                'nickname': 'Pessoa quarta',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 4
+              },
+              {
+                'nickname': 'Pessoa número 5',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 5
+              },
+            ]
+          }
+        },
+
+      },
+      'status': 200
+    },
+  },
+  'get_reading_people_list': {
+    'error': {
+      'data': {
+        'detail': 'Error'
+      },
+      'status': 404,
+    },
+    'success': {
+      'data': {
+        'get_reading_people_list': {
+          'status': 'Quem já leu?',
+          'list': [
             {
-              'nickname': 'Jana',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 1
-            },
-            {
-              'nickname': 'Ina',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 2
-            },
-            {
-              'nickname': 'Marcos',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 3
-            },
-            {
-              'nickname': 'Mister X',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 4
-            },
-            {
-              'nickname': 'Roger',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 5
-            },
-          ],
-          'id_readers_reading': 2,
-          'readers_reading': [
-            {
-              'nickname': 'JAVA',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 1
-            },
-            {
-              'nickname': 'C',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 2
-            },
-            {
-              'nickname': 'SQL',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 3
-            },
-            {
-              'nickname': 'PASCAL(ZINHO)',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 4
-            },
-            {
-              'nickname': 'JAVASCRIPT',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 5
-            },
-          ],
-          'id_readers_to_read': 3,
-          'readers_to_read': [
-            {
-              'nickname': 'Pessoa Um',
+              'nickname': 'pessoa Um',
               'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
               'id': 1
             },
@@ -291,57 +344,42 @@ const CONTRACTS = {
               'id': 3
             },
             {
-              'nickname': 'Pessoa quarta',
+              'nickname': 'pessoa quarta',
               'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
               'id': 4
             },
             {
-              'nickname': 'Pessoa número 5',
+              'nickname': 'pessoa número 5',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 5
+            },
+            {
+              'nickname': 'pessoa Um',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
+            },
+            {
+              'nickname': 'PEssoa II',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 2
+            },
+            {
+              'nickname': 'Pessoa C',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 3
+            },
+            {
+              'nickname': 'pessoa quarta',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 4
+            },
+            {
+              'nickname': 'pessoa número 5',
               'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
               'id': 5
             },
           ]
         }
-      },
-      'status': 200
-    }
-  },
-  'get_reading_people_list': {
-    'error': {
-      'data': {
-        'detail': 'Error'
-      },
-      'status': 404,
-    },
-    'success': {
-      'data': {
-        'get_reading_people_list': [
-          {
-            'nickname': 'pessoa Um',
-            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-            'id': 1
-          },
-          {
-            'nickname': 'PEssoa II',
-            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-            'id': 2
-          },
-          {
-            'nickname': 'Pessoa C',
-            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-            'id': 3
-          },
-          {
-            'nickname': 'pessoa quarta',
-            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-            'id': 4
-          },
-          {
-            'nickname': 'pessoa número 5',
-            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-            'id': 5
-          },
-        ]
       },
       'status': 200,
     }

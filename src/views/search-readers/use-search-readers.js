@@ -24,7 +24,7 @@ async function useSearchReaders({ id, setReaders }) {
     }
 
 
-    await api.get(ROUTES.get_reading_people + profile.id)
+    await api.get(ROUTES.get_book + profile.id)
         .then((response) => {
             setValues(setReaders, response)
         }).catch((error) => {

@@ -8,6 +8,7 @@ import useSearchReaders from './use-search-readers'
 import SearchReadersEntries from './search-readers-entries'
 import spinner from '../../styles/spinner'
 import ROUTES from '../../routes/routes'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const SearchReaders = ({ navigation }) => {
 
@@ -30,11 +31,14 @@ const SearchReaders = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <View style={styles.container}>
-        <DefaultBar navigation={navigation} />
-        <View style={styles.segment}>
-          <Text style={styles.title}>Quem está lendo?</Text>
-          <View style={styles.people_segment}>
+      <ScrollView>
+        <View style={styles.container}>
+
+          <DefaultBar navigation={navigation} />
+          <View style={styles.segment}>
+
+            <Text style={styles.title}>{readers.readers.readers_read.status}</Text>
+            {/* <View style={styles.people_segment}>
             <TouchableOpacity onPress={() => navigation.navigate('Friend')}>
               <Image source={mocked_image} style={styles.person_image} />
             </TouchableOpacity>
@@ -42,53 +46,54 @@ const SearchReaders = ({ navigation }) => {
               onPress={() => navigation.navigate('Friend')}>
               <Text style={styles.person}>Ana Dolata11</Text>
             </TouchableOpacity>
+          </View> */}
+
+            <SearchReadersEntries data={readers.readers.readers_read.list} navigation={navigation} />
           </View>
-          <SearchReadersEntries data={readers.readers.readers_reading} navigation={navigation} />
-        </View>
 
-        <View style={styles.see_more_segment}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SearchReadersList')}>
-            <Text style={styles.see_more}> Ver mais (5) </Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.segment}>
-          <Text style={styles.title}>Quem vai ler?</Text>
-          <View style={styles.people_segment}>
-            <TouchableOpacity onPress={() => navigation.navigate('Friend')}>
-              <Image source={mocked_image} style={styles.person_image} />
-            </TouchableOpacity>
+          <View style={styles.see_more_segment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Friend')}>
-              <Text style={styles.person}>Ana Dolata2</Text>
+              onPress={() => navigation.navigate('SearchReadersList')}>
+              <Text style={styles.see_more}> Ver mais </Text>
             </TouchableOpacity>
           </View>
-          <SearchReadersEntries data={readers.readers.readers_read} navigation={navigation} />
-        </View>
 
 
-        <View style={styles.segment}>
-          <Text style={styles.title}>Quem já leu?</Text>
-
-          <View style={styles.people_segment}>
-            <TouchableOpacity onPress={() => navigation.navigate('Friend')}>
-              <Image source={mocked_image} style={styles.person_image} />
-            </TouchableOpacity>
+          <View style={styles.see_more_segment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Friend')}>
-              <Text style={styles.person}>Ana Dolata3</Text>
+              onPress={() => navigation.navigate('SearchReadersToRead')}>
+              <Text style={styles.see_more}> Ver mais layout que estava</Text>
             </TouchableOpacity>
           </View>
-          <SearchReadersEntries data={readers.readers.readers_to_read} navigation={navigation} />
+
+
+          <View style={styles.segment}>
+            <Text style={styles.title}>{readers.readers.readers_to_read.status}</Text>
+            <SearchReadersEntries data={readers.readers.readers_to_read.list} navigation={navigation} />
+          </View>
+
+          <View style={styles.see_more_segment}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SearchReadersRead')}>
+              <Text style={styles.see_more}> Ver mais</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.segment}>
+            <Text style={styles.title}>{readers.readers.readers_reading.status}</Text>
+
+            <SearchReadersEntries data={readers.readers.readers_to_read.list} navigation={navigation} />
+          </View>
+
+          <View style={styles.see_more_segment}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SearchReadersRead')}>
+              <Text style={styles.see_more}> Ver mais</Text>
+            </TouchableOpacity>
+          </View>
+
         </View>
-        <View style={styles.see_more_segment}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SearchReadersRead')}>
-            <Text style={styles.see_more}> Ver mais (5) </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }

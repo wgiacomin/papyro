@@ -7,12 +7,12 @@ export default StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
-  segment:{
+  segment: {
     left: '1%',
     paddingBottom: '3%',
     marginTop: 15
   },
-  people_segment:{
+  people_segment: {
     flexDirection: 'row',
     marginTop: 15,
     marginRight: 252
@@ -33,7 +33,7 @@ export default StyleSheet.create({
     marginTop: 21,
     color: '#181D2D',
   },
-  user_image:{
+  user_image: {
     width: 29,
     height: 29,
   },
@@ -53,8 +53,8 @@ export default StyleSheet.create({
     lineHeight: 22,
     color: '#007AFF',
   },
-  see_more_segment:{
+  see_more_segment: {
     alignSelf: 'center',
     marginTop: 12
-  }  
+  }
 })
