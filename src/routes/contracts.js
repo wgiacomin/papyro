@@ -170,6 +170,11 @@ const CONTRACTS = {
             description: 'Livros como Percy Jackson e Harry Potter',
             id: 0
           },
+          {
+            name: 'Romance',
+            description: 'Livros como Jane Austen e Crepúsculo',
+            id: 1
+          },
         ]
       },
       status: 200
