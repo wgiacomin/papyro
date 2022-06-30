@@ -11,7 +11,7 @@ const SearchPeople = ({ navigation }) => {
   
   const [data, setData] = useState({
     page: 1,
-    loading: false,
+    loading: true,
   })
   
   const [people, setPeople] = useState([])
