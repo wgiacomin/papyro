@@ -11,7 +11,7 @@ const Notification = ({ navigation }) => {
 
   const [notifications, setNotifications] = useState({
     notifications: [],
-    loading: false,
+    loading: true,
   })
 
   
