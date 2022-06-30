@@ -11,7 +11,7 @@ const SearchBook = ({ navigation }) => {
 
   const [data, setData] = useState({
     page: 1,
-    loading: false,
+    loading: true,
   })
 
   const [books, setBooks] = useState([])

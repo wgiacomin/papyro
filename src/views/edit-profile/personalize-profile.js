@@ -62,7 +62,7 @@ const PersonalizeProfile = ({ navigation }) => {
 
   const [genders, setGenders] = useState({
     genders: [],
-    loading: false,
+    loading: true,
   })
 
   useEffect(() => {
