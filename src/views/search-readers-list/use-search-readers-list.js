@@ -9,7 +9,7 @@ function setValues({ setReaders, response }) {
     setReaders({ readers: response.data.get_reading_people_list, loading: false })
 }
 
-async function useSearchReadersList({ id, setReaders }) {
+async function useSearchReadersList({ id, id_status, setReaders }) {
 
     if (BRANCH == 'dev') {
         if (SEARCH_READERS_LIST == 1) {
@@ -24,7 +24,7 @@ async function useSearchReadersList({ id, setReaders }) {
     }
 
 
-    await api.get(ROUTES.get_reading_people + profile.id)
+    await api.get(ROUTES.get_book + id + '/pessoas/' + id_status)
         .then((response) => {
             setValues(setReaders, response)
         }).catch((error) => {

@@ -10,6 +10,7 @@ import spinner from '../../styles/spinner'
 import ROUTES from '../../routes/routes'
 import { ScrollView } from 'react-native-gesture-handler'
 
+
 const SearchReaders = ({ navigation }) => {
 
   const [readers, setReaders] = useState({
@@ -29,6 +30,25 @@ const SearchReaders = ({ navigation }) => {
     )
   }
 
+  function ListPeople(props) {
+    return props.list.map((item, key) => {
+      return (
+        <>
+          <View style={styles.people_segment}>
+            <TouchableOpacity onPress={() => navigation.navigate('Friend')}>
+              <Image source={{ uri: item.photo }} style={styles.person_image} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Friend')}>
+              <Text style={styles.person}>{item.nickname}</Text>
+            </TouchableOpacity>
+          </View>
+        </>
+      )
+    }
+    )
+  }
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <ScrollView>
@@ -36,19 +56,11 @@ const SearchReaders = ({ navigation }) => {
 
           <DefaultBar navigation={navigation} />
           <View style={styles.segment}>
-
             <Text style={styles.title}>{readers.readers.readers_read.status}</Text>
-            {/* <View style={styles.people_segment}>
-            <TouchableOpacity onPress={() => navigation.navigate('Friend')}>
-              <Image source={mocked_image} style={styles.person_image} />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Friend')}>
-              <Text style={styles.person}>Ana Dolata11</Text>
-            </TouchableOpacity>
-          </View> */}
 
-            <SearchReadersEntries data={readers.readers.readers_read.list} navigation={navigation} />
+
+            <ListPeople list={readers.readers.readers_read.list} />
+            {/* <SearchReadersEntries data={readers.readers.readers_read.list} navigation={navigation} /> */}
           </View>
 
           <View style={styles.see_more_segment}>
@@ -58,23 +70,16 @@ const SearchReaders = ({ navigation }) => {
             </TouchableOpacity>
           </View>
 
-
-          <View style={styles.see_more_segment}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SearchReadersToRead')}>
-              <Text style={styles.see_more}> Ver mais layout que estava</Text>
-            </TouchableOpacity>
-          </View>
-
-
           <View style={styles.segment}>
             <Text style={styles.title}>{readers.readers.readers_to_read.status}</Text>
-            <SearchReadersEntries data={readers.readers.readers_to_read.list} navigation={navigation} />
+
+            <ListPeople list={readers.readers.readers_reading.list} />
+            {/* <SearchReadersEntries data={readers.readers.readers_to_read.list} navigation={navigation} /> */}
           </View>
 
           <View style={styles.see_more_segment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('SearchReadersRead')}>
+              onPress={() => navigation.navigate('SearchReadersList')}>
               <Text style={styles.see_more}> Ver mais</Text>
             </TouchableOpacity>
           </View>
@@ -82,12 +87,13 @@ const SearchReaders = ({ navigation }) => {
           <View style={styles.segment}>
             <Text style={styles.title}>{readers.readers.readers_reading.status}</Text>
 
-            <SearchReadersEntries data={readers.readers.readers_to_read.list} navigation={navigation} />
+            <ListPeople list={readers.readers.readers_to_read.list} />
+            {/* <SearchReadersEntries data={readers.readers.readers_reading.list} navigation={navigation} /> */}
           </View>
 
           <View style={styles.see_more_segment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('SearchReadersRead')}>
+              onPress={() => navigation.navigate('SearchReadersList')}>
               <Text style={styles.see_more}> Ver mais</Text>
             </TouchableOpacity>
           </View>

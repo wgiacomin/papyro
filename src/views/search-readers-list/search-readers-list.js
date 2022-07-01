@@ -16,7 +16,7 @@ const SearchReadersList = ({ navigation }) => {
     })
 
     useEffect(() => {
-        useSearchReadersList({ id: ROUTES.params?.id, setReaders })
+        useSearchReadersList({ id: ROUTES.params?.id, id_status: ROUTES.params?.id_status, setReaders })
     }, [])
 
     if (readers.loading) {
@@ -33,8 +33,8 @@ const SearchReadersList = ({ navigation }) => {
                 <DefaultBar navigation={navigation} />
                 <View style={styles.segment}>
                     <Text style={styles.title}>{readers.readers.status}</Text>
-                    <SearchReadersListEntries data={readers.readers.list} navigation={navigation} />
                 </View>
+                <SearchReadersListEntries data={readers.readers.list} navigation={navigation} />
             </View>
         </SafeAreaView>
     )

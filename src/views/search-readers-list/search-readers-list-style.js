@@ -37,6 +37,9 @@ export default StyleSheet.create({
     width: 29,
     height: 29,
   },
+  user_block: {
+    marginLeft: 10,
+  },
   person: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
@@ -56,5 +59,5 @@ export default StyleSheet.create({
   see_more_segment: {
     alignSelf: 'center',
     marginTop: 12
-  }
+  },
 })

@@ -138,9 +138,9 @@ const CONTRACTS = {
           'year': '2000-02-12',
           'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
           'book_title': '1984',
-          'rate': 0,
+          'rate': 33,
           'peoples': 10,
-          'description': '2 + 2 = qualquer coisa',
+          'description': '2 + 2 = qualquer coisa. O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia (PT)',
           'author': [
             {
               'id': 1,
@@ -148,6 +148,84 @@ const CONTRACTS = {
             }
           ],
           'rates': [
+            {
+              'comments': 34,
+              'date': '2022-03-26T23:05:08.239252',
+              'id': 1,
+              'likes': 3,
+              'rate': 10,
+              'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia (PT)',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+            {
+              'comments': 13,
+              'date': '2022-03-26T23:33:08.239252',
+              'id': 1,
+              'likes': 3,
+              'rate': 2,
+              'text': 'bla bla bla bla',
+              'user': {
+                'nickname': 'grauber',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              }
+            },
+            {
+              'comments': 33,
+              'date': '2022-03-27T23:05:08.239252',
+              'id': 3,
+              'likes': 3,
+              'rate': 2,
+              'text': 'KKKKKKKK',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+            {
+              'comments': 34,
+              'date': '2022-03-26T23:05:08.239252',
+              'id': 1,
+              'likes': 3,
+              'rate': 10,
+              'text': 'bla bla bla bla',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+            {
+              'comments': 13,
+              'date': '2022-03-26T23:33:08.239252',
+              'id': 1,
+              'likes': 3,
+              'rate': 2,
+              'text': 'bla bla bla bla',
+              'user': {
+                'nickname': 'grauber',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              }
+            },
+            {
+              'comments': 33,
+              'date': '2022-03-27T23:05:08.239252',
+              'id': 3,
+              'likes': 3,
+              'rate': 2,
+              'text': 'KKKKKKKK',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
             {
               'comments': 34,
               'date': '2022-03-26T23:05:08.239252',
@@ -1019,7 +1097,55 @@ const CONTRACTS = {
             'id': 5,
             'name': 'livro 21321312',
             'rate': 33,
-          }
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 1,
+            'name': '1984',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 2,
+            'name': 'Admirável mundo novo',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 3,
+            'name': 'livro 3',
+            'rate': 3,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 4,
+            'name': 'livro 5',
+            'rate': 2,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 1,
+            'name': '1984',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 2,
+            'name': 'Admirável mundo novo',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 3,
+            'name': 'livro 3',
+            'rate': 3,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 4,
+            'name': 'livro 5',
+            'rate': 2,
+          },
         ],
       },
       'status': 200

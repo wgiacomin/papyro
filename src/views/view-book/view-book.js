@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, ActivityIndicator } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, ActivityIndicator, Share } from 'react-native'
 import { useState } from 'react'
 import safeView from '../../styles/safe-view'
 import styles from './view-book-style'
@@ -26,6 +26,12 @@ const ViewBook = ({ navigation, route }) => {
     loading: true,
   })
 
+  const onShare = async () => {
+    const share = await Share.share({
+      message: "passar a url aqui"
+    })
+  }
+
   useEffect(() => {
     useGetBook({ id: route.params?.id, setBook })
   }, [])
@@ -50,7 +56,7 @@ const ViewBook = ({ navigation, route }) => {
               Gênero: {book.book.genre.name}
             </Text>
             <View style={styles.share_segment}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={onShare}>
                 <Image source={shareButton} style={styles.shareButton} />
               </TouchableOpacity>
             </View>
@@ -63,34 +69,46 @@ const ViewBook = ({ navigation, route }) => {
             <Text style={styles.book_autor}>
               {book.book.author[0].name}
             </Text>
-            <View style={styles.star_container}>
-              <Rate stars={book.book.rate} style={styles.star} />
+
+            <View >
+              <TouchableOpacity onPress={() => navigation.navigate('Review')}>
+                <View style={styles.star_container}>
+                  <Rate stars={book.book.rate} style={styles.star} />
+                </View>
+              </TouchableOpacity>
             </View>
+
             <Text style={styles.star_number}>
               ({book.book.rates.length})
             </Text>
             <Image source={{ uri: book.book.cover }} style={styles.bookImage} />
           </View>
 
-          <View style={styles.resume_segment}>
+          <View >
             <Text style={styles.resume}>
               {book.book.description}
             </Text>
             <View style={styles.want_to_read_container}>
               <TouchableOpacity
                 onPress={() => { setShow(!show) }}>
-                <Text style={styles.want_to_read}> Quero Ler </Text>
+                <Text style={styles.want_to_read}> Adicionar na Biblioteca </Text>
               </TouchableOpacity>
               {
                 show ? (
                   <View>
+                    <Text style={styles.want_to_read_list}>Já Li</Text>
                     <Text style={styles.want_to_read_list}>Quero Ler</Text>
-                    <Text style={styles.want_to_read_list}>Não Ler</Text>
+                    <Text style={styles.want_to_read_list}>Estou lendo</Text>
                   </View>
                 ) : null
               }
             </View>
 
+            <TouchableOpacity onPress={() => navigation.navigate('Review')}>
+              <View style={styles.star_container}>
+                <Rate stars={book.book.rate} style={styles.star} />
+              </View>
+            </TouchableOpacity>
             <View style={styles.star_container_resume}>
               <TouchableOpacity onPress={() => navigation.navigate('Review')}>
                 <Text style={styles.star_number_resume}>
@@ -150,10 +168,14 @@ const ViewBook = ({ navigation, route }) => {
                       onPress={() => navigation.navigate('People')}>
                       <Text style={styles.person}>{item.user.nickname}</Text>
                     </TouchableOpacity>
-                    <View style={styles.star_container_comments}>
-                      <Rate stars={item.rate} style={styles.star_comments} />
-                    </View>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('Review')}>
+                      <View style={styles.star_container_comments}>
+                        <Rate stars={item.rate} style={styles.star_comments} />
+                      </View>
+                    </TouchableOpacity>
                   </View>
+
                   <View style={styles.book_description_container}>
                     <TouchableOpacity
                       onPress={() => navigation.navigate('Comments')}
@@ -187,7 +209,7 @@ const ViewBook = ({ navigation, route }) => {
 
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </SafeAreaView >
   )
 }
 
