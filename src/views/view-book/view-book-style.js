@@ -7,11 +7,11 @@ export default StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
-  segment:{
+  segment: {
     left: '1%',
     paddingBottom: '3%'
   },
-  gender_title: {  
+  gender_title: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -20,21 +20,21 @@ export default StyleSheet.create({
   },
   share_segment: {
     flexDirection: 'row-reverse',
-    marginTop: -20,    
+    marginTop: -20,
   },
   shareButton: {
     width: 18,
     height: 18,
     marginRight: 8,
   },
-  book_segment:{
+  book_segment: {
     left: '1%',
     paddingBottom: '5%',
     backgroundColor: '#ECEDF1',
     marginRight: '-7%',
     marginLeft: '-7%'
   },
-  book_title: {  
+  book_title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 28,
@@ -43,7 +43,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginTop: 13
   },
-  book_autor: {  
+  book_autor: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -51,11 +51,11 @@ export default StyleSheet.create({
     color: '#181D2D',
     textAlign: 'center'
   },
-  star:{
+  star: {
     width: 20,
     height: 20,
   },
-  star_comments:{
+  star_comments: {
     width: 12,
     height: 12,
   },
@@ -72,7 +72,7 @@ export default StyleSheet.create({
     marginTop: 20,
     marginLeft: -45
   },
-  star_number: {  
+  star_number: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 12,
@@ -82,19 +82,19 @@ export default StyleSheet.create({
     paddingRight: 110,
     marginTop: -17
   },
-  bookImage:{
+  bookImage: {
     width: 94,
     height: 140,
     marginTop: 12,
     marginBottom: 15,
     alignSelf: 'center'
   },
-  resume_segment:{
+  resume_segment: {
     left: '1%',
     paddingBottom: '5%',
     marginTop: 25
   },
-  resume: {  
+  resume: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -146,7 +146,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  star_number_resume: {  
+  star_number_resume: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 12,
@@ -156,7 +156,7 @@ export default StyleSheet.create({
     paddingTop: 5,
     marginBottom: 12
   },
-  line:{
+  line: {
     flex: 1,
     marginTop: 5,
     marginBottom: 5
@@ -165,7 +165,7 @@ export default StyleSheet.create({
     marginLeft: 0,
     width: '100%',
   },
-  title: {  
+  title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
@@ -173,7 +173,7 @@ export default StyleSheet.create({
     color: '#181D2D',
     textAlign: 'left',
   },
-  comments_title: {  
+  comments_title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
@@ -188,12 +188,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingTop: 12
   },
-  person_image:{
+  person_image: {
     width: 22,
     height: 22,
     marginLeft: 135
   },
-  company_title: {  
+  company_title: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -202,14 +202,14 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginLeft: 6
   },
-  avaliations:{
+  avaliations: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     paddingTop: 5,
     marginBottom: 12
   },
-  person_subtitle: {  
+  person_subtitle: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 10,
@@ -217,7 +217,7 @@ export default StyleSheet.create({
     color: '#000000',
     marginLeft: 121
   },
-  user_image:{
+  user_image: {
     width: 43,
     height: 43
   },
@@ -239,15 +239,15 @@ export default StyleSheet.create({
   },
   edit_segment: {
     flex: 1,
-    marginBottom: -20,  
-    alignSelf: 'flex-end'  
+    marginBottom: -20,
+    alignSelf: 'flex-end'
   },
   editButton: {
     width: 20,
     height: 20,
     marginRight: 8,
   },
-  post_type:{
+  post_type: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -292,7 +292,7 @@ export default StyleSheet.create({
     marginTop: 5,
     alignItems: 'center',
   },
-  container_book_title:{
+  container_book_title: {
     flex: 1,
     alignItems: 'center',
     marginTop: 15
@@ -318,13 +318,13 @@ export default StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'center'
   },
-  date:{
+  date: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 11,
     lineHeight: 13,
   },
-  see_more:{
+  see_more: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 12,
@@ -332,18 +332,25 @@ export default StyleSheet.create({
     color: '#007AFF',
     paddingLeft: 7,
   },
-  book_description:{
+  book_description: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 14,
     lineHeight: 17,
   },
-  book_description_container:{
+  book_description_container: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
   },
-  
+  unselected: {
+    margin: 5,
+  },
+  selected: {
+    margin: 6,
+    padding: 10,
+    borderRadius: 10,
+  },
 })

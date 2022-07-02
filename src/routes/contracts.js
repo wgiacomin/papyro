@@ -271,13 +271,21 @@ const CONTRACTS = {
             'name': 'ficção'
           },
           'book_status_user': {
-            'id': 0,
-            'status': 'string'
+            'id': 1,
+            'status': 'Já li'
           },
           'book_status': [
             {
-              'id': 0,
-              'status': 'string'
+              'id': 1,
+              'status': 'já li'
+            },
+            {
+              'id': 1,
+              'status': 'lendo'
+            },
+            {
+              'id': 1,
+              'status': 'lerei'
             }
           ]
         }

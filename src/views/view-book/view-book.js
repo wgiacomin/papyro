@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, ActivityIndicator, Share } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, ActivityIndicator, Share, Pressable } from 'react-native'
 import { useState } from 'react'
 import safeView from '../../styles/safe-view'
 import styles from './view-book-style'
@@ -12,8 +12,6 @@ import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
 import editButton from '../../../assets/buttons/editButton.png'
 import spinner from '../../styles/spinner'
-import EXTERNALROUTES from '../../routes/external_routes'
-import EXTERNAL_FIELDS from '../../routes/external_fields'
 import Rate from '../../components/rate-stars'
 import useGetBook from './useBook'
 
@@ -25,6 +23,8 @@ const ViewBook = ({ navigation, route }) => {
     book: [],
     loading: true,
   })
+
+  const [userOption, setUserOption] = useState(null);
 
   const onShare = async () => {
     const share = await Share.share({
@@ -95,15 +95,20 @@ const ViewBook = ({ navigation, route }) => {
               </TouchableOpacity>
               {
                 show ? (
-                  <View>
-                    <Text style={styles.want_to_read_list}>Já Li</Text>
-                    <Text style={styles.want_to_read_list}>Quero Ler</Text>
-                    <Text style={styles.want_to_read_list}>Estou lendo</Text>
-                  </View>
+                  book.book.book_status.map((item) => {
+                    return (
+                      <TouchableOpacity
+                        key={item.id}
+                        style={item.value === userOption ? styles.selected : styles.unselected}
+                        onPress={() => setUserOption(item.id)}>
+                        <Text>{item.status}</Text>
+                      </TouchableOpacity>
+                    )
+                  })
+
                 ) : null
               }
             </View>
-
             <TouchableOpacity onPress={() => navigation.navigate('Review')}>
               <View style={styles.star_container}>
                 <Rate stars={book.book.rate} style={styles.star} />
