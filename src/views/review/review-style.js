@@ -5,7 +5,8 @@ export default StyleSheet.create({
     flex: 1,
     marginLeft: '7%',
     marginRight: '7%',
-    marginBottom: '5%'
+    marginBottom: '7%',
+    justifyContent: 'center',
   },
   segment:{
     left: '1%',
@@ -29,8 +30,8 @@ export default StyleSheet.create({
     paddingBottom: '6%',
     backgroundColor: '#ECEDF1',
     marginTop: 10,
-    marginRight: '-7%',
-    marginLeft: '-7%'
+    marginRight: '-10%',
+    marginLeft: '-10%',
   },
   book_title: {  
     fontFamily: 'Poppins-Medium',
@@ -66,7 +67,6 @@ export default StyleSheet.create({
     paddingTop: 0,
     marginTop: 4,
     alignSelf: 'center',
-    marginLeft: 45
   },
   star_number: {  
     fontFamily: 'Poppins',
@@ -76,29 +76,38 @@ export default StyleSheet.create({
     color: '#AAAAAA',
     textAlign: 'center',
     marginTop: 28,
-    marginLeft: 45
+    marginLeft: 20
   },
   bookImage:{
     width: 68,
     height: 102
   },
   comment_segment:{
-    width: 317,
-    height: 301,
+    marginLeft: '-3%',
+    marginRight: '-3%',
+    width: 340,
+    height: 320,
     borderRadius: 10,
     alignSelf: 'center',
     backgroundColor: 'rgba(243, 243, 245, 0.72)',
     marginTop: 26,
+    alignItems: 'baseline',
+    justifyContent: 'flex-start',
+    alignContent: 'flex-start'
   },
-  comment: {  
+  comment: { 
+    width: 300,
+    height: 300,
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
     lineHeight: 27,
     color: '#AAAAAA',
     marginTop: 9,
-    marginLeft: 7,
-    marginRight: 5
+    marginLeft: 10,
+    marginRight: 10, 
+    marginBottom: 20,
+    textAlignVertical: 'top'
   },
   max_length:{
     fontFamily: 'Poppins',
@@ -111,7 +120,7 @@ export default StyleSheet.create({
   },
   buttonSegment:{
     alignSelf: 'center',
-    marginTop: 38,
+    marginTop: 15,
     flexDirection: 'row',
   },
   buttonSaveSegment:{
