@@ -280,11 +280,11 @@ const CONTRACTS = {
               'status': 'já li'
             },
             {
-              'id': 1,
+              'id': 2,
               'status': 'lendo'
             },
             {
-              'id': 1,
+              'id': 3,
               'status': 'lerei'
             }
           ]

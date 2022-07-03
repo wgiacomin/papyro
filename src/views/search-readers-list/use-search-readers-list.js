@@ -29,7 +29,7 @@ async function useSearchReadersList({ id, id_status, setReaders }) {
             setValues(setReaders, response)
         }).catch((error) => {
             Alert.alert('Atenção', error.response.data.detail)
-            setNotifications({ loading: false })
+            setReaders({ loading: false })
         })
 
 }

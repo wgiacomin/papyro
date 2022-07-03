@@ -9,7 +9,8 @@ const ROUTES = {
   get_book: 'livros/',
   get_reading_people: '/pessoas',
   add_book_to_library: '/usuarios/addLivroBiblioteca/',
-  search: '/pesquisar/{tipo}/{termo}'
+  search: '/pesquisar/{tipo}/{termo}',
+  people_suggestion: '/usuarios/sugestaoAmigos'
 }
 
 export default ROUTES
