@@ -13,30 +13,19 @@ import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
 
 const UserProfile = ({ navigation }) => { 
-  const { setProfile } = useAuthDispatch()
+
   const { profile } = useAuthState()
 
-  const [books, setBooks] = useState({
-    state: false,
-    reading: [],
-    reading_count: 0,
-    read: [],
-    read_count: 0,
-    to_read:  [],
-    to_read_count: 0,
-    groups: [],
-    groups_count: 0,
-    image_reading: undefined,
-    image_read: undefined,
-    image_to_read: undefined,
+  const [data, setProfile] = useState({
+    data: [],
+    loading: true,
   })
 
   useEffect(() => {
-    useProfile({setProfile, profile, setBooks})
+    useProfile({setProfile, profile})
   }, [])
 
-
-  if (!books.state) {
+  if (data.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
         <ActivityIndicator size="large" color="#00000" />
@@ -74,13 +63,13 @@ const UserProfile = ({ navigation }) => {
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image source={{uri: books.image_reading}} style={styles.bookSize}/>
+                <Image style={styles.bookSize}/>
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookReading', books.reading)}>
+              onPress={() => navigation.navigate('BookReading')}>
               <Text style={styles.seeMore}>
-                {books.reading_count > 1 ? ' Ver mais (' + books.reading_count - 1 + ')': 'Ver mais'} 
+                
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
@@ -94,13 +83,13 @@ const UserProfile = ({ navigation }) => {
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image source={{uri: books.image_to_read}} style={styles.bookSize}/>
+                <Image/>
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookToRead', books.to_read)}>
+              onPress={() => navigation.navigate('BookToRead')}>
               <Text style={styles.seeMore}>
-                {books.to_read_count > 1 ? ' Ver mais (' + books.to_read_count - 1 + ')': 'Ver mais'} 
+               
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
@@ -114,13 +103,13 @@ const UserProfile = ({ navigation }) => {
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image source={{uri: books.image_read}} style={styles.bookSize}/>
+                <Image style={styles.bookSize}/>
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookRead', books.read)}>
+              onPress={() => navigation.navigate('BookRead')}>
               <Text style={styles.seeMore}>
-                {books.read > 1 ? ' Ver mais (' + books.read - 1 + ')': 'Ver mais'} 
+                 
               </Text>
             </TouchableOpacity>  
           </View>

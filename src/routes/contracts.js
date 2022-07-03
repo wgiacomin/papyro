@@ -763,38 +763,42 @@ const CONTRACTS = {
       }
     },
   },
-  'profile': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  profile: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': {
-        'apelido': 'string',
-        'foto': 'string',
-        'id': 0,
-        'livrosLendo': {
-          'id': 0,
-          'livrosLendoQtd': 0,
-          'nome': 'string'
+    success: {
+      data: {
+        id: 0,
+        followers: 15,
+        booksQt: 20,
+        nickname: 'Ana Dolata',
+        photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+        name: 'Ana Carolina Dolata',
+        birth: '20/10/1998',
+        booksReading: {
+          id: 0,
+          livrosLendoQtd: 5,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg'
         },
-        'livrosLerei': {
-          'id': 0,
-          'livrosLereiQtd': 0,
-          'nome': 'string'
+        boooksToRead: {
+          id: 0,
+          livrosLendoQtd: 7,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg'
         },
-        'livrosLidos': {
-          'id': 0,
-          'livrosLidosQtd': 0,
-          'nome': 'string'
+        booksRead: {
+          id: 0,
+          livrosLendoQtd: 3,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg'
         },
-        'livrosLidosQtd': 0,
-        'nome': 'string',
-        'seguidoresQtd': 0
       },
-      'status': 200
+      status: 200
     }
   },
   signup: {
