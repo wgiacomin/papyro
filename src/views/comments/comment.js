@@ -1,17 +1,37 @@
-import React, {useState} from 'react'
-import { SafeAreaView, View, StyleSheet, Image, TouchableOpacity, Text, ScrollView, TextInput } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, View, StyleSheet, Image, TouchableOpacity, Text, ScrollView, TextInput, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import image_mocked from '../../../assets/icons/image.png'
-import mocked_book from '../../../assets/icons/mocked_book_big.png'
-import full_star from '../../../assets/icons/full_star.png'
-import star from '../../../assets/icons/star.png'
 import DefaultBar from '../../components/default-bar-back'
 import like from '../../../assets/icons/like.png'
 import horizontal from '../../../assets/lines/straight.png'
 import send from '../../../assets/buttons/send.png'
+import Rate from '../../components/rate-stars'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import spinner from '../../styles/spinner'
+import useComment from './use-comment'
 
-const Comment = ({ navigation }) => {
+const Comment = ({ navigation, route }) => {
+  const [comments, setComment] = useState({
+    loading: true,
+    comments: [],
+    review: {},
+    reviewer: {}
+  })
   const [show, setShow ] = useState(false)
+  const { profile } = useAuthState()
+
+  useEffect(() => {
+    useComment({setComment, id: route.params.id})
+  }, [])
+    
+  if (comments.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
@@ -20,26 +40,22 @@ const Comment = ({ navigation }) => {
         <ScrollView>
           <View style={styles.title}>
             <TouchableOpacity>
-              <Image source={image_mocked} style={styles.person_image}/>  
+              <Image source={{uri: comments.reviewer.photo}} style={styles.person_image}/>  
             </TouchableOpacity>
             <TouchableOpacity>
-              <Text style={styles.person}>Ana Dolata</Text>
+              <Text style={styles.person}>{comments.reviewer.nickname}</Text>
             </TouchableOpacity>
             <Text style={styles.post_type}>avaliou o livro:</Text>
           </View>
           <View style={styles.container_book}>
-            <Image source={mocked_book} style={styles.book_image}/>
+            <Image source={{uri: comments.review.book.cover}} style={styles.book_image}/>
             <View style={styles.container_book_title}>
               <View>
-                <Text style={styles.book_title}>Sankofa: A Novel</Text>
-                <Text style={styles.book_subtitle}>Chiundu Onuzo</Text>
+                <Text style={styles.book_title}>{comments.review.book.name}</Text>
+                <Text style={styles.book_subtitle}>{comments.review.book.author}</Text>
               </View>
               <View style={styles.star_container}>
-                <Image source={full_star} style={styles.star}/> 
-                <Image source={full_star} style={styles.star}/> 
-                <Image source={full_star} style={styles.star}/> 
-                <Image source={full_star} style={styles.star}/> 
-                <Image source={star} style={styles.star}/> 
+                <Rate stars={comments.review.rate} style={styles.star} />
               </View>
               <View style={styles.want_to_read_container}>
                 <TouchableOpacity 
@@ -59,14 +75,14 @@ const Comment = ({ navigation }) => {
             </View>
           </View>
           <Text style={styles.text}>
-            A história é bem interessante, mas o final deixa muito a desejar. A história é bem interessante, mas o final deixa muito a desejar. A história é bem interessante, mas o final deixa muito a desejar. A história é bem interessante, mas o final deixa muito a desejar. A história é bem interessante, mas o final deixa muito a desejar. A história é bem interessante, mas o final deixa muito a desejar.
+            {comments.review.review}
           </Text>
           <View style={styles.footer}>
-            <Text style={styles.date}>20/05/2021</Text>
+            <Text style={styles.date}>{comments.review.date}</Text>
             <View style={styles.like_and_comments}>
               <TouchableOpacity style={styles.buttons}>
                 <Image source={like} style={styles.icons}/>
-                <Text style={styles.icon_text}>5</Text>
+                <Text style={styles.icon_text}>{comments.review.likes}</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -74,7 +90,7 @@ const Comment = ({ navigation }) => {
             <Image source={horizontal} style={styles.horizontalLine} />
           </View>
           <View>
-            <Text style={styles.number_comments}> 1 comentário</Text>
+            <Text style={styles.number_comments}>{comments.comments.length} comentário(s)</Text>
           </View>
           {
             mocks.map((item, key) => {
@@ -193,7 +209,8 @@ const styles = StyleSheet.create({
   },
   person_image:{
     width: 32,
-    height: 32
+    height: 32,
+    borderRadius: 25
   },
   title: {
     flex: 1,
@@ -248,7 +265,7 @@ const styles = StyleSheet.create({
   icon_text: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
-    fontSize: 11,
+    fontSize: 13,
     lineHeight: 13,
     paddingLeft: 5,
     paddingRight: 15
@@ -264,28 +281,35 @@ const styles = StyleSheet.create({
   },
   book_image: {
     maxWidth: 80,
+    height: 120,
+    width: 80,
     resizeMode: 'contain',
-    marginLeft: 10
+    marginLeft: 10,
+    marginTop: 15,
   },
   container_book: {
     flex: 1,
     flexDirection: 'row',
     marginTop: 5,
-    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   container_book_title:{
     flex: 1,
     alignItems: 'center',
-    marginTop: 15
+    marginTop: 15,
+    marginLeft: '-10%',
   },
   book_title: {
     fontFamily: 'Poppins',
     fontSize: 16,
     lineHeight: 22,
+    textAlign: 'center'
   },
   book_subtitle: {
     fontFamily: 'Poppins',
-    fontSize: 11,
+    fontSize: 12,
     lineHeight: 16,
     textAlign: 'center',
     alignSelf: 'center',

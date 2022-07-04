@@ -57,7 +57,7 @@ const Entry = ({name, livro, comentarios, data, texto_abreviado, curtidas, image
             <Image source={like} style={styles.icons}/>
             <Text style={styles.icon_text}>{curtidas}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Comments')}>
+          <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Comments', { id: 8 })}>
             <Image source={comments} style={styles.icons}/>
             <Text style={styles.icon_text}>{comentarios}</Text>
           </TouchableOpacity>
