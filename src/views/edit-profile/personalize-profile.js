@@ -162,7 +162,10 @@ const PersonalizeProfile = ({ navigation }) => {
             </Text>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('EditProfile')}>
+            onPress={() => {
+              useGender({ setGenders, profile })
+              navigation.goBack()
+            }}>
             <View style={styles.continueSegment}>
               <Text style={styles.buttonSave}> Salvar </Text>
             </View>

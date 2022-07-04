@@ -5,7 +5,7 @@ import { BRANCH, PROFILE } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
 function setValues({ setProfile, response }) {
-  setProfile({profile: response.data.profile, loading: false})
+  setProfile({profile: response.data, loading: false})
 }
 
 async function useProfile({profile, setProfile }){

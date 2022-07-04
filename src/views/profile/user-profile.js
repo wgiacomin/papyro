@@ -17,7 +17,7 @@ const UserProfile = ({ navigation }) => {
   const { profile } = useAuthState()
 
   const [data, setProfile] = useState({
-    data: [],
+    data: {},
     loading: true,
   })
 
@@ -39,16 +39,16 @@ const UserProfile = ({ navigation }) => {
       <ScrollView>
         <View style={styles.standard}>
           <View style={styles.segment}>
-            <Image source={profile_image} style={styles.profileSize} />
+            <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
             <Image source={followers} style={styles.imageSize} />
             <Text style={styles.infos}>
-              Seguidores
+              {data.profile.followers} Seguidores
             </Text>
             <Image source={booksReaded} style={styles.imageSize}/>
             <Text style={styles.infos}>
-              Livros Lidos
+              {data.profile.booksQt} Livros Lidos
             </Text>
-            <DescriptionBar description={profile.description} />
+            <DescriptionBar description={data.profile.description} />
             <Image source={vertical} style={styles.horizontalLine} />
           </View>
           <View style={styles.segment}>  
@@ -56,60 +56,60 @@ const UserProfile = ({ navigation }) => {
               Lendo
             </Text>
             <Text style={styles.normal}>
-              
+              {data.profile.booksReading.name}
             </Text>
             <Text style={styles.normal}>
-              
+              {data.profile.booksReading.author.name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image style={styles.bookSize}/>
+                <Image source={{uri:data.profile.booksReading.cover}} style={styles.bookSize}/>
               </View>
             </View>
             <TouchableOpacity
               onPress={() => navigation.navigate('BookReading')}>
               <Text style={styles.seeMore}>
-                
+                Ver Mais ({data.profile.booksReading.booksReadingQtd})
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
               Lerei
             </Text>
             <Text style={styles.normal}>
-              
+              {data.profile.booksToRead.name}
             </Text>
             <Text style={styles.normal}>
-              
+              {data.profile.booksToRead.author.name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image/>
+                <Image source={{uri:data.profile.booksToRead.cover}} style={styles.bookSize}/>
               </View>
             </View>
             <TouchableOpacity
               onPress={() => navigation.navigate('BookToRead')}>
               <Text style={styles.seeMore}>
-               
+                Ver Mais ({data.profile.booksToRead.booksToReadQtd})
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
               Lidos
             </Text>
             <Text style={styles.normal}>
-              
+              {data.profile.booksRead.name}
             </Text>
             <Text style={styles.normal}>
-              
+              {data.profile.booksRead.author.name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image style={styles.bookSize}/>
+                <Image source={{uri:data.profile.booksRead.cover}} style={styles.bookSize}/>
               </View>
             </View>
             <TouchableOpacity
               onPress={() => navigation.navigate('BookRead')}>
               <Text style={styles.seeMore}>
-                 
+                Ver Mais ({data.profile.booksRead.booksReadQtd})
               </Text>
             </TouchableOpacity>  
           </View>

@@ -778,24 +778,37 @@ const CONTRACTS = {
         nickname: 'Ana Dolata',
         photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
         name: 'Ana Carolina Dolata',
-        birth: '20/10/1998',
+        birthday: '20/10/1998',
+        description: 'Eu gosto de ler livrossssss',
         booksReading: {
           id: 0,
-          livrosLendoQtd: 5,
+          booksReadingQtd: 5,
           name: 'Troubles in Paradise',
-          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg'
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
-        boooksToRead: {
+        booksToRead: {
           id: 0,
-          livrosLendoQtd: 7,
+          booksToReadQtd: 7,
           name: 'Troubles in Paradise',
-          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg'
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
         booksRead: {
           id: 0,
-          livrosLendoQtd: 3,
+          booksReadQtd: 3,
           name: 'Troubles in Paradise',
-          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg'
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
       },
       status: 200

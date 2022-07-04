@@ -22,7 +22,7 @@ export default StyleSheet.create({
     fontSize: 12,
     lineHeight: 23,
     textAlign: 'left',
-    marginLeft: 72,
+    marginLeft: 75,
     color: '#000000',
   },
   infos:{
@@ -31,7 +31,7 @@ export default StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 14,
     lineHeight: 17,
-    left: 180,
+    left: 166,
     marginBottom: -14,
     color: '#000000',
   },
@@ -61,7 +61,7 @@ export default StyleSheet.create({
   imageSize: {
     width: 22,
     height: 22,
-    left: 150,
+    left: 140,
     flexDirection: 'row',
     top: 18
   },
@@ -82,7 +82,7 @@ export default StyleSheet.create({
     marginTop: -50
   },
   buttonSegment:{
-    marginLeft: '6%',
+    marginLeft: '7%',
     flex: 1,
     justifyContent: 'center',
   },
