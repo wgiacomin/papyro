@@ -1,20 +1,17 @@
-import React, { useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, ActivityIndicator, Share, Pressable } from 'react-native'
-import { useState } from 'react'
+import React, { Component, useEffect, useState } from 'react'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, ActivityIndicator, Share, TouchableHighlightComponent } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './view-book-style'
 import DefaultBar from '../../components/default-bar-back'
 import shareButton from '../../../assets/icons/share.png'
 import horizontal from '../../../assets/lines/straight.png'
 import profile from '../../../assets/icons/profile.png'
-import image_mocked from '../../../assets/icons/image.png'
 import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
 import editButton from '../../../assets/buttons/editButton.png'
 import spinner from '../../styles/spinner'
 import Rate from '../../components/rate-stars'
 import useGetBook from './useBook'
-
 
 const ViewBook = ({ navigation, route }) => {
 	const [show, setShow] = useState(false)
@@ -83,7 +80,6 @@ const ViewBook = ({ navigation, route }) => {
 						</Text>
 						<Image source={{ uri: book.book.cover }} style={styles.bookImage} />
 					</View>
-
 					<View >
 						<Text style={styles.resume}>
 							{book.book.description}
@@ -101,7 +97,7 @@ const ViewBook = ({ navigation, route }) => {
 												key={item.id}
 												style={item.value === userOption ? styles.selected : styles.unselected}
 												onPress={() => setUserOption(item.id)}>
-												<Text key={item.id}>{item.status}</Text>
+												<Text style={styles.want_to_read}>{item.status}</Text>
 											</TouchableOpacity>
 										)
 									})
@@ -160,9 +156,9 @@ const ViewBook = ({ navigation, route }) => {
 
 					{
 
-						book.book.rates.map((item, key) => {
+						book.book.rates.map((item) => {
 							return (
-								<>
+								<View key={item.id}>
 									<View style={styles.comment_title}>
 										<TouchableOpacity
 											onPress={() => navigation.navigate('People')}>
@@ -192,9 +188,10 @@ const ViewBook = ({ navigation, route }) => {
 									<View style={styles.footer}>
 										<Text style={styles.date}>{item.date.slice(0, 10)}</Text>
 										<View style={styles.like_and_comments}>
+
 											<TouchableOpacity style={styles.buttons}>
 												<Image source={like} style={styles.icons} />
-												<Text style={styles.icon_text}>{item.likes}</Text>
+												<Text style={styles.icon_text}>{item.isLike ? item.likes + 1 : item.likes}</Text>
 											</TouchableOpacity>
 											<TouchableOpacity style={styles.buttons}
 												onPress={() => navigation.navigate('Comments')}>
@@ -206,7 +203,7 @@ const ViewBook = ({ navigation, route }) => {
 									<View style={styles.line}>
 										<Image source={horizontal} style={styles.horizontalLine} />
 									</View>
-								</>
+								</View>
 							)
 						}
 						)
