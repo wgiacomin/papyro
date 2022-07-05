@@ -206,8 +206,8 @@ const ViewBook = ({ navigation, route }) => {
 												<Image source={comments} style={styles.icons} />
 												<Text style={styles.icon_text}> {item.comments} </Text>
 											</TouchableOpacity>
-										</View>
-									</View>
+										</View >
+									</View >
 									<View style={styles.line}>
 										<Image source={horizontal} style={styles.horizontalLine} />
 									</View>
@@ -217,8 +217,8 @@ const ViewBook = ({ navigation, route }) => {
 						)
 					}
 
-				</View>
-			</ScrollView>
+				</View >
+			</ScrollView >
 		</SafeAreaView >
 	)
 }
