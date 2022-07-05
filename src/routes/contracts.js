@@ -394,7 +394,8 @@ const CONTRACTS = {
               id: 4,
               likes: 3,
               date: '20/04/2021', 
-              text: 'Não concordo com você, Ana'
+              text: 'Não concordo com você, Ana',
+              you_liked: false
             }
           },
           {
@@ -407,7 +408,8 @@ const CONTRACTS = {
               id:33,
               likes: 1,
               date: '24/04/2021', 
-              text: 'Você está errada, Ana'
+              text: 'Você está errada, Ana',
+              you_liked: false
             }
           },
           {
@@ -420,7 +422,8 @@ const CONTRACTS = {
               id: 64,
               likes: 3,
               date: '20/04/2021', 
-              text: 'Ana, não é porque vc é rica que sempre tem razão.'
+              text: 'Ana, não é porque vc é rica que sempre tem razão.',
+              you_liked: true
             }
           },
         ],
@@ -435,6 +438,7 @@ const CONTRACTS = {
           rate: 4,
           likes: 4,
           date: '20/01/2021',
+          you_liked: true,
           book: {
             id: 9,
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
