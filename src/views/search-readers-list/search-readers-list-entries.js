@@ -14,7 +14,7 @@ const SearchReadersListEntries = ({ data, navigation }) => {
 
 	return (
 		<FlatList
-			// keyExtractor={(item) => item.id}
+			keyExtractor={(item) => item.id}
 			data={data}
 			numColumns={1}
 			renderItem={renderItem} />

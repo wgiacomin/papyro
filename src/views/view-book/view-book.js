@@ -12,6 +12,7 @@ import editButton from '../../../assets/buttons/editButton.png'
 import spinner from '../../styles/spinner'
 import Rate from '../../components/rate-stars'
 import useGetBook from './useBook'
+import Like from '../../components/heart'
 
 const ViewBook = ({ navigation, route }) => {
 	const [show, setShow] = useState(false)
@@ -21,12 +22,15 @@ const ViewBook = ({ navigation, route }) => {
 		loading: true,
 	})
 
-	const [userOption, setUserOption] = useState(null);
-
 	const onShare = async () => {
 		const share = await Share.share({
 			message: "passar a url aqui"
 		})
+	}
+
+	const [clickedId, setClickedId] = useState(1)
+	const handleClick = (id) => {
+		setClickedId(id)
 	}
 
 	useEffect(() => {
@@ -87,16 +91,17 @@ const ViewBook = ({ navigation, route }) => {
 						<View style={styles.want_to_read_container}>
 							<TouchableOpacity
 								onPress={() => { setShow(!show) }}>
-								<Text style={styles.want_to_read}> Adicionar na Biblioteca </Text>
+								<Text style={styles.want_to_read}>Adicionar na Biblioteca</Text>
 							</TouchableOpacity>
 							{
 								show ? (
-									book.book.book_status.map((item) => {
+									book.book.book_status.map((item, index) => {
 										return (
 											<TouchableOpacity
-												key={item.id}
-												style={item.value === userOption ? styles.selected : styles.unselected}
-												onPress={() => setUserOption(item.id)}>
+												onPress={(item) => handleClick(index)}
+												key={index}
+												style={[index === clickedId ? styles.selected : styles.unselected]}
+											>
 												<Text style={styles.want_to_read}>{item.status}</Text>
 											</TouchableOpacity>
 										)
@@ -157,8 +162,10 @@ const ViewBook = ({ navigation, route }) => {
 					{
 
 						book.book.rates.map((item) => {
+
 							return (
-								<View key={item.id}>
+								<>
+
 									<View style={styles.comment_title}>
 										<TouchableOpacity
 											onPress={() => navigation.navigate('People')}>
@@ -188,11 +195,12 @@ const ViewBook = ({ navigation, route }) => {
 									<View style={styles.footer}>
 										<Text style={styles.date}>{item.date.slice(0, 10)}</Text>
 										<View style={styles.like_and_comments}>
+											<View>
+												<View style={styles.like_and_comments}>
+													<Like liked={item.you_liked} size={20} likes={item.likes} />
+												</View>
+											</View>
 
-											<TouchableOpacity style={styles.buttons}>
-												<Image source={like} style={styles.icons} />
-												<Text style={styles.icon_text}>{item.isLike ? item.likes + 1 : item.likes}</Text>
-											</TouchableOpacity>
 											<TouchableOpacity style={styles.buttons}
 												onPress={() => navigation.navigate('Comments')}>
 												<Image source={comments} style={styles.icons} />
@@ -203,7 +211,7 @@ const ViewBook = ({ navigation, route }) => {
 									<View style={styles.line}>
 										<Image source={horizontal} style={styles.horizontalLine} />
 									</View>
-								</View>
+								</>
 							)
 						}
 						)

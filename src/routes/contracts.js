@@ -140,7 +140,7 @@ const CONTRACTS = {
 					'book_title': '1984',
 					'rate': 33,
 					'peoples': 10,
-					'description': '2 + 2 = qualquer coisa. O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia (PT)',
+					'description': '2 + 2 = qualquer coisa. O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
 					'author': [
 						{
 							'id': 1,
@@ -154,7 +154,8 @@ const CONTRACTS = {
 							'id': 1,
 							'likes': 3,
 							'rate': 10,
-							'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia (PT)',
+							'you_liked': false,
+							'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
 							'user': {
 								'nickname': 'nome123',
 								'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
@@ -167,6 +168,7 @@ const CONTRACTS = {
 							'id': 1,
 							'likes': 3,
 							'rate': 2,
+							'you_liked': true,
 							'text': 'bla bla bla bla',
 							'user': {
 								'nickname': 'grauber',
@@ -180,6 +182,7 @@ const CONTRACTS = {
 							'id': 3,
 							'likes': 3,
 							'rate': 2,
+							'you_liked': false,
 							'text': 'KKKKKKKK',
 							'user': {
 								'nickname': 'nome123',
@@ -192,6 +195,7 @@ const CONTRACTS = {
 							'date': '2022-03-26T23:05:08.239252',
 							'id': 1,
 							'likes': 3,
+							'you_liked': false,
 							'rate': 10,
 							'text': 'bla bla bla bla',
 							'user': {
@@ -206,6 +210,7 @@ const CONTRACTS = {
 							'id': 1,
 							'likes': 3,
 							'rate': 2,
+							'you_liked': false,
 							'text': 'bla bla bla bla',
 							'user': {
 								'nickname': 'grauber',
@@ -218,6 +223,7 @@ const CONTRACTS = {
 							'date': '2022-03-27T23:05:08.239252',
 							'id': 3,
 							'likes': 3,
+							'you_liked': false,
 							'rate': 2,
 							'text': 'KKKKKKKK',
 							'user': {
@@ -231,6 +237,7 @@ const CONTRACTS = {
 							'date': '2022-03-26T23:05:08.239252',
 							'id': 1,
 							'likes': 3,
+							'you_liked': false,
 							'rate': 10,
 							'text': 'bla bla bla bla',
 							'user': {
@@ -244,6 +251,7 @@ const CONTRACTS = {
 							'date': '2022-03-26T23:33:08.239252',
 							'id': 1,
 							'likes': 3,
+							'you_liked': false,
 							'rate': 2,
 							'text': 'bla bla bla bla',
 							'user': {
@@ -257,6 +265,7 @@ const CONTRACTS = {
 							'date': '2022-03-27T23:05:08.239252',
 							'id': 3,
 							'likes': 3,
+							'you_liked': false,
 							'rate': 2,
 							'text': 'KKKKKKKK',
 							'user': {
@@ -271,7 +280,7 @@ const CONTRACTS = {
 						'name': 'ficção'
 					},
 					'book_status_user': {
-						'id': 1,
+						'id': 2,
 						'status': 'Já li'
 					},
 					'book_status': [

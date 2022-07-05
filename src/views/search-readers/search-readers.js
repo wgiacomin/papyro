@@ -33,7 +33,7 @@ const SearchReaders = ({ navigation }) => {
 				<>
 					<View style={styles.people_segment}>
 						<TouchableOpacity onPress={() => navigation.navigate('Friend')}>
-							<Image source={{ uri: item.photo }} style={styles.person_image} />
+							<Image source={{ uri: item.photo }} style={styles.user_image} />
 						</TouchableOpacity>
 						<TouchableOpacity
 							onPress={() => navigation.navigate('Friend')}>

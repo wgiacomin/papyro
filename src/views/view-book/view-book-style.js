@@ -347,10 +347,12 @@ export default StyleSheet.create({
 	},
 	unselected: {
 		margin: 5,
+		backgroundColor: 'red',
 	},
 	selected: {
 		margin: 6,
 		padding: 10,
 		borderRadius: 10,
+		backgroundColor: 'black'
 	},
 })
