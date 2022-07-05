@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, Image, TouchableOpacity, Text, ScrollView, TextInput, ActivityIndicator } from 'react-native'
+import { SafeAreaView, View, StyleSheet, Image, TouchableOpacity, Text, ScrollView, TextInput, ActivityIndicator, FlatList } from 'react-native'
 import safeView from '../../styles/safe-view'
-import image_mocked from '../../../assets/icons/image.png'
 import DefaultBar from '../../components/default-bar-back'
-import like from '../../../assets/icons/like.png'
 import horizontal from '../../../assets/lines/straight.png'
 import send from '../../../assets/buttons/send.png'
 import Rate from '../../components/rate-stars'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useComment from './use-comment'
+import Entry from './entry'
+import Like from '../../components/heart'
 
 const Comment = ({ navigation, route }) => {
   const [comments, setComment] = useState({
@@ -37,97 +37,86 @@ const Comment = ({ navigation, route }) => {
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <DefaultBar navigation={ navigation }/>
-        <ScrollView>
-          <View style={styles.title}>
-            <TouchableOpacity>
-              <Image source={{uri: comments.reviewer.photo}} style={styles.person_image}/>  
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text style={styles.person}>{comments.reviewer.nickname}</Text>
-            </TouchableOpacity>
-            <Text style={styles.post_type}>avaliou o livro:</Text>
-          </View>
-          <View style={styles.container_book}>
-            <Image source={{uri: comments.review.book.cover}} style={styles.book_image}/>
-            <View style={styles.container_book_title}>
-              <View>
-                <Text style={styles.book_title}>{comments.review.book.name}</Text>
-                <Text style={styles.book_subtitle}>{comments.review.book.author}</Text>
-              </View>
-              <View style={styles.star_container}>
-                <Rate stars={comments.review.rate} style={styles.star} />
-              </View>
-              <View style={styles.want_to_read_container}>
-                <TouchableOpacity 
-                  onPress={() => {setShow(!show)}}>
-                  <Text style={styles.want_to_read}> Quero Ler </Text>    
+        <FlatList
+          ListHeaderComponent={
+            <>
+              <View style={styles.title}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Friend')}
+                >
+                  <Image source={{uri: comments.reviewer.photo}} style={styles.person_image}/>  
                 </TouchableOpacity>
-                {
-                  show ? (
-                    <View>
-                      <Text style={styles.want_to_read_list}>Não Ler</Text>
-                      <Text style={styles.want_to_read_list}>Não Ler</Text>
-                    </View>
-                      
-                  ) : null 
-                } 
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Friend')}
+                >
+                  <Text style={styles.person}>{comments.reviewer.nickname}</Text>
+                </TouchableOpacity>
+                <Text style={styles.post_type}>avaliou o livro:</Text>
               </View>
-            </View>
-          </View>
-          <Text style={styles.text}>
-            {comments.review.review}
-          </Text>
-          <View style={styles.footer}>
-            <Text style={styles.date}>{comments.review.date}</Text>
-            <View style={styles.like_and_comments}>
-              <TouchableOpacity style={styles.buttons}>
-                <Image source={like} style={styles.icons}/>
-                <Text style={styles.icon_text}>{comments.review.likes}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View style={styles.line}>
-            <Image source={horizontal} style={styles.horizontalLine} />
-          </View>
-          <View>
-            <Text style={styles.number_comments}>{comments.comments.length} comentário(s)</Text>
-          </View>
-          {
-            mocks.map((item, key) => {
-              return (
-                <>
-                  <View style={styles.title}>
-                    <TouchableOpacity>
-                      <Image source={image_mocked} style={styles.person_image}/>  
+              <View style={styles.container_book}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('ViewBook')}
+                >
+                  <Image source={{uri: comments.review.book.cover}} style={styles.book_image}/>
+                </TouchableOpacity>
+                <View style={styles.container_book_title}>
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('ViewBook')}
+                    >
+                      <Text style={styles.book_title}>{comments.review.book.name}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                      <Text style={styles.person}>Júlia</Text>
+                    <Text style={styles.book_subtitle}>{comments.review.book.author}</Text>
+                  </View>
+                  <Rate stars={comments.review.rate} size={24} />
+                  <View style={styles.want_to_read_container}>
+                    <TouchableOpacity 
+                      onPress={() => {setShow(!show)}}>
+                      <Text style={styles.want_to_read}> Quero Ler </Text>    
                     </TouchableOpacity>
+                    {
+                      show ? (
+                        <View>
+                          <Text style={styles.want_to_read_list}>Não Ler</Text>
+                          <Text style={styles.want_to_read_list}>Não Ler</Text>
+                        </View>
+                      
+                      ) : null 
+                    } 
                   </View>
-                  <Text style={styles.text}>
-                    {item.texto_abreviado}
-                  </Text>
-                  <View style={styles.footer}>
-                    <Text style={styles.date}>20/05/2021</Text>
-                    <View style={styles.like_and_comments}>
-                      <TouchableOpacity style={styles.buttons}>
-                        <Image source={like} style={styles.icons}/>
-                        <Text style={styles.icon_text}>5</Text>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                  <View style={styles.line}>
-                    <Image source={horizontal} style={styles.horizontalLine} />
-                  </View>
-                </>
-              )
-            }
-            )
+                </View>
+              </View>
+              <Text style={styles.text}>
+                {comments.review.review}
+              </Text>
+              <View style={styles.footer}>
+                <Text style={styles.date}>{comments.review.date}</Text>
+                <View style={styles.like_and_comments}>
+                  <Like liked={comments.review.you_liked} size={20} likes={comments.review.likes} />
+                </View>
+              </View>
+              <View style={styles.line}>
+                <Image source={horizontal} style={styles.horizontalLine} />
+              </View>
+              <View>
+                <Text style={styles.number_comments}>{comments.comments.length} comentário(s)</Text>
+              </View>
+            </>
           }
-          <Text style={styles.end_of_file}>
-            Fim dos comentários
-          </Text>
-        </ScrollView>
+          ListFooterComponent={ 
+            <Text style={styles.end_of_file}>
+          Fim dos comentários
+            </Text>
+          }
+          data={comments.comments}
+          keyExtractor={(item) => item.comment.id.toString()}
+          numColumns={1}
+          renderItem={(post) => {
+            return <Entry 
+              data={post.item}
+              navigation={navigation}
+            />
+          } } />
       </View>
       <View style={styles.text_input_container}>
         <View style={styles.text_input_segment}>
@@ -270,15 +259,6 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 15
   },
-  star:{
-    width: 19,
-    height: 19,
-  },
-  star_container: {
-    flex: 1,
-    flexDirection: 'row',
-    
-  },
   book_image: {
     maxWidth: 80,
     height: 120,
@@ -371,57 +351,3 @@ const styles = StyleSheet.create({
     lineHeight: 13,
   },
 })
-
-let mocks = [{
-  'id': 1,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 2,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 3,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 4,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-]
-
-
-
-
