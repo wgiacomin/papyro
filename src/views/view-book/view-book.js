@@ -6,7 +6,6 @@ import DefaultBar from '../../components/default-bar-back'
 import shareButton from '../../../assets/icons/share.png'
 import horizontal from '../../../assets/lines/straight.png'
 import profile from '../../../assets/icons/profile.png'
-import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
 import editButton from '../../../assets/buttons/editButton.png'
 import spinner from '../../styles/spinner'
@@ -75,7 +74,7 @@ const ViewBook = ({ navigation, route }) => {
             <View >
               <TouchableOpacity onPress={() => navigation.navigate('Review')}>
                 <View style={styles.star_container}>
-                  <Rate stars={book.book.rate} style={styles.star} />
+                  <Rate stars={book.book.rate} size={24} />
                 </View>
               </TouchableOpacity>
             </View>
@@ -111,7 +110,7 @@ const ViewBook = ({ navigation, route }) => {
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('Review')}>
               <View style={styles.star_container}>
-                <Rate stars={book.book.rate} style={styles.star} />
+                <Rate stars={book.book.rate} size={22} />
               </View>
             </TouchableOpacity>
             <View style={styles.star_container_resume}>
@@ -179,7 +178,7 @@ const ViewBook = ({ navigation, route }) => {
                     <TouchableOpacity
                       onPress={() => navigation.navigate('Review')}>
                       <View style={styles.star_container_comments}>
-                        <Rate stars={item.rate} style={styles.star_comments} />
+                        <Rate stars={item.rate} size={15} />
                       </View>
                     </TouchableOpacity>
                   </View>
