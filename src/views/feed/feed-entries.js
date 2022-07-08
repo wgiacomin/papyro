@@ -18,7 +18,7 @@ const FeedEntries = ({data, navigation}) => {
           book_title={post.item.book.book_title}
           cover={post.item.book.cover}
           date={post.item.date}
-		  type={post.item.type}
+          type={post.item.type}
           navigation={ navigation }
         />
       } } />
