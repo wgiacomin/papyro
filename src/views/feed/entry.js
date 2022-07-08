@@ -1,14 +1,12 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-// import Like from '../../components/heart'
+import Like from '../../components/heart'
+import Rate from '../../components/rate-stars'
 import horizontal from '../../../assets/lines/straight.png'
-import like from '../../../assets/icons/like.png'
 import comments from '../../../assets/icons/chat.png'
-import full_star from '../../../assets/icons/full_star.png'
-import star from '../../../assets/icons/star.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({nickname, type, book_title, rates, date, photo, text, likes, cover, navigation}) => {
+const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, photo, text, likes, cover, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
@@ -16,7 +14,8 @@ const Entry = ({nickname, type, book_title, rates, date, photo, text, likes, cov
           onPress={() => navigation.navigate('Friend')}>
           <Image source={{uri: photo}} style={styles.person_image}/>  
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity 
+          onPress={() => navigation.navigate('Friend')}>
           <Text style={styles.person}>{nickname}</Text>
         </TouchableOpacity>
         <Text style={styles.post_type}>{type}:</Text>
@@ -28,21 +27,18 @@ const Entry = ({nickname, type, book_title, rates, date, photo, text, likes, cov
         </TouchableOpacity>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
-            <TouchableOpacity>
+            <TouchableOpacity 
+              onPress={() => navigation.navigate('ViewBook')}>
               <Text style={styles.book_title}>{book_title}</Text>
             </TouchableOpacity>
             <View style={styles.star_container}>
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={full_star} style={styles.star}/> 
-              <Image source={star} style={styles.star}/> 
+              <Rate stars={rate} size={13} />
             </View>
           </View>
           <View style={styles.book_description_container}>
             <Text style={styles.book_description}>{text}</Text>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Comments')}
+              onPress={() => navigation.navigate('Comments', { id: id })}
             >
               <Text style={styles.see_more}>Ver mais</Text>
             </TouchableOpacity>
@@ -52,11 +48,10 @@ const Entry = ({nickname, type, book_title, rates, date, photo, text, likes, cov
       <View style={styles.footer}>
         <Text style={styles.data}>{date}</Text>
         <View style={styles.like_and_comments}>
-          <TouchableOpacity style={styles.buttons}>
-            <Image source={like} style={styles.icons}/>
-            <Text style={styles.icon_text}>{likes}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Comments', { id: 8 })}>
+          
+          <Like liked={you_liked} size={20} likes={likes} />
+          
+          <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Comments', { id: id })}>
             <Image source={comments} style={styles.icons}/>
             <Text style={styles.icon_text}>{rates}</Text>
           </TouchableOpacity>

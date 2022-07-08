@@ -72,7 +72,8 @@ const CONTRACTS = {
             'text': 'Gostei muito',
             'likes': 3,
             'rates': 4,
-            'rate': 5,
+            'you_liked': false,
+            'rate': 1,
             'book': {
               'book_title': 'Livro 123',
               'id': 1,
@@ -84,14 +85,15 @@ const CONTRACTS = {
               'id': 1,
             },
           },
-		  {   
+          {   
             'id': 2,
             'type': 'comentario',
             'date': '03/11/1999',
             'text': 'Muito ruim muito',
             'likes': 33,
             'rates': 14,
-            'rate': 5,
+            'you_liked': true,
+            'rate': 1,
             'book': {
               'book_title': 'Livro 123',
               'id': 2,
@@ -103,13 +105,14 @@ const CONTRACTS = {
               'id': 2
             },
           },
-		  {   
+          {   
             'id': 3,
             'type': 'avaliação',
             'date': '31/12/1999',
             'text': 'Gostei muito',
             'likes': 3,
             'rates': 4,
+            'you_liked': false,
             'rate': 5,
             'book': {
               'book_title': 'Livro 123',
@@ -122,13 +125,14 @@ const CONTRACTS = {
               'id': 11
             },
           },
-		  {   
+          {   
             'id': 4,
             'type': 'comentario',
             'date': '31/12/1999',
             'text': 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
             'likes': 0,
             'rates': 7,
+            'you_liked': false,
             'rate': 5,
             'book': {
               'book_title': 'Livro 456',
@@ -141,13 +145,14 @@ const CONTRACTS = {
               'id': 21
             } ,
           },
-		  {   
+          {   
             'id': 11,
             'type': 'comentario',
             'date': '31/12/1999',
             'text': 'Gostei muito',
             'likes': 3,
             'rates': 4,
+            'you_liked': true,
             'rate': 5,
             'book': {
               'book_title': 'Livro de barcos',
@@ -160,13 +165,14 @@ const CONTRACTS = {
               'id': 31,
             },
           },
-		  {   
+          {   
             'id': 21,
             'type': 'comentario',
             'date': '03/11/1999',
             'text': 'até que é bom',
             'likes': 33,
             'rates': 14,
+            'you_liked': false,
             'rate': 5,
             'book': {
               'book_title': 'Livro de artes',
@@ -179,13 +185,14 @@ const CONTRACTS = {
               'id': 42
             },
           },
-		  {   
+          {   
             'id': 31,
             'type': 'avaliação',
             'date': '31/12/1999',
             'text': 'hasuhaush',
             'likes': 3,
             'rates': 4,
+            'you_liked': false,
             'rate': 5,
             'book': {
               'book_title': 'Livro 123',
@@ -198,13 +205,14 @@ const CONTRACTS = {
               'id': 51
             },
           },
-		  {   
+          {   
             'id': 42,
             'type': 'comentario',
             'date': '31/12/1999',
             'text': 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
-            'likes': 0,
+            'likes': 1,
             'rates': 7,
+            'you_liked': true,
             'rate': 5,
             'book': {
               'book_title': 'Livro 456',
