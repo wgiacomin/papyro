@@ -169,9 +169,9 @@ const CONTRACTS = {
               'likes': 3,
               'rate': 2,
               'you_liked': true,
-              'text': 'bla bla bla bla',
+              'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
               'user': {
-                'nickname': 'grauber',
+                'nickname': 'um nome bem grande de teste',
                 'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
                 'id': 2
               }
@@ -197,7 +197,7 @@ const CONTRACTS = {
               'likes': 3,
               'you_liked': false,
               'rate': 10,
-              'text': 'bla bla bla bla',
+              'text': 'bla bla bla bla esse nome não funcionaaaaaaaaaaaaaaaaaa',
               'user': {
                 'nickname': 'nome123',
                 'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
@@ -225,7 +225,7 @@ const CONTRACTS = {
               'likes': 3,
               'you_liked': false,
               'rate': 2,
-              'text': 'KKKKKKKK',
+              'text': 'bla bla bla bla',
               'user': {
                 'nickname': 'nome123',
                 'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',

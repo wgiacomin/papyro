@@ -54,7 +54,7 @@ const ViewBook = ({ navigation, route }) => {
 
           <View style={styles.segment}>
             <Text style={styles.gender_title}>
-							Gênero: {book.book.genre.name}
+              Gênero: <Text style={styles.underline}>{book.book.genre.name}</Text>
             </Text>
             <View style={styles.share_segment}>
               <TouchableOpacity onPress={onShare}>
@@ -71,18 +71,19 @@ const ViewBook = ({ navigation, route }) => {
               {book.book.author[0].name}
             </Text>
 
-            <View >
+            <View>
               <TouchableOpacity onPress={() => navigation.navigate('Review')}>
-                <View style={styles.star_container}>
+                <View style={styles.star_container_avaliation}>
                   <Rate stars={book.book.rate} size={24} />
                 </View>
+                <Text style={styles.star_number}>({book.book.rates.length})</Text>
               </TouchableOpacity>
             </View>
 
-            <Text style={styles.star_number}>({book.book.rates.length})</Text>
             <Image source={{ uri: book.book.cover }} style={styles.bookImage} />
           </View>
-          <View >
+
+          <View style={styles.resume_segment}>
             <Text style={styles.resume}>
               {book.book.description}
             </Text>
@@ -109,17 +110,15 @@ const ViewBook = ({ navigation, route }) => {
               }
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('Review')}>
-              <View style={styles.star_container}>
+              <View style={styles.star_container_resume}>
                 <Rate stars={book.book.rate} size={22} />
+                <TouchableOpacity onPress={() => navigation.navigate('Review')}>
+                  <Text style={styles.star_number_resume}>
+									(Avaliar)
+                  </Text>
+                </TouchableOpacity>
               </View>
             </TouchableOpacity>
-            <View style={styles.star_container_resume}>
-              <TouchableOpacity onPress={() => navigation.navigate('Review')}>
-                <Text style={styles.star_number_resume}>
-									(Avaliar)
-                </Text>
-              </TouchableOpacity>
-            </View>
             <View style={styles.line}>
               <Image source={horizontal} style={styles.horizontalLine} />
             </View>
@@ -173,12 +172,9 @@ const ViewBook = ({ navigation, route }) => {
                       onPress={() => navigation.navigate('People')}>
                       <Text style={styles.person}>{item.user.nickname}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate('Review')}>
-                      <View style={styles.star_container_comments}>
-                        <Rate stars={item.rate} size={15} />
-                      </View>
-                    </TouchableOpacity>
+                  </View>
+                  <View style={styles.star_container_comments}>
+                    <Rate stars={item.rate} size={15} />
                   </View>
 
                   <View style={styles.book_description_container}>
