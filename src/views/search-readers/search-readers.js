@@ -55,10 +55,7 @@ const SearchReaders = ({ navigation }) => {
           <DefaultBar navigation={navigation} />
           <View style={styles.segment}>
             <Text style={styles.title}>{readers.readers.readers_read.status}</Text>
-
-
             <ListPeople list={readers.readers.readers_read.list} />
-
           </View>
 
           <View style={styles.see_more_segment}>

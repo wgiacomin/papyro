@@ -225,7 +225,7 @@ const CONTRACTS = {
               'likes': 3,
               'you_liked': false,
               'rate': 2,
-              'text': 'bla bla bla bla',
+              'text': 'KKKKKKKK',
               'user': {
                 'nickname': 'nome123',
                 'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
