@@ -147,7 +147,6 @@ const ViewBook = ({ navigation, route }) => {
 
           <View>
             <Text style={styles.comments_title}> {book.book.rates.length} avaliações </Text>
-
           </View>
 
           <View style={styles.edit_segment}>
@@ -170,7 +169,6 @@ const ViewBook = ({ navigation, route }) => {
                       onPress={() => navigation.navigate('People')}>
                       <Image source={{ uri: item.user.photo }} style={styles.user_image} />
                     </TouchableOpacity>
-
                     <TouchableOpacity
                       onPress={() => navigation.navigate('People')}>
                       <Text style={styles.person}>{item.user.nickname}</Text>
