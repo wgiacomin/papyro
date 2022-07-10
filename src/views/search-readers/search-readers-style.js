@@ -43,7 +43,7 @@ export default StyleSheet.create({
     color: '#007AFF',
   },
   see_more_segment: {
-    alignSelf: 'flex-start',
+    alignItems: 'center',
     marginBottom: 12,
     paddingTop: 5
   }

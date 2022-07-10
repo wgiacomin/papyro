@@ -27,8 +27,9 @@ const ViewBook = ({ navigation, route }) => {
     })
   }
 
-  const [clickedId, setClickedId] = useState(-1)
+  const [clickedId, setClickedId] = useState(null)
   const handleClick = (id) => {
+    book.book.book_status_user.id = id
     setClickedId(id)
   }
 
@@ -99,7 +100,7 @@ const ViewBook = ({ navigation, route }) => {
                       <TouchableOpacity
                         onPress={() => handleClick(index)}
                         key={index}
-                        style={[index === clickedId ? styles.selected : index === book.book.book_status_user.id ? styles.selected:styles.unselected]}
+                        style={[(index === book.book.book_status_user.id | index === clickedId) ? styles.selected : styles.unselected]}
                       >
                         <Text style={styles.want_to_read}>{item.status}</Text>
                       </TouchableOpacity>

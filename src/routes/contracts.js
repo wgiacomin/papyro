@@ -280,8 +280,8 @@ const CONTRACTS = {
             'name': 'ficção'
           },
           'book_status_user': {
-            'id': 3,
-            'status': 'Já li'
+            'id': 1,
+            'status': 'lendo'
           },
           'book_status': [
             {
@@ -451,27 +451,77 @@ const CONTRACTS = {
             {
               'nickname': 'pessoa Um',
               'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 1
+              'id': 11
             },
             {
               'nickname': 'PEssoa II',
               'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 2
+              'id': 21
             },
             {
               'nickname': 'Pessoa C',
               'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 3
+              'id': 32
             },
             {
               'nickname': 'pessoa quarta',
               'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 4
+              'id': 41
             },
             {
               'nickname': 'pessoa número 5',
               'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 5
+              'id': 53
+            },
+            {
+              'nickname': 'pessoa Um',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 14
+            },
+            {
+              'nickname': 'PEssoa II',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 112
+            },
+            {
+              'nickname': 'Pessoa C',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 312
+            },
+            {
+              'nickname': 'pessoa quarta',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 141
+            },
+            {
+              'nickname': 'pessoa número 5',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 151
+            },
+            {
+              'nickname': 'pessoa Um',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 11
+            },
+            {
+              'nickname': 'PEssoa II',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 232
+            },
+            {
+              'nickname': 'Pessoa C',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 113
+            },
+            {
+              'nickname': 'pessoa quarta',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 433
+            },
+            {
+              'nickname': 'pessoa número 5',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 511
             },
           ]
         }

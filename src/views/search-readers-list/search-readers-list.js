@@ -34,7 +34,9 @@ const SearchReadersList = ({ navigation }) => {
         <View style={styles.segment}>
           <Text style={styles.title}>{readers.readers.status}</Text>
         </View>
-        <SearchReadersListEntries data={readers.readers.list} navigation={navigation} />
+        <View style={styles.segment}>
+          <SearchReadersListEntries data={readers.readers.list} navigation={navigation} />
+        </View>
       </View>
     </SafeAreaView>
   )

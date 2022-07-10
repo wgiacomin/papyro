@@ -54,6 +54,15 @@ export default StyleSheet.create({
     color: '#181D2D',
     textAlign: 'center'
   },
+  unselected: {
+    margin: 5,
+  },
+  selected: {
+    backgroundColor: 'black',
+    margin: 6,
+    padding: 10,
+    borderRadius: 10,
+  },
   star:{
     width: 20,
     height: 20,
@@ -66,7 +75,7 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     paddingTop: 5,
-    marginLeft: 140
+    marginLeft: 132
   },
   star_container_comments: {
     flexDirection: 'row',
@@ -81,7 +90,7 @@ export default StyleSheet.create({
     lineHeight: 18,
     color: '#181D2D',
     textAlign: 'right',
-    paddingRight: 120,
+    paddingRight: 115,
     marginTop: -20
   },
   bookImage:{
@@ -155,9 +164,9 @@ export default StyleSheet.create({
     fontSize: 12,
     lineHeight: 14,
     color: '#181D2D',
-    paddingTop: 5,
+    paddingTop: 7,
     marginBottom: 10,
-    marginRight: 60
+    marginRight: 55
   },
   line:{
     flex: 1,
