@@ -155,21 +155,39 @@ const CONTRACTS = {
       'status': 200
     }
   },
-  'generos': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  genders: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': [
-        {
-          'genero': 'string',
-          'id': 0
-        }
-      ],
-      'status': 200
+    success: {
+      data: {
+        genders: [
+          {
+            name: 'Ficção Científica',
+            description: 'Inclui autores como Isaac Asimov, Wilson Gibson e Frank Herbert.',
+            id: 0
+          },
+          {
+            name: 'Clássicos de Época',
+            description: 'Livros como Morro dos Ventos Uivantes, Orgulho e Preconceito ou ainda Crime e Castigo.',
+            id: 1
+          },
+          {
+            name: 'Infanto-Juvenis',
+            description: 'Livros como Percy Jakson, Harry Potter ou ainda Jogos Vorazes.',
+            id: 2
+          },
+          {
+            name: 'Filosofia',
+            description: 'Inclui autores como  René Descasrtes, Karl Marx e Sócrates.',
+            id: 3
+          },
+        ]
+      },
+      status: 200
     }
   },
   'get_book': {
@@ -745,38 +763,55 @@ const CONTRACTS = {
       }
     },
   },
-  'profile': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  profile: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': {
-        'apelido': 'string',
-        'foto': 'string',
-        'id': 0,
-        'livrosLendo': {
-          'id': 0,
-          'livrosLendoQtd': 0,
-          'nome': 'string'
+    success: {
+      data: {
+        id: 0,
+        followers: 15,
+        booksQt: 20,
+        nickname: 'Ana Dolata',
+        photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+        name: 'Ana Carolina Dolata',
+        birthday: '20/10/1998',
+        description: 'Eu gosto de ler livrossssss',
+        booksReading: {
+          id: 0,
+          booksReadingQtd: 5,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
-        'livrosLerei': {
-          'id': 0,
-          'livrosLereiQtd': 0,
-          'nome': 'string'
+        booksToRead: {
+          id: 0,
+          booksToReadQtd: 7,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
-        'livrosLidos': {
-          'id': 0,
-          'livrosLidosQtd': 0,
-          'nome': 'string'
+        booksRead: {
+          id: 0,
+          booksReadQtd: 3,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
-        'livrosLidosQtd': 0,
-        'nome': 'string',
-        'seguidoresQtd': 0
       },
-      'status': 200
+      status: 200
     }
   },
   signup: {
