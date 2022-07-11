@@ -8,7 +8,7 @@ const Entry = ({data, navigation}) => {
       onPress={() => {
         switch(data.notification.refer) {
         case 'comment':
-          navigation.navigate('Comments')
+          navigation.navigate('Comments', {id: 1})
           break
         case 'follow':
           navigation.navigate('Friend')
