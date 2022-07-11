@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
   person_image:{
     width: 32,
     height: 32,
-    borderRadius: 25
+    borderRadius: 25,
+    marginRight: 5
   },
   title: {
     flex: 1,
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
-    fontSize: 14,
+    fontSize: 15,
     lineHeight: 17,
     marginTop: 10
   },

@@ -884,13 +884,15 @@ const CONTRACTS = {
           likes: 4,
           date: '20/01/2021',
           you_liked: true,
-          book: {
-            id: 9,
-            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Joust',
-            author: 'Mercedes Lackey'
-          }
+        },
+        book: {
+          id: 9,
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+          name: 'Joust',
+          author: 'Mercedes Lackey',
+          status: 1
         }
+        
       }
     },
     status: 200
