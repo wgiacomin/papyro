@@ -9,6 +9,7 @@ function setValues({ setComment, response }) {
     comments: response.data.comments, 
     review: response.data.review,
     reviewer: response.data.reviewer,
+    book: response.data.book,
     loading: false 
   })
 }

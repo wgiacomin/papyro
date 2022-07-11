@@ -10,6 +10,13 @@ import spinner from '../../styles/spinner'
 import useComment from './use-comment'
 import Entry from './entry'
 import Like from '../../components/heart'
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu'
+import READ_TYPE from '../../enum/READ_TYPE'
 
 const Comment = ({ navigation, route }) => {
   const [comments, setComment] = useState({
@@ -18,12 +25,14 @@ const Comment = ({ navigation, route }) => {
     review: {},
     reviewer: {}
   })
-  const [show, setShow ] = useState(false)
-  const { profile } = useAuthState()
 
   useEffect(() => {
     useComment({setComment, id: route.params.id})
   }, [])
+
+  function setNewState({newState}) {
+    setComment({...comments, book:{...comments.book, status: newState}})
+  }
     
   if (comments.loading) {
     return (
@@ -57,32 +66,29 @@ const Comment = ({ navigation, route }) => {
                 <TouchableOpacity
                   onPress={() => navigation.navigate('ViewBook')}
                 >
-                  <Image source={{uri: comments.review.book.cover}} style={styles.book_image}/>
+                  <Image source={{uri: comments.book.cover}} style={styles.book_image}/>
                 </TouchableOpacity>
                 <View style={styles.container_book_title}>
                   <View>
                     <TouchableOpacity
                       onPress={() => navigation.navigate('ViewBook')}
                     >
-                      <Text style={styles.book_title}>{comments.review.book.name}</Text>
+                      <Text style={styles.book_title}>{comments.book.name}</Text>
                     </TouchableOpacity>
-                    <Text style={styles.book_subtitle}>{comments.review.book.author}</Text>
+                    <Text style={styles.book_subtitle}>{comments.book.author}</Text>
                   </View>
                   <Rate stars={comments.review.rate} size={24} />
                   <View style={styles.want_to_read_container}>
-                    <TouchableOpacity 
-                      onPress={() => {setShow(!show)}}>
-                      <Text style={styles.want_to_read}> Quero Ler </Text>    
-                    </TouchableOpacity>
-                    {
-                      show ? (
-                        <View>
-                          <Text style={styles.want_to_read_list}>Não Ler</Text>
-                          <Text style={styles.want_to_read_list}>Não Ler</Text>
-                        </View>
-                      
-                      ) : null 
-                    } 
+                    <Menu>
+                      <MenuTrigger>
+                        <Text style={comments.book.status == 1 ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[comments.book.status]} </Text>    
+                      </MenuTrigger>
+                      <MenuOptions style={styles.options_color}>
+                        <MenuOption onSelect={() => setNewState({newState: 1})} text={READ_TYPE[1]} disabled={comments.book.status == 1}/>
+                        <MenuOption onSelect={() => setNewState({newState: 2})} text={READ_TYPE[2]} disabled={comments.book.status == 2}/>
+                        <MenuOption onSelect={() => setNewState({newState: 3})} text={READ_TYPE[3]} disabled={comments.book.status == 3} />
+                      </MenuOptions>
+                    </Menu>
                   </View>
                 </View>
               </View>
@@ -140,6 +146,9 @@ export default Comment
 
 
 const styles = StyleSheet.create({
+  options_color: {
+    borderColor: '#dcdcdc',
+  },
   send:{
     alignSelf: 'center',
     marginRight: 10,
@@ -199,7 +208,8 @@ const styles = StyleSheet.create({
   person_image:{
     width: 32,
     height: 32,
-    borderRadius: 25
+    borderRadius: 25,
+    marginRight: 5
   },
   title: {
     flex: 1,
@@ -283,13 +293,13 @@ const styles = StyleSheet.create({
   },
   book_title: {
     fontFamily: 'Poppins',
-    fontSize: 16,
+    fontSize: 22,
     lineHeight: 22,
     textAlign: 'center'
   },
   book_subtitle: {
     fontFamily: 'Poppins',
-    fontSize: 12,
+    fontSize: 14,
     lineHeight: 16,
     textAlign: 'center',
     alignSelf: 'center',
@@ -331,11 +341,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
     lineHeight: 21,
+    color: 'black'
   },
   text: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
-    fontSize: 14,
+    fontSize: 15,
     lineHeight: 17,
     marginTop: 10
   },

@@ -3,6 +3,7 @@ import AppLoading from 'expo-app-loading'
 import React, { useState } from 'react'
 import { AuthProvider } from './src/context/auth-context'
 import AppNavigator from './src/navigation/app-navigator'
+import { MenuProvider } from 'react-native-popup-menu'
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -29,7 +30,9 @@ export default function App() {
 
   return (
     <AuthProvider>
-      <AppNavigator />
+      <MenuProvider>
+        <AppNavigator />
+      </MenuProvider>
     </AuthProvider>
   )
 }

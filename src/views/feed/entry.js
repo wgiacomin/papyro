@@ -49,7 +49,6 @@ const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, ph
         <Text style={styles.data}>{date}</Text>
         <View style={styles.like_and_comments}>         
           <Like liked={you_liked} size={20} likes={likes} />
-          
           <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Comments', { id: id })}>
             <Image source={comments} style={styles.icons}/>
             <Text style={styles.icon_text}>{rates}</Text>
@@ -69,7 +68,8 @@ const styles = StyleSheet.create({
   },
   person_image:{
     width: 27,
-    height: 27
+    height: 27,
+    borderRadius: 20
   },
   title: {
     flex: 1,
