@@ -1,11 +1,33 @@
-import React from 'react'
-import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import SuggestionEntries from './people-suggestion-entries'
 import horizontal from '../../../assets/lines/straight.png'
+import spinner from '../../styles/spinner'
+import usePeopleSuggestion from './use-people-suggestion'
 
 const PeopleSuggestion = ({ navigation }) => {
+  const { profile } = useAuthState()
+
+  const [peopleSuggestion, setPeopleSuggestion] = useState({
+    peopleSuggestion: [],
+    loading: true,
+  })
+
+  useEffect(() => {
+    usePeopleSuggestion({ setPeopleSuggestion, profile })
+  }, [])
+
+  if (peopleSuggestion.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
@@ -26,7 +48,7 @@ const PeopleSuggestion = ({ navigation }) => {
         <View style={styles.line}>
           <Image source={horizontal} style={styles.horizontalLine} />
         </View>
-        <SuggestionEntries mocks={mocks} navigation={ navigation }/>
+        <SuggestionEntries data={peopleSuggestion.peopleSuggestion} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )

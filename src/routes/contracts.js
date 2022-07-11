@@ -890,6 +890,61 @@ const CONTRACTS = {
       'status': 200
     }
   },
+  people_suggestion: {
+    error: {
+      data: {
+        detail: 'erro'
+      },
+      status: 404
+    },
+    success: {
+      data: {
+        people_suggestion: [
+          {
+            nickname: 'Ana Dolata',
+            photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+            commonGenre: 0,
+            id: 1,
+            commonBooks: 1,
+            comment: 5,
+          },
+          {
+            nickname: 'Nome longoooooooo',
+            photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+            commonGenre: 0,
+            id: 2,
+            commonBooks: 4,
+            comment: 0,
+          },
+          {
+            nickname: 'Ana Dolata',
+            photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+            commonGenre: 0,
+            id: 3,
+            commonBooks: 3,
+            comment: 5,
+          },
+          {
+            nickname: 'Ana Dolata',
+            photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+            commonGenre: 1,
+            id: 4,
+            commonBooks: 7,
+            comment: 4,
+          },
+          {
+            nickname: 'Ana Dolata',
+            photo: 'https://images.gr-assets.com/users/1626743530p6/122873281.jpg',
+            commonGenre: 5,
+            id: 5,
+            commonBooks: 6,
+            comment: 2,
+          }
+        ],
+      },
+      status: 200
+    }
+  },
   'visualizarComentarios': {
     'error': {
       'data': {
