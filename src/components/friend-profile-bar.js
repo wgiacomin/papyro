@@ -4,7 +4,7 @@ import vertical from '../../assets/lines/straight.png'
 import arrowButton from '../../assets/buttons/arrowButton.png'
 import likeButton from '../../assets/buttons/likeButton.png'
 
-const FriendProfileBar = ({ navigation }) => {
+const FriendProfileBar = ({ navigation, profile }) => {
   return (
     <View>
       <View style={styles.container}>
@@ -14,14 +14,12 @@ const FriendProfileBar = ({ navigation }) => {
             onPress={() => navigation.goBack()}>
             <Image source={arrowButton} style={styles.imageSize} />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.backSegment}
-            onPress={() => Alert.alert('','Você agora é amigo de Ana Luíza!')}>
-            <Image source={likeButton} style={styles.buttonSize} />
-          </TouchableOpacity>
-          <Text style={styles.title}>
-              Ana Luíza
-          </Text>
+          <View style={styles.titleSegment}>
+            <Text style={styles.title}>
+              {profile}
+            </Text>
+          </View>
+          
         </View>
       </View>
       <View>
@@ -59,11 +57,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: -7
   },
-  buttonSize: {
-    width: 20,
-    height: 20,
+  titleSegment:{
     flexDirection: 'row',
-    marginLeft: 321,
+    left: '30%',
+    alignItems: 'center'
   },
   title: {  
     fontFamily: 'Poppins-Medium',
@@ -71,7 +68,6 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 32,
     lineHeight: 48,
-    marginLeft: -265,
     color: '#181D2D',
     marginTop: '-6%'
   }

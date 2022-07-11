@@ -18,6 +18,9 @@ export default StyleSheet.create({
     lineHeight: 21,
     color: '#181D2D',
   },
+  underline: {
+    textDecorationLine: 'underline'
+  },
   share_segment: {
     flexDirection: 'row-reverse',
     marginTop: -20,    
@@ -32,7 +35,7 @@ export default StyleSheet.create({
     paddingBottom: '5%',
     backgroundColor: '#ECEDF1',
     marginRight: '-7%',
-    marginLeft: '-7%'
+    marginLeft: '-7%',
   },
   book_title: {  
     fontFamily: 'Poppins-Medium',
@@ -51,6 +54,15 @@ export default StyleSheet.create({
     color: '#181D2D',
     textAlign: 'center'
   },
+  unselected: {
+    margin: 5,
+  },
+  selected: {
+    backgroundColor: 'black',
+    margin: 6,
+    padding: 10,
+    borderRadius: 10,
+  },
   star:{
     width: 20,
     height: 20,
@@ -59,18 +71,17 @@ export default StyleSheet.create({
     width: 12,
     height: 12,
   },
-  star_container: {
+  star_container_avaliation: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: 0,
-    marginTop: 5,
-    alignSelf: 'center'
+    paddingTop: 5,
+    marginLeft: 132
   },
   star_container_comments: {
     flexDirection: 'row',
-    paddingTop: 0,
-    marginTop: 20,
-    marginLeft: -45
+    marginTop: -23,
+    marginLeft: 48,
+    marginBottom: 10
   },
   star_number: {  
     fontFamily: 'Poppins',
@@ -79,8 +90,8 @@ export default StyleSheet.create({
     lineHeight: 18,
     color: '#181D2D',
     textAlign: 'right',
-    paddingRight: 110,
-    marginTop: -17
+    paddingRight: 115,
+    marginTop: -20
   },
   bookImage:{
     width: 94,
@@ -145,6 +156,7 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignSelf: 'center',
+    marginLeft: 120
   },
   star_number_resume: {  
     fontFamily: 'Poppins',
@@ -152,9 +164,9 @@ export default StyleSheet.create({
     fontSize: 12,
     lineHeight: 14,
     color: '#181D2D',
-    textAlign: 'right',
-    paddingTop: 5,
-    marginBottom: 12
+    paddingTop: 7,
+    marginBottom: 10,
+    marginRight: 55
   },
   line:{
     flex: 1,
@@ -191,7 +203,7 @@ export default StyleSheet.create({
   person_image:{
     width: 22,
     height: 22,
-    marginLeft: 135
+    marginLeft: 120
   },
   company_title: {  
     fontFamily: 'Poppins',
@@ -341,9 +353,8 @@ export default StyleSheet.create({
   book_description_container:{
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
     flexWrap: 'wrap',
+    marginLeft: 50
   },
   
 })

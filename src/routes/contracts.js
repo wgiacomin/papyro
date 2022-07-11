@@ -64,64 +64,205 @@ const CONTRACTS = {
     },
     'success': {
       'data': {
-        'avaliacao': [
-          {
-            'comentariosQtd': 0,
-            'data_criacao': '2022-07-12',
-            'id': 0,
-            'likes': 0,
-            'livro': {
-              'capa': 'string',
-              'id': 0,
-              'nome': 'string',
-              'rate': 0
+        'feed': [
+          {   
+            'id': 1,
+            'type': 'comentario',
+            'date': '31/12/1999',
+            'text': 'Gostei muito',
+            'likes': 3,
+            'rates': 4,
+            'you_liked': false,
+            'rate': 1,
+            'book': {
+              'book_title': 'Livro 123',
+              'id': 1,
+              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             },
-            'texto': 'string',
-            'usuario': {
-              'apelido': 'string',
-              'foto': 'string',
-              'id': 0
-            }
-          }
+            'user': {
+              'nickname': 'Maria Clara',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1,
+            },
+          },
+          {   
+            'id': 2,
+            'type': 'comentario',
+            'date': '03/11/1999',
+            'text': 'Muito ruim muito',
+            'likes': 33,
+            'rates': 14,
+            'you_liked': true,
+            'rate': 1,
+            'book': {
+              'book_title': 'Livro 123',
+              'id': 2,
+              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            },
+            'user': {
+              'nickname': 'Maria Clara',
+              'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
+              'id': 2
+            },
+          },
+          {   
+            'id': 3,
+            'type': 'avaliação',
+            'date': '31/12/1999',
+            'text': 'Gostei muito',
+            'likes': 3,
+            'rates': 4,
+            'you_liked': false,
+            'rate': 5,
+            'book': {
+              'book_title': 'Livro 123',
+              'id': 11,
+              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            },
+            'user': {
+              'nickname': 'Maria Clara',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 11
+            },
+          },
+          {   
+            'id': 4,
+            'type': 'comentario',
+            'date': '31/12/1999',
+            'text': 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
+            'likes': 0,
+            'rates': 7,
+            'you_liked': false,
+            'rate': 5,
+            'book': {
+              'book_title': 'Livro 456',
+              'id': 21,
+              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            },
+            'user': {
+              'nickname': 'Ana maria',
+              'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
+              'id': 21
+            } ,
+          },
+          {   
+            'id': 11,
+            'type': 'comentario',
+            'date': '31/12/1999',
+            'text': 'Gostei muito',
+            'likes': 3,
+            'rates': 4,
+            'you_liked': true,
+            'rate': 5,
+            'book': {
+              'book_title': 'Livro de barcos',
+              'id': 31,
+              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            },
+            'user': {
+              'nickname': 'Maria Clara',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 31,
+            },
+          },
+          {   
+            'id': 21,
+            'type': 'comentario',
+            'date': '03/11/1999',
+            'text': 'até que é bom',
+            'likes': 33,
+            'rates': 14,
+            'you_liked': false,
+            'rate': 5,
+            'book': {
+              'book_title': 'Livro de artes',
+              'id': 42,
+              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            },
+            'user': {
+              'nickname': 'Maria Clara',
+              'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
+              'id': 42
+            },
+          },
+          {   
+            'id': 31,
+            'type': 'avaliação',
+            'date': '31/12/1999',
+            'text': 'hasuhaush',
+            'likes': 3,
+            'rates': 4,
+            'you_liked': false,
+            'rate': 5,
+            'book': {
+              'book_title': 'Livro 123',
+              'id': 51,
+              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            },
+            'user': {
+              'nickname': 'Boress',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 51
+            },
+          },
+          {   
+            'id': 42,
+            'type': 'comentario',
+            'date': '31/12/1999',
+            'text': 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
+            'likes': 1,
+            'rates': 7,
+            'you_liked': true,
+            'rate': 5,
+            'book': {
+              'book_title': 'Livro 456',
+              'id': 61,
+              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            },
+            'user': {
+              'nickname': 'Ana maria',
+              'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
+              'id': 61
+            } ,
+          },
         ],
-        'comentario': [
-          {
-            'comentariosQtd': 0,
-            'data_criacao': '2022-02-17',
-            'id': 0,
-            'likes': 0,
-            'livro': {
-              'capa': 'string',
-              'id': 0,
-              'nome': 'string'
-            },
-            'texto': 'string',
-            'usuario': {
-              'apelido': 'string',
-              'foto': 'string',
-              'id': 0
-            }
-          }
-        ]
       },
       'status': 200
     }
   },
-  'generos': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  genders: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': [
-        {
-          'genero': 'string',
-          'id': 0
-        }
-      ],
-      'status': 200
+    success: {
+      data: {
+        genders: [
+          {
+            name: 'Ficção Científica',
+            description: 'Inclui autores como Isaac Asimov, Wilson Gibson e Frank Herbert.',
+            id: 0
+          },
+          {
+            name: 'Clássicos de Época',
+            description: 'Livros como Morro dos Ventos Uivantes, Orgulho e Preconceito ou ainda Crime e Castigo.',
+            id: 1
+          },
+          {
+            name: 'Infanto-Juvenis',
+            description: 'Livros como Percy Jakson, Harry Potter ou ainda Jogos Vorazes.',
+            id: 2
+          },
+          {
+            name: 'Filosofia',
+            description: 'Inclui autores como  René Descasrtes, Karl Marx e Sócrates.',
+            id: 3
+          },
+        ]
+      },
+      status: 200
     }
   },
   'get_book': {
@@ -138,9 +279,9 @@ const CONTRACTS = {
           'year': '2000-02-12',
           'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
           'book_title': '1984',
-          'rate': 0,
+          'rate': 33,
           'peoples': 10,
-          'description': '2 + 2 = qualquer coisa',
+          'description': '2 + 2 = qualquer coisa. O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
           'author': [
             {
               'id': 1,
@@ -154,6 +295,91 @@ const CONTRACTS = {
               'id': 1,
               'likes': 3,
               'rate': 10,
+              'you_liked': false,
+              'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+            {
+              'comments': 13,
+              'date': '2022-03-26T23:33:08.239252',
+              'id': 1,
+              'likes': 3,
+              'rate': 2,
+              'you_liked': true,
+              'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
+              'user': {
+                'nickname': 'um nome bem grande de teste',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              }
+            },
+            {
+              'comments': 33,
+              'date': '2022-03-27T23:05:08.239252',
+              'id': 3,
+              'likes': 3,
+              'rate': 2,
+              'you_liked': false,
+              'text': 'KKKKKKKK',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+            {
+              'comments': 34,
+              'date': '2022-03-26T23:05:08.239252',
+              'id': 1,
+              'likes': 3,
+              'you_liked': false,
+              'rate': 10,
+              'text': 'bla bla bla bla esse nome não funcionaaaaaaaaaaaaaaaaaa',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+            {
+              'comments': 13,
+              'date': '2022-03-26T23:33:08.239252',
+              'id': 1,
+              'likes': 3,
+              'rate': 2,
+              'you_liked': false,
+              'text': 'bla bla bla bla',
+              'user': {
+                'nickname': 'grauber',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              }
+            },
+            {
+              'comments': 33,
+              'date': '2022-03-27T23:05:08.239252',
+              'id': 3,
+              'likes': 3,
+              'you_liked': false,
+              'rate': 2,
+              'text': 'KKKKKKKK',
+              'user': {
+                'nickname': 'nome123',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              }
+            },
+            {
+              'comments': 34,
+              'date': '2022-03-26T23:05:08.239252',
+              'id': 1,
+              'likes': 3,
+              'you_liked': false,
+              'rate': 10,
               'text': 'bla bla bla bla',
               'user': {
                 'nickname': 'nome123',
@@ -166,6 +392,7 @@ const CONTRACTS = {
               'date': '2022-03-26T23:33:08.239252',
               'id': 1,
               'likes': 3,
+              'you_liked': false,
               'rate': 2,
               'text': 'bla bla bla bla',
               'user': {
@@ -179,6 +406,7 @@ const CONTRACTS = {
               'date': '2022-03-27T23:05:08.239252',
               'id': 3,
               'likes': 3,
+              'you_liked': false,
               'rate': 2,
               'text': 'KKKKKKKK',
               'user': {
@@ -193,13 +421,21 @@ const CONTRACTS = {
             'name': 'ficção'
           },
           'book_status_user': {
-            'id': 0,
-            'status': 'string'
+            'id': 1,
+            'status': 'lendo'
           },
           'book_status': [
             {
-              'id': 0,
-              'status': 'string'
+              'id': 1,
+              'status': 'já li'
+            },
+            {
+              'id': 2,
+              'status': 'lendo'
+            },
+            {
+              'id': 3,
+              'status': 'lerei'
             }
           ]
         }
@@ -210,19 +446,228 @@ const CONTRACTS = {
   'get_reading_people': {
     'error': {
       'data': {
-        'detail': 'string'
+        'detail': 'Error ao cerragar pessoas lendo o livro.'
       },
       'status': 404
     },
     'success': {
-      'data': [
-        {
-          'apelido': 'string',
-          'foto': 'string',
-          'id': 0
-        }
-      ],
+      'data': {
+        'get_reading_people': {
+          'readers_read': {
+            'id': 1,
+            'status': 'Quem já leu?',
+            'list': [
+              {
+                'nickname': 'Jana',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              },
+              {
+                'nickname': 'Ina',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              },
+              {
+                'nickname': 'Marcos',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 3
+              },
+              {
+                'nickname': 'Mister X',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 4
+              },
+              {
+                'nickname': 'Roger',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 5
+              },
+            ]
+          },
+          'readers_reading': {
+            'id': 2,
+            'status': 'Quem está lendo?',
+            'list': [
+              {
+                'nickname': 'JAVA',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              },
+              {
+                'nickname': 'C',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              },
+              {
+                'nickname': 'SQL',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 3
+              },
+              {
+                'nickname': 'PASCAL(ZINHO)',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 4
+              },
+              {
+                'nickname': 'JAVASCRIPT',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 5
+              },
+            ]
+          },
+          'readers_to_read': {
+            'id': 3,
+            'status': 'Quem está lendo?',
+            'list': [
+              {
+                'nickname': 'Pessoa Um',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 1
+              },
+              {
+                'nickname': 'PEssoa II',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 2
+              },
+              {
+                'nickname': 'Pessoa C',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 3
+              },
+              {
+                'nickname': 'Pessoa quarta',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 4
+              },
+              {
+                'nickname': 'Pessoa número 5',
+                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+                'id': 5
+              },
+            ]
+          }
+        },
+
+      },
       'status': 200
+    },
+  },
+  'get_reading_people_list': {
+    'error': {
+      'data': {
+        'detail': 'Error'
+      },
+      'status': 404,
+    },
+    'success': {
+      'data': {
+        'get_reading_people_list': {
+          'status': 'Quem já leu?',
+          'list': [
+            {
+              'nickname': 'pessoa Um',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
+            },
+            {
+              'nickname': 'PEssoa II',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 2
+            },
+            {
+              'nickname': 'Pessoa C',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 3
+            },
+            {
+              'nickname': 'pessoa quarta',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 4
+            },
+            {
+              'nickname': 'pessoa número 5',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 5
+            },
+            {
+              'nickname': 'pessoa Um',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 11
+            },
+            {
+              'nickname': 'PEssoa II',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 21
+            },
+            {
+              'nickname': 'Pessoa C',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 32
+            },
+            {
+              'nickname': 'pessoa quarta',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 41
+            },
+            {
+              'nickname': 'pessoa número 5',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 53
+            },
+            {
+              'nickname': 'pessoa Um',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 14
+            },
+            {
+              'nickname': 'PEssoa II',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 112
+            },
+            {
+              'nickname': 'Pessoa C',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 312
+            },
+            {
+              'nickname': 'pessoa quarta',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 141
+            },
+            {
+              'nickname': 'pessoa número 5',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 151
+            },
+            {
+              'nickname': 'pessoa Um',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 11
+            },
+            {
+              'nickname': 'PEssoa II',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 232
+            },
+            {
+              'nickname': 'Pessoa C',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 113
+            },
+            {
+              'nickname': 'pessoa quarta',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 433
+            },
+            {
+              'nickname': 'pessoa número 5',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 511
+            },
+          ]
+        }
+      },
+      'status': 200,
     }
   },
   'livrosLendo': {
@@ -451,7 +896,7 @@ const CONTRACTS = {
     status: 200
   },
   search: {
-    error: { 
+    error: {
       data: {
         detail: 'string'
       },
@@ -750,44 +1195,61 @@ const CONTRACTS = {
               },
             ]
           },
-          page:2,
+          page: 2,
         },
         status: 200
       }
     },
   },
-  'profile': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  profile: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': {
-        'apelido': 'string',
-        'foto': 'string',
-        'id': 0,
-        'livrosLendo': {
-          'id': 0,
-          'livrosLendoQtd': 0,
-          'nome': 'string'
+    success: {
+      data: {
+        id: 0,
+        followers: 15,
+        booksQt: 20,
+        nickname: 'Ana Dolata',
+        photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
+        name: 'Ana Carolina Dolata',
+        birthday: '20/10/1998',
+        description: 'Eu gosto de ler livrossssss',
+        booksReading: {
+          id: 0,
+          booksReadingQtd: 5,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
-        'livrosLerei': {
-          'id': 0,
-          'livrosLereiQtd': 0,
-          'nome': 'string'
+        booksToRead: {
+          id: 0,
+          booksToReadQtd: 7,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
-        'livrosLidos': {
-          'id': 0,
-          'livrosLidosQtd': 0,
-          'nome': 'string'
+        booksRead: {
+          id: 0,
+          booksReadQtd: 3,
+          name: 'Troubles in Paradise',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
+          author: {
+            name: 'Elin Hilderbrand ',
+            id: 0
+          },
         },
-        'livrosLidosQtd': 0,
-        'nome': 'string',
-        'seguidoresQtd': 0
       },
-      'status': 200
+      status: 200
     }
   },
   signup: {
@@ -860,7 +1322,55 @@ const CONTRACTS = {
             'id': 5,
             'name': 'livro 21321312',
             'rate': 33,
-          }
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 1,
+            'name': '1984',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 2,
+            'name': 'Admirável mundo novo',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 3,
+            'name': 'livro 3',
+            'rate': 3,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 4,
+            'name': 'livro 5',
+            'rate': 2,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 1,
+            'name': '1984',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 2,
+            'name': 'Admirável mundo novo',
+            'rate': 10,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 3,
+            'name': 'livro 3',
+            'rate': 3,
+          },
+          {
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'id': 4,
+            'name': 'livro 5',
+            'rate': 2,
+          },
         ],
       },
       'status': 200
