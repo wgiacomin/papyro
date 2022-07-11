@@ -13,30 +13,19 @@ import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
 
 const UserProfile = ({ navigation }) => { 
-  const { setProfile } = useAuthDispatch()
+
   const { profile } = useAuthState()
 
-  const [books, setBooks] = useState({
-    state: false,
-    reading: [],
-    reading_count: 0,
-    read: [],
-    read_count: 0,
-    to_read:  [],
-    to_read_count: 0,
-    groups: [],
-    groups_count: 0,
-    image_reading: undefined,
-    image_read: undefined,
-    image_to_read: undefined,
+  const [data, setProfile] = useState({
+    data: {},
+    loading: true,
   })
 
   useEffect(() => {
-    useProfile({setProfile, profile, setBooks})
+    useProfile({setProfile, profile})
   }, [])
 
-
-  if (!books.state) {
+  if (data.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
         <ActivityIndicator size="large" color="#00000" />
@@ -50,16 +39,16 @@ const UserProfile = ({ navigation }) => {
       <ScrollView>
         <View style={styles.standard}>
           <View style={styles.segment}>
-            <Image source={profile_image} style={styles.profileSize} />
+            <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
             <Image source={followers} style={styles.imageSize} />
             <Text style={styles.infos}>
-              Seguidores
+              {data.profile.followers} Seguidores
             </Text>
             <Image source={booksReaded} style={styles.imageSize}/>
             <Text style={styles.infos}>
-              Livros Lidos
+              {data.profile.booksQt} Livros Lidos
             </Text>
-            <DescriptionBar description={profile.description} />
+            <DescriptionBar description={data.profile.description} />
             <Image source={vertical} style={styles.horizontalLine} />
           </View>
           <View style={styles.segment}>  
@@ -67,60 +56,60 @@ const UserProfile = ({ navigation }) => {
               Lendo
             </Text>
             <Text style={styles.normal}>
-              {books.reading[0].book_title}
+              {data.profile.booksReading.name}
             </Text>
             <Text style={styles.normal}>
-              {books.reading[0].author[0].name}
+              {data.profile.booksReading.author.name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image source={{uri: books.image_reading}} style={styles.bookSize}/>
+                <Image source={{uri:data.profile.booksReading.cover}} style={styles.bookSize}/>
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookReading', books.reading)}>
+              onPress={() => navigation.navigate('BookReading')}>
               <Text style={styles.seeMore}>
-                {books.reading_count > 1 ? ' Ver mais (' + books.reading_count - 1 + ')': 'Ver mais'} 
+                Ver Mais ({data.profile.booksReading.booksReadingQtd})
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
               Lerei
             </Text>
             <Text style={styles.normal}>
-              {books.to_read[0].book_title}
+              {data.profile.booksToRead.name}
             </Text>
             <Text style={styles.normal}>
-              {books.to_read[0].author[0].name}
+              {data.profile.booksToRead.author.name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image source={{uri: books.image_to_read}} style={styles.bookSize}/>
+                <Image source={{uri:data.profile.booksToRead.cover}} style={styles.bookSize}/>
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookToRead', books.to_read)}>
+              onPress={() => navigation.navigate('BookToRead')}>
               <Text style={styles.seeMore}>
-                {books.to_read_count > 1 ? ' Ver mais (' + books.to_read_count - 1 + ')': 'Ver mais'} 
+                Ver Mais ({data.profile.booksToRead.booksToReadQtd})
               </Text>
             </TouchableOpacity>  
             <Text style={styles.bold}>
               Lidos
             </Text>
             <Text style={styles.normal}>
-              {books.read[0].book_title}
+              {data.profile.booksRead.name}
             </Text>
             <Text style={styles.normal}>
-              {books.read[0].author[0].name}
+              {data.profile.booksRead.author.name}
             </Text>
             <View style={styles.buttonSegment}>
               <View style={styles.continueSegment}>
-                <Image source={{uri: books.image_read}} style={styles.bookSize}/>
+                <Image source={{uri:data.profile.booksRead.cover}} style={styles.bookSize}/>
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('BookRead', books.read)}>
+              onPress={() => navigation.navigate('BookRead')}>
               <Text style={styles.seeMore}>
-                {books.read > 1 ? ' Ver mais (' + books.read - 1 + ')': 'Ver mais'} 
+                Ver Mais ({data.profile.booksRead.booksReadQtd})
               </Text>
             </TouchableOpacity>  
           </View>

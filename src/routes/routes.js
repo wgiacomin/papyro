@@ -1,7 +1,7 @@
 const ROUTES = {
   signup: 'usuarios/',
   login: 'login/',
-  profile: 'usuarios/visualizarPerfil/',
+  profile: '',
   forget_password: '',
   notifications: '',
   edit_profile: 'usuarios/meusDados',
@@ -10,7 +10,9 @@ const ROUTES = {
   get_reading_people: '/pessoas',
   add_book_to_library: '/usuarios/addLivroBiblioteca/',
   search: '/pesquisar/{tipo}/{termo}',
-  people_suggestion: '/usuarios/sugestaoAmigos'
+  people_suggestion: '/usuarios/sugestaoAmigos',
+  gender: '',
+
 }
 
 export default ROUTES

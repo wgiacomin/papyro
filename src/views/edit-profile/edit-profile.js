@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image , ScrollView, TextInput, StyleSheet} from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Text, SafeAreaView, View, TouchableOpacity, Image , ScrollView, TextInput, StyleSheet, ActivityIndicator} from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './edit-profile-style'
 import vertical from '../../../assets/lines/straight.png'
@@ -8,13 +8,28 @@ import BackButton from '../../components/back-button'
 import editPhotoButton from '../../../assets/buttons/editPhoto.png'
 import personalizeButton from '../../../assets/buttons/personalizeButton.png'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import spinner from '../../styles/spinner'
 import useEditProfile from './use-edit-profile'
 
 const EditProfile = ({ navigation }) => {
-  const { setProfile } = useAuthDispatch()
   const { profile } = useAuthState()
 
-  const [ props, setProps ] = useState(profile)
+  const [data, setEditProfile] = useState({
+    data: {},
+    loading: true,
+  })
+
+  useEffect(() => {
+    useEditProfile({setEditProfile, profile})
+  }, [])
+
+  if (data.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
@@ -32,7 +47,7 @@ const EditProfile = ({ navigation }) => {
       <ScrollView>
         <View style={styles.standard}>
           <View style={styles.segment}>
-            <Image source={profile_image} style={styles.profileSize} />
+            <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
             <TouchableOpacity
               onPress={() => navigation.navigate('People')}>
               <Image source={editPhotoButton} style={styles.buttonSize} />
@@ -52,8 +67,8 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={ value => setProps({...props, name: value})}
-                    value={props.name}
+                    onChangeText={text => setEditProfile({...data, 'name': text})}
+                    value={data.profile.name}
                   />
                 </View>
               </View>
@@ -68,8 +83,8 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={ value => setProps({...props, nickname: value})}
-                    value={props.nickname}
+                    onChangeText={text => setEditProfile({...data, 'nickname': text})}
+                    value={data.profile.nickname}
                   />
                 </View>
               </View>
@@ -84,8 +99,8 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={ value => setProps({...props, birthday: value})}
-                    value={props.birthday}
+                    onChangeText={text => setEditProfile({...data, 'birthday': text})}
+                    value={data.profile.birthday}
                   />
                 </View>
               </View>
@@ -100,8 +115,8 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={ value => setProps({...props, description: value})}
-                    value={props.description}
+                    onChangeText={text => setEditProfile({...data, 'description': text})}
+                    value={data.profile.description}
                   />
                 </View>
               </View>
@@ -112,7 +127,7 @@ const EditProfile = ({ navigation }) => {
             </TouchableOpacity> 
             <TouchableOpacity
               onPress={() => {
-                useEditProfile({ setProfile, props, profile })
+                useEditProfile({ setEditProfile, profile })
                 navigation.goBack()
               }}>
               <View style={styles.continueSegment}>
