@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
   },
   person_image:{
     width: 27,
-    height: 27
+    height: 27,
+    borderRadius: 20
   },
   title: {
     flex: 1,
