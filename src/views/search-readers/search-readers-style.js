@@ -7,15 +7,13 @@ export default StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
-  segment:{
+  segment: {
     left: '1%',
-    paddingBottom: '3%',
-    marginTop: 15
+    paddingBottom: '1%',
   },
-  people_segment:{
+  people_segment: {
     flexDirection: 'row',
-    marginTop: 15,
-    marginRight: 252
+    paddingTop: 15,
   },
   title: {
     fontFamily: 'Poppins-Medium',
@@ -25,28 +23,28 @@ export default StyleSheet.create({
     marginTop: 5,
     color: '#181D2D',
   },
-  user_image:{
-    width: 29,
-    height: 29,
+  user_image: {
+    width: 50,
+    height: 50,
   },
   person: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
-    fontSize: 14,
+    fontSize: 18,
     lineHeight: 17,
-    paddingLeft: 5,
-    paddingRight: 10,
-    marginTop: 5,
+    paddingLeft: 10,
+    marginTop: 15,
   },
   see_more: {
     fontFamily: 'DM-Sans',
     fontStyle: 'normal',
-    fontSize: 13,
+    fontSize: 14,
     lineHeight: 22,
     color: '#007AFF',
   },
-  see_more_segment:{
-    alignSelf: 'center',
-    marginTop: 12
-  }  
+  see_more_segment: {
+    alignItems: 'center',
+    marginBottom: 12,
+    paddingTop: 5
+  }
 })
