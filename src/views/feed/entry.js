@@ -51,7 +51,6 @@ const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, ph
           <Like liked={you_liked} size={20} likes={likes} />
           
           <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Comments', { id: id })}>
-f
             <Image source={comments} style={styles.icons}/>
             <Text style={styles.icon_text}>{rates}</Text>
           </TouchableOpacity>
