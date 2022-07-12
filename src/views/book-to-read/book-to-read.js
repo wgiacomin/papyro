@@ -1,16 +1,39 @@
-import React from 'react'
-import { SafeAreaView, View, StyleSheet, Text } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, View, StyleSheet, Text, ActivityIndicator } from 'react-native'
 import DefaultBar from '../../components/default-bar-back'
 import safeView from '../../styles/safe-view'
 import BookToReadEntries from './book-to-read-entries'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import spinner from '../../styles/spinner'
+import useBookToRead from './use-book-to-read'
 
-const BookToRead = ({ navigation, route }) => {
+const BookToRead = ({ navigation}) => {
+
+  const { profile } = useAuthState()
+
+  const [bookToRead, setBookToRead] = useState({
+    bookToRead: [],
+    loading: true,
+  })
+
+  useEffect(() => {
+    useBookToRead({ setBookToRead, profile })
+  }, [])
+
+  if (bookToRead.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Livros Para Ler</Text>
-        <BookToReadEntries book={route.params} navigation={ navigation }/>
+        <BookToReadEntries data={bookToRead.bookToRead} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )

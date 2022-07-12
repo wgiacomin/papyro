@@ -6,27 +6,27 @@ import delete_button_list from '../../../assets/icons/delete_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({name, note, commom_books, commom_genre, image, navigation}) => {
+const Entry = ({nickname, commonBooks, commonGenre, comment, photo, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.note_container}>
-        <Text style={styles.note}>{note}</Text>
+        <Text style={styles.note}>{comment > 0 ? `Você e ${nickname} deram a mesma nota em ${comment} livros.` : null}</Text>
       </View>
       <View style={styles.name}>
         <TouchableOpacity
           onPress={() => navigation.navigate('Friend')}>
-          <Image source={mocked_image} style={styles.person_image}/>
+          <Image source={{ uri: photo }} style={styles.person_image}/>
         </TouchableOpacity>
         <View style={styles.name_block}>
           <View style={styles.name_title_container}>
             <TouchableOpacity
               onPress={() => navigation.navigate('Friend')}>
-              <Text style={styles.name_title}>{name}</Text>
+              <Text style={styles.name_title}>{nickname}</Text>
             </TouchableOpacity>
-            <View style={styles.commom_container}>
-              <Text style={styles.commom}>{commom_books}</Text>
-              <Text style={styles.commom}>{commom_genre}</Text>
-            </View>
+          </View>
+          <View style={styles.commom_container}>
+            <Text style={styles.commom}>{commonBooks > 0 ? `${commonBooks} livros em comum.` : null}</Text>
+            <Text style={styles.commom}>{commonGenre > 0 ? `${commonGenre} gêneros em comum.` : null}</Text>
           </View>
         </View>
       </View>
@@ -69,9 +69,8 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 16,
     lineHeight: 24,
-    marginBottom: 5,
-    marginTop: 3,
-    marginRight: 100
+    marginRight: 100,
+    marginTop: -3
   },
   name_title_container: {
     flex: 1,
@@ -86,7 +85,7 @@ const styles = StyleSheet.create({
   commom_container: {
     flex: 1,
     flexWrap: 'wrap',
-    marginTop: -5
+   
   },
   note:{
     fontFamily: 'Roboto',
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
   },
   line:{
     flex: 1,
-    marginTop: 28,
+    marginTop: 35,
     marginBottom: 8
   },
   horizontalLine: {
