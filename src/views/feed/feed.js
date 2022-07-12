@@ -1,15 +1,38 @@
-import React from 'react'
-import { SafeAreaView, View, StyleSheet } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, View, StyleSheet, ActivityIndicator } from 'react-native'
 import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
 import FeedEntries from './feed-entries'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import spinner from '../../styles/spinner'
+import useFeed from './use-feed'
 
 const Feed = ({ navigation }) => {
+
+  const { profile } = useAuthState()
+
+  const [feed, setFeed] = useState({
+    feed: [],
+    loading: true,
+  })
+
+  useEffect(() =>{
+    useFeed({ profile, setFeed})
+  },[])
+
+  if (feed.loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <DefaultBar navigation={ navigation }/>
-        <FeedEntries mocks={mocks} navigation={ navigation }/>
+        <FeedEntries data={feed.feed} navigation={ navigation }/>
       </View>
     </SafeAreaView>
   )
@@ -25,93 +48,3 @@ const styles = StyleSheet.create({
     marginBottom: '5%'
   },
 })
-
-let mocks = [{
-  'id': 1,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 2,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 3,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 4,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 5,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 6,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-{
-  'id': 7,
-  'nome': 'Ana Dolata',
-  'livro': 'Sankofa: A Novel',
-  'tipo': 'review',
-  'nota': 4,
-  'comentarios': 5,
-  'curtidas': 5,
-  'texto_abreviado': 'Não concordo com você, Ana',
-  'data': '20/05/2021',
-  'foto': '../../../assets/icons/Nickname.png'
-},
-]
-
-
-
-

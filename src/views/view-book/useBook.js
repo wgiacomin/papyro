@@ -23,21 +23,10 @@ async function useGetBook({ id, setBook }) {
     return
   }
 
-
-  let key = ''
   await api.get(ROUTES.get_book + id).then((response) => {
-    setBook({
-      loading: false,
-      error: false,
-      book_info: response.data
-    })
-    key = response.data
+    setValues(setBook, response)
   }).catch((error) => {
-    setBook({
-      loading: false,
-      loading_book: false,
-      error: true,
-    })
+    setBook({ loading: false })
     Alert.alert('Atenção', error.response.data.detail)
   })
 

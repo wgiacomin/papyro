@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Text, TouchableOpacity, Image, TextInput, ActivityIndicator, YellowBox } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, Image, TextInput, ActivityIndicator, LogBox } from 'react-native'
 import SearchEntries from '../search-book/search-book-entries'
 import horizontal from '../../../assets/lines/straight.png'
 import search from '../../../assets/icons/search.png'
@@ -7,7 +7,7 @@ import useSearch from './use-search-book'
 import spinner from '../../styles/spinner'
 
 const SearchBook = ({ navigation }) => {
-  YellowBox.ignoreWarnings([''])
+  LogBox.ignoreLogs(['Require cycle'])
 
   const [data, setData] = useState({
     page: 1,
