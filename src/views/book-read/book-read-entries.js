@@ -3,17 +3,17 @@ import {FlatList } from 'react-native'
 import Entry from './entry'
 
 // eslint-disable-next-line react/prop-types
-const BookToReadEntries = ({ books, navigation }) => {
+const BookReadEntries = ({ data, navigation }) => {
   return (
     <FlatList
-      data={books}
+      data={data}
       numColumns={1}
       renderItem={(post) => {
         return <Entry 
-          book={post.item.book_title}
-          autor={post.item.author[0].name}
+          author={post.item.author.name}
           rate={post.item.rate}
-          image={post.item.cover}
+          cover={post.item.cover}
+          title={post.item.name}
           id={post.item.id}
           navigation={navigation}
         />
@@ -22,4 +22,4 @@ const BookToReadEntries = ({ books, navigation }) => {
 }
 
 
-export default BookToReadEntries
+export default BookReadEntries

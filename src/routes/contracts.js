@@ -670,76 +670,139 @@ const CONTRACTS = {
       'status': 200,
     }
   },
-  'livrosLendo': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  book_reading: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': [
-        {
-          'autor': {
-            'id': 0,
-            'nome': 'string'
+    success: {
+      data: {
+        book_reading: [
+          {
+            author: {
+              id: 0,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 1,
+            rate: 4
           },
-          'avalicoesQtd': 0,
-          'capa': 'string',
-          'id': 0,
-          'nome': 'string',
-          'rate': 0
-        }
-      ],
-      'status': 200
+          {
+            author: {
+              id: 1,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 2,
+            rate: 4
+          },
+          {
+            author: {
+              id: 2,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 3,
+            rate: 4
+          }
+        ],
+      },
+      status: 200
     }
   },
-  'livrosLidos': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  book_read: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': [
-        {
-          'autor': {
-            'id': 0,
-            'nome': 'string'
+    success: {
+      data: {
+        book_read: [
+          {
+            author: {
+              id: 0,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 1,
+            rate: 2
           },
-          'avalicoesQtd': 0,
-          'capa': 'string',
-          'id': 0,
-          'nome': 'string',
-          'rate': 0
-        }
-      ],
-      'status': 200
+          {
+            author: {
+              id: 1,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 2,
+            rate: 4
+          },
+          {
+            author: {
+              id: 2,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 3,
+            rate: 4
+          }
+        ],
+      },
+      status: 200
     }
   },
-  'livrosSeraoLidos': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  book_toRead: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': [
-        {
-          'autor': {
-            'id': 0,
-            'nome': 'string'
+    success: {
+      data: {
+        book_toRead: [
+          {
+            author: {
+              id: 0,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 1,
+            rate: 4
           },
-          'avalicoesQtd': 0,
-          'capa': 'string',
-          'id': 0,
-          'nome': 'string',
-          'rate': 0
-        }
-      ],
-      'status': 200
+          {
+            author: {
+              id: 1,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 2,
+            rate: 4
+          },
+          {
+            author: {
+              id: 2,
+              name: 'Elin Hilderbrand '
+            },
+            cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+            name: 'Troubles in Paradise',
+            id: 3,
+            rate: 4
+          }
+        ],
+      },
+      status: 200
     }
   },
   login: {
@@ -1263,26 +1326,6 @@ const CONTRACTS = {
     },
     success: {
       status: 201
-    }
-  },
-  'sugestaoAmigos': {
-    'error': {
-      'data': {
-        'detail': 'string'
-      },
-      'status': 404
-    },
-    'success': {
-      'data': [
-        {
-          'apelido': 'string',
-          'foto': 'string',
-          'generosQtd': 0,
-          'id': 0,
-          'livrosQtd': 0
-        }
-      ],
-      'status': 200
     }
   },
   'book_suggestion': {
