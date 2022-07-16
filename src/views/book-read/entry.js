@@ -14,7 +14,7 @@ const Entry = ({author, rate, cover, title, id, navigation}) => {
             <Text style={styles.book_style}>{title}</Text>
             <Text style={styles.autor_style}>{author}</Text>
             <View style={styles.star_container}>
-              <Rate stars={rate} />
+              <Rate stars={rate} size={18} />
             </View>
             <View style={styles.see_more_container}>
               <TouchableOpacity

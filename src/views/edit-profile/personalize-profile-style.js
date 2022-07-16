@@ -14,7 +14,9 @@ export default StyleSheet.create({
     marginTop: -15
   },
   textSegment:{
-    left: 22,
+    left: 30,
+    marginTop: -15,
+    width: 300
   },
   title: {  
     fontFamily: 'Poppins-Medium',
@@ -42,25 +44,6 @@ export default StyleSheet.create({
     lineHeight: 21,
     textAlign: 'center',
     color: '#FFFFFF',
-    marginTop: '10%',
-  },
-  continueSegmentBack:{
-    borderRadius: 50,
-    borderColor: '#324A59',
-    backgroundColor: '#FFFFFF',
-    width: 104,
-    height: 43.79,
-    alignSelf: 'center',
-    marginTop: 10
-  },
-  buttonBack:{
-    fontFamily: 'Poppins-Medium',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 14,
-    lineHeight: 21,
-    textAlign: 'center',
-    color: '#324A59',
     marginTop: '10%',
   },
   normal:{

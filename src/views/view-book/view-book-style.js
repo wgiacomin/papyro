@@ -9,7 +9,8 @@ export default StyleSheet.create({
   },
   segment:{
     left: '1%',
-    paddingBottom: '3%'
+    paddingBottom: '3%',
+    paddingTop: '3%'
   },
   gender_title: {  
     fontFamily: 'Poppins',
@@ -75,7 +76,7 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     paddingTop: 5,
-    marginLeft: 132
+    marginLeft: 140
   },
   star_container_comments: {
     flexDirection: 'row',
@@ -112,8 +113,8 @@ export default StyleSheet.create({
     lineHeight: 21,
     color: '#000000',
     textAlign: 'left',
-    marginLeft: 20,
-    marginRight: 20
+    marginLeft: 10,
+    marginRight: 10
   },
   want_to_read_container: {
     margin: 15,
@@ -180,15 +181,16 @@ export default StyleSheet.create({
   title: {  
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
-    fontSize: 16,
+    fontSize: 17,
     lineHeight: 24,
     color: '#181D2D',
-    textAlign: 'left',
+    textAlign: 'center',
+    marginTop: -20,
   },
   comments_title: {  
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
-    fontSize: 16,
+    fontSize: 17,
     lineHeight: 24,
     color: '#181D2D',
     textAlign: 'center',
@@ -198,7 +200,7 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 12
+    paddingTop: 5
   },
   person_image:{
     width: 22,
@@ -212,7 +214,7 @@ export default StyleSheet.create({
     lineHeight: 17,
     color: '#000000',
     textAlign: 'center',
-    marginLeft: 6
+    marginLeft: 6,
   },
   avaliations:{
     flex: 1,
@@ -230,8 +232,10 @@ export default StyleSheet.create({
     marginLeft: 121
   },
   user_image:{
-    width: 43,
-    height: 43
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+    marginRight: 5
   },
   comment_title: {
     flex: 1,

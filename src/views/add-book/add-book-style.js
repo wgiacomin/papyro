@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   segment:{
     left: '1%',
-    
+    marginTop: 20,
     paddingBottom: '5%'
   },
   title: {  
@@ -108,7 +108,7 @@ export default StyleSheet.create({
     color: '#007AFF',
     letterSpacing: -0.408,
     paddingLeft: 110,
-    top: -25  
+    top: -45  
   },
   continueSegment:{
     borderRadius: 50,

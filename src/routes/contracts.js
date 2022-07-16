@@ -129,7 +129,7 @@ const CONTRACTS = {
             'id': 4,
             'type': 'comentario',
             'date': '31/12/1999',
-            'text': 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
+            'text': 'KKKKKKKKKKKKKKKKKK',
             'likes': 0,
             'rates': 7,
             'you_liked': false,
@@ -209,7 +209,7 @@ const CONTRACTS = {
             'id': 42,
             'type': 'comentario',
             'date': '31/12/1999',
-            'text': 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
+            'text': 'uau revolucionário',
             'likes': 1,
             'rates': 7,
             'you_liked': true,
@@ -265,33 +265,33 @@ const CONTRACTS = {
       status: 200
     }
   },
-  'get_book': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  get_book: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': {
-        'book': {
-          'id': 1,
-          'year': '2000-02-12',
-          'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-          'book_title': '1984',
-          'rate': 33,
-          'peoples': 10,
-          'description': '2 + 2 = qualquer coisa. O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
-          'author': [
+    success: {
+      data: {
+        book: {
+          id: 1,
+          year: '2000-02-12',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+          book_title: '1984',
+          rate: 33,
+          peoples: 10,
+          description: 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
+          author: [
             {
-              'id': 1,
-              'name': 'kakkaka'
+              id: 1,
+              name: 'kakkaka'
             }
           ],
-          'rates': [
+          rates: [
             {
               'comments': 34,
-              'date': '2022-03-26T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'rate': 10,
@@ -305,7 +305,7 @@ const CONTRACTS = {
             },
             {
               'comments': 13,
-              'date': '2022-03-26T23:33:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'rate': 2,
@@ -319,7 +319,7 @@ const CONTRACTS = {
             },
             {
               'comments': 33,
-              'date': '2022-03-27T23:05:08.239252',
+              'date': '26/05/2022',
               'id': 3,
               'likes': 3,
               'rate': 2,
@@ -333,7 +333,7 @@ const CONTRACTS = {
             },
             {
               'comments': 34,
-              'date': '2022-03-26T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'you_liked': false,
@@ -347,7 +347,7 @@ const CONTRACTS = {
             },
             {
               'comments': 13,
-              'date': '2022-03-26T23:33:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'rate': 2,
@@ -361,7 +361,7 @@ const CONTRACTS = {
             },
             {
               'comments': 33,
-              'date': '2022-03-27T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 3,
               'likes': 3,
               'you_liked': false,
@@ -375,7 +375,7 @@ const CONTRACTS = {
             },
             {
               'comments': 34,
-              'date': '2022-03-26T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'you_liked': false,
@@ -389,7 +389,7 @@ const CONTRACTS = {
             },
             {
               'comments': 13,
-              'date': '2022-03-26T23:33:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'you_liked': false,
@@ -403,7 +403,7 @@ const CONTRACTS = {
             },
             {
               'comments': 33,
-              'date': '2022-03-27T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 3,
               'likes': 3,
               'you_liked': false,

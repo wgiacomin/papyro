@@ -76,7 +76,7 @@ const AddBook = ({ navigation }) => {
           </View>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Feed')}>
+              onPress={() => navigation.navigate('ViewBook')}>
               <Text style={styles.button}> Salvar </Text>
             </TouchableOpacity>
           </View>

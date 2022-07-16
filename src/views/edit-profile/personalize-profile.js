@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './personalize-profile-style'
-import backButtom from '../../../assets/buttons/goBackButtom.png'
 import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import { ScrollView } from 'react-native-gesture-handler'
 import spinner from '../../styles/spinner'
 import useGender from './use-personalize'
+import BackButton from '../../components/back-button'
 
 const PersonalizeProfile = ({ navigation }) => {
 
@@ -79,6 +79,7 @@ const PersonalizeProfile = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
+      <BackButton navigation={navigation}/>
       <View style={styles.standard}>
         <View style={styles.textSegment}>
           <Text style={styles.title}>
@@ -166,13 +167,6 @@ const PersonalizeProfile = ({ navigation }) => {
             <View style={styles.continueSegment}>
               <Text style={styles.buttonSave}> Salvar </Text>
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              useGender({ setGenders, profile })
-              navigation.goBack()
-            }}>
-            <Image source={backButtom}></Image>
           </TouchableOpacity>
         </ScrollView>
       </View>
