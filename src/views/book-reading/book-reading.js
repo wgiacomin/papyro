@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   title: {
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
+    fontWeight: 'normal',
     fontSize: 22,
     lineHeight: 33,
-    fontWeight: 'bold',
     color: '#181D2D',
     marginBottom: 22,
     marginLeft: 35,

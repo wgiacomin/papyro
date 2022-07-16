@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './personalize-profile-style'
-import DefaultBar from '../../components/default-bar-back'
+import backButtom from '../../../assets/buttons/goBackButtom.png'
 import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
@@ -172,9 +172,7 @@ const PersonalizeProfile = ({ navigation }) => {
               useGender({ setGenders, profile })
               navigation.goBack()
             }}>
-            <View style={styles.continueSegmentBack}>
-              <Text style={styles.buttonBack}> Voltar </Text>
-            </View>
+            <Image source={backButtom}></Image>
           </TouchableOpacity>
         </ScrollView>
       </View>

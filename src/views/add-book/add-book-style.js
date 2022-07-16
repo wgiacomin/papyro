@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   segment:{
     left: '1%',
-    paddingTop: '5%',
+    
     paddingBottom: '5%'
   },
   title: {  
