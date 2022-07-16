@@ -79,9 +79,6 @@ const PersonalizeProfile = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
-      </View>
       <View style={styles.standard}>
         <View style={styles.textSegment}>
           <Text style={styles.title}>
@@ -168,6 +165,15 @@ const PersonalizeProfile = ({ navigation }) => {
             }}>
             <View style={styles.continueSegment}>
               <Text style={styles.buttonSave}> Salvar </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              useGender({ setGenders, profile })
+              navigation.goBack()
+            }}>
+            <View style={styles.continueSegmentBack}>
+              <Text style={styles.buttonBack}> Voltar </Text>
             </View>
           </TouchableOpacity>
         </ScrollView>

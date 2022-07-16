@@ -3,11 +3,10 @@ import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, Alert, A
 import safeView from '../../styles/safe-view'
 import styles from './friend-profile-style'
 import vertical from '../../../assets/lines/straight.png'
-import profile from '../../../assets/icons/profile_image.png'
 import followers from '../../../assets/icons/followers.png'
 import booksReaded from '../../../assets/icons/books_readed.png'
-import book from '../../../assets/icons/book.png'
 import followButton from '../../../assets/buttons/followButton.png'
+import followingButton from '../../../assets/buttons/followingButton.png'
 import talkButton from '../../../assets/buttons/talkButton.png'
 import UserProfileBar from '../../components/friend-profile-bar'
 import DescriptionBar from '../../components/description-bar'
@@ -16,6 +15,16 @@ import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
 
 const FriendProfile = ({ navigation }) => {
+
+  const [image, setImage] = useState(followButton)
+
+  const handleClick = () => {
+    if(image == followButton){
+      setImage(followingButton)
+    }else{
+      setImage(followButton)
+    }
+  }
 
   const { profile } = useAuthState()
 
@@ -35,6 +44,7 @@ const FriendProfile = ({ navigation }) => {
       </View>
     )
   }
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <UserProfileBar navigation={navigation} profile={data.profile.nickname}/>
@@ -42,14 +52,19 @@ const FriendProfile = ({ navigation }) => {
         <View style={styles.standard}>
           <View style={styles.segment}>
             <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
-            <Image source={followers} style={styles.imageSize} />
-            <Text style={styles.infos}>
-              {data.profile.followers} Seguidores
-            </Text>
-            <Image source={booksReaded} style={styles.imageSize}/>
-            <Text style={styles.infos}>
-              {data.profile.booksQt} Livros Lidos
-            </Text>
+            <TouchableOpacity>
+              <Image source={followers} style={styles.imageSize} />
+              <Text style={styles.infos}>
+                {data.profile.followers} Seguidores
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('BookRead')}>
+              <Image source={booksReaded} style={styles.imageSize}/>
+              <Text style={styles.infos}>
+                {data.profile.booksQt} Livros Lidos
+              </Text>
+            </TouchableOpacity>
             <DescriptionBar description={data.profile.description}/>
             <TouchableOpacity 
               onPress={() => Alert.alert('','Você agora é amigo de Ana Luíza!')}

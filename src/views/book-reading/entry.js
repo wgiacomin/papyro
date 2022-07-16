@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   book_style:{
     fontFamily: 'Poppins',
     fontStyle: 'normal',
-    fontSize: 12,
+    fontSize: 15,
     lineHeight: 23,
     marginTop: -4,
     marginBottom: -10
@@ -54,9 +54,10 @@ const styles = StyleSheet.create({
   autor_style:{
     fontFamily: 'Poppins',
     fontStyle: 'normal',
-    fontSize: 12,
+    fontSize: 13,
     lineHeight: 23,
-    marginBottom: 4
+    marginBottom: 4,
+    marginTop: 5
   },
   book_title_container: {
     flex: 1,
@@ -70,8 +71,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   book_image: {
-    width: 41,
-    height: 61
+    width: 51,
+    height: 71
   },
   line:{
     flex: 1,
@@ -94,7 +95,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 0,
     marginTop: 0,
-    marginLeft: 11
   },
   see_more_container: {
     flex: 1,

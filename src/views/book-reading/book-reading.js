@@ -6,6 +6,7 @@ import BookReadingEntries from './book-reading-entries'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useBookReading from './use-book-reading'
+import BackButton from '../../components/back-button'
 
 const BookReading = ({ navigation }) => {
 
@@ -30,8 +31,10 @@ const BookReading = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
+      <View style={styles.back_button}>
+        <BackButton navigation={navigation}/>
+      </View>
       <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Livros que Estou Lendo</Text>
         <BookReadingEntries data={bookReading.bookReading} navigation={ navigation }/>
       </View>
@@ -48,15 +51,20 @@ const styles = StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
+  back_button: {
+    paddingRight: 10,
+    marginTop: 10
+  },
   title: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 22,
     lineHeight: 33,
-    fontWeight: '500',
-    textAlign: 'left',
+    fontWeight: 'bold',
     color: '#181D2D',
-    marginBottom: 22
+    marginBottom: 22,
+    marginLeft: 35,
+    marginTop: -30
   }
 })
 
