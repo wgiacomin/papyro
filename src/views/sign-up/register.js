@@ -79,7 +79,10 @@ const Register = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => useRegister({ data, setRes })}>
+              //onPress={() => navigation.navigate('GenreSelection')}
+              onPress={() => {
+                useRegister({ data, setRes })
+                navigation.navigate('GenreSelection')}}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>

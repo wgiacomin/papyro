@@ -10,6 +10,8 @@ export default StyleSheet.create({
   segment: {
     left: '1%',
     paddingBottom: '1%',
+    marginTop: 2,
+    marginBottom: -20
   },
   people_segment: {
     flexDirection: 'row',
@@ -18,14 +20,18 @@ export default StyleSheet.create({
   title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
+    fontWeight: 'normal',
     fontSize: 22,
     lineHeight: 33,
-    marginTop: 5,
     color: '#181D2D',
+    marginBottom: 22,
+    marginLeft: 35,
+    marginTop: -30
   },
   user_image: {
     width: 50,
     height: 50,
+    borderRadius: 25
   },
   person: {
     fontFamily: 'Roboto',

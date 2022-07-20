@@ -7,7 +7,10 @@ export default StyleSheet.create({
   },
   segment:{
     left: '10%',
-    paddingBottom: '5%'
+  },
+  scrollSegment:{
+    left: '10%',
+    paddingBottom: '5%',
   },
   title: {  
     fontFamily: 'Poppins-Medium',
@@ -60,9 +63,8 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    alignItems: 'flex-end',
-    marginLeft: '10%',
-    marginBottom: '10%',
+    marginLeft: '15%',
+    marginTop: '-10%',
   },
   normal:{
     fontFamily: 'Poppins',
@@ -108,11 +110,4 @@ export default StyleSheet.create({
     marginBottom: -20,
     marginTop: -15,
   },
-  progress:{
-    width: 50,
-    height: 8,
-    marginTop: 25,
-    flexDirection: 'row',
-    alignSelf: 'center',
-  }
 })

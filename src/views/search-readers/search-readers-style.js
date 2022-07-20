@@ -10,6 +10,7 @@ export default StyleSheet.create({
   segment: {
     left: '1%',
     paddingBottom: '1%',
+    marginTop: 5
   },
   people_segment: {
     flexDirection: 'row',
@@ -26,6 +27,7 @@ export default StyleSheet.create({
   user_image: {
     width: 50,
     height: 50,
+    borderRadius: 25,
   },
   person: {
     fontFamily: 'Roboto',

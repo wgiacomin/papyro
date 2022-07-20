@@ -7,6 +7,7 @@ import spinner from '../../styles/spinner'
 import ROUTES from '../../routes/routes'
 import { ScrollView } from 'react-native-gesture-handler'
 import useSearchReaders from './use-search-readers'
+import BackButton from '../../components/back-button'
 
 const SearchReaders = ({ navigation }) => {
 
@@ -49,10 +50,10 @@ const SearchReaders = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
+      <BackButton navigation={navigation}/>
       <ScrollView>
         <View style={styles.container}>
 
-          <DefaultBar navigation={navigation} />
           <View style={styles.segment}>
             <Text style={styles.title}>{readers.readers.readers_read.status}</Text>
             <ListPeople list={readers.readers.readers_read.list} />

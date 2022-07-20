@@ -17,6 +17,11 @@ const PersonalizeProfile = ({ navigation }) => {
   const [image2, setImage2] = useState(AddButton)
   const [image3, setImage3] = useState(RemoveButton)
   const [image4, setImage4] = useState(RemoveButton)
+  const [image5, setImage5] = useState(RemoveButton)
+  const [image6, setImage6] = useState(AddButton)
+  const [image7, setImage7] = useState(RemoveButton)
+  const [image8, setImage8] = useState(RemoveButton)
+  const [image9, setImage9] = useState(RemoveButton)
 
   const handleClick = () => {
     if(image == AddButton){
@@ -55,6 +60,46 @@ const PersonalizeProfile = ({ navigation }) => {
       setImage4(RemoveButton)
     }else{
       setImage4(AddButton)
+    }
+  }
+
+  const handleClick5 = () => {
+    if(image5 == AddButton){
+      setImage5(RemoveButton)
+    }else{
+      setImage5(AddButton)
+    }
+  }
+
+  const handleClick6 = () => {
+    if(image6 == AddButton){
+      setImage6(RemoveButton)
+    }else{
+      setImage6(AddButton)
+    }
+  }
+
+  const handleClick7 = () => {
+    if(image7 == AddButton){
+      setImage7(RemoveButton)
+    }else{
+      setImage7(AddButton)
+    }
+  }
+
+  const handleClick8 = () => {
+    if(image8 == AddButton){
+      setImage8(RemoveButton)
+    }else{
+      setImage8(AddButton)
+    }
+  }
+
+  const handleClick9 = () => {
+    if(image9 == AddButton){
+      setImage9(RemoveButton)
+    }else{
+      setImage9(AddButton)
     }
   }
 
@@ -145,7 +190,7 @@ const PersonalizeProfile = ({ navigation }) => {
               {genders.genders[3].description}       
             </Text>
             <Text style={styles.bold}>
-              {genders.genders[0].name}
+              {genders.genders[4].name}
             </Text>
             <View style={styles.buttonSegment2}>
               <View style={styles.continueSegment2}>
@@ -156,9 +201,87 @@ const PersonalizeProfile = ({ navigation }) => {
               </View>
             </View>
             <Text style={styles.description}>
-              {genders.genders[0].description}       
+              {genders.genders[4].description}       
+            </Text>
+            <Text style={styles.bold}>
+              {genders.genders[5].name}
+            </Text>
+            <View style={styles.buttonSegment2}>
+              <View style={styles.continueSegment2}>
+                <TouchableOpacity
+                  onPress={handleClick5}>
+                  <Image source={image5} style={styles.buttonSize2} />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <Text style={styles.description}>
+              {genders.genders[5].description}        
+            </Text>
+            <Text style={styles.bold}>
+              {genders.genders[6].name}
+            </Text>
+            <View style={styles.buttonSegment2}>
+              <View style={styles.continueSegment2}>
+                <TouchableOpacity
+                  onPress={handleClick6}>
+                  <Image source={image6} style={styles.buttonSize2} />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <Text style={styles.description}>
+              {genders.genders[6].description}        
+            </Text>
+            <Text style={styles.bold}>
+              {genders.genders[7].name}
+            </Text>
+            <View style={styles.buttonSegment2}>
+              <View style={styles.continueSegment2}>
+                <TouchableOpacity
+                  onPress={handleClick7}>
+                  <Image source={image7} style={styles.buttonSize2} />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <Text style={styles.description}>
+              {genders.genders[7].description}        
+            </Text>
+            <Text style={styles.bold}>
+              {genders.genders[8].name}
+            </Text>
+            <View style={styles.buttonSegment2}>
+              <View style={styles.continueSegment2}>
+                <TouchableOpacity
+                  onPress={handleClick8}>
+                  <Image source={image8} style={styles.buttonSize2} />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <Text style={styles.description}>
+              {genders.genders[8].description}        
+            </Text>
+            <Text style={styles.bold}>
+              {genders.genders[9].name}
+            </Text>
+            <View style={styles.buttonSegment2}>
+              <View style={styles.continueSegment2}>
+                <TouchableOpacity
+                  onPress={handleClick9}>
+                  <Image source={image9} style={styles.buttonSize2} />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <Text style={styles.description}>
+              {genders.genders[9].description}        
             </Text>
           </View>
+          <TouchableOpacity onPress={() => {
+            useGender({ setGenders, profile })
+            navigation.goBack()
+          }}>
+            <View style={styles.continueSegment}>
+              <Text style={styles.buttonSave}> Salvar </Text>
+            </View>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               useGender({ setGenders, profile })
