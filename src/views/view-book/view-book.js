@@ -12,6 +12,7 @@ import spinner from '../../styles/spinner'
 import Rate from '../../components/rate-stars'
 import useGetBook from './useBook'
 import Like from '../../components/heart'
+import BackButton from '../../components/back-button'
 
 const ViewBook = ({ navigation, route }) => {
   const [show, setShow] = useState(false)
@@ -50,9 +51,8 @@ const ViewBook = ({ navigation, route }) => {
 
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <ScrollView>
+        <BackButton navigation={navigation}/>
         <View style={styles.standart}>
-          <DefaultBar navigation={navigation} />
-
           <View style={styles.segment}>
             <Text style={styles.gender_title}>
               Gênero: <Text style={styles.underline}>{book.book.genre.name}</Text>
@@ -64,7 +64,7 @@ const ViewBook = ({ navigation, route }) => {
             </View>
           </View>
 
-          <View style={styles.book_segment}>
+          <View style={styles.book_segment} blurRadius={5}>
             <Text style={styles.book_title}>
               {book.book.book_title}
             </Text>
@@ -83,6 +83,7 @@ const ViewBook = ({ navigation, route }) => {
 
             <Image source={{ uri: book.book.cover }} style={styles.bookImage} />
           </View>
+          
 
           <View style={styles.resume_segment}>
             <Text style={styles.resume}>
@@ -110,21 +111,8 @@ const ViewBook = ({ navigation, route }) => {
                 ) : null
               }
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('Review')}>
-              <View style={styles.star_container_resume}>
-                <Rate stars={book.book.rate} size={22} />
-                <TouchableOpacity onPress={() => navigation.navigate('Review')}>
-                  <Text style={styles.star_number_resume}>
-									(Avaliar)
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </TouchableOpacity>
-            <View style={styles.line}>
-              <Image source={horizontal} style={styles.horizontalLine} />
-            </View>
           </View>
-
+          
           <View>
             <Text style={styles.title}>
 							Procurando Companhia?
@@ -151,7 +139,7 @@ const ViewBook = ({ navigation, route }) => {
 
           <View style={styles.edit_segment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Review')}>
+              onPress={() => navigation.navigate('Comments', { id: route.params?.id })}>
               <Image source={editButton} style={styles.editButton} />
             </TouchableOpacity>
           </View>
@@ -180,8 +168,7 @@ const ViewBook = ({ navigation, route }) => {
 
                   <View style={styles.book_description_container}>
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('Comments')}
-                    >
+                      onPress={() => navigation.navigate('Comments', { id: route.params?.id })}>
                       <Text style={styles.book_description}>{item.text}</Text>
                     </TouchableOpacity>
                   </View>

@@ -13,17 +13,14 @@ const UserProfileBar = ({ navigation }) => {
           <View style={styles.back_button}>
             <BackButton navigation={navigation}/>
           </View>
+          
+          <Text style={styles.title}>
+              Meu Perfil
+          </Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('EditProfile')}>
             <Image source={editButton} style={styles.buttonEdit} />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Conversations')}>
-            <Image source={msgButton} style={styles.buttonMsg} />
-          </TouchableOpacity>
-          <Text style={styles.title}>
-              Meu Perfil
-          </Text>
         </View>
       </View>
       <View>
@@ -64,14 +61,7 @@ const styles = StyleSheet.create({
   buttonEdit: {
     width: 20,
     height: 20,
-    flexDirection: 'row',
-    marginLeft: 275,
-  },
-  buttonMsg: {
-    width: 25,
-    height: 25,
-    flexDirection: 'row',
-    marginLeft: 8
+    marginLeft: 70
   },
   title: {  
     fontFamily: 'Poppins-Medium',
@@ -79,9 +69,9 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 32,
     lineHeight: 48,
-    marginLeft: -260,
     color: '#181D2D',
-    marginTop: '-5%'
+    marginTop: '-4%',
+    marginLeft: 65
   }
 })
 

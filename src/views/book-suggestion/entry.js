@@ -25,16 +25,6 @@ const Entry = ({ name, rate, cover, navigation }) => {
           </View>
         </View>
       </View>
-      <View style={styles.button_segment}>
-        <View style={styles.footer}>
-          <TouchableOpacity>
-            <Image source={add_button_list} style={styles.button_size} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={delete_button_list} style={styles.button_size} />
-          </TouchableOpacity>
-        </View>
-      </View>
       <View style={styles.line}>
         <Image source={horizontal} style={styles.horizontalLine} />
       </View>
@@ -54,8 +44,8 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   livro_image: {
-    width: 62,
-    height: 60
+    width: 51,
+    height: 71
   },
   livro_block: {
     marginLeft: 10
@@ -66,8 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 5,
-    marginTop: 13,
-    marginRight: 130
+    marginTop: 20,
   },
   livro_title_container: {
     flex: 1,
@@ -83,35 +72,16 @@ const styles = StyleSheet.create({
   note_container: {
     flex: 1,
     flexWrap: 'wrap',
-    marginTop: 2,
+    marginTop: 10,
     marginBottom: -2
   },
   line: {
     flex: 1,
-    marginTop: 28,
-    marginBottom: 8
   },
   horizontalLine: {
     marginLeft: 0,
     width: '100%',
   },
-  footer: {
-    flex: 1,
-    flexDirection: 'row-reverse',
-    alignItems: 'center'
-  },
-  button_segment: {
-    flex: 1,
-    flexDirection: 'row-reverse',
-    alignItems: 'center',
-    paddingLeft: 5,
-    marginTop: -53
-  },
-  button_size: {
-    width: 24,
-    height: 24,
-    marginLeft: 9,
-  }
 })
 
 export default Entry

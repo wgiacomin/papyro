@@ -6,6 +6,7 @@ import BookReadEntries from './book-read-entries'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useBookRead from './use-book-read'
+import BackButton from '../../components/back-button'
 
 const BookRead = ({ navigation}) => {
 
@@ -30,8 +31,10 @@ const BookRead = ({ navigation}) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
+      <View style={styles.back_button}>
+        <BackButton navigation={navigation}/>
+      </View>
       <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
         <Text style={styles.title}>Livros que Eu Li</Text>
         <BookReadEntries data={bookRead.bookRead} navigation={navigation}/>
       </View>
@@ -48,14 +51,19 @@ const styles = StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
+  back_button: {
+    paddingRight: 10,
+    marginTop: 10
+  },
   title: {
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
+    fontWeight: 'normal',
     fontSize: 22,
     lineHeight: 33,
-    fontWeight: '500',
-    textAlign: 'left',
     color: '#181D2D',
-    marginBottom: 22
+    marginBottom: 22,
+    marginLeft: 35,
+    marginTop: -30
   }
 })

@@ -13,9 +13,14 @@ export default StyleSheet.create({
     paddingBottom: '5%',
     marginTop: -15
   },
+  buttonSegment:{
+    flex: 1,
+    marginTop: '13%',
+  },
   textSegment:{
-    left: 22,
-    marginTop: '-7%'
+    left: 30,
+    marginTop: -15,
+    width: 300
   },
   title: {  
     fontFamily: 'Poppins-Medium',
@@ -33,7 +38,7 @@ export default StyleSheet.create({
     width: 104,
     height: 43.79,
     alignSelf: 'center',
-    marginTop: 38
+    marginBottom: 50
   },
   buttonSave:{
     fontFamily: 'Poppins-Medium',
@@ -72,7 +77,7 @@ export default StyleSheet.create({
     fontSize: 10,
     lineHeight: 15,
     textAlign: 'left',
-    marginRight: 230,
+    marginRight: 180,
     color: '#AAAAAA',
   },
   buttonSize2: {

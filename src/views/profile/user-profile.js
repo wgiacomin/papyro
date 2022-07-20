@@ -40,14 +40,19 @@ const UserProfile = ({ navigation }) => {
         <View style={styles.standard}>
           <View style={styles.segment}>
             <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
-            <Image source={followers} style={styles.imageSize} />
-            <Text style={styles.infos}>
-              {data.profile.followers} Seguidores
-            </Text>
-            <Image source={booksReaded} style={styles.imageSize}/>
-            <Text style={styles.infos}>
-              {data.profile.booksQt} Livros Lidos
-            </Text>
+            <TouchableOpacity>
+              <Image source={followers} style={styles.imageSize} />
+              <Text style={styles.infos}>
+                {data.profile.followers} Seguidores
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('BookRead')}>
+              <Image source={booksReaded} style={styles.imageSize}/>
+              <Text style={styles.infos}>
+                {data.profile.booksQt} Livros Lidos
+              </Text>
+            </TouchableOpacity>
             <DescriptionBar description={data.profile.description} />
             <Image source={vertical} style={styles.horizontalLine} />
           </View>

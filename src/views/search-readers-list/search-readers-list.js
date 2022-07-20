@@ -7,6 +7,7 @@ import spinner from '../../styles/spinner'
 import ROUTES from '../../routes/routes'
 import useSearchReadersList from './use-search-readers-list'
 import SearchReadersListEntries from './search-readers-list-entries'
+import BackButton from '../../components/back-button'
 
 const SearchReadersList = ({ navigation }) => {
 
@@ -29,8 +30,8 @@ const SearchReadersList = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
+      <BackButton navigation={navigation}/>
       <View style={styles.container}>
-        <DefaultBar navigation={navigation} />
         <View style={styles.segment}>
           <Text style={styles.title}>{readers.readers.status}</Text>
         </View>

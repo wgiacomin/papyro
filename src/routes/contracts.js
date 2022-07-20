@@ -129,7 +129,7 @@ const CONTRACTS = {
             'id': 4,
             'type': 'comentario',
             'date': '31/12/1999',
-            'text': 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
+            'text': 'KKKKKKKKKKKKKKKKKK',
             'likes': 0,
             'rates': 7,
             'you_liked': false,
@@ -209,7 +209,7 @@ const CONTRACTS = {
             'id': 42,
             'type': 'comentario',
             'date': '31/12/1999',
-            'text': 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK',
+            'text': 'uau revolucionário',
             'likes': 1,
             'rates': 7,
             'you_liked': true,
@@ -241,57 +241,87 @@ const CONTRACTS = {
       data: {
         genders: [
           {
-            name: 'Ficção Científica',
-            description: 'Inclui autores como Isaac Asimov, Wilson Gibson e Frank Herbert.',
+            name: 'Romance',
+            description: 'Aqui você vai encontrar autores como Nickolas Spark, Nora Roberts entre outros',
             id: 0
           },
           {
-            name: 'Clássicos de Época',
-            description: 'Livros como Morro dos Ventos Uivantes, Orgulho e Preconceito ou ainda Crime e Castigo.',
+            name: 'Fantasia',
+            description: 'Caracterizado por elementos fantásticos, como magia ou sobrenatural.',
             id: 1
           },
           {
-            name: 'Infanto-Juvenis',
-            description: 'Livros como Percy Jakson, Harry Potter ou ainda Jogos Vorazes.',
+            name: 'Ficção Científica',
+            description: 'As histórias normalmente se passam em um futuro distante, na exploração especial e em viagens no tempo e espaço.',
             id: 2
           },
           {
-            name: 'Filosofia',
-            description: 'Inclui autores como  René Descasrtes, Karl Marx e Sócrates.',
+            name: 'Horror',
+            description: 'Esse gênero consiste na passagem de sentimentos de pavor e tensão ao leitor.',
             id: 3
+          },
+          {
+            name: 'Policial',
+            description: 'As histórias que envolvem um crime ou mistério, como o nome indica e que deve ser solucionado pelo protagonista através de pistas.',
+            id: 4
+          },
+          {
+            name: 'Distopia',
+            description: 'As distopias imaginam uma sociedade decadente, muitas vezes após um desastre ecológico ou social, enfrentando governos opressores e desastres ambientais.',
+            id: 5
+          },
+          {
+            name: 'Thriller e Susupense',
+            description: 'O nome pode até indicar histórias de terror, mas o suspense trabalha exclusivamente em como empregar o medo psicológico e criar um suspense.',
+            id: 6
+          },
+          {
+            name: 'Jovem Adulto',
+            description: 'A ficção para jovens adultos, ou YA, tem como público leitores de 12 a 18 anos e reflete nos personagens os desafios únicos da adolescência.',
+            id: 7
+          },
+          {
+            name: 'Clássicos',
+            description: 'Consistem principalmente em livros escritos entre os séculos XVI e XVIII.',
+            id: 8
+          },
+          {
+            name: 'Não Ficção',
+            description: 'São histórias onde há uma descrição ou representação de um assunto que é apresentado como fato, sendo real ou não.',
+            id: 9
           },
         ]
       },
       status: 200
     }
   },
-  'get_book': {
-    'error': {
-      'data': {
-        'detail': 'string'
+  get_book: {
+    error: {
+      data: {
+        detail: 'string'
       },
-      'status': 404
+      status: 404
     },
-    'success': {
-      'data': {
-        'book': {
-          'id': 1,
-          'year': '2000-02-12',
-          'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-          'book_title': '1984',
-          'rate': 33,
-          'peoples': 10,
-          'description': '2 + 2 = qualquer coisa. O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
-          'author': [
+    success: {
+      data: {
+        book: {
+          id: 1,
+          year: '2000-02-12',
+          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+          book_title: '1984',
+          rate: 33,
+          peoples: 10,
+          description: 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
+          author: [
             {
-              'id': 1,
-              'name': 'kakkaka'
+              id: 1,
+              name: 'kakkaka'
             }
           ],
-          'rates': [
+          rates: [
             {
               'comments': 34,
-              'date': '2022-03-26T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'rate': 10,
@@ -305,7 +335,7 @@ const CONTRACTS = {
             },
             {
               'comments': 13,
-              'date': '2022-03-26T23:33:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'rate': 2,
@@ -319,7 +349,7 @@ const CONTRACTS = {
             },
             {
               'comments': 33,
-              'date': '2022-03-27T23:05:08.239252',
+              'date': '26/05/2022',
               'id': 3,
               'likes': 3,
               'rate': 2,
@@ -333,7 +363,7 @@ const CONTRACTS = {
             },
             {
               'comments': 34,
-              'date': '2022-03-26T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'you_liked': false,
@@ -347,7 +377,7 @@ const CONTRACTS = {
             },
             {
               'comments': 13,
-              'date': '2022-03-26T23:33:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'rate': 2,
@@ -361,7 +391,7 @@ const CONTRACTS = {
             },
             {
               'comments': 33,
-              'date': '2022-03-27T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 3,
               'likes': 3,
               'you_liked': false,
@@ -375,7 +405,7 @@ const CONTRACTS = {
             },
             {
               'comments': 34,
-              'date': '2022-03-26T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'you_liked': false,
@@ -389,7 +419,7 @@ const CONTRACTS = {
             },
             {
               'comments': 13,
-              'date': '2022-03-26T23:33:08.239252',
+              'date': '26/03/2022',
               'id': 1,
               'likes': 3,
               'you_liked': false,
@@ -403,7 +433,7 @@ const CONTRACTS = {
             },
             {
               'comments': 33,
-              'date': '2022-03-27T23:05:08.239252',
+              'date': '26/03/2022',
               'id': 3,
               'likes': 3,
               'you_liked': false,

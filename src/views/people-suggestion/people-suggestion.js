@@ -29,7 +29,7 @@ const PeopleSuggestion = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <Text style={styles.title}>Sugestão de Pessoas</Text>
+        <Text style={styles.title}>Sugestão de Amigos</Text>
         <SuggestionEntries data={peopleSuggestion.peopleSuggestion} navigation={ navigation }/>
       </View>
     </SafeAreaView>

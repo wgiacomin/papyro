@@ -32,7 +32,7 @@ const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, ph
               <Text style={styles.book_title}>{book_title}</Text>
             </TouchableOpacity>
             <View style={styles.star_container}>
-              <Rate stars={rate} size={13} />
+              <Rate stars={rate} size={17} />
             </View>
           </View>
           <View style={styles.book_description_container}>
@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   person_image:{
-    width: 27,
-    height: 27,
+    width: 32,
+    height: 32,
     borderRadius: 20
   },
   title: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   person: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
-    fontSize: 16,
+    fontSize: 17,
     lineHeight: 24,
     paddingLeft: 5,
     paddingRight: 5,
@@ -88,8 +88,9 @@ const styles = StyleSheet.create({
   post_type:{
     fontFamily: 'Poppins',
     fontStyle: 'normal',
-    fontSize: 14,
+    fontSize: 15,
     lineHeight: 27,
+    marginTop: 3
   },
   book: {
     flex: 1,
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   book_title:{
     fontFamily: 'Poppins',
     fontStyle: 'normal',
-    fontSize: 16,
+    fontSize: 18,
     lineHeight: 23,
   },
   book_title_container: {
@@ -119,13 +120,11 @@ const styles = StyleSheet.create({
   book_description_container:{
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
     flexWrap: 'wrap',
   },
   book_image: {
-    width: 57,
-    height: 85
+    width: 67,
+    height: 95
   },
   footer: {
     flex: 1,
@@ -175,8 +174,7 @@ const styles = StyleSheet.create({
   star_container: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: 0,
-    marginTop: 0,
+    marginLeft: -2
   },
   see_more:{
     fontFamily: 'Roboto',
@@ -184,7 +182,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 22,
     color: '#007AFF',
-    paddingLeft: 7
+    paddingLeft: 7,
+    marginTop: -3
   }
 })
   

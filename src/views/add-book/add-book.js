@@ -2,14 +2,14 @@ import React from 'react'
 import { Text, TextInput, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './add-book-style'
-import DefaultBar from '../../components/default-bar-back'
 import bookImage from '../../../assets/icons/simple_image.png'
+import BackButton from '../../components/back-button'
 
 const AddBook = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
+      <BackButton navigation={navigation}/>
       <View style={styles.standart}>
-        <DefaultBar navigation={ navigation }/>
         <View style={styles.segment}>
           <Text style={styles.title}>
               Adicionar um Livro
@@ -76,7 +76,7 @@ const AddBook = ({ navigation }) => {
           </View>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Feed')}>
+              onPress={() => navigation.navigate('ViewBook')}>
               <Text style={styles.button}> Salvar </Text>
             </TouchableOpacity>
           </View>

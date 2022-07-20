@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { SafeAreaView, View, StyleSheet, Image, TouchableOpacity, Text, ScrollView, TextInput, ActivityIndicator, FlatList } from 'react-native'
 import safeView from '../../styles/safe-view'
-import DefaultBar from '../../components/default-bar-back'
+import BackButton from '../../components/back-button'
 import horizontal from '../../../assets/lines/straight.png'
 import send from '../../../assets/buttons/send.png'
 import Rate from '../../components/rate-stars'
@@ -44,8 +44,9 @@ const Comment = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
+      <BackButton navigation={ navigation }/>
       <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
+        
         <FlatList
           ListHeaderComponent={
             <>
@@ -216,7 +217,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingBottom: 5,
-    marginTop: 10
+    marginTop: 15
   },
   person: {
     fontFamily: 'Poppins-Medium',

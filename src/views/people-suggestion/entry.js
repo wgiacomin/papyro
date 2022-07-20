@@ -10,7 +10,7 @@ const Entry = ({nickname, commonBooks, commonGenre, comment, photo, navigation})
   return (
     <View style={styles.container}>
       <View style={styles.note_container}>
-        <Text style={styles.note}>{comment > 0 ? `Você e ${nickname} deram a mesma nota em ${comment} livros.` : null}</Text>
+        <Text style={styles.note}>{comment > 0 ? `Você e ${nickname} deram a mesma nota em ${comment} livros.` : `Você e ${nickname} ainda não interagiram.`}</Text>
       </View>
       <View style={styles.name}>
         <TouchableOpacity
@@ -28,16 +28,6 @@ const Entry = ({nickname, commonBooks, commonGenre, comment, photo, navigation})
             <Text style={styles.commom}>{commonBooks > 0 ? `${commonBooks} livros em comum.` : null}</Text>
             <Text style={styles.commom}>{commonGenre > 0 ? `${commonGenre} gêneros em comum.` : null}</Text>
           </View>
-        </View>
-      </View>
-      <View style={styles.button_segment}>
-        <View style={styles.footer}>
-          <TouchableOpacity>
-            <Image source={add_button_list} style={styles.button_size}/>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image source={delete_button_list} style={styles.button_size}/>
-          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.line}>
@@ -58,8 +48,9 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   person_image: {
-    width: 62,
-    height: 60
+    width: 50,
+    height: 50,
+    borderRadius: 100
   },
   name_block:{
     marginLeft: 10
@@ -85,7 +76,6 @@ const styles = StyleSheet.create({
   commom_container: {
     flex: 1,
     flexWrap: 'wrap',
-   
   },
   note:{
     fontFamily: 'Roboto',
@@ -97,34 +87,15 @@ const styles = StyleSheet.create({
   note_container: {
     flex: 1,
     flexWrap: 'wrap',
-    marginTop: 3
+    paddingTop: 5
   },
   line:{
     flex: 1,
-    marginTop: 35,
-    marginBottom: 8
   },
   horizontalLine: {
     marginLeft: 0,
     width: '100%',
   },
-  footer: {
-    flex: 1,
-    flexDirection: 'row-reverse',
-    alignItems: 'center'
-  },
-  button_segment: {
-    flex: 1,
-    flexDirection: 'row-reverse',
-    alignItems: 'center',
-    paddingLeft: 5,
-    marginTop: -55
-  },
-  button_size:{
-    width: 24,
-    height: 24,
-    marginLeft: 9,
-  }
 })
   
 export default Entry
