@@ -101,6 +101,13 @@ export default StyleSheet.create({
     marginBottom: 15,
     alignSelf: 'center'
   },
+  bookBackground:{
+    alignSelf: 'center',
+    width: 405,
+    height: 290,
+    marginTop: 12,
+    marginBottom: 15,
+  },
   resume_segment:{
     left: '1%',
     paddingBottom: '5%',

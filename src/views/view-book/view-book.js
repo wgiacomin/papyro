@@ -64,7 +64,7 @@ const ViewBook = ({ navigation, route }) => {
             </View>
           </View>
 
-          <View style={styles.book_segment}>
+          <View style={styles.book_segment} blurRadius={5}>
             <Text style={styles.book_title}>
               {book.book.book_title}
             </Text>
@@ -83,6 +83,7 @@ const ViewBook = ({ navigation, route }) => {
 
             <Image source={{ uri: book.book.cover }} style={styles.bookImage} />
           </View>
+          
 
           <View style={styles.resume_segment}>
             <Text style={styles.resume}>
