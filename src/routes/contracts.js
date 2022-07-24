@@ -306,11 +306,10 @@ const CONTRACTS = {
       data: {
         book: {
           id: 1,
-          year: '2000-02-12',
           cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
           book_title: '1984',
           rate: 33,
-          peoples: 10,
+          raters: 10,
           description: 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
           author: [
             {
@@ -318,7 +317,7 @@ const CONTRACTS = {
               name: 'kakkaka'
             }
           ],
-          rates: [
+          reviews: [
             {
               'comments': 34,
               'date': '26/03/2022',
@@ -454,20 +453,6 @@ const CONTRACTS = {
             'id': 1,
             'status': 'lendo'
           },
-          'book_status': [
-            {
-              'id': 1,
-              'status': 'já li'
-            },
-            {
-              'id': 2,
-              'status': 'lendo'
-            },
-            {
-              'id': 3,
-              'status': 'lerei'
-            }
-          ]
         }
       },
       'status': 200

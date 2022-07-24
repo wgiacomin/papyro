@@ -123,7 +123,7 @@ const ViewBook = ({ navigation, route }) => {
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('SearchReaders')}>
                 <Text style={styles.company_title}>
-									Pessoas ({book.book.peoples})
+									Pessoas ({book.book.raters})
                 </Text>
               </TouchableOpacity>
             </View>
@@ -134,7 +134,7 @@ const ViewBook = ({ navigation, route }) => {
           </View>
 
           <View>
-            <Text style={styles.comments_title}> {book.book.rates.length} avaliações </Text>
+            <Text style={styles.comments_title}> {book.book.reviews.length} avaliações </Text>
           </View>
 
           <View style={styles.edit_segment}>
@@ -146,7 +146,7 @@ const ViewBook = ({ navigation, route }) => {
 
           {
 
-            book.book.rates.map((item) => {
+            book.book.reviews.map((item) => {
 
               return (
                 <>
