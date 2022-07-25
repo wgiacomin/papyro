@@ -12,7 +12,9 @@ const BookSuggestionEntries = ({ data, navigation }) => {
         return <Entry
           name={post.item.name}
           rate={post.item.rate}
+          rates={post.item.rates}
           cover={post.item.cover}
+          author={post.item.author.name}
           navigation={navigation}
         />
       }} />

@@ -58,14 +58,6 @@ const SearchBook = ({ navigation }) => {
           setRefresing={setRefresing}
           refreshing={refreshing}
           setData />         
-        <View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('AddBook')}>
-            <View style={styles.continueSegment}>
-              <Text style={styles.buttonAdd}> Adicionar Novo </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
       </View>
     </>
   )

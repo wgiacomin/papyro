@@ -10,7 +10,7 @@ export default StyleSheet.create({
   segment:{
     left: '1%',
     paddingBottom: '3%',
-    paddingTop: '3%'
+    paddingTop: '3%',
   },
   gender_title: {  
     fontFamily: 'Poppins',
@@ -31,29 +31,28 @@ export default StyleSheet.create({
     height: 18,
     marginRight: 8,
   },
-  book_segment:{
-    left: '1%',
-    paddingBottom: '5%',
-    backgroundColor: '#ECEDF1',
-    marginRight: '-7%',
-    marginLeft: '-7%',
+  book_segment: {
+    marginLeft: '1%',
+    flexDirection: 'row',
+    flex: 1
   },
   book_title: {  
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
-    fontSize: 28,
-    lineHeight: 42,
+    fontSize: 25,
     color: '#181D2D',
-    textAlign: 'center',
-    marginTop: 13
+    marginLeft: '3%',
+    marginTop: '3%',
+    marginRight: 15
   },
   book_autor: {  
     fontFamily: 'Poppins',
     fontStyle: 'normal',
-    fontSize: 14,
+    fontSize: 17,
     lineHeight: 21,
     color: '#181D2D',
-    textAlign: 'center'
+    marginLeft: '3%',
+    marginTop: '-1%',
   },
   unselected: {
     margin: 5,
@@ -75,8 +74,8 @@ export default StyleSheet.create({
   star_container_avaliation: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: 5,
-    marginLeft: 140
+    marginTop: 17,
+    marginLeft: '3%'
   },
   star_container_comments: {
     flexDirection: 'row',
@@ -91,15 +90,14 @@ export default StyleSheet.create({
     lineHeight: 18,
     color: '#181D2D',
     textAlign: 'right',
-    paddingRight: 115,
+    paddingRight: 125,
     marginTop: -20
   },
   bookImage:{
     width: 94,
     height: 140,
-    marginTop: 12,
+    marginTop: 15,
     marginBottom: 15,
-    alignSelf: 'center'
   },
   bookBackground:{
     alignSelf: 'center',
@@ -120,8 +118,8 @@ export default StyleSheet.create({
     lineHeight: 21,
     color: '#000000',
     textAlign: 'left',
-    marginLeft: 10,
-    marginRight: 10
+    marginLeft: 3,
+    marginRight: 3
   },
   want_to_read_container: {
     margin: 15,

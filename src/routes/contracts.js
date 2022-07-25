@@ -307,14 +307,15 @@ const CONTRACTS = {
         book: {
           id: 1,
           cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-          book_title: '1984',
-          rate: 33,
-          raters: 10,
-          description: 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
+          book_title: 'Admirável Mundo Novo',
+          rate: 3,
+          rates: 10,
+          company: 23,
+          description: 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.',
           author: [
             {
               id: 1,
-              name: 'kakkaka'
+              name: 'Albus Huxley'
             }
           ],
           reviews: [
@@ -1357,79 +1358,144 @@ const CONTRACTS = {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 1,
             'name': '1984',
-            'rate': 10,
+            'rate': 1,
+            'rates': 12,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
-            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
             'id': 2,
             'name': 'Admirável mundo novo',
-            'rate': 10,
+            'rate': 2,
+            'rates': 26,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
-            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
             'id': 3,
             'name': 'livro 3',
             'rate': 3,
+            'rates': 6,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 4,
             'name': 'livro 5',
             'rate': 2,
+            'rates': 12,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
-            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
             'id': 5,
             'name': 'livro 21321312',
-            'rate': 33,
+            'rate': 3,
+            'rates': 43,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 1,
             'name': '1984',
-            'rate': 10,
+            'rate': 1,
+            'rates': 22,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 2,
             'name': 'Admirável mundo novo',
-            'rate': 10,
+            'rate': 4,
+            'rates': 12,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
-            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
             'id': 3,
             'name': 'livro 3',
             'rate': 3,
+            'rates': 12,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 4,
             'name': 'livro 5',
             'rate': 2,
+            'rates': 1,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 1,
             'name': '1984',
-            'rate': 10,
+            'rate': 4,
+            'rates': 23,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
-            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591030940l/50998096.jpg',
             'id': 2,
             'name': 'Admirável mundo novo',
-            'rate': 10,
+            'rate': 4,
+            'rates': 12,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 3,
             'name': 'livro 3',
             'rate': 3,
+            'rates': 12,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
           {
             'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
             'id': 4,
             'name': 'livro 5',
             'rate': 2,
+            'rates': 15,
+            'author': {
+              'name': 'Elin Hilderbrand ',
+              'id': 0
+            },
           },
         ],
       },

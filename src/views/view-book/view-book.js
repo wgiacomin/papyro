@@ -13,6 +13,13 @@ import Rate from '../../components/rate-stars'
 import useGetBook from './useBook'
 import Like from '../../components/heart'
 import BackButton from '../../components/back-button'
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu'
+import READ_TYPE from '../../enum/READ_TYPE'
 
 const ViewBook = ({ navigation, route }) => {
   const [show, setShow] = useState(false)
@@ -64,24 +71,22 @@ const ViewBook = ({ navigation, route }) => {
             </View>
           </View>
 
-          <View style={styles.book_segment} blurRadius={5}>
-            <Text style={styles.book_title}>
-              {book.book.book_title}
-            </Text>
-            <Text style={styles.book_autor}>
-              {book.book.author[0].name}
-            </Text>
-
+          <View style={styles.book_segment}>
+            <Image source={{ uri: book.book.cover }} style={styles.bookImage} />
             <View>
+              <Text style={styles.book_title}>
+                {book.book.book_title}
+              </Text>
+              <Text style={styles.book_autor}>
+                {book.book.author[0].name}
+              </Text>
               <TouchableOpacity onPress={() => navigation.navigate('Review')}>
                 <View style={styles.star_container_avaliation}>
                   <Rate stars={book.book.rate} size={24} />
                 </View>
-                <Text style={styles.star_number}>({book.book.rates.length})</Text>
+                <Text style={styles.star_number}>({book.book.rates})</Text>
               </TouchableOpacity>
-            </View>
-
-            <Image source={{ uri: book.book.cover }} style={styles.bookImage} />
+            </View>            
           </View>
           
 
@@ -123,7 +128,7 @@ const ViewBook = ({ navigation, route }) => {
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('SearchReaders')}>
                 <Text style={styles.company_title}>
-									Pessoas ({book.book.raters})
+									Pessoas ({book.book.company})
                 </Text>
               </TouchableOpacity>
             </View>

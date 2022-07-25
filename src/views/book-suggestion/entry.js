@@ -1,15 +1,14 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import add_button_list from '../../../assets/icons/add_button_list.png'
-import delete_button_list from '../../../assets/icons/delete_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
+import Rate from '../../components/rate-stars'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({ name, rate, cover, navigation }) => {
+const Entry = ({ name, rate, rates, cover, author, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.note_container}>
-        <Text style={styles.note}>Avaliação: {rate}</Text>
+        <Text style={styles.note}>Avaliações: {rates}</Text>
       </View>
       <View style={styles.livro}>
         <TouchableOpacity
@@ -21,8 +20,10 @@ const Entry = ({ name, rate, cover, navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('ViewBook')}>
               <Text style={styles.livro_title}>{name}</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> 
           </View>
+          <Text style={styles.author}>{author}</Text>
+          <Rate stars={rate} size={17} />
         </View>
       </View>
       <View style={styles.line}>
@@ -56,7 +57,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 5,
-    marginTop: 20,
+  },
+  author: {
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontSize: 14,
+    lineHeight: 24,
+    marginTop: -10,
   },
   livro_title_container: {
     flex: 1,
