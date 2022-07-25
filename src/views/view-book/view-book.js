@@ -82,7 +82,7 @@ const ViewBook = ({ navigation, route }) => {
               </Text>
               <TouchableOpacity onPress={() => navigation.navigate('Review')}>
                 <View style={styles.star_container_avaliation}>
-                  <Rate stars={book.book.rate} size={24} />
+                  <Rate stars={book.book.rate} size={26} />
                 </View>
                 <Text style={styles.star_number}>({book.book.rates})</Text>
               </TouchableOpacity>
@@ -123,10 +123,10 @@ const ViewBook = ({ navigation, route }) => {
 							Procurando Companhia?
             </Text>
             <View style={styles.company}>
-              <TouchableOpacity onPress={() => navigation.navigate('SearchReaders')}>
+              <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?')}>
                 <Image source={profile} style={styles.person_image} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('SearchReaders')}>
+              <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?')}>
                 <Text style={styles.company_title}>
 									Pessoas ({book.book.company})
                 </Text>
@@ -168,7 +168,7 @@ const ViewBook = ({ navigation, route }) => {
                     </TouchableOpacity>
                   </View>
                   <View style={styles.star_container_comments}>
-                    <Rate stars={item.rate} size={15} />
+                    <Rate stars={item.rate} size={17} />
                   </View>
 
                   <View style={styles.book_description_container}>

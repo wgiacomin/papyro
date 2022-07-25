@@ -1298,7 +1298,7 @@ const CONTRACTS = {
         photo: 'https://images.gr-assets.com/users/1613521073p6/60843495.jpg',
         name: 'Ana Carolina Dolata',
         birthday: '20/10/1998',
-        description: 'Eu gosto de ler livrossssss',
+        description: 'Eu gosto de ler livrossssss e muitas coisaaaaaaaaaaaaaaaaas, Eu gosto de ler livrossssss e muitas coisaaaaaaaaaaaaaaaaas, Eu gosto de ler livrossssss e muitas coisaaaaaaaaaaaaaaaaas',
         booksReading: {
           id: 0,
           booksReadingQtd: 5,

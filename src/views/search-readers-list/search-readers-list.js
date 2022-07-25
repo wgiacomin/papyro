@@ -30,14 +30,8 @@ const SearchReadersList = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <BackButton navigation={navigation}/>
       <View style={styles.container}>
-        <View style={styles.segment}>
-          <Text style={styles.title}>{readers.readers.status}</Text>
-        </View>
-        <View style={styles.segment}>
-          <SearchReadersListEntries data={readers.readers.list} navigation={navigation} />
-        </View>
+        <SearchReadersListEntries data={readers.readers.list} navigation={navigation} />
       </View>
     </SafeAreaView>
   )

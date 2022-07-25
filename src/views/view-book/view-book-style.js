@@ -74,7 +74,7 @@ export default StyleSheet.create({
   star_container_avaliation: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 17,
+    marginTop: 15,
     marginLeft: '3%'
   },
   star_container_comments: {
@@ -90,8 +90,8 @@ export default StyleSheet.create({
     lineHeight: 18,
     color: '#181D2D',
     textAlign: 'right',
-    paddingRight: 125,
-    marginTop: -20
+    paddingRight: 115,
+    marginTop: -22
   },
   bookImage:{
     width: 94,

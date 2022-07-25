@@ -31,11 +31,7 @@ const BookReading = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <View style={styles.back_button}>
-        <BackButton navigation={navigation}/>
-      </View>
       <View style={styles.container}>
-        <Text style={styles.title}>Livros que Estou Lendo</Text>
         <BookReadingEntries data={bookReading.bookReading} navigation={ navigation }/>
       </View>
     </SafeAreaView>
