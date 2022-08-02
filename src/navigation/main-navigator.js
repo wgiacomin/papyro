@@ -33,6 +33,7 @@ import SearchReadersList from '../views/search-readers-list/search-readers-list'
 import SearchNavigator from './search-navigator'
 import BookNavigator from './book-navigator'
 import PeopleNavigator from './people-navigator'
+import FollowNavigator from './follower-navigator'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -55,6 +56,7 @@ const StackNavigator = () => (
     <Stack.Screen name='Pesquisa' component={SearchNavigator} options={{ headerShown: true }} />
     <Stack.Screen name='Livros' component={BookNavigator} options={{ headerShown: true }} />
     <Stack.Screen name='Procurando Companhia?' component={PeopleNavigator} options={{ headerShown: true }} />
+    <Stack.Screen name='Seguidores' component={FollowNavigator} options={{ headerShown: true }} />
     <Stack.Screen name='SearchPeople' component={searchPeople} options={{ headerShown: false }} />
     <Stack.Screen name='BookSuggestion' component={bookSuggestion} options={{ headerShown: false }} />
     <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false }} />

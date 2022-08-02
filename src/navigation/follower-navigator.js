@@ -2,23 +2,26 @@
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
-import searchBook from '../views/search-book/search-book'
-import searchPeople from '../views/search-people/search-people'
+import Followers from '../views/followers/followers'
+import Following from '../views/following/following'
+
+
 
 const Tab = createMaterialTopTabNavigator()
 const Stack = createStackNavigator()
+
 
 const StackNavigator = () => (
   <Stack.Navigator
     initialRouteName="followers"
   >
-    <Stack.Screen name='followers' component={searchBook} options={{ headerShown: false }} />
+    <Stack.Screen name='followers' component={Followers} options={{ headerShown: false }} />
   </Stack.Navigator>
 )
 
-const SearchNavigator = () => (
+const FollowNavigator = () => (
   <Tab.Navigator
-    initialRouteName='Livros'
+    initialRouteName='Seguidores'
     screenOptions={{
       tabBarActiveTintColor: 'black',
       tabBarInactiveTintColor: 'gray',
@@ -35,11 +38,11 @@ const SearchNavigator = () => (
     }}
   >
 
-    <Tab.Screen name="Pessoas" component={searchPeople} />
+    <Tab.Screen name="Seguidores" component={Followers} />
 
-    <Tab.Screen name="Livros" component={searchBook} />
+    <Tab.Screen name="Seguindo" component={Following} />
 
   </Tab.Navigator>
 )
 
-export default SearchNavigator
+export default FollowNavigator

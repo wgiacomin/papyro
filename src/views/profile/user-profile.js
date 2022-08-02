@@ -42,7 +42,8 @@ const UserProfile = ({ navigation }) => {
         </View>
         <View style={styles.book_segment}>
           <Image source={followers} style={styles.imageSize} /> 
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Seguidores')}>
             <Text style={styles.normal}>
               {data.profile.followers} Seguidores
             </Text>
