@@ -7,31 +7,26 @@ import CONTRACTS from '../../routes/contracts'
 function setValues({ setProfile, setRes, response }) {
   setRes({
     status: response.status,
-    access_token: response.data.access_token
+    access_token: response.data.access_token,
+    refresh_token: response.data.refresh_token
   })
 
   setProfile({
-    id: response.data.user.id,
+    id: response.data.user.id ? 0 : 1,
     name: response.data.user.name,
     nickname: response.data.user.nickname,
     description: response.data.user.description,
     photo: response.data.user.photo,
+    birthday: response.data.user.birthday,
   })
 }
 
 async function useLogin({ data, setRes, setProfile, setLoading }) {
-  if (BRANCH == 'dev') {
-    if (LOGIN == 1) {
-      setRes({
-        status: CONTRACTS.login.error.status,
-        msg: CONTRACTS.login.error.data.detail
-      })
-    } else {
-      setValues({ setProfile, setRes, response: CONTRACTS.login.success })
-    }
+  if (BRANCH == 'dev' & LOGIN == 1) {
+    setValues({ setProfile, setRes, response: CONTRACTS.login.success })
     return
   }
-
+  
   if (data.email == '' || data.senha == '') {
     Alert.alert('Atenção!', 'Preencha todos os campos!')
     setLoading(false)

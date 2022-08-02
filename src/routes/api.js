@@ -1,8 +1,9 @@
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import ROUTES from './routes'
 
 const api = axios.create({
-  baseURL: 'https://papyro-mv5osjkb7q-uc.a.run.app',
+  baseURL: ROUTES.baseURL,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',

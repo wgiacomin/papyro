@@ -5,7 +5,7 @@ import { AuthProvider } from './src/context/auth-context'
 import AppNavigator from './src/navigation/app-navigator'
 import { MenuProvider } from 'react-native-popup-menu'
 
-const fetchFonts = () => {
+const fetchFontsAndToken = () => {
   return Font.loadAsync({
     'Poppins': require('./assets/fonts/Poppins-Regular.ttf'),
     'Poppins-Medium': require('./assets/fonts/Poppins-Medium.ttf'),
@@ -22,7 +22,7 @@ export default function App() {
 
   if (!dataLoaded) {
     return <AppLoading
-      startAsync={fetchFonts}
+      startAsync={fetchFontsAndToken}
       onFinish={() => setDataLoaded(true)}
       onError={(err) => console.log(err)}
     />

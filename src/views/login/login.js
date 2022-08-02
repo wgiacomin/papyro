@@ -17,7 +17,8 @@ const Login = ({ navigation }) => {
   const [res, setRes] = useState({
     status: 0,
     msg: '' ,
-    access_token: ''
+    access_token: '',
+    refresh_token: '',
   })
 
   const [data, setData] = useState({
@@ -30,7 +31,7 @@ const Login = ({ navigation }) => {
       Alert.alert('Atenção!', res.msg)
       setRes('')
     } else if (res.status == 200){
-      signIn(res.access_token)
+      signIn(res.access_token, res.refresh_token)
     }
   }, [res])
 
