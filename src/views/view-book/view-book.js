@@ -36,9 +36,14 @@ const ViewBook = ({ navigation, route }) => {
   }
 
   const [clickedId, setClickedId] = useState(null)
+
   const handleClick = (id) => {
     book.book.book_status_user.id = id
     setClickedId(id)
+  }
+
+  function setNewState({newState}) {
+    setBook({...book, book:{...book.book, status: newState}})
   }
 
   useEffect(() => {
@@ -95,26 +100,16 @@ const ViewBook = ({ navigation, route }) => {
               {book.book.description}
             </Text>
             <View style={styles.want_to_read_container}>
-              <TouchableOpacity
-                onPress={() => { setShow(!show) }}>
-                <Text style={styles.want_to_read}>Adicionar na Biblioteca</Text>
-              </TouchableOpacity>
-              {
-                show ? (
-                  book.book.book_status.map((item, index) => {
-                    return (
-                      <TouchableOpacity
-                        onPress={() => handleClick(index)}
-                        key={index}
-                        style={[(index === book.book.book_status_user.id | index === clickedId) ? styles.selected : styles.unselected]}
-                      >
-                        <Text style={styles.want_to_read}>{item.status}</Text>
-                      </TouchableOpacity>
-                    )
-                  })
-
-                ) : null
-              }
+              <Menu>
+                <MenuTrigger>
+                  <Text style={book.status == 1 ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[book.status]} </Text>    
+                </MenuTrigger>
+                <MenuOptions style={styles.options_color}>
+                  <MenuOption onSelect={() => setNewState({newState: 1})} text={READ_TYPE[1]} disabled={book.status == 1}/>
+                  <MenuOption onSelect={() => setNewState({newState: 2})} text={READ_TYPE[2]} disabled={book.status == 2}/>
+                  <MenuOption onSelect={() => setNewState({newState: 3})} text={READ_TYPE[3]} disabled={book.status == 3} />
+                </MenuOptions>
+              </Menu>
             </View>
           </View>
           

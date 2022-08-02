@@ -157,6 +157,7 @@ export default StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
     lineHeight: 21,
+    color: 'black'
   },
   star_container_resume: {
     flex: 1,
