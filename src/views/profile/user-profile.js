@@ -36,90 +36,31 @@ const UserProfile = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <UserProfileBar navigation={navigation}/>
-      <ScrollView>
-        <View style={styles.standard}>
-          <View style={styles.segment}>
-            <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
-            <TouchableOpacity>
-              <Image source={followers} style={styles.imageSize} />
-              <Text style={styles.infos}>
-                {data.profile.followers} Seguidores
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('BookRead')}>
-              <Image source={booksReaded} style={styles.imageSize}/>
-              <Text style={styles.infos}>
-                {data.profile.booksQt} Livros Lidos
-              </Text>
-            </TouchableOpacity>
-            <DescriptionBar description={data.profile.description} />
-            <Image source={vertical} style={styles.horizontalLine} />
-          </View>
-          <View style={styles.segment}>  
-            <Text style={styles.bold}>
-              Lendo
-            </Text>
-            <Text style={styles.normal}>
-              {data.profile.booksReading.name}
-            </Text>
-            <Text style={styles.normal}>
-              {data.profile.booksReading.author.name}
-            </Text>
-            <View style={styles.buttonSegment}>
-              <View style={styles.continueSegment}>
-                <Image source={{uri:data.profile.booksReading.cover}} style={styles.bookSize}/>
-              </View>
-            </View>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('BookReading')}>
-              <Text style={styles.seeMore}>
-                Ver Mais ({data.profile.booksReading.booksReadingQtd})
-              </Text>
-            </TouchableOpacity>  
-            <Text style={styles.bold}>
-              Lerei
-            </Text>
-            <Text style={styles.normal}>
-              {data.profile.booksToRead.name}
-            </Text>
-            <Text style={styles.normal}>
-              {data.profile.booksToRead.author.name}
-            </Text>
-            <View style={styles.buttonSegment}>
-              <View style={styles.continueSegment}>
-                <Image source={{uri:data.profile.booksToRead.cover}} style={styles.bookSize}/>
-              </View>
-            </View>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('BookToRead')}>
-              <Text style={styles.seeMore}>
-                Ver Mais ({data.profile.booksToRead.booksToReadQtd})
-              </Text>
-            </TouchableOpacity>  
-            <Text style={styles.bold}>
-              Lidos
-            </Text>
-            <Text style={styles.normal}>
-              {data.profile.booksRead.name}
-            </Text>
-            <Text style={styles.normal}>
-              {data.profile.booksRead.author.name}
-            </Text>
-            <View style={styles.buttonSegment}>
-              <View style={styles.continueSegment}>
-                <Image source={{uri:data.profile.booksRead.cover}} style={styles.bookSize}/>
-              </View>
-            </View>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('BookRead')}>
-              <Text style={styles.seeMore}>
-                Ver Mais ({data.profile.booksRead.booksReadQtd})
-              </Text>
-            </TouchableOpacity>  
-          </View>
+      <View style={styles.standard}>
+        <View style={styles.segment}>
+          <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
         </View>
-      </ScrollView>
+        <View style={styles.book_segment}>
+          <Image source={followers} style={styles.imageSize} /> 
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Seguidores')}>
+            <Text style={styles.normal}>
+              {data.profile.followers} Seguidores
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.book_segment}>  
+          <Image source={booksReaded} style={styles.imageSize} />        
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Livros')}>
+            <Text style={styles.normal}>
+                Ver Minha Biblioteca
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <Image source={vertical} style={styles.horizontalLine} />
+        <DescriptionBar description={data.profile.description} />
+      </View>
     </SafeAreaView>
   )
 }

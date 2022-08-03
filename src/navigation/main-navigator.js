@@ -22,17 +22,18 @@ import personalize from '../views/edit-profile/personalize-profile'
 import bookToRead from '../views/book-to-read/book-to-read'
 import bookRead from '../views/book-read/book-read'
 import bookReading from '../views/book-reading/book-reading'
-import addBook from '../views/add-book/add-book'
 import searchPeople from '../views/search-people/search-people'
 import searchReaders from '../views/search-readers/search-readers'
 import bookSuggestion from '../views/book-suggestion/book-suggestion'
 import peopleSuggestion from '../views/people-suggestion/people-suggestion'
 import viewBook from '../views/view-book/view-book'
 import review from '../views/review/review'
-
 import SearchReadersList from '../views/search-readers-list/search-readers-list'
 
 import SearchNavigator from './search-navigator'
+import BookNavigator from './book-navigator'
+import PeopleNavigator from './people-navigator'
+import FollowNavigator from './follower-navigator'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
@@ -52,8 +53,10 @@ const StackNavigator = () => (
     <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false }} />
     <Stack.Screen name='BookRead' component={bookRead} options={{ headerShown: false }} />
     <Stack.Screen name='BookReading' component={bookReading} options={{ headerShown: false }} />
-    <Stack.Screen name='AddBook' component={addBook} options={{ headerShown: false }} />
     <Stack.Screen name='Pesquisa' component={SearchNavigator} options={{ headerShown: true }} />
+    <Stack.Screen name='Livros' component={BookNavigator} options={{ headerShown: true }} />
+    <Stack.Screen name='Procurando Companhia?' component={PeopleNavigator} options={{ headerShown: true }} />
+    <Stack.Screen name='Seguidores' component={FollowNavigator} options={{ headerShown: true }} />
     <Stack.Screen name='SearchPeople' component={searchPeople} options={{ headerShown: false }} />
     <Stack.Screen name='BookSuggestion' component={bookSuggestion} options={{ headerShown: false }} />
     <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false }} />

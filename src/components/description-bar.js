@@ -26,18 +26,18 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 33,
     marginBottom: 15,
-    marginLeft: 95,
+    marginLeft: 55,
     marginRight: 15,
   },
   textInput: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 12,
-    lineHeight: 18,
+    fontSize: 18,
+    lineHeight: 20,
     textAlign: 'center',
     color: '#000000',
-    width: 225
+    width: 300
   },
   segment:{
     flex: 1,

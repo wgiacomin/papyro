@@ -13,6 +13,13 @@ import Rate from '../../components/rate-stars'
 import useGetBook from './useBook'
 import Like from '../../components/heart'
 import BackButton from '../../components/back-button'
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu'
+import READ_TYPE from '../../enum/READ_TYPE'
 
 const ViewBook = ({ navigation, route }) => {
   const [show, setShow] = useState(false)
@@ -29,9 +36,14 @@ const ViewBook = ({ navigation, route }) => {
   }
 
   const [clickedId, setClickedId] = useState(null)
+
   const handleClick = (id) => {
     book.book.book_status_user.id = id
     setClickedId(id)
+  }
+
+  function setNewState({newState}) {
+    setBook({...book, book:{...book.book, status: newState}})
   }
 
   useEffect(() => {
@@ -64,24 +76,22 @@ const ViewBook = ({ navigation, route }) => {
             </View>
           </View>
 
-          <View style={styles.book_segment} blurRadius={5}>
-            <Text style={styles.book_title}>
-              {book.book.book_title}
-            </Text>
-            <Text style={styles.book_autor}>
-              {book.book.author[0].name}
-            </Text>
-
+          <View style={styles.book_segment}>
+            <Image source={{ uri: book.book.cover }} style={styles.bookImage} />
             <View>
+              <Text style={styles.book_title}>
+                {book.book.book_title}
+              </Text>
+              <Text style={styles.book_autor}>
+                {book.book.author[0].name}
+              </Text>
               <TouchableOpacity onPress={() => navigation.navigate('Review')}>
                 <View style={styles.star_container_avaliation}>
-                  <Rate stars={book.book.rate} size={24} />
+                  <Rate stars={book.book.rate} size={26} />
                 </View>
-                <Text style={styles.star_number}>({book.book.rates.length})</Text>
+                <Text style={styles.star_number}>({book.book.rates})</Text>
               </TouchableOpacity>
-            </View>
-
-            <Image source={{ uri: book.book.cover }} style={styles.bookImage} />
+            </View>            
           </View>
           
 
@@ -90,26 +100,16 @@ const ViewBook = ({ navigation, route }) => {
               {book.book.description}
             </Text>
             <View style={styles.want_to_read_container}>
-              <TouchableOpacity
-                onPress={() => { setShow(!show) }}>
-                <Text style={styles.want_to_read}>Adicionar na Biblioteca</Text>
-              </TouchableOpacity>
-              {
-                show ? (
-                  book.book.book_status.map((item, index) => {
-                    return (
-                      <TouchableOpacity
-                        onPress={() => handleClick(index)}
-                        key={index}
-                        style={[(index === book.book.book_status_user.id | index === clickedId) ? styles.selected : styles.unselected]}
-                      >
-                        <Text style={styles.want_to_read}>{item.status}</Text>
-                      </TouchableOpacity>
-                    )
-                  })
-
-                ) : null
-              }
+              <Menu>
+                <MenuTrigger>
+                  <Text style={book.status == 1 ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[book.status]} </Text>    
+                </MenuTrigger>
+                <MenuOptions style={styles.options_color}>
+                  <MenuOption onSelect={() => setNewState({newState: 1})} text={READ_TYPE[1]} disabled={book.status == 1}/>
+                  <MenuOption onSelect={() => setNewState({newState: 2})} text={READ_TYPE[2]} disabled={book.status == 2}/>
+                  <MenuOption onSelect={() => setNewState({newState: 3})} text={READ_TYPE[3]} disabled={book.status == 3} />
+                </MenuOptions>
+              </Menu>
             </View>
           </View>
           
@@ -118,12 +118,12 @@ const ViewBook = ({ navigation, route }) => {
 							Procurando Companhia?
             </Text>
             <View style={styles.company}>
-              <TouchableOpacity onPress={() => navigation.navigate('SearchReaders')}>
+              <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?')}>
                 <Image source={profile} style={styles.person_image} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('SearchReaders')}>
+              <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?')}>
                 <Text style={styles.company_title}>
-									Pessoas ({book.book.raters})
+									Pessoas ({book.book.company})
                 </Text>
               </TouchableOpacity>
             </View>
@@ -163,7 +163,7 @@ const ViewBook = ({ navigation, route }) => {
                     </TouchableOpacity>
                   </View>
                   <View style={styles.star_container_comments}>
-                    <Rate stars={item.rate} size={15} />
+                    <Rate stars={item.rate} size={17} />
                   </View>
 
                   <View style={styles.book_description_container}>

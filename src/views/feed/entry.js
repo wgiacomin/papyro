@@ -32,7 +32,7 @@ const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, ph
               <Text style={styles.book_title}>{book_title}</Text>
             </TouchableOpacity>
             <View style={styles.star_container}>
-              <Rate stars={rate} size={17} />
+              <Rate stars={rate} size={21} />
             </View>
           </View>
           <View style={styles.book_description_container}>

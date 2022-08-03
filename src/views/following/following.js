@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, Text, ActivityIndicator } from 'react-native'
-import DefaultBar from '../../components/default-bar-back'
+import { SafeAreaView, View, Text, ActivityIndicator, StyleSheet } from 'react-native'
 import safeView from '../../styles/safe-view'
-import BookReadingEntries from './book-reading-entries'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
-import useBookReading from './use-book-reading'
-import BackButton from '../../components/back-button'
+import ROUTES from '../../routes/routes'
+import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import useFollowing from './use-following'
+import FollowingEntries from './following-entries'
 
-const BookReading = ({ navigation }) => {
+const Following = ({ navigation }) => {
 
   const { profile } = useAuthState()
 
-  const [bookReading, setBookReading] = useState({
-    bookReading: [],
+  const [following, setFollowing] = useState({
+    following: [],
     loading: true,
   })
 
   useEffect(() => {
-    useBookReading({ setBookReading, profile })
+    useFollowing({ setFollowing, profile })
   }, [])
 
-  if (bookReading.loading) {
+  if (following.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
         <ActivityIndicator size="large" color="#00000" />
@@ -32,13 +31,14 @@ const BookReading = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <BookReadingEntries data={bookReading.bookReading} navigation={ navigation }/>
+        <FollowingEntries data={following.following} navigation={navigation} />
       </View>
     </SafeAreaView>
   )
 }
 
-export default BookReading
+
+export default Following
 
 const styles = StyleSheet.create({
   container: {
@@ -47,9 +47,11 @@ const styles = StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
-  back_button: {
-    paddingRight: 10,
-    marginTop: 10
+  segment: {
+    left: '1%',
+    paddingBottom: '1%',
+    marginTop: 2,
+    marginBottom: -20
   },
   title: {
     fontFamily: 'Poppins-Medium',
@@ -61,10 +63,18 @@ const styles = StyleSheet.create({
     marginBottom: 22,
     marginLeft: 35,
     marginTop: -30
+  },
+  see_more: {
+    fontFamily: 'DM-Sans',
+    fontStyle: 'normal',
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#007AFF',
+  },
+  see_more_segment: {
+    alignSelf: 'flex-start',
+    marginBottom: 12,
+    paddingTop: 5
   }
 })
-
-
-
-
 

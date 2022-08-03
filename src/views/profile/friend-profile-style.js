@@ -8,6 +8,12 @@ export default StyleSheet.create({
   segment:{
     paddingBottom: '5%'
   },
+  book_segment:{
+    paddingBottom: '5%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center'
+  },
   horizontalLine: {
     alignSelf: 'center',
     height: 1,
@@ -16,66 +22,26 @@ export default StyleSheet.create({
     marginTop: 20
   },
   normal:{
-    fontFamily: 'Poppins',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 12,
-    lineHeight: 23,
-    textAlign: 'left',
-    marginLeft: 75,
-    color: '#000000',
-  },
-  infos:{
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: 14,
-    lineHeight: 17,
-    left: 168,
-    marginBottom: -14,
+    fontSize: 16,
+    lineHeight: 23,
+    marginLeft: 7,
     color: '#000000',
   },
-  bold:{
-    fontFamily: 'Poppins-Medium',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 22,
-    lineHeight: 33,
-    textAlign: 'left',
-    color: '#181D2D',
-    marginLeft: 26
-  },
-  seeMore:{
-    fontFamily: 'DM-Sans',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 13,
-    lineHeight: 22,
-    letterSpacing: -0.408,
-    textAlign: 'left',
-    color: '#007AFF',
-    marginLeft: 26,
-    marginTop: 10,
-    marginBottom: 30 
-  },
   imageSize: {
-    width: 22,
-    height: 22,
-    left: 142,
     flexDirection: 'row',
-    top: 18
+    alignSelf: 'flex-start',
+    width: 30,
+    height: 30,
+    marginTop: 1
   },
   profileSize: {
     alignSelf: 'center',
     borderRadius: 16,
-    width: 128,
-    height: 118,
-  },
-  bookSize: {
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
-    width: 41,
-    height: 60,
+    width: 220,
+    height: 200,
   },
   continueSegment:{
     flex: 1,
@@ -89,7 +55,7 @@ export default StyleSheet.create({
   follow_segment:{
     flexDirection: 'row',
     marginLeft: 88,
-    marginTop: 10
+    marginTop: 20
   },
   talk_segment:{
     flexDirection: 'row',
