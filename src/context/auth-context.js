@@ -10,18 +10,27 @@ function authReducer(state, action) {
     return {
       ...state,
       access_token: action.access,
+      refresh_token: action.refresh_token,
+      error: '',
+    }
+  case 'refresh':
+    return {
+      ...state,
+      access_token: action.access,
       error: '',
     }
   case 'error':
     return {
       ...state,
       access_token: null,
+      refresh_token: null,
       error: action.payload,
     }
   case 'signOut':
     return {
       ...state,
       access_token: null,
+      refresh_token: null,
       error: '',
       profile: null,
     }
@@ -39,15 +48,30 @@ function authReducer(state, action) {
 function AuthProvider({ children }) {
   const [authState, dispatch] = useReducer(authReducer, {
     access_token: null,
+    refresh_token: null,
     error: '',
     profile: {description: '', name: '', nickname: '', id: 0, email: '', birthday:''}
   })
 
-  const signIn = async (access_token) => {
+  const signIn = async (access_token, refresh_token) => {
     try {
       await AsyncStorage.setItem('access_token', access_token)
-      dispatch({ type: 'signIn', access: access_token })
+      await AsyncStorage.setItem('refresh_token', refresh_token)
+      dispatch({ type: 'signIn', access: access_token, refresh: refresh_token })
     } catch (err) {
+      dispatch({
+        type: 'error',
+        payload: 'Problemas para autenticar usuário.',
+      })
+    }
+  }
+
+  const refresh = async (access_token) => {
+    try {
+      await AsyncStorage.setItem('access_token', access_token)
+      dispatch({ type: 'refresh', access: access_token })
+    } catch (err) {
+      await AsyncStorage.removeItem('refresh_token')
       dispatch({
         type: 'error',
         payload: 'Problemas para autenticar usuário.',
@@ -58,6 +82,7 @@ function AuthProvider({ children }) {
   const logout = async () => {
     try {
       await AsyncStorage.removeItem('access_token')
+      await AsyncStorage.removeItem('refresh_token')
       dispatch({ type: 'signOut' })
     } catch (err) {
       dispatch({
@@ -83,7 +108,7 @@ function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={authState}>
-      <AuthDispatch.Provider value={{ signIn, setProfile, logout }} >
+      <AuthDispatch.Provider value={{ signIn, setProfile, logout, refresh }} >
         {children}
       </AuthDispatch.Provider>
     </AuthContext.Provider>
