@@ -10,10 +10,10 @@ const BookToReadEntries = ({ data, navigation }) => {
       numColumns={1}
       renderItem={(post) => {
         return <Entry 
-          author={post.item.author.name}
+          author={post.item.author[0]}
           rate={post.item.rate}
           cover={post.item.cover}
-          title={post.item.name}
+          title={post.item.book_title}
           id={post.item.id}
           navigation={navigation}
         />

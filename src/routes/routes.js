@@ -9,6 +9,7 @@ const ROUTES = {
 
   get_persons_books: 'users/books',
   view_profile: 'users/viewProfile',
+  books_by_status: 'users/books/',
 
   like: 'like/',
   gender: '',

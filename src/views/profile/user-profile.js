@@ -32,7 +32,7 @@ const UserProfile = ({ navigation }) => {
       </View>
     )
   }
-  console.log(JSON.stringify(profile))
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <UserProfileBar navigation={navigation}/>
