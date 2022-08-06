@@ -701,7 +701,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 1,
             rate: 4
           },
@@ -711,7 +711,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 2,
             rate: 4
           },
@@ -721,7 +721,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 3,
             rate: 4
           }
@@ -746,7 +746,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 1,
             rate: 2
           },
@@ -756,7 +756,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 2,
             rate: 4
           },
@@ -766,7 +766,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 3,
             rate: 4
           }
@@ -791,7 +791,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 1,
             rate: 4
           },
@@ -801,7 +801,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 2,
             rate: 4
           },
@@ -811,7 +811,7 @@ const CONTRACTS = {
               name: 'Elin Hilderbrand '
             },
             cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            name: 'Troubles in Paradise',
+            book_title: 'Troubles in Paradise',
             id: 3,
             rate: 4
           }
