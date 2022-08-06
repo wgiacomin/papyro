@@ -6,26 +6,19 @@ import CONTRACTS from '../../routes/contracts'
 
 
 function setValues({ setBookRead, response }) {
-  setBookRead({ bookRead: response.data.book_read, loading: false })
+  setBookRead({ bookRead: response.data, loading: false })
 }
 
 
-async function useBookRead({ bookRead, setBookRead }) {
-  if (BRANCH == 'dev') {
-    if (BOOKREAD == 1) {
-      setBookRead({
-        status: CONTRACTS.book_read.error.status,
-        msg: CONTRACTS.book_read.error.data.detail
-      })
-    } else {
-      setValues({ setBookRead, response: CONTRACTS.book_read.success })
-    }
+async function useBookRead({ setBookRead }) {
+  if (BRANCH == 'dev'& BOOKREAD == 1) {
+    setValues({ setBookRead, response: CONTRACTS.book_read.success })
     return
   }
 
-  await api.get(ROUTES.book_read)
+  await api.get(ROUTES.books_by_status + 'read')
     .then((response) => {
-      setValues(setBookRead, response)
+      setValues({setBookRead, response})
     }).catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
       setBookRead({ loading: false })
