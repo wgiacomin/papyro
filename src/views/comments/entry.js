@@ -20,12 +20,12 @@ const Entry = ({data, navigation}) => {
         </TouchableOpacity>
       </View>
       <Text style={styles.text}>
-        {data.comment.text}
+        {data.text}
       </Text>
       <View style={styles.footer}>
-        <Text style={styles.date}>{data.comment.date}</Text>
+        <Text style={styles.date}>{data.date}</Text>
         <View style={styles.like_and_comments}>
-          <Like liked={data.comment.you_liked} style={styles.icons} size={20} likes={data.comment.likes}/>
+          <Like liked={data.you_liked} style={styles.icons} size={20} likes={data.likes}/>
         </View>
       </View>
       <View style={styles.line}>

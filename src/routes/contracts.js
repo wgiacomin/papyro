@@ -915,7 +915,7 @@ const CONTRACTS = {
               nickname: 'Yasmin Salazar',
               photo: 'https://images.gr-assets.com/users/1633811235p6/17682991.jpg'
             },
-            comment: {
+            comments: {
               id: 4,
               likes: 3,
               date: '20/04/2021', 
@@ -929,7 +929,7 @@ const CONTRACTS = {
               nickname: 'Katie Thompson',
               photo: 'https://images.gr-assets.com/users/1519545853p6/33550406.jpg'
             },
-            comment: {
+            comments: {
               id:33,
               likes: 1,
               date: '24/04/2021', 
@@ -943,7 +943,7 @@ const CONTRACTS = {
               nickname: 'Inés Molina',
               photo: 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg'
             },
-            comment: {
+            comments: {
               id: 64,
               likes: 3,
               date: '20/04/2021', 
@@ -968,7 +968,7 @@ const CONTRACTS = {
         book: {
           id: 9,
           cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-          name: 'Joust',
+          book_title: 'Joust',
           author: 'Mercedes Lackey',
           status: 1
         }
