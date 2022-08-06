@@ -2,7 +2,6 @@ import React, { Component, useEffect, useState } from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, ActivityIndicator, Share, TouchableHighlightComponent } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './view-book-style'
-import DefaultBar from '../../components/default-bar-back'
 import shareButton from '../../../assets/icons/share.png'
 import horizontal from '../../../assets/lines/straight.png'
 import profile from '../../../assets/icons/profile.png'
@@ -47,7 +46,7 @@ const ViewBook = ({ navigation, route }) => {
   }
 
   useEffect(() => {
-    useGetBook({ id: route.params?.id, setBook })
+    useGetBook({ id: route.params?.id, setBook, navigation })
   }, [])
 
 
@@ -60,14 +59,13 @@ const ViewBook = ({ navigation, route }) => {
   }
 
   return (
-
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <ScrollView>
         <BackButton navigation={navigation}/>
         <View style={styles.standart}>
           <View style={styles.segment}>
             <Text style={styles.gender_title}>
-              Gênero: <Text style={styles.underline}>{book.book.genre.name}</Text>
+              Gênero: <Text style={styles.underline}>{book.book.genre[0]}</Text>
             </Text>
             <View style={styles.share_segment}>
               <TouchableOpacity onPress={onShare}>
@@ -89,7 +87,7 @@ const ViewBook = ({ navigation, route }) => {
                 <View style={styles.star_container_avaliation}>
                   <Rate stars={book.book.rate} size={26} />
                 </View>
-                <Text style={styles.star_number}>({book.book.rates})</Text>
+                <Text style={styles.star_number}>({book.book.raters})</Text>
               </TouchableOpacity>
             </View>            
           </View>

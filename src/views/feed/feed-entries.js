@@ -19,6 +19,7 @@ const FeedEntries = ({data, navigation}) => {
           likes={post.item.likes}
           text={post.item.text}
           book_title={post.item.book.book_title}
+          book_id={post.item.book.id}
           cover={post.item.book.cover}
           date={post.item.date}
           type={post.item.type}
