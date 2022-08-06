@@ -1,7 +1,7 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { Alert } from 'react-native'
-import { BRANCH } from '@env'
+import { BRANCH, COMMENTS } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
 function setValues({ setComment, response }) {
@@ -16,13 +16,13 @@ function setValues({ setComment, response }) {
 
 async function useComment({ id, setComment }) {
 
-  if (BRANCH == 'dev') {
+  if (BRANCH == 'dev' & COMMENTS == 1) {
     setValues({ setComment, response: CONTRACTS.comments.success })
     return
   }
-
-  await api.get(ROUTES.get_review + id).then((response) => {
-    setValues(response)
+  
+  await api.get(ROUTES.comments + id).then((response) => {
+    setValues({response, setComment})
   }).catch((error) => {
     setComment({
       loading: false,

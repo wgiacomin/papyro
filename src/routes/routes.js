@@ -8,6 +8,7 @@ const ROUTES = {
   notifications: '',
   edit_profile: 'usuarios/meusDados',
   update_profile: 'usuarios/atualizarDados',
+  comments: 'comments/',
   get_book: 'getBook/',
   get_persons_books: 'users/books',
   get_reading_people: '/pessoas',

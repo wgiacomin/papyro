@@ -45,8 +45,7 @@ const Comment = ({ navigation, route }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <BackButton navigation={ navigation }/>
-      <View style={styles.container}>
-        
+      <View style={styles.container}>   
         <FlatList
           ListHeaderComponent={
             <>
@@ -74,7 +73,7 @@ const Comment = ({ navigation, route }) => {
                     <TouchableOpacity
                       onPress={() => navigation.navigate('ViewBook')}
                     >
-                      <Text style={styles.book_title}>{comments.book.name}</Text>
+                      <Text style={styles.book_title}>{comments.book.book_title}</Text>
                     </TouchableOpacity>
                     <Text style={styles.book_subtitle}>{comments.book.author}</Text>
                   </View>
@@ -116,7 +115,7 @@ const Comment = ({ navigation, route }) => {
             </Text>
           }
           data={comments.comments}
-          keyExtractor={(item) => item.comment.id.toString()}
+          keyExtractor={(item) => item.comment?.id?.toString()}
           numColumns={1}
           renderItem={(post) => {
             return <Entry 
