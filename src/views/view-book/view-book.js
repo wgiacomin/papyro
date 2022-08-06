@@ -176,7 +176,7 @@ const ViewBook = ({ navigation, route }) => {
                     <View style={styles.like_and_comments}>
                       <View>
                         <View style={styles.like_and_comments}>
-                          <Like liked={item.you_liked} size={20} likes={item.likes} />
+                          <Like liked={item.you_liked} size={20} likes={item.likes} type={'c'} id={item.id} />
                         </View>
                       </View>
 

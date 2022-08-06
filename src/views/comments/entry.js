@@ -25,7 +25,7 @@ const Entry = ({data, navigation}) => {
       <View style={styles.footer}>
         <Text style={styles.date}>{data.date}</Text>
         <View style={styles.like_and_comments}>
-          <Like liked={data.you_liked} style={styles.icons} size={20} likes={data.likes}/>
+          <Like liked={data.you_liked} style={styles.icons} size={20} likes={data.likes} type={'c'} id={data.id}/>
         </View>
       </View>
       <View style={styles.line}>

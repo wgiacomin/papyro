@@ -98,7 +98,7 @@ const Comment = ({ navigation, route }) => {
               <View style={styles.footer}>
                 <Text style={styles.date}>{comments.review.date}</Text>
                 <View style={styles.like_and_comments}>
-                  <Like liked={comments.review.you_liked} size={20} likes={comments.review.likes} />
+                  <Like liked={comments.review.you_liked} size={20} likes={comments.review.likes} type={'r'} id={comments.review.id}/>
                 </View>
               </View>
               <View style={styles.line}>

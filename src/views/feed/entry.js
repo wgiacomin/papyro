@@ -48,7 +48,7 @@ const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, ph
       <View style={styles.footer}>
         <Text style={styles.data}>{date}</Text>
         <View style={styles.like_and_comments}>         
-          <Like liked={you_liked} size={20} likes={likes} />
+          <Like liked={you_liked} size={20} likes={likes} type={type} id={id}/>
           <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('Comments', { id: id })}>
             <Image source={comments} style={styles.icons}/>
             <Text style={styles.icon_text}>{rates}</Text>

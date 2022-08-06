@@ -67,7 +67,7 @@ const CONTRACTS = {
         'feed': [
           {   
             'id': 1,
-            'type': 'comentario',
+            'type': 'c',
             'date': '31/12/1999',
             'text': 'Gostei muito',
             'likes': 3,
@@ -87,7 +87,7 @@ const CONTRACTS = {
           },
           {   
             'id': 2,
-            'type': 'comentario',
+            'type': 'c',
             'date': '03/11/1999',
             'text': 'Muito ruim muito',
             'likes': 33,
@@ -107,7 +107,7 @@ const CONTRACTS = {
           },
           {   
             'id': 3,
-            'type': 'avaliação',
+            'type': 'r',
             'date': '31/12/1999',
             'text': 'Gostei muito',
             'likes': 3,
@@ -127,7 +127,7 @@ const CONTRACTS = {
           },
           {   
             'id': 4,
-            'type': 'comentario',
+            'type': 'c',
             'date': '31/12/1999',
             'text': 'KKKKKKKKKKKKKKKKKK',
             'likes': 0,
@@ -147,7 +147,7 @@ const CONTRACTS = {
           },
           {   
             'id': 11,
-            'type': 'comentario',
+            'type': 'c',
             'date': '31/12/1999',
             'text': 'Gostei muito',
             'likes': 3,
@@ -167,7 +167,7 @@ const CONTRACTS = {
           },
           {   
             'id': 21,
-            'type': 'comentario',
+            'type': 'c',
             'date': '03/11/1999',
             'text': 'até que é bom',
             'likes': 33,
@@ -187,7 +187,7 @@ const CONTRACTS = {
           },
           {   
             'id': 31,
-            'type': 'avaliação',
+            'type': 'r',
             'date': '31/12/1999',
             'text': 'hasuhaush',
             'likes': 3,
@@ -207,7 +207,7 @@ const CONTRACTS = {
           },
           {   
             'id': 42,
-            'type': 'comentario',
+            'type': 'c',
             'date': '31/12/1999',
             'text': 'uau revolucionário',
             'likes': 1,

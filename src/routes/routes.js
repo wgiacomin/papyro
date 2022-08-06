@@ -11,10 +11,7 @@ const ROUTES = {
   comments: 'comments/',
   get_book: 'getBook/',
   get_persons_books: 'users/books',
-  get_reading_people: '/pessoas',
-  add_book_to_library: '/usuarios/addLivroBiblioteca/',
-  search: '/pesquisar/{tipo}/{termo}',
-  people_suggestion: '/usuarios/sugestaoAmigos',
+  like: 'like/',
   gender: '',
 
 }
