@@ -304,161 +304,159 @@ const CONTRACTS = {
     },
     success: {
       data: {
-        book: {
-          id: 1,
-          cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-          book_title: 'Admirável Mundo Novo',
-          rate: 3,
-          rates: 10,
-          company: 23,
-          status: 1,
-          description: 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.',
-          author: [
-            {
-              id: 1,
-              name: 'Albus Huxley'
+        id: 1,
+        cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+        book_title: 'Admirável Mundo Novo',
+        rate: 3,
+        raters: 10,
+        company: 23,
+        status: 1,
+        description: 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.',
+        author: [
+          {
+            id: 1,
+            name: 'Albus Huxley'
+          }
+        ],
+        reviews: [
+          {
+            'comments': 34,
+            'date': '26/03/2022',
+            'id': 1,
+            'likes': 3,
+            'rate': 10,
+            'you_liked': false,
+            'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
+            'user': {
+              'nickname': 'nome123',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
             }
-          ],
-          reviews: [
-            {
-              'comments': 34,
-              'date': '26/03/2022',
-              'id': 1,
-              'likes': 3,
-              'rate': 10,
-              'you_liked': false,
-              'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
-              'user': {
-                'nickname': 'nome123',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 1
-              }
-            },
-            {
-              'comments': 13,
-              'date': '26/03/2022',
-              'id': 1,
-              'likes': 3,
-              'rate': 2,
-              'you_liked': true,
-              'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
-              'user': {
-                'nickname': 'um nome bem grande de teste',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 2
-              }
-            },
-            {
-              'comments': 33,
-              'date': '26/05/2022',
-              'id': 3,
-              'likes': 3,
-              'rate': 2,
-              'you_liked': false,
-              'text': 'KKKKKKKK',
-              'user': {
-                'nickname': 'nome123',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 1
-              }
-            },
-            {
-              'comments': 34,
-              'date': '26/03/2022',
-              'id': 1,
-              'likes': 3,
-              'you_liked': false,
-              'rate': 10,
-              'text': 'bla bla bla bla esse nome não funcionaaaaaaaaaaaaaaaaaa',
-              'user': {
-                'nickname': 'nome123',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 1
-              }
-            },
-            {
-              'comments': 13,
-              'date': '26/03/2022',
-              'id': 1,
-              'likes': 3,
-              'rate': 2,
-              'you_liked': false,
-              'text': 'bla bla bla bla',
-              'user': {
-                'nickname': 'grauber',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 2
-              }
-            },
-            {
-              'comments': 33,
-              'date': '26/03/2022',
-              'id': 3,
-              'likes': 3,
-              'you_liked': false,
-              'rate': 2,
-              'text': 'KKKKKKKK',
-              'user': {
-                'nickname': 'nome123',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 1
-              }
-            },
-            {
-              'comments': 34,
-              'date': '26/03/2022',
-              'id': 1,
-              'likes': 3,
-              'you_liked': false,
-              'rate': 10,
-              'text': 'bla bla bla bla',
-              'user': {
-                'nickname': 'nome123',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 1
-              }
-            },
-            {
-              'comments': 13,
-              'date': '26/03/2022',
-              'id': 1,
-              'likes': 3,
-              'you_liked': false,
-              'rate': 2,
-              'text': 'bla bla bla bla',
-              'user': {
-                'nickname': 'grauber',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 2
-              }
-            },
-            {
-              'comments': 33,
-              'date': '26/03/2022',
-              'id': 3,
-              'likes': 3,
-              'you_liked': false,
-              'rate': 2,
-              'text': 'KKKKKKKK',
-              'user': {
-                'nickname': 'nome123',
-                'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-                'id': 1
-              }
-            },
-          ],
-          'genre': {
-            'id': 1,
-            'name': 'ficção'
           },
-          'book_status_user': {
+          {
+            'comments': 13,
+            'date': '26/03/2022',
             'id': 1,
-            'status': 'lendo'
+            'likes': 3,
+            'rate': 2,
+            'you_liked': true,
+            'text': 'O Porsche 911 é um carro desportivo produzido pela alemã Porsche AG de Stuttgart, Alemanha desde 1964. O modelo está em constante evolução desde seu lançamento em 1963 no Salão de Frankfurt, com o nome de 901. Mecanicamente ele se destaca por ter motor traseiro e até o modelo 993, em 1998, refrigeração a ar. Na realidade, apenas a versão Turbo da família 993 continuou com o motor arrefecido a ar por mais um ano, depois que, em meados de 1997, na chamada família 996, o motor de aspiração natural das demais versões foi substituído por outro com arrefecimento a líquido, mantida a arquitetura 6-cilindros boxer.Wikipedia',
+            'user': {
+              'nickname': 'um nome bem grande de teste',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 2
+            }
           },
-        }
-      },
-      'status': 200
-    }
+          {
+            'comments': 33,
+            'date': '26/05/2022',
+            'id': 3,
+            'likes': 3,
+            'rate': 2,
+            'you_liked': false,
+            'text': 'KKKKKKKK',
+            'user': {
+              'nickname': 'nome123',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
+            }
+          },
+          {
+            'comments': 34,
+            'date': '26/03/2022',
+            'id': 1,
+            'likes': 3,
+            'you_liked': false,
+            'rate': 10,
+            'text': 'bla bla bla bla esse nome não funcionaaaaaaaaaaaaaaaaaa',
+            'user': {
+              'nickname': 'nome123',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
+            }
+          },
+          {
+            'comments': 13,
+            'date': '26/03/2022',
+            'id': 1,
+            'likes': 3,
+            'rate': 2,
+            'you_liked': false,
+            'text': 'bla bla bla bla',
+            'user': {
+              'nickname': 'grauber',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 2
+            }
+          },
+          {
+            'comments': 33,
+            'date': '26/03/2022',
+            'id': 3,
+            'likes': 3,
+            'you_liked': false,
+            'rate': 2,
+            'text': 'KKKKKKKK',
+            'user': {
+              'nickname': 'nome123',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
+            }
+          },
+          {
+            'comments': 34,
+            'date': '26/03/2022',
+            'id': 1,
+            'likes': 3,
+            'you_liked': false,
+            'rate': 10,
+            'text': 'bla bla bla bla',
+            'user': {
+              'nickname': 'nome123',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
+            }
+          },
+          {
+            'comments': 13,
+            'date': '26/03/2022',
+            'id': 1,
+            'likes': 3,
+            'you_liked': false,
+            'rate': 2,
+            'text': 'bla bla bla bla',
+            'user': {
+              'nickname': 'grauber',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 2
+            }
+          },
+          {
+            'comments': 33,
+            'date': '26/03/2022',
+            'id': 3,
+            'likes': 3,
+            'you_liked': false,
+            'rate': 2,
+            'text': 'KKKKKKKK',
+            'user': {
+              'nickname': 'nome123',
+              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+              'id': 1
+            }
+          },
+        ],
+        'genre': {
+          'id': 1,
+          'name': 'ficção'
+        },
+        'book_status_user': {
+          'id': 1,
+          'status': 'lendo'
+        },
+      }
+    },
+    'status': 200
   },
   'get_reading_people': {
     'error': {
