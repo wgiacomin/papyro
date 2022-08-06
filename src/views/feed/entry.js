@@ -6,7 +6,7 @@ import horizontal from '../../../assets/lines/straight.png'
 import comments from '../../../assets/icons/chat.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, photo, text, likes, cover, navigation}) => {
+const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, photo, text, likes, cover, navigation, book_id}) => {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
@@ -22,13 +22,13 @@ const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, ph
       </View>
       <View style={styles.book}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ViewBook')}>
+          onPress={() => navigation.navigate('ViewBook', { id: book_id })}>
           <Image source={{ uri: cover}} style={styles.book_image}/>
         </TouchableOpacity>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
             <TouchableOpacity 
-              onPress={() => navigation.navigate('ViewBook')}>
+              onPress={() => navigation.navigate('ViewBook', { id: book_id })}>
               <Text style={styles.book_title}>{book_title}</Text>
             </TouchableOpacity>
             <View style={styles.star_container}>
