@@ -18,7 +18,7 @@ const BookRead = ({ navigation}) => {
   })
 
   useEffect(() => {
-    useBookRead({ setBookRead, profile })
+    useBookRead({ setBookRead })
   }, [])
 
   if (bookRead.loading) {

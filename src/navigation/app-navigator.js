@@ -22,6 +22,7 @@ async function refresh_func(setLoading, refresh, logout){
       .catch(() => logout())
       .then(() => setLoading(false))
   } else {
+    logout()
     setLoading(false)
   }
 }

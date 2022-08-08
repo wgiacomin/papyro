@@ -17,12 +17,12 @@ const UserProfile = ({ navigation }) => {
   const { profile } = useAuthState()
 
   const [data, setProfile] = useState({
-    data: {},
+    profile: {},
     loading: true,
   })
 
   useEffect(() => {
-    useProfile({setProfile, profile})
+    useProfile({setProfile})
   }, [])
 
   if (data.loading) {
