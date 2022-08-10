@@ -22,6 +22,7 @@ const Comment = ({ navigation, route }) => {
   const [comments, setComment] = useState({
     loading: true,
     comments: [],
+    book: {},
     review: {},
     reviewer: {}
   })
@@ -64,14 +65,14 @@ const Comment = ({ navigation, route }) => {
               </View>
               <View style={styles.container_book}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('ViewBook')}
+                  onPress={() => navigation.navigate('ViewBook', {id: comments.book.id})}
                 >
                   <Image source={{uri: comments.book.cover}} style={styles.book_image}/>
                 </TouchableOpacity>
                 <View style={styles.container_book_title}>
                   <View>
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('ViewBook')}
+                      onPress={() => navigation.navigate('ViewBook', {id: comments.book.id})}
                     >
                       <Text style={styles.book_title}>{comments.book.book_title}</Text>
                     </TouchableOpacity>
