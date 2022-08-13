@@ -50,7 +50,7 @@ function AuthProvider({ children }) {
     access_token: null,
     refresh_token: null,
     error: '',
-    profile: {description: '', name: '', nickname: '', id: 0, email: '', birthday:''}
+    profile: {description: '', name: '', nickname: '', id: 0, email: '', birthday:'', photo: ''}
   })
 
   const signIn = async (access_token, refresh_token) => {
