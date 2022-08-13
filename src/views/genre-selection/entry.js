@@ -18,20 +18,22 @@ const Entry = ({post}) => {
   }
   return (
     <>
-      <Text style={styles.bold}>
-        {post.item.name}
-      </Text>
-      <View style={styles.buttonSegment2}>
-        <View style={styles.continueSegment2}>
-          <TouchableOpacity
-            onPress={handleClick}>
-            <Image source={image} style={styles.buttonSize2} />
-          </TouchableOpacity>
+      <View style={styles.segment}>
+        <Text style={styles.bold}>
+          {post.item.name}
+        </Text>
+        <View style={styles.buttonSegment2}>
+          <View style={styles.continueSegment2}>
+            <TouchableOpacity
+              onPress={handleClick}>
+              <Image source={image} style={styles.buttonSize2} />
+            </TouchableOpacity>
+          </View>
         </View>
+        <Text style={styles.description}>
+          {post.item.description}       
+        </Text>
       </View>
-      <Text style={styles.description}>
-        {post.item.description}       
-      </Text>
     </>
   )
 }

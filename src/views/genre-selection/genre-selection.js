@@ -2,13 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './genre-style'
-import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
-import AddButton from '../../../assets/buttons/addButton.png'
-import RemoveButton from '../../../assets/buttons/removeButton.png'
-import progress from '../../../assets/buttons/progressGenre1.png'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
-import { ScrollView } from 'react-native-gesture-handler'
+import { useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useGender from './use-genre-selection'
 import GenreEntries from './genre-entries'
@@ -48,32 +43,7 @@ const GenreSelection = ({ navigation }) => {
               Para começar, gostaríamos de saber quais são os seus gêneros literários favoritos
           </Text>
         </View>
-        <View style={styles.segment}>
-          <GenreEntries data={genders.genders} navigation={navigation}/>
-        </View>
-        
-        <View style={styles.buttonSegment}>
-          <View style={styles.continueSegment}>
-            <TouchableOpacity
-              onPress={() => {
-                useGender({ setGenders, profile })
-                navigation.navigate('Feed')
-              }}>
-              <Image source={circleButton} style={styles.buttonSize} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.skip}>
-            <View>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Feed')}
-              >
-                <Text style={styles.normal}>
-                  Pular?
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
+        <GenreEntries data={genders.genders} navigation={navigation}/>
       </View>  
     </SafeAreaView>
   )
