@@ -5,12 +5,12 @@ export default StyleSheet.create({
     flex: 1,
     marginLeft: '7%',
     marginRight: '7%',
-    marginBottom: '5%'
+    marginBottom: '5%',
+    marginTop: -25,
   },
   segment: {
     left: '1%',
     paddingBottom: '1%',
-    marginTop: 2,
     marginBottom: -20
   },
   people_segment: {

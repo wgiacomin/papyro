@@ -41,7 +41,10 @@ const UserProfile = ({ navigation }) => {
           <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
         </View>
         <View style={styles.book_segment}>
-          <Image source={followers} style={styles.imageSize} /> 
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Seguidores')}>
+            <Image source={followers} style={styles.imageSize} />
+          </TouchableOpacity> 
           <TouchableOpacity
             onPress={() => navigation.navigate('Seguidores')}>
             <Text style={styles.normal}>
@@ -50,7 +53,10 @@ const UserProfile = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={styles.book_segment}>  
-          <Image source={booksReaded} style={styles.imageSize} />        
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Livros')}>
+            <Image source={booksReaded} style={styles.imageSize} /> 
+          </TouchableOpacity>       
           <TouchableOpacity
             onPress={() => navigation.navigate('Livros')}>
             <Text style={styles.normal}>

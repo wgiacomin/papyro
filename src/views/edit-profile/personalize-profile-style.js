@@ -81,13 +81,13 @@ export default StyleSheet.create({
     color: '#AAAAAA',
   },
   buttonSize2: {
-    width: 76,
-    height: 32,
+    width: 77,
+    height: 33.5,
     flexDirection: 'row',
     alignSelf: 'flex-end',
   },
   buttonSegment2:{
-    marginRight: '19%',
+    marginRight: '18%',
     flexDirection: 'column',
     justifyContent: 'center',
   },

@@ -16,7 +16,7 @@ const StackNavigator = () => (
   <Stack.Navigator
     initialRouteName="books"
   >
-    <Stack.Screen name='books' component={BookRead} options={{ headerShown: false }} />
+    <Stack.Screen name='books' component={SearchReadersList} options={{ headerShown: false }} />
   </Stack.Navigator>
 )
 

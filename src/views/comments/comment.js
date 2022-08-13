@@ -276,12 +276,10 @@ const styles = StyleSheet.create({
     width: 80,
     resizeMode: 'contain',
     marginLeft: 10,
-    marginTop: 15,
   },
   container_book: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 5,
     alignContent: 'center',
     justifyContent: 'center',
     alignItems: 'center'
@@ -290,13 +288,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     marginTop: 15,
-    marginLeft: '-10%',
+    marginLeft: 5
   },
   book_title: {
     fontFamily: 'Poppins',
     fontSize: 22,
-    lineHeight: 22,
-    textAlign: 'center'
+    lineHeight: 24,
+    textAlign: 'center',
+    marginTop: 15
   },
   book_subtitle: {
     fontFamily: 'Poppins',
