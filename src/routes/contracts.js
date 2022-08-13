@@ -63,170 +63,168 @@ const CONTRACTS = {
       'status': 404
     },
     'success': {
-      'data': {
-        'feed': [
-          {   
+      'data': [
+        {   
+          'id': 1,
+          'type': 'c',
+          'date': '31/12/1999',
+          'text': 'Gostei muito',
+          'likes': 3,
+          'rates': 4,
+          'you_liked': false,
+          'rate': 1,
+          'book': {
+            'book_title': 'Livro 123',
             'id': 1,
-            'type': 'c',
-            'date': '31/12/1999',
-            'text': 'Gostei muito',
-            'likes': 3,
-            'rates': 4,
-            'you_liked': false,
-            'rate': 1,
-            'book': {
-              'book_title': 'Livro 123',
-              'id': 1,
-              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-            },
-            'user': {
-              'nickname': 'Maria Clara',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 1,
-            },
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
           },
-          {   
+          'user': {
+            'nickname': 'Maria Clara',
+            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+            'id': 1,
+          },
+        },
+        {   
+          'id': 2,
+          'type': 'c',
+          'date': '03/11/1999',
+          'text': 'Muito ruim muito',
+          'likes': 33,
+          'rates': 14,
+          'you_liked': true,
+          'rate': 1,
+          'book': {
+            'book_title': 'Livro 123',
             'id': 2,
-            'type': 'c',
-            'date': '03/11/1999',
-            'text': 'Muito ruim muito',
-            'likes': 33,
-            'rates': 14,
-            'you_liked': true,
-            'rate': 1,
-            'book': {
-              'book_title': 'Livro 123',
-              'id': 2,
-              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            },
-            'user': {
-              'nickname': 'Maria Clara',
-              'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
-              'id': 2
-            },
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
           },
-          {   
-            'id': 3,
-            'type': 'r',
-            'date': '31/12/1999',
-            'text': 'Gostei muito',
-            'likes': 3,
-            'rates': 4,
-            'you_liked': false,
-            'rate': 5,
-            'book': {
-              'book_title': 'Livro 123',
-              'id': 11,
-              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-            },
-            'user': {
-              'nickname': 'Maria Clara',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 11
-            },
+          'user': {
+            'nickname': 'Maria Clara',
+            'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
+            'id': 2
           },
-          {   
-            'id': 4,
-            'type': 'c',
-            'date': '31/12/1999',
-            'text': 'KKKKKKKKKKKKKKKKKK',
-            'likes': 0,
-            'rates': 7,
-            'you_liked': false,
-            'rate': 5,
-            'book': {
-              'book_title': 'Livro 456',
-              'id': 21,
-              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            },
-            'user': {
-              'nickname': 'Ana maria',
-              'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
-              'id': 21
-            } ,
-          },
-          {   
+        },
+        {   
+          'id': 3,
+          'type': 'r',
+          'date': '31/12/1999',
+          'text': 'Gostei muito',
+          'likes': 3,
+          'rates': 4,
+          'you_liked': false,
+          'rate': 5,
+          'book': {
+            'book_title': 'Livro 123',
             'id': 11,
-            'type': 'c',
-            'date': '31/12/1999',
-            'text': 'Gostei muito',
-            'likes': 3,
-            'rates': 4,
-            'you_liked': true,
-            'rate': 5,
-            'book': {
-              'book_title': 'Livro de barcos',
-              'id': 31,
-              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-            },
-            'user': {
-              'nickname': 'Maria Clara',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 31,
-            },
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
           },
-          {   
+          'user': {
+            'nickname': 'Maria Clara',
+            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+            'id': 11
+          },
+        },
+        {   
+          'id': 4,
+          'type': 'c',
+          'date': '31/12/1999',
+          'text': 'KKKKKKKKKKKKKKKKKK',
+          'likes': 0,
+          'rates': 7,
+          'you_liked': false,
+          'rate': 5,
+          'book': {
+            'book_title': 'Livro 456',
             'id': 21,
-            'type': 'c',
-            'date': '03/11/1999',
-            'text': 'até que é bom',
-            'likes': 33,
-            'rates': 14,
-            'you_liked': false,
-            'rate': 5,
-            'book': {
-              'book_title': 'Livro de artes',
-              'id': 42,
-              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            },
-            'user': {
-              'nickname': 'Maria Clara',
-              'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
-              'id': 42
-            },
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
           },
-          {   
+          'user': {
+            'nickname': 'Ana maria',
+            'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
+            'id': 21
+          } ,
+        },
+        {   
+          'id': 11,
+          'type': 'c',
+          'date': '31/12/1999',
+          'text': 'Gostei muito',
+          'likes': 3,
+          'rates': 4,
+          'you_liked': true,
+          'rate': 5,
+          'book': {
+            'book_title': 'Livro de barcos',
             'id': 31,
-            'type': 'r',
-            'date': '31/12/1999',
-            'text': 'hasuhaush',
-            'likes': 3,
-            'rates': 4,
-            'you_liked': false,
-            'rate': 5,
-            'book': {
-              'book_title': 'Livro 123',
-              'id': 51,
-              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
-            },
-            'user': {
-              'nickname': 'Boress',
-              'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
-              'id': 51
-            },
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
           },
-          {   
+          'user': {
+            'nickname': 'Maria Clara',
+            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+            'id': 31,
+          },
+        },
+        {   
+          'id': 21,
+          'type': 'c',
+          'date': '03/11/1999',
+          'text': 'até que é bom',
+          'likes': 33,
+          'rates': 14,
+          'you_liked': false,
+          'rate': 5,
+          'book': {
+            'book_title': 'Livro de artes',
             'id': 42,
-            'type': 'c',
-            'date': '31/12/1999',
-            'text': 'uau revolucionário',
-            'likes': 1,
-            'rates': 7,
-            'you_liked': true,
-            'rate': 5,
-            'book': {
-              'book_title': 'Livro 456',
-              'id': 61,
-              'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
-            },
-            'user': {
-              'nickname': 'Ana maria',
-              'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
-              'id': 61
-            } ,
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
           },
-        ],
-      },
+          'user': {
+            'nickname': 'Maria Clara',
+            'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
+            'id': 42
+          },
+        },
+        {   
+          'id': 31,
+          'type': 'r',
+          'date': '31/12/1999',
+          'text': 'hasuhaush',
+          'likes': 3,
+          'rates': 4,
+          'you_liked': false,
+          'rate': 5,
+          'book': {
+            'book_title': 'Livro 123',
+            'id': 51,
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1417900846l/29579.jpg',
+          },
+          'user': {
+            'nickname': 'Boress',
+            'photo': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/users/1428832015i/5876502._UX100_CR0,0,100,100_.jpg',
+            'id': 51
+          },
+        },
+        {   
+          'id': 42,
+          'type': 'c',
+          'date': '31/12/1999',
+          'text': 'uau revolucionário',
+          'likes': 1,
+          'rates': 7,
+          'you_liked': true,
+          'rate': 5,
+          'book': {
+            'book_title': 'Livro 456',
+            'id': 61,
+            'cover': 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347497671l/530938.jpg',
+          },
+          'user': {
+            'nickname': 'Ana maria',
+            'photo': 'https://images.gr-assets.com/users/1650679220p6/130215337.jpg',
+            'id': 61
+          } ,
+        },
+      ],
       'status': 200
     }
   },
@@ -238,60 +236,58 @@ const CONTRACTS = {
       status: 404
     },
     success: {
-      data: {
-        genders: [
-          {
-            name: 'Romance',
-            description: 'Aqui você vai encontrar autores como Nickolas Spark, Nora Roberts entre outros',
-            id: 0
-          },
-          {
-            name: 'Fantasia',
-            description: 'Caracterizado por elementos fantásticos, como magia ou sobrenatural.',
-            id: 1
-          },
-          {
-            name: 'Ficção Científica',
-            description: 'As histórias normalmente se passam em um futuro distante, na exploração especial e em viagens no tempo e espaço.',
-            id: 2
-          },
-          {
-            name: 'Horror',
-            description: 'Esse gênero consiste na passagem de sentimentos de pavor e tensão ao leitor.',
-            id: 3
-          },
-          {
-            name: 'Policial',
-            description: 'As histórias que envolvem um crime ou mistério, como o nome indica e que deve ser solucionado pelo protagonista através de pistas.',
-            id: 4
-          },
-          {
-            name: 'Distopia',
-            description: 'As distopias imaginam uma sociedade decadente, muitas vezes após um desastre ecológico ou social, enfrentando governos opressores e desastres ambientais.',
-            id: 5
-          },
-          {
-            name: 'Thriller e Susupense',
-            description: 'O nome pode até indicar histórias de terror, mas o suspense trabalha exclusivamente em como empregar o medo psicológico e criar um suspense.',
-            id: 6
-          },
-          {
-            name: 'Jovem Adulto',
-            description: 'A ficção para jovens adultos, ou YA, tem como público leitores de 12 a 18 anos e reflete nos personagens os desafios únicos da adolescência.',
-            id: 7
-          },
-          {
-            name: 'Clássicos',
-            description: 'Consistem principalmente em livros escritos entre os séculos XVI e XVIII.',
-            id: 8
-          },
-          {
-            name: 'Não Ficção',
-            description: 'São histórias onde há uma descrição ou representação de um assunto que é apresentado como fato, sendo real ou não.',
-            id: 9
-          },
-        ]
-      },
+      data: [
+        {
+          name: 'Romance',
+          description: 'Aqui você vai encontrar autores como Nickolas Spark, Nora Roberts entre outros',
+          id: 0
+        },
+        {
+          name: 'Fantasia',
+          description: 'Caracterizado por elementos fantásticos, como magia ou sobrenatural.',
+          id: 1
+        },
+        {
+          name: 'Ficção Científica',
+          description: 'As histórias normalmente se passam em um futuro distante, na exploração especial e em viagens no tempo e espaço.',
+          id: 2
+        },
+        {
+          name: 'Horror',
+          description: 'Esse gênero consiste na passagem de sentimentos de pavor e tensão ao leitor.',
+          id: 3
+        },
+        {
+          name: 'Policial',
+          description: 'As histórias que envolvem um crime ou mistério, como o nome indica e que deve ser solucionado pelo protagonista através de pistas.',
+          id: 4
+        },
+        {
+          name: 'Distopia',
+          description: 'As distopias imaginam uma sociedade decadente, muitas vezes após um desastre ecológico ou social, enfrentando governos opressores e desastres ambientais.',
+          id: 5
+        },
+        {
+          name: 'Thriller e Susupense',
+          description: 'O nome pode até indicar histórias de terror, mas o suspense trabalha exclusivamente em como empregar o medo psicológico e criar um suspense.',
+          id: 6
+        },
+        {
+          name: 'Jovem Adulto',
+          description: 'A ficção para jovens adultos, ou YA, tem como público leitores de 12 a 18 anos e reflete nos personagens os desafios únicos da adolescência.',
+          id: 7
+        },
+        {
+          name: 'Clássicos',
+          description: 'Consistem principalmente em livros escritos entre os séculos XVI e XVIII.',
+          id: 8
+        },
+        {
+          name: 'Não Ficção',
+          description: 'São histórias onde há uma descrição ou representação de um assunto que é apresentado como fato, sendo real ou não.',
+          id: 9
+        },
+      ],
       status: 200
     }
   },

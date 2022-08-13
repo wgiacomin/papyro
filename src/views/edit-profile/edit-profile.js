@@ -3,7 +3,6 @@ import { Text, SafeAreaView, View, TouchableOpacity, Image , ScrollView, TextInp
 import safeView from '../../styles/safe-view'
 import styles from './edit-profile-style'
 import vertical from '../../../assets/lines/straight.png'
-import profile_image from '../../../assets/icons/profile_image.png'
 import BackButton from '../../components/back-button'
 import editPhotoButton from '../../../assets/buttons/editPhoto.png'
 import personalizeButton from '../../../assets/buttons/personalizeButton.png'
