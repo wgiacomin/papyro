@@ -13,16 +13,16 @@ import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
 
 const UserProfile = ({ navigation }) => { 
-
+  const { setProfile } = useAuthDispatch()
   const { profile } = useAuthState()
 
-  const [data, setProfile] = useState({
+  const [data, setData] = useState({
     profile: {},
     loading: true,
   })
 
   useEffect(() => {
-    useProfile({setProfile})
+    useProfile({setData, setProfile})
   }, [])
 
   if (data.loading) {

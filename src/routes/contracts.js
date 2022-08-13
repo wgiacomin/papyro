@@ -236,60 +236,58 @@ const CONTRACTS = {
       status: 404
     },
     success: {
-      data: {
-        genders: [
-          {
-            name: 'Romance',
-            description: 'Aqui você vai encontrar autores como Nickolas Spark, Nora Roberts entre outros',
-            id: 0
-          },
-          {
-            name: 'Fantasia',
-            description: 'Caracterizado por elementos fantásticos, como magia ou sobrenatural.',
-            id: 1
-          },
-          {
-            name: 'Ficção Científica',
-            description: 'As histórias normalmente se passam em um futuro distante, na exploração especial e em viagens no tempo e espaço.',
-            id: 2
-          },
-          {
-            name: 'Horror',
-            description: 'Esse gênero consiste na passagem de sentimentos de pavor e tensão ao leitor.',
-            id: 3
-          },
-          {
-            name: 'Policial',
-            description: 'As histórias que envolvem um crime ou mistério, como o nome indica e que deve ser solucionado pelo protagonista através de pistas.',
-            id: 4
-          },
-          {
-            name: 'Distopia',
-            description: 'As distopias imaginam uma sociedade decadente, muitas vezes após um desastre ecológico ou social, enfrentando governos opressores e desastres ambientais.',
-            id: 5
-          },
-          {
-            name: 'Thriller e Susupense',
-            description: 'O nome pode até indicar histórias de terror, mas o suspense trabalha exclusivamente em como empregar o medo psicológico e criar um suspense.',
-            id: 6
-          },
-          {
-            name: 'Jovem Adulto',
-            description: 'A ficção para jovens adultos, ou YA, tem como público leitores de 12 a 18 anos e reflete nos personagens os desafios únicos da adolescência.',
-            id: 7
-          },
-          {
-            name: 'Clássicos',
-            description: 'Consistem principalmente em livros escritos entre os séculos XVI e XVIII.',
-            id: 8
-          },
-          {
-            name: 'Não Ficção',
-            description: 'São histórias onde há uma descrição ou representação de um assunto que é apresentado como fato, sendo real ou não.',
-            id: 9
-          },
-        ]
-      },
+      data: [
+        {
+          name: 'Romance',
+          description: 'Aqui você vai encontrar autores como Nickolas Spark, Nora Roberts entre outros',
+          id: 0
+        },
+        {
+          name: 'Fantasia',
+          description: 'Caracterizado por elementos fantásticos, como magia ou sobrenatural.',
+          id: 1
+        },
+        {
+          name: 'Ficção Científica',
+          description: 'As histórias normalmente se passam em um futuro distante, na exploração especial e em viagens no tempo e espaço.',
+          id: 2
+        },
+        {
+          name: 'Horror',
+          description: 'Esse gênero consiste na passagem de sentimentos de pavor e tensão ao leitor.',
+          id: 3
+        },
+        {
+          name: 'Policial',
+          description: 'As histórias que envolvem um crime ou mistério, como o nome indica e que deve ser solucionado pelo protagonista através de pistas.',
+          id: 4
+        },
+        {
+          name: 'Distopia',
+          description: 'As distopias imaginam uma sociedade decadente, muitas vezes após um desastre ecológico ou social, enfrentando governos opressores e desastres ambientais.',
+          id: 5
+        },
+        {
+          name: 'Thriller e Susupense',
+          description: 'O nome pode até indicar histórias de terror, mas o suspense trabalha exclusivamente em como empregar o medo psicológico e criar um suspense.',
+          id: 6
+        },
+        {
+          name: 'Jovem Adulto',
+          description: 'A ficção para jovens adultos, ou YA, tem como público leitores de 12 a 18 anos e reflete nos personagens os desafios únicos da adolescência.',
+          id: 7
+        },
+        {
+          name: 'Clássicos',
+          description: 'Consistem principalmente em livros escritos entre os séculos XVI e XVIII.',
+          id: 8
+        },
+        {
+          name: 'Não Ficção',
+          description: 'São histórias onde há uma descrição ou representação de um assunto que é apresentado como fato, sendo real ou não.',
+          id: 9
+        },
+      ],
       status: 200
     }
   },
