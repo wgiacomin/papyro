@@ -24,4 +24,17 @@ api.interceptors.request.use(
   }
 )
 
+api.interceptors.response.use(
+  async (response) => {
+    return(response)
+  },
+  async (err) => {
+    if (err.response.status == 401){
+      await AsyncStorage.removeItem('access_token')
+      await AsyncStorage.removeItem('refresh_token')
+    }
+    return Promise.reject(err)
+  }
+)
+
 export default api
