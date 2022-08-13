@@ -147,7 +147,7 @@ const ViewBook = ({ navigation, route }) => {
           data={book.book.reviews}
           keyExtractor={(item) => item.id.toString()}
           numColumns={1}
-          renderItem={(post) => <Entry navigation={navigation} route={route} post={post}/> } />
+          renderItem={(post) => <Entry navigation={navigation} post={post}/> } />
       </View >
     </SafeAreaView >
   )

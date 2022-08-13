@@ -7,7 +7,7 @@ import Rate from '../../components/rate-stars'
 import comments from '../../../assets/icons/chat.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({post, navigation, route}) => { 
+const Entry = ({post, navigation }) => { 
   return (<>
     <View style={styles.comment_title}
       key={post.item.id}>
@@ -26,7 +26,7 @@ const Entry = ({post, navigation, route}) => {
 
     <View style={styles.book_description_container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Comments', { id: route.params?.id })}>
+        onPress={() => navigation.navigate('Comments', { id: post.item.id })}>
         <Text style={styles.book_description}>{post.item.text}</Text>
       </TouchableOpacity>
     </View>
@@ -41,7 +41,7 @@ const Entry = ({post, navigation, route}) => {
         </View>
 
         <TouchableOpacity style={styles.buttons}
-          onPress={() => navigation.navigate('Comments' , { id: route.params?.id })}>
+          onPress={() => navigation.navigate('Comments' , { id: post.item.id})}>
           <Image source={comments} style={styles.icons} />
           <Text style={styles.icon_text}> {post.item.comments} </Text>
         </TouchableOpacity>
