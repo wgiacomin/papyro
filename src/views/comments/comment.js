@@ -116,7 +116,7 @@ const Comment = ({ navigation, route }) => {
             </Text>
           }
           data={comments.comments}
-          keyExtractor={(item) => item.id?.toString()}
+          keyExtractor={(item) => item.id.toString()}
           numColumns={1}
           renderItem={(post) => {
             return <Entry 
