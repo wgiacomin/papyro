@@ -14,6 +14,8 @@ const ROUTES = {
   like: 'like/',
   gender: '',
 
+  feed: 'feed/'
+
 }
 
 export default ROUTES

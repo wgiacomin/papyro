@@ -6,19 +6,19 @@ import horizontal from '../../../assets/lines/straight.png'
 import comments from '../../../assets/icons/chat.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, photo, text, likes, cover, navigation, book_id}) => {
+const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, photo, text, likes, cover, navigation, book_id, user_id}) => {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Friend')}>
+          onPress={() => navigation.navigate('Friend', {id: user_id})}>
           <Image source={{uri: photo}} style={styles.person_image}/>  
         </TouchableOpacity>
         <TouchableOpacity 
-          onPress={() => navigation.navigate('Friend')}>
+          onPress={() => navigation.navigate('Friend', {id: user_id})}>
           <Text style={styles.person}>{nickname}</Text>
         </TouchableOpacity>
-        <Text style={styles.post_type}>{type}:</Text>
+        <Text style={styles.post_type}>{type == 'c' ? 'comentou' : 'avaliou'}:</Text>
       </View>
       <View style={styles.book}>
         <TouchableOpacity

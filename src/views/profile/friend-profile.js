@@ -14,7 +14,7 @@ import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
 
-const FriendProfile = ({ navigation }) => {
+const FriendProfile = ({ navigation, route }) => {
 
   const [image, setImage] = useState(followButton)
 
@@ -34,7 +34,7 @@ const FriendProfile = ({ navigation }) => {
   })
 
   useEffect(() => {
-    useProfile({setProfile, profile})
+    useProfile({setProfile, id: route.params?.id})
   }, [])
 
   if (data.loading) {

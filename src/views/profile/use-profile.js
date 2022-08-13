@@ -8,13 +8,13 @@ function setValues({ setProfile, response }) {
   setProfile({profile: response.data, loading: false})
 }
 
-async function useProfile({setProfile }){
+async function useProfile({setProfile, id}){
   if (BRANCH == 'dev' & PROFILE == 1) {
     setValues({ setProfile, response: CONTRACTS.profile.success})
     return
   }
 
-  await api.get(ROUTES.view_profile)
+  await api.get(ROUTES.view_profile, { params: {id} })
     .then((response) => {
       setValues({setProfile, response})
     }).catch((error) => {

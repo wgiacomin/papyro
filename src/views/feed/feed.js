@@ -17,7 +17,7 @@ const Feed = ({ navigation }) => {
   })
 
   useEffect(() =>{
-    useFeed({ profile, setFeed})
+    useFeed({ setFeed})
   },[])
 
   if (feed.loading) {
