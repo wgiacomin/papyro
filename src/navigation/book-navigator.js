@@ -13,13 +13,13 @@ const StackNavigator = () => (
   <Stack.Navigator
     initialRouteName="books"
   >
-    <Stack.Screen name='books' component={BookRead} options={{ headerShown: false }} />
+    <Stack.Screen name='books' component={BookReading} options={{ headerShown: false }} />
   </Stack.Navigator>
 )
 
 const BookNavigator = () => (
   <Tab.Navigator
-    initialRouteName='Lidos'
+    initialRouteName='Lendo'
     screenOptions={{
       tabBarActiveTintColor: 'black',
       tabBarInactiveTintColor: 'gray',

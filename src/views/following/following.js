@@ -45,36 +45,8 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: '7%',
     marginRight: '7%',
-    marginBottom: '5%'
+    marginBottom: '5%',
+    marginTop: -25
   },
-  segment: {
-    left: '1%',
-    paddingBottom: '1%',
-    marginTop: 2,
-    marginBottom: -20
-  },
-  title: {
-    fontFamily: 'Poppins-Medium',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 22,
-    lineHeight: 33,
-    color: '#181D2D',
-    marginBottom: 22,
-    marginLeft: 35,
-    marginTop: -30
-  },
-  see_more: {
-    fontFamily: 'DM-Sans',
-    fontStyle: 'normal',
-    fontSize: 14,
-    lineHeight: 22,
-    color: '#007AFF',
-  },
-  see_more_segment: {
-    alignSelf: 'flex-start',
-    marginBottom: 12,
-    paddingTop: 5
-  }
 })
 

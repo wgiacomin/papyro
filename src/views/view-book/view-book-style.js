@@ -43,7 +43,7 @@ export default StyleSheet.create({
     color: '#181D2D',
     marginLeft: '3%',
     marginTop: '3%',
-    marginRight: 15
+    marginRight: 100,
   },
   book_autor: {  
     fontFamily: 'Poppins',
@@ -74,7 +74,7 @@ export default StyleSheet.create({
   star_container_avaliation: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 15,
+    marginTop: 10,
     marginLeft: '3%'
   },
   star_container_comments: {
@@ -89,9 +89,8 @@ export default StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
     color: '#181D2D',
-    textAlign: 'right',
-    paddingRight: 115,
-    marginTop: -22
+    marginTop: -22,
+    marginLeft: 145
   },
   bookImage:{
     width: 94,

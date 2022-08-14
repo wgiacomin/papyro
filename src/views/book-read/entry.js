@@ -8,21 +8,24 @@ const Entry = ({author, rate, cover, title, id, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <Image source={{uri: cover}} style={styles.book_image}/>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ViewBook', { id })}
+        >
+          <Image source={{uri: cover}} style={styles.book_image}/>
+        </TouchableOpacity>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
-            <Text style={styles.book_style}>{title}</Text>
-            <Text style={styles.autor_style}>{author}</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ViewBook', { id })}
+            >
+              <Text style={styles.book_style}>{title}</Text>
+              <Text style={styles.autor_style}>{author}</Text>
+            </TouchableOpacity>
+            
             <View style={styles.star_container}>
               <Rate stars={rate} size={18} />
             </View>
-            <View style={styles.see_more_container}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('ViewBook', { id })}
-              >
-                <Text style={styles.see_more}>Ver</Text>
-              </TouchableOpacity>
-            </View>
+            
           </View>
         </View>
       </View>
@@ -49,7 +52,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 23,
     marginTop: -4,
-    marginBottom: -10
+    marginBottom: -10,
+    marginRight: 50
   },
   autor_style:{
     fontFamily: 'Poppins',
@@ -77,14 +81,14 @@ const styles = StyleSheet.create({
   line:{
     flex: 1,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
   },
   container:{
     flex: 1,
   },
   horizontalLine: {
     marginLeft: 0,
-    width: '100%',
+    width: '120%',
   },
   star:{
     width: 14,

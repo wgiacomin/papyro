@@ -27,15 +27,26 @@ export default StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 16,
     lineHeight: 23,
-    marginLeft: 7,
+    marginTop: -25,
+    marginLeft: 35,
     color: '#000000',
+  },
+  user:{
+    fontFamily: 'Poppins-Medium',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 23,
+    lineHeight: 28,
+    color: '#181D2D',
+    marginBottom: 5,
+    alignSelf: 'center'
   },
   imageSize: {
     flexDirection: 'row',
     alignSelf: 'flex-start',
     width: 30,
     height: 30,
-    marginTop: 1
+    marginTop: 1,
   },
   profileSize: {
     alignSelf: 'center',

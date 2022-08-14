@@ -96,8 +96,8 @@ export default StyleSheet.create({
     color: '#AAAAAA',
   },
   buttonSize2: {
-    width: 76,
-    height: 32,
+    width: 77,
+    height: 33.5,
     flexDirection: 'row',
     alignSelf: 'flex-end',
   },

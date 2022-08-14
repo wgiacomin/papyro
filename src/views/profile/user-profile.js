@@ -38,25 +38,28 @@ const UserProfile = ({ navigation }) => {
       <UserProfileBar navigation={navigation}/>
       <View style={styles.standard}>
         <View style={styles.segment}>
+          <Text style={styles.user}>
+            {data.profile.name} 
+          </Text>
           <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
         </View>
         <View style={styles.book_segment}>
-          <Image source={followers} style={styles.imageSize} /> 
           <TouchableOpacity
             onPress={() => navigation.navigate('Seguidores')}>
+            <Image source={followers} style={styles.imageSize} />
             <Text style={styles.normal}>
               {data.profile.followers} Seguidores
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> 
         </View>
         <View style={styles.book_segment}>  
-          <Image source={booksReaded} style={styles.imageSize} />        
           <TouchableOpacity
             onPress={() => navigation.navigate('Livros')}>
+            <Image source={booksReaded} style={styles.imageSize} /> 
             <Text style={styles.normal}>
                 Ver Minha Biblioteca
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity>       
         </View>
         <Image source={vertical} style={styles.horizontalLine} />
         <DescriptionBar description={data.profile.description} />
