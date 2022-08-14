@@ -9,25 +9,19 @@ function setValues({ setEditProfile, response }) {
 }
 
 async function useEditProfile({profile, setEditProfile }){
-  if (BRANCH == 'dev') {
-    if (PROFILE == 1) {
-      setEditProfile({
-        status: CONTRACTS.profile.error.status,
-        msg: CONTRACTS.profile.error.data.detail
-      })
-    } else {
-      setValues({ setEditProfile, response: CONTRACTS.profile.success})
-    }
+  if (BRANCH == 'dev' & PROFILE == 1) {
+    setValues({ setEditProfile, response: CONTRACTS.profile.success})
     return
   }
+  return setEditProfile({profile: profile})
 
-  await api.get(ROUTES.profile + profile.id)
-    .then((response) => {
-      setValues(setEditProfile, response)
-    }).catch((error) => {
-      Alert.alert('Atenção', error.response.data.detail)
-      setEditProfile({loading: false})
-    })
+  // await api.get(ROUTES.profile)
+  //   .then((response) => {
+  //     setValues({setEditProfile, response})
+  //   }).catch((error) => {
+  //     Alert.alert('Atenção', error.response.data.detail)
+  //     setEditProfile({loading: false})
+  //   })
 }
 
 export default useEditProfile

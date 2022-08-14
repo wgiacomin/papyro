@@ -13,7 +13,9 @@ const ROUTES = {
   books_by_status: 'users/books/',
 
   like: 'like/',
-  gender: '',
+  gender: 'genre/userGenre',
+
+  feed: 'feed/'
 
 }
 

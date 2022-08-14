@@ -24,6 +24,7 @@ const FeedEntries = ({data, navigation}) => {
           date={post.item.date}
           type={post.item.type}
           navigation={ navigation }
+          user_id={post.item.user.id}
         />
       } } />
   )

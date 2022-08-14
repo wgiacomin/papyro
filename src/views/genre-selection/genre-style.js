@@ -36,8 +36,8 @@ export default StyleSheet.create({
     marginRight: 78,
   },
   buttonSize: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     flexDirection: 'row',
     alignSelf: 'flex-end',
   },

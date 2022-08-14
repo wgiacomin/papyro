@@ -50,7 +50,7 @@ function AuthProvider({ children }) {
     access_token: null,
     refresh_token: null,
     error: '',
-    profile: {description: '', name: '', nickname: '', id: 0, email: '', birthday:''}
+    profile: {description: '', name: '', nickname: '', id: 0, email: '', birthday:'', photo: ''}
   })
 
   const signIn = async (access_token, refresh_token) => {
@@ -69,6 +69,11 @@ function AuthProvider({ children }) {
   const refresh = async (access_token) => {
     try {
       await AsyncStorage.setItem('access_token', access_token)
+      const profile = await AsyncStorage.getItem('profile')
+      dispatch({
+        type: 'profile',
+        payload: {...JSON.parse(profile)}
+      })
       dispatch({ type: 'refresh', access: access_token })
     } catch (err) {
       await AsyncStorage.removeItem('refresh_token')
@@ -83,6 +88,7 @@ function AuthProvider({ children }) {
     try {
       await AsyncStorage.removeItem('access_token')
       await AsyncStorage.removeItem('refresh_token')
+      await AsyncStorage.removeItem('profile')
       dispatch({ type: 'signOut' })
     } catch (err) {
       dispatch({
@@ -92,8 +98,9 @@ function AuthProvider({ children }) {
     }
   }
 
-  const setProfile = (profile) => {
+  const setProfile = async (profile) => {
     try {
+      await AsyncStorage.setItem('profile', JSON.stringify(profile))
       dispatch({
         type: 'profile',
         payload: {...profile}

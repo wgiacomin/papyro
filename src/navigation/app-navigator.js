@@ -18,7 +18,13 @@ async function refresh_func(setLoading, refresh, logout){
   if (refresh_token) {
     await axios.get(`${ROUTES.baseURL}/${ROUTES.refresh}`,
       {headers : {'Authorization': `Bearer ${refresh_token}`}})
-      .then((response) => {refresh(response.data.access_token)})
+      .then((response) => {
+        if (response.status != 200) {
+          logout()
+        } else {
+          refresh(response.data.access_token)
+        }
+      })
       .catch(() => logout())
       .then(() => setLoading(false))
   } else {

@@ -18,7 +18,6 @@ import conversations from '../views/chat/conversations'
 import comments from '../views/comments/comment'
 import notification from '../views/notification/notification'
 import editProfile from '../views/edit-profile/edit-profile'
-import personalize from '../views/edit-profile/personalize-profile'
 import bookToRead from '../views/book-to-read/book-to-read'
 import bookRead from '../views/book-read/book-read'
 import bookReading from '../views/book-reading/book-reading'
@@ -29,6 +28,7 @@ import peopleSuggestion from '../views/people-suggestion/people-suggestion'
 import viewBook from '../views/view-book/view-book'
 import review from '../views/review/review'
 import SearchReadersList from '../views/search-readers-list/search-readers-list'
+import genreSelection from '../views/genre-selection/genre-selection'
 
 import SearchNavigator from './search-navigator'
 import BookNavigator from './book-navigator'
@@ -49,7 +49,7 @@ const StackNavigator = () => (
     <Stack.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
     <Stack.Screen name='Comments' component={comments} options={{ headerShown: false }} />
     <Stack.Screen name='EditProfile' component={editProfile} options={{ headerShown: false }} />
-    <Stack.Screen name='Personalize' component={personalize} options={{ headerShown: false }} />
+    <Stack.Screen name='Personalize' component={genreSelection} options={{ headerShown: false }} />
     <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false }} />
     <Stack.Screen name='BookRead' component={bookRead} options={{ headerShown: false }} />
     <Stack.Screen name='BookReading' component={bookReading} options={{ headerShown: false }} />
