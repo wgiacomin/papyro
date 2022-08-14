@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 18,
     lineHeight: 23,
+    paddingRight: 50
   },
   book_title_container: {
     flex: 1,
@@ -121,6 +122,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    paddingRight: 70,
+    marginTop: 10
   },
   book_image: {
     width: 67,
@@ -174,7 +178,7 @@ const styles = StyleSheet.create({
   star_container: {
     flex: 1,
     flexDirection: 'row',
-    marginLeft: -2
+    marginLeft: -2,
   },
   see_more:{
     fontFamily: 'Roboto',
@@ -182,8 +186,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 22,
     color: '#007AFF',
-    paddingLeft: 7,
-    marginTop: -3
   }
 })
   
