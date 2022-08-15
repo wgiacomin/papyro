@@ -10,7 +10,6 @@ import followingButton from '../../../assets/buttons/followingButton.png'
 import talkButton from '../../../assets/buttons/talkButton.png'
 import UserProfileBar from '../../components/friend-profile-bar'
 import DescriptionBar from '../../components/description-bar'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
 
@@ -19,22 +18,20 @@ const FriendProfile = ({ navigation, route }) => {
   const [image, setImage] = useState(followButton)
 
   const handleClick = () => {
-    if(image == followButton){
+    if (image == followButton) {
       setImage(followingButton)
-    }else{
+    } else {
       setImage(followButton)
     }
   }
 
-  const { profile } = useAuthState()
-
-  const [data, setProfile] = useState({
+  const [data, setData] = useState({
     data: {},
     loading: true,
   })
 
   useEffect(() => {
-    useProfile({setProfile, id: route.params?.id})
+    useProfile({ setData, id: route.params?.id })
   }, [])
 
   if (data.loading) {
@@ -47,13 +44,13 @@ const FriendProfile = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <UserProfileBar navigation={navigation} profile={data.profile.nickname}/>
+      <UserProfileBar navigation={navigation} profile={data.profile.nickname} />
       <View style={styles.standard}>
         <View style={styles.segment}>
-          <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
+          <Image source={{ uri: data.profile.photo }} style={styles.profileSize} />
         </View>
         <View style={styles.book_segment}>
-          <Image source={followers} style={styles.imageSize} /> 
+          <Image source={followers} style={styles.imageSize} />
           <TouchableOpacity
             onPress={() => navigation.navigate('Seguidores')}>
             <Text style={styles.normal}>
@@ -61,18 +58,18 @@ const FriendProfile = ({ navigation, route }) => {
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.book_segment}>  
-          <Image source={booksReaded} style={styles.imageSize} />        
+        <View style={styles.book_segment}>
+          <Image source={booksReaded} style={styles.imageSize} />
           <TouchableOpacity
             onPress={() => navigation.navigate('Livros')}>
             <Text style={styles.normal}>
-                Ver Minha Biblioteca
+              Ver Minha Biblioteca
             </Text>
           </TouchableOpacity>
         </View>
         <Image source={vertical} style={styles.horizontalLine} />
-        <DescriptionBar description={data.profile.description}/>
-        <TouchableOpacity 
+        <DescriptionBar description={data.profile.description} />
+        <TouchableOpacity
           onPress={handleClick}
           style={styles.follow_segment}>
           <Image source={image} style={styles.followButton} />
