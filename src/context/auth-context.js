@@ -6,41 +6,41 @@ const AuthDispatch = createContext()
 
 function authReducer(state, action) {
   switch (action.type) {
-  case 'signIn':
-    return {
-      ...state,
-      access_token: action.access,
-      refresh_token: action.refresh_token,
-      error: '',
-    }
-  case 'refresh':
-    return {
-      ...state,
-      access_token: action.access,
-      error: '',
-    }
-  case 'error':
-    return {
-      ...state,
-      access_token: null,
-      refresh_token: null,
-      error: action.payload,
-    }
-  case 'signOut':
-    return {
-      ...state,
-      access_token: null,
-      refresh_token: null,
-      error: '',
-      profile: null,
-    }
-  case 'profile':
-    return {
-      ...state,
-      profile: action.payload
-    }
-  default:
-    return { ...state }
+    case 'signIn':
+      return {
+        ...state,
+        access_token: action.access,
+        refresh_token: action.refresh_token,
+        error: '',
+      }
+    case 'refresh':
+      return {
+        ...state,
+        access_token: action.access,
+        error: '',
+      }
+    case 'error':
+      return {
+        ...state,
+        access_token: null,
+        refresh_token: null,
+        error: action.payload,
+      }
+    case 'signOut':
+      return {
+        ...state,
+        access_token: null,
+        refresh_token: null,
+        error: '',
+        profile: null,
+      }
+    case 'profile':
+      return {
+        ...state,
+        profile: action.payload
+      }
+    default:
+      return { ...state }
   }
 }
 
@@ -50,7 +50,7 @@ function AuthProvider({ children }) {
     access_token: null,
     refresh_token: null,
     error: '',
-    profile: {description: '', name: '', nickname: '', id: 0, email: '', birthday:'', photo: ''}
+    profile: { description: '', name: '', nickname: '', id: 0, email: '', birthday: '', photo: '' }
   })
 
   const signIn = async (access_token, refresh_token) => {
@@ -72,7 +72,7 @@ function AuthProvider({ children }) {
       const profile = await AsyncStorage.getItem('profile')
       dispatch({
         type: 'profile',
-        payload: {...JSON.parse(profile)}
+        payload: { ...JSON.parse(profile) }
       })
       dispatch({ type: 'refresh', access: access_token })
     } catch (err) {
@@ -100,10 +100,13 @@ function AuthProvider({ children }) {
 
   const setProfile = async (profile) => {
     try {
-      await AsyncStorage.setItem('profile', JSON.stringify(profile))
+      let bc_profile = await AsyncStorage.getItem('profile')
+      bc_profile = JSON.parse(bc_profile)
+
+      await AsyncStorage.setItem('profile', JSON.stringify({ ...bc_profile, ...profile }))
       dispatch({
         type: 'profile',
-        payload: {...profile}
+        payload: { ...profile }
       })
     } catch (err) {
       dispatch({

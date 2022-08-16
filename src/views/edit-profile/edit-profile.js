@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image , ScrollView, TextInput, StyleSheet, ActivityIndicator} from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, TextInput, StyleSheet, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './edit-profile-style'
 import vertical from '../../../assets/lines/straight.png'
@@ -12,14 +12,15 @@ import useEditProfile from './use-edit-profile'
 
 const EditProfile = ({ navigation }) => {
   const { profile } = useAuthState()
+  const { setProfile } = useAuthDispatch()
 
   const [data, setEditProfile] = useState({
-    data: {},
+    profile: {},
     loading: true,
   })
 
   useEffect(() => {
-    useEditProfile({setEditProfile, profile})
+    setEditProfile({ loading: false, profile })
   }, [])
 
   if (data.loading) {
@@ -36,7 +37,7 @@ const EditProfile = ({ navigation }) => {
         <View style={styles.barSegment}>
           <BackButton navigation={navigation} />
           <Text style={styles.title}>
-              Editar Perfil
+            Editar Perfil
           </Text>
         </View>
       </View>
@@ -46,7 +47,7 @@ const EditProfile = ({ navigation }) => {
       <ScrollView>
         <View style={styles.standard}>
           <View style={styles.segment}>
-            <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
+            <Image source={{ uri: data.profile.photo }} style={styles.profileSize} />
             <TouchableOpacity
               onPress={() => navigation.navigate('People')}>
               <Image source={editPhotoButton} style={styles.buttonSize} />
@@ -66,7 +67,7 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({...data, 'name': text})}
+                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'name': text } })}
                     value={data.profile.name}
                   />
                 </View>
@@ -74,7 +75,7 @@ const EditProfile = ({ navigation }) => {
             </View>
             <Text style={styles.normal}>
               Nome do Usuário
-            </Text> 
+            </Text>
             <View>
               <View style={stylesInput.container}>
                 <View style={stylesInput.segment}>
@@ -82,7 +83,7 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({...data, 'nickname': text})}
+                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'nickname': text } })}
                     value={data.profile.nickname}
                   />
                 </View>
@@ -98,7 +99,7 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({...data, 'birthday': text})}
+                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'birthday': text } })}
                     value={data.profile.birthday}
                   />
                 </View>
@@ -106,7 +107,7 @@ const EditProfile = ({ navigation }) => {
             </View>
             <Text style={styles.normal}>
               Descrição
-            </Text>  
+            </Text>
             <View>
               <View style={stylesInput.container}>
                 <View style={stylesInput.segment}>
@@ -114,7 +115,7 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({...data, 'description': text})}
+                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'description': text } })}
                     value={data.profile.description}
                   />
                 </View>
@@ -123,10 +124,10 @@ const EditProfile = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('Personalize')}>
               <Image source={personalizeButton} style={styles.buttonSizeEdit} />
-            </TouchableOpacity> 
+            </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                useEditProfile({ setEditProfile, profile })
+                useEditProfile({ setEditProfile, data: data.profile, setProfile })
                 navigation.goBack()
               }}>
               <View style={styles.continueSegment}>
@@ -160,7 +161,7 @@ const stylesInput = StyleSheet.create({
     color: '#000000',
     width: 266
   },
-  segment:{
+  segment: {
     flex: 1,
     marginTop: 5,
     flexDirection: 'row',

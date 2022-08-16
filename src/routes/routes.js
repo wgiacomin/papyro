@@ -10,6 +10,7 @@ const ROUTES = {
 
   get_persons_books: 'users/books',
   view_profile: 'users/viewProfile',
+  edit_profile: 'users/editProfile',
   books_by_status: 'users/books/',
 
   like: 'like/',
