@@ -1,6 +1,7 @@
 import * as Font from 'expo-font'
 import AppLoading from 'expo-app-loading'
 import React, { useState } from 'react'
+import { LogBox } from 'react-native'
 import { AuthProvider } from './src/context/auth-context'
 import AppNavigator from './src/navigation/app-navigator'
 import { MenuProvider } from 'react-native-popup-menu'
@@ -11,13 +12,15 @@ const fetchFonts = () => {
     'Poppins-Medium': require('./assets/fonts/Poppins-Medium.ttf'),
     'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
     'Jura': require('./assets/fonts/Jura-Regular.ttf'),
-    'DM-Sans' : require('./assets/fonts/DMSans-Regular.ttf'),
+    'DM-Sans': require('./assets/fonts/DMSans-Regular.ttf'),
     'Roboto': require('./assets/fonts/Roboto-Regular.ttf'),
     'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
   })
 }
 
 export default function App() {
+  LogBox.ignoreLogs(['Warning: ...'])
+  LogBox.ignoreAllLogs()
   const [dataLoaded, setDataLoaded] = useState(false)
 
   if (!dataLoaded) {
