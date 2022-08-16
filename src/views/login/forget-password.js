@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
+import React, { useState } from 'react'
+import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
 import EmailBar from '../../components/email-bar'
@@ -18,14 +18,14 @@ const ForgetPassword = ({ navigation }) => {
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.title}>
-                Esqueceu sua senha?
+            Esqueceu sua senha?
           </Text>
           <Text style={styles.subtitle}>
-                Digite seu e-mail para recuperar sua senha.
+            Digite seu e-mail para recuperar sua senha.
           </Text>
         </View>
         <View style={styles.segment}>
-          <EmailBar data={data} setData={setData}/>
+          <EmailBar data={data} setData={setData} />
         </View>
         <View style={styles.buttonSegment}>
           <TouchableOpacity

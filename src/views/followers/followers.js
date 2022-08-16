@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import { SafeAreaView, View, ActivityIndicator, StyleSheet } from 'react-native'
 import safeView from '../../styles/safe-view'
 import spinner from '../../styles/spinner'
-import ROUTES from '../../routes/routes'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import { useAuthState } from '../../context/auth-context'
 import useFollowers from './use-followers'
 import FollowersEntries from './followers-entries'
 

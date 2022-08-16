@@ -1,8 +1,7 @@
 import React from 'react'
-import { View, Image, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import vertical from '../../assets/lines/straight.png'
 import arrowButton from '../../assets/buttons/arrowButton.png'
-import likeButton from '../../assets/buttons/likeButton.png'
 
 const FriendProfileBar = ({ navigation, profile }) => {
   return (
@@ -19,7 +18,7 @@ const FriendProfileBar = ({ navigation, profile }) => {
               {profile}
             </Text>
           </View>
-          
+
         </View>
       </View>
       <View>
@@ -43,11 +42,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-start'
   },
-  segment:{
+  segment: {
     flexDirection: 'row',
     left: '5%',
   },
-  backSegment:{
+  backSegment: {
     left: '2%',
   },
   HorizontalLine: {
@@ -57,12 +56,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: -7
   },
-  titleSegment:{
+  titleSegment: {
     flexDirection: 'row',
     left: '30%',
     alignItems: 'center'
   },
-  title: {  
+  title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',

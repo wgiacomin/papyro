@@ -6,41 +6,41 @@ const AuthDispatch = createContext()
 
 function authReducer(state, action) {
   switch (action.type) {
-    case 'signIn':
-      return {
-        ...state,
-        access_token: action.access,
-        refresh_token: action.refresh_token,
-        error: '',
-      }
-    case 'refresh':
-      return {
-        ...state,
-        access_token: action.access,
-        error: '',
-      }
-    case 'error':
-      return {
-        ...state,
-        access_token: null,
-        refresh_token: null,
-        error: action.payload,
-      }
-    case 'signOut':
-      return {
-        ...state,
-        access_token: null,
-        refresh_token: null,
-        error: '',
-        profile: null,
-      }
-    case 'profile':
-      return {
-        ...state,
-        profile: action.payload
-      }
-    default:
-      return { ...state }
+  case 'signIn':
+    return {
+      ...state,
+      access_token: action.access,
+      refresh_token: action.refresh_token,
+      error: '',
+    }
+  case 'refresh':
+    return {
+      ...state,
+      access_token: action.access,
+      error: '',
+    }
+  case 'error':
+    return {
+      ...state,
+      access_token: null,
+      refresh_token: null,
+      error: action.payload,
+    }
+  case 'signOut':
+    return {
+      ...state,
+      access_token: null,
+      refresh_token: null,
+      error: '',
+      profile: null,
+    }
+  case 'profile':
+    return {
+      ...state,
+      profile: action.payload
+    }
+  default:
+    return { ...state }
   }
 }
 
