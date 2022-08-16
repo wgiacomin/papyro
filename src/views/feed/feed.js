@@ -8,13 +8,16 @@ import useFeed from './use-feed'
 import Entry from './entry'
 
 const Feed = ({ navigation }) => {
-  const [feed, setFeed] = useState({
-    feed: [],
+  const [refreshing, setRefreshing] = useState(false)
+  const [data, setData] = useState({
+    page: 0,
     loading: true,
   })
 
+  const [feed, setFeed] = useState([])
+
   useEffect(() => {
-    useFeed({ setFeed })
+    useFeed({ setFeed, page: 0, refreshing, setRefreshing, setData, feed })
   }, [])
 
   return (
@@ -22,13 +25,15 @@ const Feed = ({ navigation }) => {
       <View style={styles.container}>
         <DefaultBar navigation={navigation} />
         <FlatList
-          data={feed.feed}
-          refreshing={feed.loading}
+          data={feed}
+          refreshing={data.loading}
           onRefresh={() => {
-            setFeed({ ...feed, loading: true })
-            useFeed({ setFeed })
+            setData({ loading: true })
+            useFeed({ setFeed, page: 0, refreshing, setRefreshing, setData, feed, new_refresh: true })
           }}
           numColumns={1}
+          onEndReached={() => useFeed({ setFeed, page: data.page, refreshing, setRefreshing, setData, feed })}
+          onEndReachedThreshold={7}
           renderItem={(post) => {
             return <Entry
               id={post.item.id}
