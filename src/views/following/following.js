@@ -1,37 +1,44 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import { SafeAreaView, View, StyleSheet, FlatList } from 'react-native'
 import safeView from '../../styles/safe-view'
-import spinner from '../../styles/spinner'
-import ROUTES from '../../routes/routes'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import useFollowing from './use-following'
-import FollowingEntries from './following-entries'
+import Entry from './entry'
 
 const Following = ({ navigation }) => {
-
-  const { profile } = useAuthState()
-
-  const [following, setFollowing] = useState({
-    following: [],
+  const [refreshing, setRefreshing] = useState(false)
+  const [data, setData] = useState({
+    page: 0,
     loading: true,
   })
 
-  useEffect(() => {
-    useFollowing({ setFollowing, profile })
-  }, [])
+  const [following, setFollowing] = useState([])
 
-  if (following.loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
+  useEffect(() => {
+    useFollowing({ setFollowing, page: 0, refreshing, setRefreshing, setData, following })
+  }, [])
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <FollowingEntries data={following.following} navigation={navigation} />
+        <FlatList
+          keyExtractor={(item) => item.id}
+          data={data}
+          numColumns={1}
+          refreshing={data.loading}
+          onRefresh={() => {
+            setData({ loading: true })
+            useFollowing({ setFollowing, page: 0, refreshing, setRefreshing, setData, following, new_refresh: true })
+          }}
+          onEndReached={() => useFollowing({ setFollowing, page: data.page, refreshing, setRefreshing, setData, following })}
+          onEndReachedThreshold={7}
+          renderItem={(post) => {
+            return <Entry
+              nickname={post.item.nickname}
+              photo={post.item.photo}
+              navigation={navigation}
+            />
+          }}
+        />
       </View>
     </SafeAreaView>
   )

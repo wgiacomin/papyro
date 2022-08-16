@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
+import { Text, SafeAreaView, View, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './genre-style'
 import BackButton from '../../components/back-button'
@@ -18,7 +18,7 @@ const GenreSelection = ({ navigation }) => {
   })
 
   useEffect(() => {
-    useGender({setGenders, profile})
+    useGender({ setGenders, profile })
   }, [])
 
   if (genders.loading) {
@@ -35,16 +35,16 @@ const GenreSelection = ({ navigation }) => {
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.title}>
-              Gêneros Literários
+            Gêneros Literários
           </Text>
         </View>
         <View style={styles.scrollSegment}>
           <Text style={styles.subtitle}>
-              Para começar, gostaríamos de saber quais são os seus gêneros literários favoritos
+            Para começar, gostaríamos de saber quais são os seus gêneros literários favoritos
           </Text>
         </View>
-        <GenreEntries data={genders.genders} navigation={navigation}/>
-      </View>  
+        <GenreEntries data={genders.genders} navigation={navigation} />
+      </View>
     </SafeAreaView>
   )
 }

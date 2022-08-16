@@ -10,7 +10,7 @@ function setValues({ setBookSuggestion, response }) {
 }
 
 
-async function useBookSuggestion({ bookSuggestion, setBookSuggestion }) {
+async function useBookSuggestion({ setBookSuggestion }) {
   if (BRANCH == 'dev') {
     if (BOOKSUGGESTION == 1) {
       setBookSuggestion({

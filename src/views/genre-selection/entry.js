@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Text, View, TouchableOpacity, Image } from 'react-native'
 import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
@@ -6,13 +6,13 @@ import styles from './genre-style'
 
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({post}) => {
-  const [image, setImage] = useState(AddButton) 
-  
+const Entry = ({ post }) => {
+  const [image, setImage] = useState(AddButton)
+
   const handleClick = () => {
-    if(image == AddButton){
+    if (image == AddButton) {
       setImage(RemoveButton)
-    }else{
+    } else {
       setImage(AddButton)
     }
   }
@@ -31,7 +31,7 @@ const Entry = ({post}) => {
           </View>
         </View>
         <Text style={styles.description}>
-          {post.item.description}       
+          {post.item.description}
         </Text>
       </View>
     </>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { SafeAreaView, View, StyleSheet, Text, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import { useAuthState } from '../../context/auth-context'
 import SuggestionEntries from '../book-suggestion/book-suggestion-entries'
 import spinner from '../../styles/spinner'
 import useBookSuggestion from './use-book-suggestion'

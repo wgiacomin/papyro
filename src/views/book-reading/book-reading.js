@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, Text, ActivityIndicator } from 'react-native'
-import DefaultBar from '../../components/default-bar-back'
+import { SafeAreaView, View, StyleSheet, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import BookReadingEntries from './book-reading-entries'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import { useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useBookReading from './use-book-reading'
-import BackButton from '../../components/back-button'
 
 const BookReading = ({ navigation }) => {
 
@@ -32,7 +30,7 @@ const BookReading = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <BookReadingEntries data={bookReading.bookReading} navigation={ navigation }/>
+        <BookReadingEntries data={bookReading.bookReading} navigation={navigation} />
       </View>
     </SafeAreaView>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import vertical from '../../assets/lines/straight.png'
 import editButton from '../../assets/buttons/editButton.png'
-import msgButton from '../../assets/buttons/messagesButton.png'
 import BackButton from './back-button'
 
 const UserProfileBar = ({ navigation }) => {
@@ -11,11 +10,11 @@ const UserProfileBar = ({ navigation }) => {
       <View style={styles.container}>
         <View style={styles.segment}>
           <View style={styles.back_button}>
-            <BackButton navigation={navigation}/>
+            <BackButton navigation={navigation} />
           </View>
-          
+
           <Text style={styles.title}>
-              Meu Perfil
+            Meu Perfil
           </Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('EditProfile')}>
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-start'
   },
-  segment:{
+  segment: {
     flexDirection: 'row',
     left: '4%',
   },
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
     height: 20,
     marginLeft: 70
   },
-  title: {  
+  title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',

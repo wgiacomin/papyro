@@ -1,21 +1,17 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import mocked_image from '../../../assets/icons/image.png'
 import add_button_list from '../../../assets/icons/add_button_list.png'
 import delete_button_list from '../../../assets/icons/delete_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({nickname, commonBooks, commonGenre, comment, photo, navigation}) => {
+const Entry = ({ nickname, photo, interactions, navigation, id }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.note_container}>
-        <Text style={styles.note}>{comment > 0 ? `Você e ${nickname} deram a mesma nota em ${comment} livros.` : `Você e ${nickname} ainda não interagiram.`}</Text>
-      </View>
       <View style={styles.name}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Friend')}>
-          <Image source={{ uri: photo }} style={styles.person_image}/>
+          onPress={() => navigation.navigate('Friend', { id })}>
+          <Image source={{ uri: photo }} style={styles.person_image} />
         </TouchableOpacity>
         <View style={styles.name_block}>
           <View style={styles.name_title_container}>
@@ -25,8 +21,7 @@ const Entry = ({nickname, commonBooks, commonGenre, comment, photo, navigation})
             </TouchableOpacity>
           </View>
           <View style={styles.commom_container}>
-            <Text style={styles.commom}>{commonBooks > 0 ? `${commonBooks} livros em comum.` : null}</Text>
-            <Text style={styles.commom}>{commonGenre > 0 ? `${commonGenre} gêneros em comum.` : null}</Text>
+            <Text style={styles.note}>{interactions > 0 ? `Você e ${nickname} possuem ${interactions} interações!` : ''}</Text>
           </View>
         </View>
       </View>
@@ -52,10 +47,10 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 100
   },
-  name_block:{
+  name_block: {
     marginLeft: 10
   },
-  name_title:{
+  name_title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
@@ -67,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
   },
-  commom:{
+  commom: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 14,
@@ -77,7 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
   },
-  note:{
+  note: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 12,
@@ -89,7 +84,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingTop: 5
   },
-  line:{
+  line: {
     flex: 1,
   },
   horizontalLine: {
@@ -97,5 +92,5 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 })
-  
+
 export default Entry

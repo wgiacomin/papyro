@@ -3,12 +3,12 @@ import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import mocked_image from '../../../assets/icons/profile_image.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({name, text, image}) => {
+const Entry = ({ name, text }) => {
   return (
     <View style={styles.container}>
       <View style={styles.messages}>
         <TouchableOpacity>
-          <Image source={mocked_image} style={styles.profile_image}/>
+          <Image source={mocked_image} style={styles.profile_image} />
         </TouchableOpacity>
         <TouchableOpacity>
           <Text style={styles.person}>{name}</Text>
@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginLeft: 10
   },
-  block:{
+  block: {
     marginLeft: 50,
   },
-  text:{
+  text: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -59,14 +59,14 @@ const styles = StyleSheet.create({
     opacity: 0.3,
     marginTop: 1
   },
-  description_container:{
+  description_container: {
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     top: -35,
     paddingLeft: 40,
   },
-  container:{
+  container: {
     shadowColor: 'rgba(90, 108, 234, 0.07)',
     borderRadius: 22,
     height: 81,
@@ -75,5 +75,5 @@ const styles = StyleSheet.create({
   },
 })
 
-  
+
 export default Entry

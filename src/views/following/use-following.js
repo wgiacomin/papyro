@@ -9,28 +9,20 @@ function setValues({ setFollowing, response }) {
   setFollowing({ following: response.data.get_following, loading: false })
 }
 
-async function useFollowing({ useFollowing, setFollowing }) {
+async function useFollowing({ setFollowing, page, refreshing, setRefreshing, setData, following, new_refresh }) {
 
-  if (BRANCH == 'dev') {
-    if (FOLLOWING == 1) {
-      setFollowing({
-        status: CONTRACTS.get_following.error.status,
-        msg: CONTRACTS.get_following.error.data.detail
-      })
-    } else {
-      setValues({ setFollowing, response: CONTRACTS.get_following.success })
-    }
+  if (BRANCH == 'dev' & FOLLOWING == 1) {
+    setValues({ setFollowing, response: CONTRACTS.get_following.success })
     return
   }
-
-
-  await api.get(ROUTES.get_following)
-    .then((response) => {
-      setValues(setFollowing, response)
-    }).catch((error) => {
-      Alert.alert('Atenção', error.response.data.detail)
-      setFollowing({ loading: false })
-    })
+  return
+  // await api.get(ROUTES.get_following)
+  //   .then((response) => {
+  //     setValues(setFollowing, response)
+  //   }).catch((error) => {
+  //     Alert.alert('Atenção', error.response.data.detail)
+  //     setFollowing({ loading: false })
+  //   })
 
 }
 

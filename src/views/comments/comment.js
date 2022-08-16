@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, Image, TouchableOpacity, Text, ScrollView, TextInput, ActivityIndicator, FlatList } from 'react-native'
+import { SafeAreaView, View, StyleSheet, Image, TouchableOpacity, Text, TextInput, ActivityIndicator, FlatList } from 'react-native'
 import safeView from '../../styles/safe-view'
 import BackButton from '../../components/back-button'
 import horizontal from '../../../assets/lines/straight.png'
 import send from '../../../assets/buttons/send.png'
 import Rate from '../../components/rate-stars'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useComment from './use-comment'
 import Entry from './entry'
@@ -28,13 +27,13 @@ const Comment = ({ navigation, route }) => {
   })
 
   useEffect(() => {
-    useComment({setComment, id: route.params.id})
+    useComment({ setComment, id: route.params.id })
   }, [])
 
-  function setNewState({newState}) {
-    setComment({...comments, book:{...comments.book, status: newState}})
+  function setNewState({ newState }) {
+    setComment({ ...comments, book: { ...comments.book, status: newState } })
   }
-    
+
   if (comments.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
@@ -45,8 +44,8 @@ const Comment = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <BackButton navigation={ navigation }/>
-      <View style={styles.container}>   
+      <BackButton navigation={navigation} />
+      <View style={styles.container}>
         <FlatList
           ListHeaderComponent={
             <>
@@ -54,7 +53,7 @@ const Comment = ({ navigation, route }) => {
                 <TouchableOpacity
                   onPress={() => navigation.navigate('Friend')}
                 >
-                  <Image source={{uri: comments.reviewer.photo}} style={styles.person_image}/>  
+                  <Image source={{ uri: comments.reviewer.photo }} style={styles.person_image} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('Friend')}
@@ -65,14 +64,14 @@ const Comment = ({ navigation, route }) => {
               </View>
               <View style={styles.container_book}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('ViewBook', {id: comments.book.id})}
+                  onPress={() => navigation.navigate('ViewBook', { id: comments.book.id })}
                 >
-                  <Image source={{uri: comments.book.cover}} style={styles.book_image}/>
+                  <Image source={{ uri: comments.book.cover }} style={styles.book_image} />
                 </TouchableOpacity>
                 <View style={styles.container_book_title}>
                   <View>
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('ViewBook', {id: comments.book.id})}
+                      onPress={() => navigation.navigate('ViewBook', { id: comments.book.id })}
                     >
                       <Text style={styles.book_title}>{comments.book.book_title}</Text>
                     </TouchableOpacity>
@@ -82,12 +81,12 @@ const Comment = ({ navigation, route }) => {
                   <View style={styles.want_to_read_container}>
                     <Menu>
                       <MenuTrigger>
-                        <Text style={comments.book.status == 1 ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[comments.book.status]} </Text>    
+                        <Text style={comments.book.status == 1 ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[comments.book.status]} </Text>
                       </MenuTrigger>
                       <MenuOptions style={styles.options_color}>
-                        <MenuOption onSelect={() => setNewState({newState: 1})} text={READ_TYPE[1]} disabled={comments.book.status == 1}/>
-                        <MenuOption onSelect={() => setNewState({newState: 2})} text={READ_TYPE[2]} disabled={comments.book.status == 2}/>
-                        <MenuOption onSelect={() => setNewState({newState: 3})} text={READ_TYPE[3]} disabled={comments.book.status == 3} />
+                        <MenuOption onSelect={() => setNewState({ newState: 1 })} text={READ_TYPE[1]} disabled={comments.book.status == 1} />
+                        <MenuOption onSelect={() => setNewState({ newState: 2 })} text={READ_TYPE[2]} disabled={comments.book.status == 2} />
+                        <MenuOption onSelect={() => setNewState({ newState: 3 })} text={READ_TYPE[3]} disabled={comments.book.status == 3} />
                       </MenuOptions>
                     </Menu>
                   </View>
@@ -99,7 +98,7 @@ const Comment = ({ navigation, route }) => {
               <View style={styles.footer}>
                 <Text style={styles.date}>{comments.review.date}</Text>
                 <View style={styles.like_and_comments}>
-                  <Like liked={comments.review.you_liked} size={20} likes={comments.review.likes} type={'r'} id={comments.review.id}/>
+                  <Like liked={comments.review.you_liked} size={20} likes={comments.review.likes} type={'r'} id={comments.review.id} />
                 </View>
               </View>
               <View style={styles.line}>
@@ -110,20 +109,20 @@ const Comment = ({ navigation, route }) => {
               </View>
             </>
           }
-          ListFooterComponent={ 
+          ListFooterComponent={
             <Text style={styles.end_of_file}>
-          Fim dos comentários
+              Fim dos comentários
             </Text>
           }
           data={comments.comments}
           keyExtractor={(item) => item.id.toString()}
           numColumns={1}
           renderItem={(post) => {
-            return <Entry 
+            return <Entry
               data={post.item}
               navigation={navigation}
             />
-          } } />
+          }} />
       </View>
       <View style={styles.text_input_container}>
         <View style={styles.text_input_segment}>
@@ -150,7 +149,7 @@ const styles = StyleSheet.create({
   options_color: {
     borderColor: '#dcdcdc',
   },
-  send:{
+  send: {
     alignSelf: 'center',
     marginRight: 10,
     width: 23,
@@ -206,7 +205,7 @@ const styles = StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
-  person_image:{
+  person_image: {
     width: 32,
     height: 32,
     borderRadius: 25,
@@ -227,7 +226,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
   },
-  post_type:{
+  post_type: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -239,7 +238,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 15
   },
-  line:{
+  line: {
     flex: 1,
     marginTop: 10,
     marginBottom: 10
@@ -284,7 +283,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  container_book_title:{
+  container_book_title: {
     flex: 1,
     alignItems: 'center',
     marginTop: 15,
@@ -355,7 +354,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'center'
   },
-  date:{
+  date: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 11,

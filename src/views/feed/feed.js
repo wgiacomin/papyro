@@ -1,38 +1,56 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, ActivityIndicator } from 'react-native'
+import { SafeAreaView, View, StyleSheet, FlatList } from 'react-native'
 import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
-import FeedEntries from './feed-entries'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
-import spinner from '../../styles/spinner'
 import useFeed from './use-feed'
+import Entry from './entry'
 
 const Feed = ({ navigation }) => {
-
-  const { profile } = useAuthState()
-
-  const [feed, setFeed] = useState({
-    feed: [],
+  const [refreshing, setRefreshing] = useState(false)
+  const [data, setData] = useState({
+    page: 0,
     loading: true,
   })
 
-  useEffect(() =>{
-    useFeed({ setFeed})
-  },[])
+  const [feed, setFeed] = useState([])
 
-  if (feed.loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
+  useEffect(() => {
+    useFeed({ setFeed, page: 0, refreshing, setRefreshing, setData, feed })
+  }, [])
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <DefaultBar navigation={ navigation }/>
-        <FeedEntries data={feed.feed} navigation={ navigation }/>
+        <DefaultBar navigation={navigation} />
+        <FlatList
+          data={feed}
+          refreshing={data.loading}
+          onRefresh={() => {
+            setData({ loading: true })
+            useFeed({ setFeed, page: 0, refreshing, setRefreshing, setData, feed, new_refresh: true })
+          }}
+          numColumns={1}
+          onEndReached={() => useFeed({ setFeed, page: data.page, refreshing, setRefreshing, setData, feed })}
+          onEndReachedThreshold={7}
+          renderItem={(post) => {
+            return <Entry
+              id={post.item.id}
+              nickname={post.item.user.nickname}
+              photo={post.item.user.photo}
+              rates={post.item.rates}
+              rate={post.item.rate}
+              you_liked={post.item.you_liked}
+              likes={post.item.likes}
+              text={post.item.text}
+              book_title={post.item.book.book_title}
+              book_id={post.item.book.id}
+              cover={post.item.book.cover}
+              date={post.item.date}
+              type={post.item.type}
+              navigation={navigation}
+              user_id={post.item.user.id}
+            />
+          }} />
       </View>
     </SafeAreaView>
   )

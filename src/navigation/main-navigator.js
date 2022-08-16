@@ -103,7 +103,7 @@ const MainNavigator = () => (
       options={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarIcon: ({ focused, color, size }) => (
+        tabBarIcon: ({ focused, size }) => (
           <Image source={focused ? home_focused : home} style={{ width: size, height: size, }} />
         ),
       }} />
@@ -112,7 +112,7 @@ const MainNavigator = () => (
     <Tab.Screen name="NotificationsTab" component={StackNavigatorNotification} options={{
       headerShown: false,
       tabBarShowLabel: false,
-      tabBarIcon: ({ focused, color, size }) => (
+      tabBarIcon: ({ focused, size }) => (
         <Image source={focused ? notifications_focused : notifications} style={{ width: size, height: size, }} />
       ),
     }} />
@@ -121,7 +121,7 @@ const MainNavigator = () => (
       options={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarIcon: ({ focused, color, size }) => (
+        tabBarIcon: ({ focused, size }) => (
           <Image source={focused ? books_focused : books} style={{ width: size, height: size, }} />
         ),
       }} />
@@ -130,7 +130,7 @@ const MainNavigator = () => (
       options={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarIcon: ({ focused, color, size }) => (
+        tabBarIcon: ({ focused, size }) => (
           <Image source={focused ? groups_focused : groups} style={{ width: size + 5, height: size + 5, }} />
         ),
       }} />
