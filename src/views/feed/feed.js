@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, ActivityIndicator, FlatList } from 'react-native'
+import { SafeAreaView, View, StyleSheet, FlatList } from 'react-native'
 import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
-import spinner from '../../styles/spinner'
 import useFeed from './use-feed'
 import Entry from './entry'
 

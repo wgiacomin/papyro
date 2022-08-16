@@ -13,6 +13,7 @@ const ROUTES = {
   edit_profile: 'users/editProfile',
   books_by_status: 'users/books/',
   get_following: '',
+  people_suggestion: 'users/extras/suggestion/get',
 
   like: 'like/',
   gender: 'genre/userGenre',

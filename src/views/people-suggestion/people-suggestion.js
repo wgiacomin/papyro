@@ -1,41 +1,47 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, Text, ActivityIndicator } from 'react-native'
+import { SafeAreaView, View, StyleSheet, Text, FlatList } from 'react-native'
 import safeView from '../../styles/safe-view'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
-import SuggestionEntries from './people-suggestion-entries'
-import spinner from '../../styles/spinner'
+import Entry from './entry'
 import usePeopleSuggestion from './use-people-suggestion'
 
 const PeopleSuggestion = ({ navigation }) => {
-  const { profile } = useAuthState()
-
-  const [peopleSuggestion, setPeopleSuggestion] = useState({
-    peopleSuggestion: [],
+  const [data, setData] = useState({
+    page: 0,
     loading: true,
   })
 
-  useEffect(() => {
-    usePeopleSuggestion({ setPeopleSuggestion, profile })
-  }, [])
+  const [peopleSuggestion, setPeopleSuggestion] = useState([])
 
-  if (peopleSuggestion.loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
+  useEffect(() => {
+    usePeopleSuggestion({ setPeopleSuggestion, page: 0, setData })
+  }, [])
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <Text style={styles.title}>Sugestão de Amigos</Text>
-        <SuggestionEntries data={peopleSuggestion.peopleSuggestion} navigation={ navigation }/>
+        <FlatList
+          data={peopleSuggestion}
+          numColumns={1}
+          refreshing={data.loading}
+          onRefresh={() => {
+            setData({ loading: true })
+            usePeopleSuggestion({ setPeopleSuggestion, page: data.page, setData })
+          }}
+          renderItem={(post) => {
+            return <Entry
+              nickname={post.item.nickname}
+              interactions={post.item.interactions}
+              photo={post.item.photo}
+              friend={post.item.id}
+              navigation={navigation}
+            />
+          }} />
       </View>
     </SafeAreaView>
   )
 }
-  
+
 export default PeopleSuggestion
 
 const styles = StyleSheet.create({
