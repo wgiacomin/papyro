@@ -15,12 +15,11 @@ async function useEditProfile({ setEditProfile, data, setProfile }) {
     return
   }
 
-  const string_date = data.birthday.split(/\//)
   await api.put(ROUTES.edit_profile, {
     name: data.name,
     nickname: data.nickname,
     description: data.description,
-    birthday: string_date[2] + '-' + string_date[1] + '-' + string_date[0]
+    birthday: data.birthday
   })
     .then((response) => {
       if (response.data == 1) {
