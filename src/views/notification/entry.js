@@ -7,12 +7,12 @@ const Entry = ({ data, navigation }) => {
     <TouchableOpacity
       onPress={() => {
         switch (data.notification.refer) {
-          case 'comment':
-            navigation.navigate('Comments', { id: data.notification.id_rate })
-            break
-          case 'follow':
-            navigation.navigate('Friend', { id: data.user.id })
-            break
+        case 'comment':
+          navigation.navigate('Comments', { id: data.notification.id_rate })
+          break
+        case 'follow':
+          navigation.navigate('Friend', { id: data.user.id })
+          break
         }
       }}
       style={{ flex: 1, flexDirection: 'column' }}
