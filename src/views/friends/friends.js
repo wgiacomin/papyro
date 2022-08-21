@@ -31,7 +31,7 @@ const Following = ({ navigation, route }) => {
           }}
           onEndReached={() => useFollowing({ setFollowing, page: data.page, refreshing, setRefreshing, setData, following, route_type })}
           onEndReachedThreshold={7}
-          ListEmptyComponent={() => <Text>Você há nada aqui.</Text>}
+          ListEmptyComponent={() => <Text>Não há nada aqui.</Text>}
           renderItem={(post) => {
             return <Entry
               nickname={post.item.nickname}

@@ -18,9 +18,7 @@ import conversations from '../views/chat/conversations'
 import comments from '../views/comments/comment'
 import notification from '../views/notification/notification'
 import editProfile from '../views/edit-profile/edit-profile'
-import bookToRead from '../views/book-to-read/book-to-read'
-import bookRead from '../views/book-read/book-read'
-import bookReading from '../views/book-reading/book-reading'
+import book from '../views/books/book'
 import searchPeople from '../views/search-people/search-people'
 import searchReaders from '../views/search-readers/search-readers'
 import bookSuggestion from '../views/book-suggestion/book-suggestion'
@@ -50,9 +48,9 @@ const StackNavigator = () => (
     <Stack.Screen name='Comments' component={comments} options={{ headerShown: false }} />
     <Stack.Screen name='EditProfile' component={editProfile} options={{ headerShown: false }} />
     <Stack.Screen name='Personalize' component={genreSelection} options={{ headerShown: false }} />
-    <Stack.Screen name='BookToRead' component={bookToRead} options={{ headerShown: false }} />
-    <Stack.Screen name='BookRead' component={bookRead} options={{ headerShown: false }} />
-    <Stack.Screen name='BookReading' component={bookReading} options={{ headerShown: false }} />
+    <Stack.Screen name='BookToRead' component={book} options={{ headerShown: false }} initialParams={{ route_type: 'to_read' }} />
+    <Stack.Screen name='BookRead' component={book} options={{ headerShown: false }} initialParams={{ route_type: 'read' }} />
+    <Stack.Screen name='BookReading' component={book} options={{ headerShown: false }} initialParams={{ route_type: 'reading' }} />
     <Stack.Screen name='Pesquisa' component={SearchNavigator} options={{ headerShown: true }} />
     <Stack.Screen name='Livros' component={BookNavigator} options={{ headerShown: true }} />
     <Stack.Screen name='Procurando Companhia?' component={PeopleNavigator} options={{ headerShown: true }} />

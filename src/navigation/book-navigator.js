@@ -1,9 +1,7 @@
 
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import BookRead from '../views/book-read/book-read'
-import BookReading from '../views/book-reading/book-reading'
-import BookToRead from '../views/book-to-read/book-to-read'
+import Book from '../views/books/book'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -26,11 +24,11 @@ const BookNavigator = () => (
     }}
   >
 
-    <Tab.Screen name="Lendo" component={BookReading} />
+    <Tab.Screen name="Lendo" component={Book} initialParams={{ route_type: 'reading' }} />
 
-    <Tab.Screen name="Lidos" component={BookRead} />
+    <Tab.Screen name="Lidos" component={Book} initialParams={{ route_type: 'read' }} />
 
-    <Tab.Screen name="Lerei" component={BookToRead} />
+    <Tab.Screen name="Lerei" component={Book} initialParams={{ route_type: 'to_read' }} />
 
   </Tab.Navigator>
 )

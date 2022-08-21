@@ -5,7 +5,7 @@ import profile from '../../assets/icons/options.png'
 import search from '../../assets/icons/search.png'
 import horizontal from '../../assets/lines/straight.png'
 
-const DefaultBar = ({navigation}) => {
+const DefaultBar = ({ navigation }) => {
   return (
     <View>
       <View style={styles.container}>
@@ -20,19 +20,19 @@ const DefaultBar = ({navigation}) => {
           <TouchableOpacity style={styles.search_segment}
             onPress={() => navigation.navigate('Pesquisa')}
           >
-            <Image source={search} style={styles.search}/>
+            <Image source={search} style={styles.search} />
           </TouchableOpacity>
         </View>
         <View style={styles.icons_segment}>
-          <TouchableOpacity style={styles.chat_segment}
+          {/* <TouchableOpacity style={styles.chat_segment}
             onPress={() => navigation.navigate('Conversations')}
           >
             <Image source={chat} style={styles.chat}/>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity style={styles.profile_segment}
             onPress={() => navigation.navigate('People')}
           >
-            <Image source={profile} style={styles.profile}/>
+            <Image source={profile} style={styles.profile} />
           </TouchableOpacity>
         </View>
       </View>
@@ -68,39 +68,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  segment:{
+  segment: {
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#ECEDF1',
     borderRadius: 10,
     alignItems: 'center'
   },
-  search_segment:{
+  search_segment: {
     marginRight: '5%'
   },
-  icons_segment:{
-    flex: .26,
+  icons_segment: {
+    flex: .15,
     flexDirection: 'row',
     marginLeft: '5%'
   },
-  chat_segment:{
+  chat_segment: {
     flex: 1,
     flexDirection: 'row',
   },
-  profile_segment:{
+  profile_segment: {
     flex: 1,
     flexDirection: 'row',
     marginLeft: '20%'
   },
-  chat:{
+  chat: {
     width: 25,
     height: 25
   },
-  profile:{
+  profile: {
     width: 24,
     height: 24
   },
-  search:{
+  search: {
     width: 16,
     height: 16
   },
@@ -111,5 +111,5 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
 })
-  
+
 export default DefaultBar
