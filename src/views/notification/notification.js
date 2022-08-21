@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, Text, ActivityIndicator } from 'react-native'
+import { SafeAreaView, View, StyleSheet, Text, FlatList } from 'react-native'
 import safeView from '../../styles/safe-view'
-import NotificationEntries from '../notification/notification-entries'
-import { useAuthState } from '../../context/auth-context'
-import spinner from '../../styles/spinner'
 import useNotification from './use-notification'
+import Entry from './entry'
 
 const Notification = ({ navigation }) => {
-  const { profile } = useAuthState()
-
   const [notifications, setNotifications] = useState({
     notifications: [],
     loading: true,
@@ -16,23 +12,29 @@ const Notification = ({ navigation }) => {
 
 
   useEffect(() => {
-    useNotification({ setNotifications, profile })
+    useNotification({ setNotifications })
   }, [])
 
-
-  if (notifications.loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <Text style={styles.title}>Notificações</Text>
-        <NotificationEntries data={notifications.notifications} navigation={navigation} />
+        <FlatList
+          data={notifications.notifications}
+          refreshing={notifications.loading}
+          onRefresh={() => {
+            setNotifications({ loading: true })
+            useNotification({ setNotifications })
+          }}
+          ListEmptyComponent={() => <Text>Não há nada aqui.</Text>}
+          numColumns={1}
+          renderItem={(post) => {
+            return <Entry
+              navigation={navigation}
+              data={post.item}
+            />
+          }} />
       </View>
     </SafeAreaView>
   )

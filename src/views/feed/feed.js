@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, FlatList } from 'react-native'
+import { SafeAreaView, View, StyleSheet, FlatList, Text } from 'react-native'
 import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
 import useFeed from './use-feed'
@@ -31,7 +31,8 @@ const Feed = ({ navigation }) => {
           }}
           numColumns={1}
           onEndReached={() => useFeed({ setFeed, page: data.page, refreshing, setRefreshing, setData, feed })}
-          onEndReachedThreshold={7}
+          onEndReachedThreshold={.5}
+          ListEmptyComponent={() => <Text>Sem Atualizações</Text>}
           renderItem={(post) => {
             return <Entry
               id={post.item.id}
