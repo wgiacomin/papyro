@@ -31,7 +31,7 @@ const Feed = ({ navigation }) => {
           }}
           numColumns={1}
           onEndReached={() => useFeed({ setFeed, page: data.page, refreshing, setRefreshing, setData, feed })}
-          onEndReachedThreshold={7}
+          onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text>Sem Atualizações</Text>}
           renderItem={(post) => {
             return <Entry

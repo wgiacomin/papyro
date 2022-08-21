@@ -30,7 +30,7 @@ const Following = ({ navigation, route }) => {
             useFollowing({ setFollowing, page: 0, refreshing, setRefreshing, setData, following, new_refresh: true, route_type })
           }}
           onEndReached={() => useFollowing({ setFollowing, page: data.page, refreshing, setRefreshing, setData, following, route_type })}
-          onEndReachedThreshold={7}
+          onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text>Não há nada aqui.</Text>}
           renderItem={(post) => {
             return <Entry

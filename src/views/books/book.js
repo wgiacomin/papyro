@@ -28,7 +28,7 @@ const BookRead = ({ navigation, route }) => {
             useBook({ setBook, page: 0, refreshing, setRefreshing, setData, book, new_refresh: true, route_type })
           }}
           onEndReached={() => useBook({ setBook, page: data.page, refreshing, setRefreshing, setData, book, route_type })}
-          onEndReachedThreshold={7}
+          onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text>Não há nada aqui.</Text>}
           numColumns={1}
           renderItem={(post) => {

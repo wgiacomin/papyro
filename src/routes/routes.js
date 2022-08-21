@@ -14,7 +14,8 @@ const ROUTES = {
   books_by_status: 'users/books/',
   get_following: 'friends/',
   people_suggestion: 'users/extras/suggestion/get',
-
+  book_suggestion: 'getBook/extras/suggestion/get',
+  notifications: 'notification/',
   like: 'like/',
   gender: 'genre/userGenre',
 

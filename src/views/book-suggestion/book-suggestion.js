@@ -1,36 +1,46 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, StyleSheet, Text, ActivityIndicator } from 'react-native'
+import { SafeAreaView, View, StyleSheet, Text, FlatList } from 'react-native'
 import safeView from '../../styles/safe-view'
-import { useAuthState } from '../../context/auth-context'
-import SuggestionEntries from '../book-suggestion/book-suggestion-entries'
-import spinner from '../../styles/spinner'
 import useBookSuggestion from './use-book-suggestion'
+import Entry from './entry'
 
 const BookSuggestion = ({ navigation }) => {
-  const { profile } = useAuthState()
-
-  const [bookSuggestion, setBookSuggestion] = useState({
-    bookSuggestion: [],
+  const [refreshing, setRefreshing] = useState(false)
+  const [data, setData] = useState({
+    page: 0,
     loading: true,
   })
 
-  useEffect(() => {
-    useBookSuggestion({ setBookSuggestion, profile })
-  }, [])
+  const [bookSuggestion, setBookSuggestion] = useState([])
 
-  if (bookSuggestion.loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
+  useEffect(() => {
+    useBookSuggestion({ setBookSuggestion, page: 0, refreshing, setRefreshing, setData, bookSuggestion, new_refresh: true })
+  }, [])
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
         <Text style={styles.title}>Sugestão de Livros</Text>
-        <SuggestionEntries data={bookSuggestion.bookSuggestion} navigation={navigation} />
+        <FlatList
+          data={bookSuggestion}
+          refreshing={data.loading}
+          onRefresh={() => {
+            setData({ loading: true })
+            useBookSuggestion({ setBookSuggestion, page: 0, refreshing, setRefreshing, setData, bookSuggestion, new_refresh: true })
+          }}
+          onEndReached={() => useBookSuggestion({ setBookSuggestion, page: data.page, refreshing, setRefreshing, setData, bookSuggestion })}
+          onEndReachedThreshold={.66}
+          ListEmptyComponent={() => <Text>Sem Indicações</Text>}
+          numColumns={1}
+          renderItem={(post) => {
+            return <Entry
+              name={post.item.book_title}
+              rate={post.item.rate}
+              cover={post.item.cover}
+              author={post.item.author[0]}
+              navigation={navigation}
+            />
+          }} />
       </View>
     </SafeAreaView>
   )
