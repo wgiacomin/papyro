@@ -20,12 +20,10 @@ import notification from '../views/notification/notification'
 import editProfile from '../views/edit-profile/edit-profile'
 import book from '../views/books/book'
 import searchPeople from '../views/search-people/search-people'
-import searchReaders from '../views/search-readers/search-readers'
 import bookSuggestion from '../views/book-suggestion/book-suggestion'
 import peopleSuggestion from '../views/people-suggestion/people-suggestion'
 import viewBook from '../views/view-book/view-book'
 import review from '../views/review/review'
-import SearchReadersList from '../views/search-readers-list/search-readers-list'
 import genreSelection from '../views/genre-selection/genre-selection'
 
 import SearchNavigator from './search-navigator'
@@ -60,8 +58,6 @@ const StackNavigator = () => (
     <Stack.Screen name='PeopleSuggestion' component={peopleSuggestion} options={{ headerShown: false }} />
     <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false }} />
     <Stack.Screen name='Review' component={review} options={{ headerShown: false }} />
-    <Stack.Screen name='SearchReaders' component={searchReaders} options={{ headerShown: false }} />
-    <Stack.Screen name='SearchReadersList' component={SearchReadersList} options={{ headerShown: false }} />
   </Stack.Navigator>
 )
 

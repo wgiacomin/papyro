@@ -6,7 +6,6 @@ import ProfileBar from '../../components/profile-bar'
 import NicknameBar from '../../components/nickname-bar'
 import EmailBar from '../../components/email-bar'
 import PasswordBar from '../../components/password-bar'
-import DateBar from'../../components/date-bar.js'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 import useRegister from './use-register'
@@ -38,9 +37,6 @@ const Register = ({ navigation }) => {
     nickname: '',
     email: '',
     password: '',
-    date: actual_date,
-    date_string: '',
-    birthday: ''
   })
 
   return (
@@ -60,7 +56,6 @@ const Register = ({ navigation }) => {
           <NicknameBar data={data} setData={setData} />
           <EmailBar data={data} setData={setData} />
           <PasswordBar data={data} setData={setData} />
-          <DateBar data={data} setData={setData} />
         </View>
         <View style={styles.term}>
           <View>

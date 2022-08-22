@@ -3,7 +3,7 @@ import { FlatList } from 'react-native'
 import Entry from './entry'
 
 // eslint-disable-next-line react/prop-types
-const SearchReadersListEntries = ({ data, navigation }) => {
+const CompanyEntries = ({ data, navigation }) => {
   function renderItem(post) {
     return <Entry
       nickname={post.item.nickname}
@@ -22,4 +22,4 @@ const SearchReadersListEntries = ({ data, navigation }) => {
 }
 
 
-export default SearchReadersListEntries
+export default CompanyEntries

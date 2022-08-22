@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#ECEDF1',
     borderRadius: 10,
-    alignItems: 'center'
+    alignItems: 'center',
+    width: 320
   },
   search_segment: {
     marginRight: '5%'

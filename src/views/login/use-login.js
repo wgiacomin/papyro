@@ -16,8 +16,7 @@ function setValues({ setProfile, setRes, response }) {
     name: response.data.user.name,
     nickname: response.data.user.nickname,
     description: response.data.user.description,
-    photo: response.data.user.photo,
-    birthday: response.data.user.birthday,
+    photo: response.data.user.photo
   })
 }
 

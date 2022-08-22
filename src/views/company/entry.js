@@ -1,6 +1,5 @@
 import React from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
-import styles from './search-readers-list-style'
+import { Text, View, Image, TouchableOpacity, StyleSheet} from 'react-native'
 
 // eslint-disable-next-line react/prop-types
 const Entry = ({ nickname, photo, navigation }) => {
@@ -25,3 +24,28 @@ const Entry = ({ nickname, photo, navigation }) => {
 }
 
 export default Entry
+
+const styles = StyleSheet.create({
+  segment: {
+    left: '1%',
+    paddingBottom: '1%',
+    marginBottom: -20
+  },
+  people_segment: {
+    flexDirection: 'row',
+    paddingTop: 15,
+  },
+  user_image: {
+    width: 50,
+    height: 50,
+    borderRadius: 25
+  },
+  person: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontSize: 18,
+    lineHeight: 17,
+    paddingLeft: 10,
+    marginTop: 15,
+  },
+})

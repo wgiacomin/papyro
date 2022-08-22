@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import SearchReadersList from '../views/search-readers-list/search-readers-list'
+import Company from '../views/company/company'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -25,11 +25,11 @@ const PeopleNavigator = () => (
     }}
   >
 
-    <Tab.Screen name="Está Lendo" component={SearchReadersList} />
+    <Tab.Screen name="Está Lendo" component={Company} />
 
-    <Tab.Screen name="Já Leu" component={SearchReadersList} />
+    <Tab.Screen name="Já Leu" component={Company} />
 
-    <Tab.Screen name="Irá Ler" component={SearchReadersList} />
+    <Tab.Screen name="Irá Ler" component={Company} />
 
   </Tab.Navigator>
 )
