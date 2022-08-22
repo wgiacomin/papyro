@@ -13,6 +13,7 @@ import useEditProfile from './use-edit-profile'
 const EditProfile = ({ navigation }) => {
   const { profile } = useAuthState()
   const { setProfile } = useAuthDispatch()
+  const { logout } = useAuthDispatch()
 
   const [data, setEditProfile] = useState({
     profile: {},
@@ -109,12 +110,14 @@ const EditProfile = ({ navigation }) => {
               Descrição
             </Text>
             <View>
-              <View style={stylesInput.container}>
-                <View style={stylesInput.segment}>
+              <View style={stylesInput.description_container}>
+                <View style={stylesInput.description_segment}>
                   <TextInput
                     autoCapitalize='none'
                     autoCorrect={false}
-                    style={stylesInput.textInput}
+                    multiline={true}
+                    maxLength={200}
+                    style={stylesInput.descriptionInput}
                     onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'description': text } })}
                     value={data.profile.description}
                   />
@@ -125,15 +128,23 @@ const EditProfile = ({ navigation }) => {
               onPress={() => navigation.navigate('Personalize')}>
               <Image source={personalizeButton} style={styles.buttonSizeEdit} />
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                useEditProfile({ setEditProfile, data: data.profile, setProfile })
-                navigation.goBack()
-              }}>
-              <View style={styles.continueSegment}>
-                <Text style={styles.buttonSave}> Salvar </Text>
-              </View>
-            </TouchableOpacity>
+            <View style={styles.buttonSegment}>
+              <TouchableOpacity
+                onPress={() => {
+                  useEditProfile({ setEditProfile, data: data.profile, setProfile })
+                  navigation.goBack()
+                }}>
+                <View style={styles.continueSegment}>
+                  <Text style={styles.buttonSave}> Salvar </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => logout()}>
+                <View style={styles.logoutSegment}>
+                  <Text style={styles.buttonLogout}> Logout </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -150,6 +161,14 @@ const stylesInput = StyleSheet.create({
     backgroundColor: '#ECEBEB',
     marginLeft: 46
   },
+  description_container: {
+    borderRadius: 20,
+    width: 296,
+    height: 100,
+    flexDirection: 'row',
+    backgroundColor: '#ECEBEB',
+    marginLeft: 46
+  },
   textInput: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
@@ -161,10 +180,28 @@ const stylesInput = StyleSheet.create({
     color: '#000000',
     width: 266
   },
+  descriptionInput:{
+    width: 266,
+    height: 266,
+    fontFamily: 'Poppins-Medium',
+    fontStyle: 'normal',
+    fontSize: 12,
+    lineHeight: 18,
+    color: '#000000',
+    marginTop: 9,
+    marginLeft: 10,
+    marginRight: 12, 
+    marginBottom: 20,
+    textAlignVertical: 'top'
+  },
   segment: {
     flex: 1,
     marginTop: 5,
     flexDirection: 'row',
+  },
+  description_segment: {
+    flex: 1,
+    marginTop: 5,
   }
 })
 

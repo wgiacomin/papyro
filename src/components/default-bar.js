@@ -69,11 +69,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   segment:{
-    flex: 1,
     flexDirection: 'row',
     backgroundColor: '#ECEDF1',
     borderRadius: 10,
-    alignItems: 'center'
+    alignItems: 'center',
+    width: 320
   },
   search_segment:{
     marginRight: '5%'
@@ -81,20 +81,7 @@ const styles = StyleSheet.create({
   icons_segment:{
     flex: .26,
     flexDirection: 'row',
-    marginLeft: '5%'
-  },
-  chat_segment:{
-    flex: 1,
-    flexDirection: 'row',
-  },
-  profile_segment:{
-    flex: 1,
-    flexDirection: 'row',
-    marginLeft: '20%'
-  },
-  chat:{
-    width: 25,
-    height: 25
+    marginLeft: '2%'
   },
   profile:{
     width: 24,

@@ -74,9 +74,6 @@ const FriendProfile = ({ navigation, route }) => {
           style={styles.follow_segment}>
           <Image source={image} style={styles.followButton} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.talk_segment}>
-          <Image source={talkButton} style={styles.talkButton} />
-        </TouchableOpacity>
       </View>
     </SafeAreaView>
   )

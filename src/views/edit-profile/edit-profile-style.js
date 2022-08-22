@@ -76,13 +76,17 @@ export default StyleSheet.create({
     alignSelf: 'center',
     marginTop: 27
   },
+  buttonSegment:{
+    alignSelf: 'center',
+    marginTop: 30,
+    flexDirection: 'row',
+  },
   continueSegment:{
     borderRadius: 50,
     backgroundColor: '#324A59',
     width: 104,
     height: 43.79,
-    alignSelf: 'center',
-    marginTop: 38
+    marginRight: 33
   },
   buttonSave:{
     fontFamily: 'Poppins-Medium',
@@ -92,6 +96,23 @@ export default StyleSheet.create({
     lineHeight: 21,
     textAlign: 'center',
     color: '#FFFFFF',
+    marginTop: '10%',
+  },
+  logoutSegment:{
+    borderRadius: 50,
+    borderColor: 'red',
+    backgroundColor: '#FFFFFF',
+    width: 104,
+    height: 43.79
+  },
+  buttonLogout:{
+    fontFamily: 'Poppins-Medium',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 14,
+    lineHeight: 21,
+    textAlign: 'center',
+    color: 'red',
     marginTop: '10%',
   },
 })

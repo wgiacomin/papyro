@@ -40,8 +40,8 @@ export default StyleSheet.create({
   profileSize: {
     alignSelf: 'center',
     borderRadius: 16,
-    width: 220,
-    height: 200,
+    width: 210,
+    height: 220,
   },
   continueSegment:{
     flex: 1,
@@ -54,8 +54,8 @@ export default StyleSheet.create({
   },
   follow_segment:{
     flexDirection: 'row',
-    marginLeft: 88,
-    marginTop: 20
+    justifyContent: 'center',
+    marginTop: 50
   },
   talk_segment:{
     flexDirection: 'row',

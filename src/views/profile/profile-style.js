@@ -38,7 +38,7 @@ export default StyleSheet.create({
     fontSize: 23,
     lineHeight: 28,
     color: '#181D2D',
-    marginBottom: 5,
+    marginBottom: 15,
     alignSelf: 'center'
   },
   imageSize: {
@@ -51,8 +51,8 @@ export default StyleSheet.create({
   profileSize: {
     alignSelf: 'center',
     borderRadius: 16,
-    width: 220,
-    height: 200,
+    width: 210,
+    height: 220,
   },
   continueSegment:{
     flex: 1,
