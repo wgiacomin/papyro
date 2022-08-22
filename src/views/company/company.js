@@ -8,13 +8,13 @@ import CompanyEntries from './company-entries'
 
 const Company = ({ navigation }) => {
 
-  const [readers, setReaders] = useState({
+  const [readers, setCompany] = useState({
     readers: [],
     loading: true,
   })
 
   useEffect(() => {
-    useCompany({ id: ROUTES.params?.id, id_status: ROUTES.params?.id_status, setReaders })
+    useCompany({ id: ROUTES.params?.id, id_status: ROUTES.params?.id_status, setCompany })
   }, [])
 
   if (readers.loading) {
@@ -28,7 +28,7 @@ const Company = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <Company data={readers.readers.list} navigation={navigation} />
+        <CompanyEntries data={readers.readers.list} navigation={navigation} />
       </View>
     </SafeAreaView>
   )
