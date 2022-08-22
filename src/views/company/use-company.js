@@ -5,20 +5,20 @@ import { Alert } from 'react-native'
 import { BRANCH, SEARCH_READERS_LIST } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
-function setValues({ setReaders, response }) {
-  setReaders({ readers: response.data.get_reading_people_list, loading: false })
+function setValues({ setCompany, response }) {
+  setCompany({ company: response.data.get_reading_people_list, loading: false })
 }
 
-async function useSearchReadersList({ id, id_status, setReaders }) {
+async function useCompany({ id, id_status, setCompany }) {
 
   if (BRANCH == 'dev') {
     if (SEARCH_READERS_LIST == 1) {
-      setReaders({
+      setCompany({
         status: CONTRACTS.get_reading_people_list.error.status,
         msg: CONTRACTS.get_reading_people_list.error.data.detail
       })
     } else {
-      setValues({ setReaders, response: CONTRACTS.get_reading_people_list.success })
+      setValues({ setCompany, response: CONTRACTS.get_reading_people_list.success })
     }
     return
   }
@@ -26,12 +26,12 @@ async function useSearchReadersList({ id, id_status, setReaders }) {
 
   await api.get(ROUTES.get_book + id + '/pessoas/' + id_status)
     .then((response) => {
-      setValues(setReaders, response)
+      setValues(setCompany, response)
     }).catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
-      setReaders({ loading: false })
+      setCompany({ loading: false })
     })
 
 }
 
-export default useSearchReadersList
+export default useCompany

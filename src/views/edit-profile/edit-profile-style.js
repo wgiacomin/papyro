@@ -70,7 +70,7 @@ export default StyleSheet.create({
     marginTop: 17
   },
   buttonSizeEdit: {
-    width: 139,
+    width: 140,
     height: 25,
     flexDirection: 'row',
     alignSelf: 'center',

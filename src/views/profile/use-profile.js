@@ -11,8 +11,7 @@ function setValues({ setData, response, setProfile, self }) {
       name: response.data.name,
       nickname: response.data.nickname,
       description: response.data.description,
-      photo: response.data.photo,
-      birthday: response.data.birthday,
+      photo: response.data.photo
     })
   }
   setData({profile: response.data, loading: false})

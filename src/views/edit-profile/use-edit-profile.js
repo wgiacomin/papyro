@@ -18,8 +18,7 @@ async function useEditProfile({ setEditProfile, data, setProfile }) {
   await api.put(ROUTES.edit_profile, {
     name: data.name,
     nickname: data.nickname,
-    description: data.description,
-    birthday: data.birthday
+    description: data.description
   })
     .then((response) => {
       if (response.data == 1) {

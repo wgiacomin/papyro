@@ -90,22 +90,7 @@ const EditProfile = ({ navigation }) => {
                 </View>
               </View>
             </View>
-            <Text style={styles.normal}>
-              Data de Nascimento
-            </Text>
-            <View>
-              <View style={stylesInput.container}>
-                <View style={stylesInput.segment}>
-                  <TextInput
-                    autoCapitalize='none'
-                    autoCorrect={false}
-                    style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'birthday': text } })}
-                    value={data.profile.birthday}
-                  />
-                </View>
-              </View>
-            </View>
+            
             <Text style={styles.normal}>
               Descrição
             </Text>
