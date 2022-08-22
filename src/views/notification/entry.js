@@ -2,26 +2,26 @@ import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({data, navigation}) => { 
+const Entry = ({ data, navigation }) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        switch(data.notification.refer) {
+        switch (data.notification.refer) {
         case 'comment':
-          navigation.navigate('Comments', {id: 1})
+          navigation.navigate('Comments', { id: data.notification.id_rate })
           break
         case 'follow':
-          navigation.navigate('Friend')
+          navigation.navigate('Friend', { id: data.user.id })
           break
         }
       }}
-      style={{flex: 1, flexDirection: 'column'}}    
+      style={{ flex: 1, flexDirection: 'column' }}
     >
       <View style={styles.container}>
         <View style={styles.profile}>
           <TouchableOpacity>
-            <Image source={{uri:data.user.photo}} style={styles.profile_image}/>
-          </TouchableOpacity> 
+            <Image source={{ uri: data.user.photo }} style={styles.profile_image} />
+          </TouchableOpacity>
         </View>
         <View style={styles.block}>
           <View style={styles.description_container}>
@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 100
   },
-  block:{
+  block: {
     flex: 1,
   },
-  text:{
+  text: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -61,17 +61,17 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: '#000000',
   },
-  description_container:{
+  description_container: {
     flexDirection: 'column',
     flex: 1,
     marginLeft: '7%',
     width: 212
   },
-  container:{
+  container: {
     flex: 1,
     flexDirection: 'row',
     marginTop: '7%',
   },
 })
-  
+
 export default Entry

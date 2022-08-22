@@ -1,8 +1,7 @@
 
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import Followers from '../views/followers/followers'
-import Following from '../views/following/following'
+import Following from '../views/friends/friends'
 
 
 
@@ -28,9 +27,9 @@ const FollowNavigator = () => (
     }}
   >
 
-    <Tab.Screen name="Seguidores" component={Followers} />
+    <Tab.Screen name="Seguidores" component={Following} initialParams={{ route_type: 'following' }} />
 
-    <Tab.Screen name="Seguindo" component={Following} />
+    <Tab.Screen name="Seguindo" component={Following} initialParams={{ route_type: 'followers' }} />
 
   </Tab.Navigator>
 )

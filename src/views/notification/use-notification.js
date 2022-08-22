@@ -6,29 +6,22 @@ import CONTRACTS from '../../routes/contracts'
 
 
 function setValues({ setNotifications, response }) {
-  setNotifications({notifications: response.data.notifications, loading: false})
+  setNotifications({ notifications: response.data, loading: false })
 }
 
 
-async function useNotification({profile, setNotifications }){
-  if (BRANCH == 'dev') {
-    if (NOTIFICATIONS == 1) {
-      setNotifications({
-        status: CONTRACTS.notifications.error.status,
-        msg: CONTRACTS.notifications.error.data.detail
-      })
-    } else {
-      setValues({ setNotifications, response: CONTRACTS.notifications.success})
-    }
+async function useNotification({ setNotifications }) {
+  if (BRANCH == 'dev' & NOTIFICATIONS == 1) {
+    setValues({ setNotifications, response: CONTRACTS.notifications.success })
     return
   }
 
-  await api.get(ROUTES.notifications + profile.id)
+  await api.get(ROUTES.notifications)
     .then((response) => {
-      setValues(setNotifications, response)
+      setValues({ setNotifications, response })
     }).catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
-      setNotifications({loading: false})
+      setNotifications({ loading: false })
     })
 }
 

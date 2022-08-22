@@ -12,9 +12,10 @@ const ROUTES = {
   view_profile: 'users/viewProfile',
   edit_profile: 'users/editProfile',
   books_by_status: 'users/books/',
-  get_following: '',
+  get_following: 'friends/',
   people_suggestion: 'users/extras/suggestion/get',
-
+  book_suggestion: 'getBook/extras/suggestion/get',
+  notifications: 'notification/',
   like: 'like/',
   gender: 'genre/userGenre',
 
