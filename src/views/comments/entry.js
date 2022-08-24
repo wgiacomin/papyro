@@ -4,17 +4,17 @@ import horizontal from '../../../assets/lines/straight.png'
 import Like from '../../components/heart'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({data, navigation}) => { 
+const Entry = ({ data, navigation }) => {
   return (
     <>
       <View style={styles.title}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Friend')}
+          onPress={() => navigation.navigate('Friend', { id: data.user.id })}
         >
-          <Image source={{uri: data.user.photo}} style={styles.person_image}/>  
+          <Image source={{ uri: data.user.photo }} style={styles.person_image} />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Friend')}
+          onPress={() => navigation.navigate('Friend', { id: data.user.id })}
         >
           <Text style={styles.person}>{data.user.nickname}</Text>
         </TouchableOpacity>
@@ -25,7 +25,7 @@ const Entry = ({data, navigation}) => {
       <View style={styles.footer}>
         <Text style={styles.date}>{data.date}</Text>
         <View style={styles.like_and_comments}>
-          <Like liked={data.you_liked} style={styles.icons} size={20} likes={data.likes} type={'c'} id={data.id}/>
+          <Like liked={data.you_liked} style={styles.icons} size={20} likes={data.likes} type={'c'} id={data.id} />
         </View>
       </View>
       <View style={styles.line}>
@@ -35,10 +35,10 @@ const Entry = ({data, navigation}) => {
   )
 }
 
-  
+
 export default Entry
 const styles = StyleSheet.create({
-  send:{
+  send: {
     alignSelf: 'center',
     marginRight: 10,
     width: 23,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     marginRight: '7%',
     marginBottom: '5%'
   },
-  person_image:{
+  person_image: {
     width: 32,
     height: 32,
     borderRadius: 25,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
   },
-  post_type:{
+  post_type: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 15
   },
-  line:{
+  line: {
     flex: 1,
     marginTop: 10,
     marginBottom: 10
@@ -158,14 +158,14 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 15
   },
-  star:{
+  star: {
     width: 19,
     height: 19,
   },
   star_container: {
     flex: 1,
     flexDirection: 'row',
-      
+
   },
   book_image: {
     maxWidth: 80,
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  container_book_title:{
+  container_book_title: {
     flex: 1,
     alignItems: 'center',
     marginTop: 15,
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'center'
   },
-  date:{
+  date: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 11,
