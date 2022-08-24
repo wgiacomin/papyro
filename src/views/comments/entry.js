@@ -4,12 +4,12 @@ import horizontal from '../../../assets/lines/straight.png'
 import Like from '../../components/heart'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({ data, navigation }) => {
+const Entry = ({ data, navigation, reviewer }) => {
   return (
     <>
       <View style={styles.title}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Friend', { id: data.user.id })}
+          onPress={() => navigation.navigate('Friend', { id: reviewer.id })}
         >
           <Image source={{ uri: data.user.photo }} style={styles.person_image} />
         </TouchableOpacity>

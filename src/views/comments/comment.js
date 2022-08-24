@@ -51,12 +51,12 @@ const Comment = ({ navigation, route }) => {
             <>
               <View style={styles.title}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('Friend')}
+                  onPress={() => navigation.navigate('Friend', { id: comments.reviewer.id })}
                 >
                   <Image source={{ uri: comments.reviewer.photo }} style={styles.person_image} />
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('Friend')}
+                  onPress={() => navigation.navigate('Friend', { id: comments.reviewer.id })}
                 >
                   <Text style={styles.person}>{comments.reviewer.nickname}</Text>
                 </TouchableOpacity>
@@ -122,6 +122,7 @@ const Comment = ({ navigation, route }) => {
             return <Entry
               data={post.item}
               navigation={navigation}
+              reviewer={comments.reviewer}
             />
           }} />
       </View>
