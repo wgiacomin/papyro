@@ -29,7 +29,7 @@ api.interceptors.response.use(
     return (response)
   },
   async (err) => {
-    if (err.response.status == 401) {
+    if (err.response.status == 401 | err.response.status == 403) {
       const refresh_token = await AsyncStorage.getItem('refresh_token')
       if (refresh_token) {
         await axios.get(`${ROUTES.baseURL}/${ROUTES.refresh}`,

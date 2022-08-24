@@ -7,16 +7,16 @@ import Rate from '../../components/rate-stars'
 import comments from '../../../assets/icons/chat.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({post, navigation }) => { 
+const Entry = ({ post, navigation }) => {
   return (<>
     <View style={styles.comment_title}
       key={post.item.id}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('People', {id: post.item.user.id})}>
+        onPress={() => navigation.navigate('Friend', { id: post.item.user.id })}>
         <Image source={{ uri: post.item.user.photo }} style={styles.user_image} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate('People', {id: post.item.user.id})}>
+        onPress={() => navigation.navigate('Friend', { id: post.item.user.id })}>
         <Text style={styles.person}>{post.item.user.nickname}</Text>
       </TouchableOpacity>
     </View>
@@ -41,7 +41,7 @@ const Entry = ({post, navigation }) => {
         </View>
 
         <TouchableOpacity style={styles.buttons}
-          onPress={() => navigation.navigate('Comments' , { id: post.item.id})}>
+          onPress={() => navigation.navigate('Comments', { id: post.item.id })}>
           <Image source={comments} style={styles.icons} />
           <Text style={styles.icon_text}> {post.item.comments} </Text>
         </TouchableOpacity>

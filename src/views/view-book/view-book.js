@@ -40,8 +40,8 @@ const ViewBook = ({ navigation, route }) => {
     setClickedId(id)
   }
 
-  function setNewState({newState}) {
-    setBook({...book, book:{...book.book, status: newState}})
+  function setNewState({ newState }) {
+    setBook({ ...book, book: { ...book.book, status: newState } })
   }
 
   useEffect(() => {
@@ -56,17 +56,17 @@ const ViewBook = ({ navigation, route }) => {
       </View>
     )
   }
-  
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <BackButton navigation={navigation}/>
+      <BackButton navigation={navigation} />
       <View style={styles.standart}>
         <FlatList
           ListHeaderComponent={
             <>
               <View style={styles.segment}>
                 <Text style={styles.gender_title}>
-              Gênero: <Text style={styles.underline}>{book.book.genre[0]}</Text>
+                  Gênero: <Text style={styles.underline}>{book.book.genre[0]}</Text>
                 </Text>
                 <View style={styles.share_segment}>
                   <TouchableOpacity onPress={onShare}>
@@ -90,9 +90,9 @@ const ViewBook = ({ navigation, route }) => {
                     </View>
                     <Text style={styles.star_number}>({book.book.raters})</Text>
                   </TouchableOpacity>
-                </View>            
+                </View>
               </View>
-          
+
 
               <View style={styles.resume_segment}>
                 <Text style={styles.resume}>
@@ -101,21 +101,21 @@ const ViewBook = ({ navigation, route }) => {
                 <View style={styles.want_to_read_container}>
                   <Menu>
                     <MenuTrigger>
-                      <Text style={book.book.status == 0 ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[book.book.status]} </Text>    
+                      <Text style={book.book.status == null ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[book.book.status]} </Text>
                     </MenuTrigger>
                     <MenuOptions style={styles.options_color}>
-                      <MenuOption onSelect={() => setNewState({newState: 0})} text={READ_TYPE[0]} disabled={book.book.status == 0}/>
-                      <MenuOption onSelect={() => setNewState({newState: 1})} text={READ_TYPE[1]} disabled={book.book.status == 1}/>
-                      <MenuOption onSelect={() => setNewState({newState: 2})} text={READ_TYPE[2]} disabled={book.book.status == 2}/>
-                      <MenuOption onSelect={() => setNewState({newState: 3})} text={READ_TYPE[3]} disabled={book.book.status == 3} />
+                      <MenuOption onSelect={() => setNewState({ newState: null })} text={'Adicionar'} disabled={book.book.status == null} />
+                      <MenuOption onSelect={() => setNewState({ newState: 1 })} text={READ_TYPE[1]} disabled={book.book.status == 1} />
+                      <MenuOption onSelect={() => setNewState({ newState: 2 })} text={READ_TYPE[2]} disabled={book.book.status == 2} />
+                      <MenuOption onSelect={() => setNewState({ newState: 3 })} text={READ_TYPE[3]} disabled={book.book.status == 3} />
                     </MenuOptions>
                   </Menu>
                 </View>
               </View>
-          
+
               <View>
                 <Text style={styles.title}>
-              Procurando Companhia?
+                  Procurando Companhia?
                 </Text>
                 <View style={styles.company}>
                   <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?')}>
@@ -123,7 +123,7 @@ const ViewBook = ({ navigation, route }) => {
                   </TouchableOpacity>
                   <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?')}>
                     <Text style={styles.company_title}>
-                  Pessoas ({book.book.company})
+                      Pessoas ({book.book.company})
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -148,7 +148,7 @@ const ViewBook = ({ navigation, route }) => {
           data={book.book.reviews}
           keyExtractor={(item) => item.id.toString()}
           numColumns={1}
-          renderItem={(post) => <Entry navigation={navigation} post={post}/> } />
+          renderItem={(post) => <Entry navigation={navigation} post={post} />} />
       </View >
     </SafeAreaView >
   )
