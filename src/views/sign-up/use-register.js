@@ -11,6 +11,7 @@ function setValues({ setRes, response }) {
 }
 
 async function useRegister({ data, setRes }) {
+
   if (BRANCH == 'dev') {
     if (SIGNUP == 1) {
       setRes({
@@ -22,15 +23,17 @@ async function useRegister({ data, setRes }) {
     }
     return
   }
+  
 
-  if (data.name == '' || data.nickname == '' || data.email == '' || data.password == '') {
+  if (data.name == '' || data.nickname == '' || data.email == '' || data.password == '' || data.confirmation_password == '') {
     Alert.alert('Atenção!', 'Preencha todos os campos!')
   } else {
     await api.post(ROUTES.signup, {
       'name': data.name,
       'nickname': data.nickname,
       'email': data.email,
-      'password': data.password
+      'password': data.password,
+      'confirmation_password': data.confirmation_password,
     }).then((response) =>
       setRes({
         status: response.status

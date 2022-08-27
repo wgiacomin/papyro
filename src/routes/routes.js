@@ -7,6 +7,8 @@ const ROUTES = {
   forget_password: '/login/forgotPassword',
   reset_password: '/login/resetPassword',
 
+  signup: 'users/',
+
   comments: 'comments/',
   get_book: 'getBook/',
 

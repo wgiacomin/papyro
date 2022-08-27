@@ -36,11 +36,9 @@ const Register = ({ navigation }) => {
   const [data, setData] = useState({ 
     name: '',
     nickname: '',
-    photo: '',
-    description: '',
     email: '',
     password: '',
-    confirm_password: '',  
+    confirmation_password: '',  
   })
 
   return (
@@ -81,7 +79,8 @@ const Register = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 useRegister({ data, setRes })
-                navigation.navigate('GenreSelection')}}>
+                // navigation.navigate('GenreSelection')
+              }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
           </View>

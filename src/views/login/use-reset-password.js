@@ -16,7 +16,7 @@ async function useResetPassword({ data }) {
       'email': data.email, 
       'reset_password_code': data.code_otp, 
       'new_password': data.password, 
-      'confirm_password': data.confirmation_password,
+      'confirmation_password': data.confirmation_password,
     }).then(() => {
       Alert.alert('Atenção!', 'Senha alterada com sucesso.')
     }).catch((error) => {
