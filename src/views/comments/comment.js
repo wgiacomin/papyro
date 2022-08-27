@@ -81,10 +81,10 @@ const Comment = ({ navigation, route }) => {
                   <View style={styles.want_to_read_container}>
                     <Menu>
                       <MenuTrigger>
-                        <Text style={comments.book.status == 0 ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[comments.book.status]} </Text>
+                        <Text style={comments.book.status == null ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[comments.book.status]} </Text>
                       </MenuTrigger>
                       <MenuOptions style={styles.options_color}>
-                        <MenuOption onSelect={() => setNewState({ newState: 0 })} text={READ_TYPE[0]} disabled={comments.book.status == 0} />
+                        <MenuOption onSelect={() => setNewState({ newState: null })} text={READ_TYPE[null]} disabled={comments.book.status == null} />
                         <MenuOption onSelect={() => setNewState({ newState: 1 })} text={READ_TYPE[1]} disabled={comments.book.status == 1} />
                         <MenuOption onSelect={() => setNewState({ newState: 2 })} text={READ_TYPE[2]} disabled={comments.book.status == 2} />
                         <MenuOption onSelect={() => setNewState({ newState: 3 })} text={READ_TYPE[3]} disabled={comments.book.status == 3} />
