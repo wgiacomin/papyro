@@ -2,20 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
-import EmailBar from '../../components/email-bar'
+import CodeOtp from '../../components/code-otp-bar'
+import PasswordBar from '../../components/password-bar'
+import ConfirmationPasswordBar from '../../components/confirmation-password-bar'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
-import useForgetPassword from './use-forget-password'
+import useResetPassword from './use-reset-password'
 
-const ForgetPassword = ({ navigation }) => {
 
+const ResetPassword = ({ navigation, route }) => {
+	
   const [res, setRes] = useState({
     status: 0,
     msg: '' ,
   })
   
   const [data, setData] = useState({
-    email: '',
+    email: route.params?.email,
+    code_otp: '',
+    password: '',
+    confirmation_password: '',
   })
 
   useEffect(() => {
@@ -25,26 +31,29 @@ const ForgetPassword = ({ navigation }) => {
     }
   },[res])
 
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <BackButton navigation={navigation} />
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.title}>
-            Esqueceu sua senha?
+            Resetar Senha.
           </Text>
           <Text style={styles.subtitle}>
-            Digite seu e-mail para recuperar sua senha.
+            Preencha os campos.
           </Text>
         </View>
         <View style={styles.segment}>
-          <EmailBar data={data} setData={setData}/>
+          <CodeOtp data={data} setData={setData}/>
+          <PasswordBar data={data} setData={setData}/>
+          <ConfirmationPasswordBar data={data} setData={setData}/>
         </View>
         <View style={styles.buttonSegment}>
           <TouchableOpacity
             onPress={() => {
-              useForgetPassword({data})
-              navigation.navigate('ResetPassword', { email: data.email })
+              useResetPassword({data})
+              navigation.navigate('Login')
             }}>
             <Image source={circleButton} style={styles.buttonSize} />
           </TouchableOpacity>
@@ -54,4 +63,4 @@ const ForgetPassword = ({ navigation }) => {
   )
 }
 
-export default ForgetPassword
+export default ResetPassword

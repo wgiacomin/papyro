@@ -3,13 +3,13 @@ import { View, Image, TextInput, StyleSheet, Alert } from 'react-native'
 import lock from '../../assets/icons/lock.png'
 import vertical from '../../assets/lines/straight.png'
 
-const PasswordBar = ({ data, setData }) => {
-  function validatePassword(password) {
-    if (password.length >= 8 | password.length == 0) {
+const CodeOtp = ({ data, setData }) => {
+  function validateCodeOtp(code_otp) {
+    if (code_otp.length >= 6 | code_otp.length == 0) {
       return (true)
     }
-    Alert.alert('Atenção!', 'A senha deve conter ao menos 8 dígitos.')
-    setData({ ...data, 'senha': '' })
+    Alert.alert('Atenção!', 'Código inválido.')
+    setData({ ...data, 'code_otp': '' })
     return (false)
   }
 
@@ -22,14 +22,12 @@ const PasswordBar = ({ data, setData }) => {
           <TextInput
             autoCapitalize="none"
             autoCorrect={false}
-            placeholder="Senha"
-            textContentType='newPassword'
-            secureTextEntry
+            placeholder="Código PIN"
             enablesReturnKeyAutomatically
             style={styles.textInput}
-            onChangeText={text => setData({...data, 'password': text})}
-            value={data.senha}
-            onEndEditing={() => validatePassword(data.password)}
+            onChangeText={text => setData({...data, 'code_otp': text})}
+            value={data.code_otp}
+            onEndEditing={() => validateCodeOtp(data.code_otp)}
             returnKeyType={'done'}
           />
         </View>
@@ -82,4 +80,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default PasswordBar
+export default CodeOtp

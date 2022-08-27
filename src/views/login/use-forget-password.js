@@ -8,7 +8,7 @@ async function useForgetPassword({ data }) {
     Alert.alert('Atenção!', 'Você receberá um e-mail contendo instruções para a troca de senha.')
     return
   }
-
+  console.log(data)
   if (data.email == '') {
     Alert.alert('Atenção!', 'Preencha todos os campos!')
   } else {

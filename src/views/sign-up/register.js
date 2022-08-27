@@ -5,6 +5,7 @@ import styles from './register-style'
 import ProfileBar from '../../components/profile-bar'
 import NicknameBar from '../../components/nickname-bar'
 import EmailBar from '../../components/email-bar'
+import ConfirmationPasswordBar from '../../components/confirmation-password-bar'
 import PasswordBar from '../../components/password-bar'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
@@ -32,11 +33,14 @@ const Register = ({ navigation }) => {
   }, [res])
   
 
-  const [data, setData] = useState({
-    name:'',
+  const [data, setData] = useState({ 
+    name: '',
     nickname: '',
+    photo: '',
+    description: '',
     email: '',
     password: '',
+    confirm_password: '',  
   })
 
   return (
@@ -56,6 +60,7 @@ const Register = ({ navigation }) => {
           <NicknameBar data={data} setData={setData} />
           <EmailBar data={data} setData={setData} />
           <PasswordBar data={data} setData={setData} />
+          <ConfirmationPasswordBar data={data} setData={setData}/>
         </View>
         <View style={styles.term}>
           <View>
@@ -74,7 +79,6 @@ const Register = ({ navigation }) => {
         <View style={styles.buttonSegment}>
           <View style={styles.continueSegment}>
             <TouchableOpacity
-              //onPress={() => navigation.navigate('GenreSelection')}
               onPress={() => {
                 useRegister({ data, setRes })
                 navigation.navigate('GenreSelection')}}>
