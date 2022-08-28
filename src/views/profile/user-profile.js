@@ -13,7 +13,6 @@ import useProfile from './use-profile'
 
 const UserProfile = ({ navigation }) => {
   const { setProfile } = useAuthDispatch()
-  const { profile } = useAuthState()
 
   const [data, setData] = useState({
     profile: {},

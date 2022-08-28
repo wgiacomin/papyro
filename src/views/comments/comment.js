@@ -16,25 +16,35 @@ import {
   MenuTrigger,
 } from 'react-native-popup-menu'
 import READ_TYPE from '../../enum/READ_TYPE'
+import useNewComment from './use-new-comment'
 
 const Comment = ({ navigation, route }) => {
-  const [comments, setComment] = useState({
+  const [refreshing, setRefreshing] = useState(false)
+  const [comments, setComment] = useState([])
+  const [newComment, setNewComment] = useState(null)
+
+  const [data, setData] = useState({
+    page: 0,
     loading: true,
-    comments: [],
+  })
+
+  const [extraInfo, setExtraInfo] = useState({
+    loading: true,
     book: {},
     review: {},
     reviewer: {}
   })
 
   useEffect(() => {
-    useComment({ setComment, id: route.params.id })
+    useComment({ setComment, page: 0, refreshing, setRefreshing, setData, comments, setExtraInfo, id: route.params.id, new_refresh: true })
   }, [])
 
+
   function setNewState({ newState }) {
-    setComment({ ...comments, book: { ...comments.book, status: newState } })
+    setComment({ ...extraInfo, book: { ...extraInfo.book, status: newState } })
   }
 
-  if (comments.loading) {
+  if (extraInfo.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
         <ActivityIndicator size="large" color="#00000" />
@@ -51,62 +61,62 @@ const Comment = ({ navigation, route }) => {
             <>
               <View style={styles.title}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('Friend', { id: comments.reviewer.id })}
+                  onPress={() => navigation.navigate('Friend', { id: extraInfo.reviewer.id })}
                 >
-                  <Image source={{ uri: comments.reviewer.photo }} style={styles.person_image} />
+                  <Image source={{ uri: extraInfo.reviewer.photo }} style={styles.person_image} />
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('Friend', { id: comments.reviewer.id })}
+                  onPress={() => navigation.navigate('Friend', { id: extraInfo.reviewer.id })}
                 >
-                  <Text style={styles.person}>{comments.reviewer.nickname}</Text>
+                  <Text style={styles.person}>{extraInfo.reviewer.nickname}</Text>
                 </TouchableOpacity>
                 <Text style={styles.post_type}>avaliou o livro:</Text>
               </View>
               <View style={styles.container_book}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('ViewBook', { id: comments.book.id })}
+                  onPress={() => navigation.navigate('ViewBook', { id: extraInfo.book.id })}
                 >
-                  <Image source={{ uri: comments.book.cover }} style={styles.book_image} />
+                  <Image source={{ uri: extraInfo.book.cover }} style={styles.book_image} />
                 </TouchableOpacity>
                 <View style={styles.container_book_title}>
                   <View>
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('ViewBook', { id: comments.book.id })}
+                      onPress={() => navigation.navigate('ViewBook', { id: extraInfo.book.id })}
                     >
-                      <Text style={styles.book_title}>{comments.book.book_title}</Text>
+                      <Text style={styles.book_title}>{extraInfo.book.book_title}</Text>
                     </TouchableOpacity>
-                    <Text style={styles.book_subtitle}>{comments.book.author}</Text>
+                    <Text style={styles.book_subtitle}>{extraInfo.book.author}</Text>
                   </View>
-                  <Rate stars={comments.review.rate} size={24} />
+                  <Rate stars={extraInfo.review.rate} size={24} />
                   <View style={styles.want_to_read_container}>
                     <Menu>
                       <MenuTrigger>
-                        <Text style={comments.book.status == null ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[comments.book.status]} </Text>
+                        <Text style={extraInfo.book.status == null ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[extraInfo.book.status]} </Text>
                       </MenuTrigger>
                       <MenuOptions style={styles.options_color}>
-                        <MenuOption onSelect={() => setNewState({ newState: null })} text={READ_TYPE[null]} disabled={comments.book.status == null} />
-                        <MenuOption onSelect={() => setNewState({ newState: 1 })} text={READ_TYPE[1]} disabled={comments.book.status == 1} />
-                        <MenuOption onSelect={() => setNewState({ newState: 2 })} text={READ_TYPE[2]} disabled={comments.book.status == 2} />
-                        <MenuOption onSelect={() => setNewState({ newState: 3 })} text={READ_TYPE[3]} disabled={comments.book.status == 3} />
+                        <MenuOption onSelect={() => setNewState({ newState: null })} text={READ_TYPE[null]} disabled={extraInfo.book.status == null} />
+                        <MenuOption onSelect={() => setNewState({ newState: 1 })} text={READ_TYPE[1]} disabled={extraInfo.book.status == 1} />
+                        <MenuOption onSelect={() => setNewState({ newState: 2 })} text={READ_TYPE[2]} disabled={extraInfo.book.status == 2} />
+                        <MenuOption onSelect={() => setNewState({ newState: 3 })} text={READ_TYPE[3]} disabled={extraInfo.book.status == 3} />
                       </MenuOptions>
                     </Menu>
                   </View>
                 </View>
               </View>
               <Text style={styles.text}>
-                {comments.review.review}
+                {extraInfo.review.review}
               </Text>
               <View style={styles.footer}>
-                <Text style={styles.date}>{comments.review.date}</Text>
+                <Text style={styles.date}>{extraInfo.review.date}</Text>
                 <View style={styles.like_and_comments}>
-                  <Like liked={comments.review.you_liked} size={20} likes={comments.review.likes} type={'r'} id={comments.review.id} />
+                  <Like liked={extraInfo.review.you_liked} size={20} likes={extraInfo.review.likes} type={'r'} id={extraInfo.review.id} />
                 </View>
               </View>
               <View style={styles.line}>
                 <Image source={horizontal} style={styles.horizontalLine} />
               </View>
               <View>
-                <Text style={styles.number_comments}>{comments.comments.length} comentário(s)</Text>
+                <Text style={styles.number_comments}>{extraInfo.review.comments} comentário(s)</Text>
               </View>
             </>
           }
@@ -115,14 +125,21 @@ const Comment = ({ navigation, route }) => {
               Fim dos comentários
             </Text>
           }
-          data={comments.comments}
+          data={comments}
           keyExtractor={(item) => item.id.toString()}
           numColumns={1}
+          onEndReached={() => useComment({ setComment, page: data.page, refreshing, setRefreshing, setData, comments, id: route.params.id })}
+          onEndReachedThreshold={.5}
+          ListEmptyComponent={() => <Text></Text>}
+          refreshing={data.loading}
+          onRefresh={() => {
+            setData({ loading: true })
+            useComment({ setComment, page: 0, refreshing, setRefreshing, setData, comments, new_refresh: true, id: route.params.id, setExtraInfo })
+          }}
           renderItem={(post) => {
             return <Entry
               data={post.item}
               navigation={navigation}
-              reviewer={comments.reviewer}
             />
           }} />
       </View>
@@ -134,13 +151,18 @@ const Comment = ({ navigation, route }) => {
             placeholder='Comentar'
             style={styles.textInput}
             autoCompleteType='name'
+            value={newComment}
+            onChangeText={text => setNewComment(text)}
           />
         </View>
         <View style={styles.send}>
-          <Image source={send} />
+          <TouchableOpacity
+            onPress={() => useNewComment({ id: extraInfo.review.id, text: newComment, setNewComment })} >
+            <Image source={send} />
+          </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+    </SafeAreaView >
   )
 }
 
