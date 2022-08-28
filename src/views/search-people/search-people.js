@@ -1,36 +1,22 @@
-import React, {useState, useEffect} from 'react'
-import { ActivityIndicator, View, StyleSheet, TextInput, LogBox, Image, TouchableOpacity} from 'react-native'
-import SearchEntries from '../search-people/search-people-entries'
+import React, { useState } from 'react'
+import { View, StyleSheet, TextInput, FlatList, Image, TouchableOpacity, Text } from 'react-native'
 import horizontal from '../../../assets/lines/straight.png'
 import useSearch from './use-search-people'
-import spinner from '../../styles/spinner'
 import search from '../../../assets/icons/search.png'
+import Entry from './entry'
 
 const SearchPeople = ({ navigation }) => {
-  LogBox.ignoreLogs(['Require cycle'])
-
-  
+  const [refreshing, setRefreshing] = useState(false)
   const [data, setData] = useState({
-    page: 1,
-    loading: true,
+    page: 0,
+    loading: false,
   })
-  
-  const [people, setPeople] = useState([])
-  const [refreshing, setRefresing] = useState(false)
-  
-  useEffect(() => {
-    useSearch({setData, page: 1, setPeople, people, data, setRefresing, refreshing})
-  }, [])
-  
-  if (data.loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
 
-  return ( 
+  const [people, setPeople] = useState([])
+  const [term, setTerm] = useState(null)
+
+
+  return (
     <>
       <View style={styles.search_segment}>
         <TextInput
@@ -39,30 +25,48 @@ const SearchPeople = ({ navigation }) => {
           placeholder='Digite para pesquisar...'
           style={styles.textInput}
           autoCompleteType='name'
+          value={term}
+          onChangeText={text => setTerm(text)}
         />
         <TouchableOpacity style={styles.search_segment_click}
-          onPress={() => useSearch(setData)}
+          onPress={() => {
+            setData({ page: 0, loading: true, })
+            useSearch({ setPeople, page: 0, refreshing, setRefreshing, setData, people, new_refresh: true, term })
+          }}
         >
-          <Image source={search} style={styles.search}/>
+          <Image source={search} style={styles.search} />
         </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <View style={styles.line}>
           <Image source={horizontal} style={styles.horizontalLine} />
         </View>
-        <SearchEntries data={data} 
-          people={people} 
-          setPeople={setPeople} 
-          navigation={ navigation } 
-          useSearch={useSearch}
-          setRefresing={setRefresing}
-          refreshing={refreshing}
-          setData />
+        <FlatList
+          data={people}
+          numColumns={1}
+          keyExtractor={(item) => item.id.toString()}
+          onEndReached={() => useSearch({ setData, data, setPeople, people, page: data.page, refreshing, setRefreshing, term })}
+          onEndReachedThreshold={.1}
+          refreshing={data.loading}
+          onRefresh={() => {
+            setData({ loading: true })
+            useSearch({ setPeople, page: 0, refreshing, setRefreshing, setData, people, new_refresh: true, term })
+          }}
+          ListEmptyComponent={() => <Text>Nenhum resultado!</Text>}
+          renderItem={(post) => {
+            return <Entry
+              name={post.item.nickname}
+              commom_books={post.item.common_books}
+              commom_genre={post.item.common_genre}
+              image={post.item.photo}
+              navigation={navigation}
+            />
+          }} />
       </View>
     </>
   )
 }
-  
+
 export default SearchPeople
 
 const styles = StyleSheet.create({
@@ -72,7 +76,7 @@ const styles = StyleSheet.create({
     marginRight: '5%',
     marginBottom: '5%'
   },
-  segment:{
+  segment: {
     flexDirection: 'row',
   },
   title: {
@@ -107,7 +111,7 @@ const styles = StyleSheet.create({
     height: 40,
     flex: 1
   },
-  search_segment:{
+  search_segment: {
     flexDirection: 'row',
     backgroundColor: 'white',
     borderRadius: 10,
@@ -117,10 +121,10 @@ const styles = StyleSheet.create({
     marginLeft: '5%',
     marginRight: '5%'
   },
-  search_segment_click:{
+  search_segment_click: {
     marginRight: '5%'
   },
-  line_selected:{
+  line_selected: {
     flex: 1,
     marginTop: 10,
     marginLeft: 60,
@@ -132,7 +136,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
   },
-  line:{
+  line: {
     flex: 1,
     marginTop: 1,
     marginBottom: 10

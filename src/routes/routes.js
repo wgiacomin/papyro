@@ -20,7 +20,8 @@ const ROUTES = {
   gender: 'genre/userGenre',
 
   feed: 'feed/',
-  book_search: 'getBook/search/'
+  book_search: 'getBook/search/',
+  people_search: 'users/search'
 
 }
 

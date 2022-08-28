@@ -22,6 +22,10 @@ function setValues({ setData, response, page, setBooks, books, setRefreshing, ne
 
 
 async function useSearch({ setData, page, books, setBooks, refreshing, setRefreshing, term, new_refresh }) {
+  if (term == null) {
+    return
+  }
+
   if (BRANCH == 'dev' & SEARCH == 1) {
     if (page == 1 & books.length < 10) {
       setValues({ setData, response: CONTRACTS.search.success.page1, page, setBooks, books, setRefreshing })
