@@ -22,8 +22,9 @@ const ROUTES = {
 
   feed: 'feed/',
   book_search: 'getBook/search/',
-  people_search: 'users/search'
+  people_search: 'users/search',
 
+  rate: 'rate/'
 }
 
 export default ROUTES

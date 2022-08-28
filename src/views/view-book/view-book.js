@@ -78,7 +78,12 @@ const ViewBook = ({ navigation, route }) => {
                   <Text style={styles.book_autor}>
                     {book.book.author[0].name}
                   </Text>
-                  <TouchableOpacity onPress={() => navigation.navigate('Review')}>
+                  <TouchableOpacity onPress={() => navigation.navigate('Review', {
+                    book_title: book.book.book_title,
+                    author: book.book.author[0],
+                    cover: book.book.cover,
+                    id: book.book.id
+                  })}>
                     <View style={styles.star_container_avaliation}>
                       <Rate stars={book.book.rate} size={26} />
                     </View>
