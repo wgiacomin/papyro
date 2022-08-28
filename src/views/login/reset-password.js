@@ -38,7 +38,7 @@ const ResetPassword = ({ navigation, route }) => {
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.title}>
-            Resetar Senha.
+            Recuperar Senha.
           </Text>
           <Text style={styles.subtitle}>
             Preencha os campos.
@@ -52,7 +52,7 @@ const ResetPassword = ({ navigation, route }) => {
         <View style={styles.buttonSegment}>
           <TouchableOpacity
             onPress={() => {
-              useResetPassword({data})
+              useResetPassword({data, setRes})
               navigation.navigate('Login')
             }}>
             <Image source={circleButton} style={styles.buttonSize} />

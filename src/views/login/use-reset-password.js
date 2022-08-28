@@ -3,7 +3,7 @@ import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { BRANCH } from '@env'
 
-async function useResetPassword({ data }) {
+async function useResetPassword({ data, setRes}) {
   if (BRANCH == 'dev') {
     Alert.alert('Atenção!', 'Senha alterada com sucesso.')
     return
@@ -20,7 +20,10 @@ async function useResetPassword({ data }) {
     }).then(() => {
       Alert.alert('Atenção!', 'Senha alterada com sucesso.')
     }).catch((error) => {
-      console.log(error.response.data)
+      setRes({
+        status: error.response.status,
+        msg: error.response.data.detail,
+      })
     })
   }
 }
