@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 5,
+    paddingRight: 60
   },
   author: {
     fontFamily: 'Poppins',
