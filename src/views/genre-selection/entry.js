@@ -3,24 +3,27 @@ import { Text, View, TouchableOpacity, Image } from 'react-native'
 import AddButton from '../../../assets/buttons/addButton.png'
 import RemoveButton from '../../../assets/buttons/removeButton.png'
 import styles from './genre-style'
+import updateGenre from './update-genre'
 
 
-// eslint-disable-next-line react/prop-types
-const Entry = ({ post }) => {
-  const [image, setImage] = useState(AddButton)
-
+const Entry = ({ item }) => {
   const handleClick = () => {
     if (image == AddButton) {
+      updateGenre({ id: item.id, mode: true })
       setImage(RemoveButton)
     } else {
+      updateGenre({ id: item.id, mode: false })
       setImage(AddButton)
     }
   }
+
+  const [image, setImage] = useState(item.select_genre ? RemoveButton : AddButton)
+
   return (
     <>
       <View style={styles.segment}>
         <Text style={styles.bold}>
-          {post.item.name}
+          {item.name}
         </Text>
         <View style={styles.buttonSegment2}>
           <View style={styles.continueSegment2}>
@@ -31,7 +34,7 @@ const Entry = ({ post }) => {
           </View>
         </View>
         <Text style={styles.description}>
-          {post.item.description}
+          {item.description}
         </Text>
       </View>
     </>

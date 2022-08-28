@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator, ScrollView } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './profile-style'
 import vertical from '../../../assets/lines/straight.png'
-import profile_image from '../../../assets/icons/profile_image.png'
 import followers from '../../../assets/icons/followers.png'
 import booksReaded from '../../../assets/icons/books_readed.png'
 import UserProfileBar from '../../components/user-profile-bar'
@@ -12,7 +11,7 @@ import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
 
-const UserProfile = ({ navigation }) => { 
+const UserProfile = ({ navigation }) => {
   const { setProfile } = useAuthDispatch()
   const { profile } = useAuthState()
 
@@ -22,7 +21,7 @@ const UserProfile = ({ navigation }) => {
   })
 
   useEffect(() => {
-    useProfile({setData, setProfile})
+    useProfile({ setData, setProfile })
   }, [])
 
   if (data.loading) {
@@ -35,13 +34,13 @@ const UserProfile = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <UserProfileBar navigation={navigation}/>
+      <UserProfileBar navigation={navigation} />
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.user}>
-            {data.profile.name} 
+            {data.profile.name}
           </Text>
-          <Image source={{uri:data.profile.photo}} style={styles.profileSize} />
+          <Image source={{ uri: data.profile.photo }} style={styles.profileSize} />
         </View>
         <View style={styles.book_segment}>
           <TouchableOpacity
@@ -50,16 +49,16 @@ const UserProfile = ({ navigation }) => {
             <Text style={styles.normal}>
               {data.profile.followers} Seguidores
             </Text>
-          </TouchableOpacity> 
+          </TouchableOpacity>
         </View>
-        <View style={styles.book_segment}>  
+        <View style={styles.book_segment}>
           <TouchableOpacity
             onPress={() => navigation.navigate('Livros')}>
-            <Image source={booksReaded} style={styles.imageSize} /> 
+            <Image source={booksReaded} style={styles.imageSize} />
             <Text style={styles.normal}>
-                Ver Minha Biblioteca
+              Ver Minha Biblioteca
             </Text>
-          </TouchableOpacity>       
+          </TouchableOpacity>
         </View>
         <Image source={vertical} style={styles.horizontalLine} />
         <DescriptionBar description={data.profile.description} />

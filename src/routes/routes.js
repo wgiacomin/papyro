@@ -17,7 +17,8 @@ const ROUTES = {
   book_suggestion: 'getBook/extras/suggestion/get',
   notifications: 'notification/',
   like: 'like/',
-  gender: 'genre/userGenre',
+  genre: 'genre/userGenre',
+  update_genre: 'genre/save/',
 
   feed: 'feed/',
   book_search: 'getBook/search/',
