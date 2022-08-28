@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 18,
     lineHeight: 23,
-    paddingRight: 50
+    paddingRight: 60
   },
   book_title_container: {
     flex: 1,
