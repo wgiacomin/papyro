@@ -1,34 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Text, TouchableOpacity, Image, TextInput, ActivityIndicator, LogBox } from 'react-native'
-import SearchEntries from '../search-book/search-book-entries'
+import { View, StyleSheet, Text, TouchableOpacity, Image, TextInput, FlatList } from 'react-native'
 import horizontal from '../../../assets/lines/straight.png'
 import search from '../../../assets/icons/search.png'
 import useSearch from './use-search-book'
-import spinner from '../../styles/spinner'
+import Entry from './entry'
 
-const SearchBook = ({ navigation }) => {
-  LogBox.ignoreLogs(['Require cycle'])
-
+const SearchBook = ({ navigation, route }) => {
+  const [refreshing, setRefreshing] = useState(false)
   const [data, setData] = useState({
-    page: 1,
+    page: 0,
     loading: true,
   })
 
   const [books, setBooks] = useState([])
-  const [refreshing, setRefresing] = useState(false)
+  const [term, setTerm] = useState(route.params?.term)
 
   useEffect(() => {
-    useSearch({setData, page: 1, setBooks, books, data, setRefresing, refreshing})
+    useSearch({ setData, page: 0, setBooks, books, data, setRefreshing, refreshing, term })
   }, [])
 
-  
-  if (data.loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
 
   return (
     <>
@@ -39,30 +29,48 @@ const SearchBook = ({ navigation }) => {
           placeholder='Digite para pesquisar...'
           style={styles.textInput}
           autoCompleteType='name'
+          value={term}
+          onChangeText={text => setTerm(text)}
         />
         <TouchableOpacity style={styles.search_segment_click}
-          onPress={() => useSearch(setData)}
+          onPress={() => {
+            setData({ page: 0, loading: true, })
+            useSearch({ setBooks, page: 0, refreshing, setRefreshing, setData, books, new_refresh: true, term })
+          }}
         >
-          <Image source={search} style={styles.search}/>
+          <Image source={search} style={styles.search} />
         </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <View style={styles.line}>
           <Image source={horizontal} style={styles.horizontalLine} />
         </View>
-        <SearchEntries data={data} 
-          books={books} 
-          setBooks={setBooks} 
-          navigation={ navigation } 
-          useSearch={useSearch}
-          setRefresing={setRefresing}
-          refreshing={refreshing}
-          setData />         
+        <FlatList
+          data={books}
+          numColumns={1}
+          keyExtractor={(item) => item.id.toString()}
+          onEndReached={() => useSearch({ setData, data, setBooks, books, page: data.page, refreshing, setRefreshing, term })}
+          onEndReachedThreshold={.1}
+          refreshing={data.loading}
+          onRefresh={() => {
+            setData({ loading: true })
+            useSearch({ setBooks, page: 0, refreshing, setRefreshing, setData, books, new_refresh: true, term })
+          }}
+          ListEmptyComponent={() => <Text>Nenhum resultado!</Text>}
+          renderItem={(post) => {
+            return <Entry
+              name={post.item.book_title}
+              cover={post.item.cover}
+              author={post.item.author[0]}
+              rate={post.item.rate}
+              navigation={navigation}
+            />
+          }} />
       </View>
     </>
   )
 }
-  
+
 export default SearchBook
 
 const styles = StyleSheet.create({
@@ -72,11 +80,11 @@ const styles = StyleSheet.create({
     marginRight: '5%',
     marginBottom: '5%'
   },
-  search:{
+  search: {
     width: 20,
     height: 20
   },
-  segment:{
+  segment: {
     flexDirection: 'row',
   },
   title: {
@@ -111,7 +119,7 @@ const styles = StyleSheet.create({
     height: 40,
     flex: 1
   },
-  search_segment:{
+  search_segment: {
     flexDirection: 'row',
     backgroundColor: 'white',
     borderRadius: 10,
@@ -121,10 +129,10 @@ const styles = StyleSheet.create({
     marginLeft: '5%',
     marginRight: '5%'
   },
-  search_segment_click:{
+  search_segment_click: {
     marginRight: '5%'
   },
-  line_selected:{
+  line_selected: {
     flex: 1,
     marginTop: 10,
     marginLeft: 80,
@@ -136,7 +144,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
   },
-  line:{
+  line: {
     flex: 1,
     marginTop: 1,
     marginBottom: 10
@@ -147,7 +155,7 @@ const styles = StyleSheet.create({
     height: 1,
     marginBottom: 10
   },
-  continueSegment:{
+  continueSegment: {
     borderRadius: 50,
     backgroundColor: '#324A59',
     width: 160,
@@ -155,7 +163,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 20
   },
-  buttonAdd:{
+  buttonAdd: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',

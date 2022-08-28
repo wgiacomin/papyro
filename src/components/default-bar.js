@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View, Image, TextInput, TouchableOpacity } from 'react-native'
-import chat from '../../assets/icons/chat.png'
 import profile from '../../assets/icons/options.png'
 import search from '../../assets/icons/search.png'
 import horizontal from '../../assets/lines/straight.png'
 
 const DefaultBar = ({ navigation }) => {
+  const [term, setTerm] = useState(null)
+
   return (
     <View>
       <View style={styles.container}>
@@ -16,19 +17,16 @@ const DefaultBar = ({ navigation }) => {
             placeholder='Livros, autores ou ISBN'
             style={styles.textInput}
             autoCompleteType='name'
+            value={term}
+            onChangeText={text => setTerm(text)}
           />
           <TouchableOpacity style={styles.search_segment}
-            onPress={() => navigation.navigate('Pesquisa')}
+            onPress={() => navigation.navigate('Pesquisa', { screen: 'Livros', params: { term } })}
           >
             <Image source={search} style={styles.search} />
           </TouchableOpacity>
         </View>
         <View style={styles.icons_segment}>
-          {/* <TouchableOpacity style={styles.chat_segment}
-            onPress={() => navigation.navigate('Conversations')}
-          >
-            <Image source={chat} style={styles.chat}/>
-          </TouchableOpacity> */}
           <TouchableOpacity style={styles.profile_segment}
             onPress={() => navigation.navigate('People')}
           >

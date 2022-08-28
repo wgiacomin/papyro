@@ -25,7 +25,7 @@ const PeopleNavigator = () => (
     }}
   >
 
-    <Tab.Screen name="Está Lendo" component={Company} />
+    <Tab.Screen name="Está Lendo" component={Company} initialParams={{ route_type: 'following' }} />
 
     <Tab.Screen name="Já Leu" component={Company} />
 
