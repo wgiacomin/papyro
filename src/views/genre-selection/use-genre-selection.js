@@ -4,23 +4,23 @@ import { Alert } from 'react-native'
 import { BRANCH, GENDERS } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
-function setValues({ setGenders, response }) {
-  setGenders({genders: response.data, loading: false})
+function setValues({ setGenre, response }) {
+  setGenre({ genre: response.data, loading: false })
 }
 
-async function useGender({setGenders }){
+async function useGenre({ setGenre }) {
   if (BRANCH == 'dev' & GENDERS == 1) {
-    setValues({ setGenders, response: CONTRACTS.genders.success})
+    setValues({ setGenre, response: CONTRACTS.genders.success })
     return
   }
 
-  await api.get(ROUTES.gender)
+  await api.get(ROUTES.genre)
     .then((response) => {
-      setValues({setGenders, response})
+      setValues({ setGenre, response })
     }).catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
-      setGenders({loading: false})
+      setGenre({ loading: false })
     })
 }
 
-export default useGender
+export default useGenre

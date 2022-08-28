@@ -5,44 +5,47 @@ import { BRANCH, SEARCH } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
 
-function setValues({ setData, response, page, setBooks, books, setRefresing }) {
-  if (response.data.result.books.length > 0){
-    setBooks([...books, ...response.data.result.books])
+function setValues({ setData, response, page, setBooks, books, setRefreshing, new_refresh }) {
+  if (response.data.length > 0) {
+    if (new_refresh) {
+      setBooks(response.data)
+    } else {
+      setBooks([...books, ...response.data])
+    }
+
     setData({ loading: false, page: page + 1 })
+  } else {
+    setData({ page, loading: false })
   }
-  setRefresing(false)
+  setRefreshing(false)
 }
 
 
-async function useSearch({ setData, page, books, setBooks, refreshing, setRefresing }){
-  if (BRANCH == 'dev') {
-    if (SEARCH == 1) {
-      setData({
-        status: CONTRACTS.search.error.status,
-        msg: CONTRACTS.search.error.data.detail
-      })
-    } else {
-      if (page == 1 & books.length < 10){
-        setValues({ setData, response: CONTRACTS.search.success.page1, page, setBooks, books, setRefresing})
-      } 
-      if (page == 2 & books.length < 20 & !refreshing) {
-        setRefresing(true)
-        setValues({ setData, response: CONTRACTS.search.success.page2, page, setBooks, books, setRefresing})
-      }
+async function useSearch({ setData, page, books, setBooks, refreshing, setRefreshing, term, new_refresh }) {
+  if (term == null) {
+    return
+  }
 
+  if (BRANCH == 'dev' & SEARCH == 1) {
+    if (page == 1 & books.length < 10) {
+      setValues({ setData, response: CONTRACTS.search.success.page1, page, setBooks, books, setRefreshing })
+    }
+    if (page == 2 & books.length < 20 & !refreshing) {
+      setRefreshing(true)
+      setValues({ setData, response: CONTRACTS.search.success.page2, page, setBooks, books, setRefreshing })
     }
     return
   }
 
-  await api.get(ROUTES.search + page)
+  await api.get(ROUTES.book_search, { params: { search: term, page } })
     .then((response) => {
-      if(!refreshing){
-        setRefresing(true)
-        setValues({ setData, response, page, setBooks, books, setRefresing})
+      if (!refreshing) {
+        setRefreshing(true)
+        setValues({ setData, response, page, setBooks, books, setRefreshing, new_refresh })
       }
     }).catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
-      setData({loading: false})
+      setData({ loading: false })
     })
 }
 

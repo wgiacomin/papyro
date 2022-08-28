@@ -15,7 +15,7 @@ const Feed = ({ navigation }) => {
   const [feed, setFeed] = useState([])
 
   useEffect(() => {
-    useFeed({ setFeed, page: 0, refreshing, setRefreshing, setData, feed })
+    useFeed({ setFeed, page: 0, refreshing, setRefreshing, setData, feed, new_refresh: true })
   }, [])
 
   return (

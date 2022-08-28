@@ -8,24 +8,24 @@ export default StyleSheet.create({
     marginBottom: '7%',
     justifyContent: 'center',
   },
-  segment:{
+  segment: {
     left: '1%',
     paddingBottom: '3%',
     marginTop: 15
   },
-  title: {  
+  title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 22,
     lineHeight: 33,
     color: '#181D2D',
   },
-  image_segment:{
+  image_segment: {
     paddingTop: 23,
     paddingLeft: 37,
     paddingBottom: 19
   },
-  book_segment:{
+  book_segment: {
     left: '1%',
     paddingBottom: '6%',
     backgroundColor: '#ECEDF1',
@@ -33,7 +33,7 @@ export default StyleSheet.create({
     marginRight: '-10%',
     marginLeft: '-10%',
   },
-  book_title: {  
+  book_title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 22,
@@ -43,7 +43,7 @@ export default StyleSheet.create({
     marginLeft: 50,
     marginTop: -120
   },
-  book_autor: {  
+  book_autor: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
@@ -53,11 +53,11 @@ export default StyleSheet.create({
     marginLeft: 45,
     marginTop: -6
   },
-  star:{
+  star: {
     width: 26,
     height: 26,
   },
-  star_comments:{
+  star_comments: {
     width: 12,
     height: 12,
   },
@@ -68,7 +68,7 @@ export default StyleSheet.create({
     marginTop: 4,
     alignSelf: 'center',
   },
-  star_number: {  
+  star_number: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 10,
@@ -78,11 +78,11 @@ export default StyleSheet.create({
     marginTop: 28,
     marginLeft: 20
   },
-  bookImage:{
+  bookImage: {
     width: 68,
     height: 102
   },
-  comment_segment:{
+  comment_segment: {
     marginLeft: '-3%',
     marginRight: '-3%',
     width: 340,
@@ -95,21 +95,21 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     alignContent: 'flex-start'
   },
-  comment: { 
+  comment: {
     width: 300,
     height: 300,
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 14,
     lineHeight: 27,
-    color: '#AAAAAA',
+    color: 'black',
     marginTop: 9,
     marginLeft: 10,
-    marginRight: 10, 
+    marginRight: 10,
     marginBottom: 20,
     textAlignVertical: 'top'
   },
-  max_length:{
+  max_length: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontSize: 11,
@@ -118,19 +118,19 @@ export default StyleSheet.create({
     textAlign: 'right',
     marginRight: 22
   },
-  buttonSegment:{
+  buttonSegment: {
     alignSelf: 'center',
     marginTop: 15,
     flexDirection: 'row',
   },
-  buttonSaveSegment:{
+  buttonSaveSegment: {
     borderRadius: 50,
     backgroundColor: '#324A59',
     width: 104,
     height: 43.79,
     marginRight: 33
   },
-  buttonSave:{
+  buttonSave: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -140,14 +140,14 @@ export default StyleSheet.create({
     color: '#FFFFFF',
     marginTop: '10%',
   },
-  buttonCancelSegment:{
+  buttonCancelSegment: {
     borderRadius: 50,
     borderColor: 'red',
     backgroundColor: '#FFFFFF',
     width: 104,
     height: 43.79
   },
-  buttonCancel:{
+  buttonCancel: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -157,6 +157,6 @@ export default StyleSheet.create({
     color: 'red',
     marginTop: '10%',
   },
-  
+
 
 })
