@@ -8,7 +8,7 @@ import profile from '../../../assets/icons/profile.png'
 import editButton from '../../../assets/buttons/editButton.png'
 import spinner from '../../styles/spinner'
 import Rate from '../../components/rate-stars'
-import useGetBook from './useBook'
+import useGetBook from './use-book'
 import BackButton from '../../components/back-button'
 import {
   Menu,
@@ -18,10 +18,10 @@ import {
 } from 'react-native-popup-menu'
 import READ_TYPE from '../../enum/READ_TYPE'
 import Entry from './rate-entry'
+import updateBookState from './update-book-state'
+
 
 const ViewBook = ({ navigation, route }) => {
-  const [show, setShow] = useState(false)
-
   const [book, setBook] = useState({
     book: {},
     loading: true,
@@ -33,14 +33,8 @@ const ViewBook = ({ navigation, route }) => {
     })
   }
 
-  const [clickedId, setClickedId] = useState(null)
-
-  const handleClick = (id) => {
-    book.book.book_status_user.id = id
-    setClickedId(id)
-  }
-
   function setNewState({ newState }) {
+    updateBookState({ id: book.book.id, status: newState })
     setBook({ ...book, book: { ...book.book, status: newState } })
   }
 
