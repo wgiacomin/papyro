@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './register-style'
 import ProfileBar from '../../components/profile-bar'
@@ -10,8 +10,15 @@ import PasswordBar from '../../components/password-bar'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 import useRegister from './use-register'
+import useLogin from '../login/use-login'
+import { useAuthDispatch } from '../../context/auth-context'
+import spinner from '../../styles/spinner'
+
 
 const Register = ({ navigation }) => {
+  const { setProfile } = useAuthDispatch()
+  const { signIn } = useAuthDispatch()
+
   const dateOffset = 24*60*60*1000
   let actual_date = new Date()
   actual_date.setFullYear(actual_date.getFullYear() - 18)
@@ -19,16 +26,27 @@ const Register = ({ navigation }) => {
 
   const [res, setRes] = useState({
     status: 0,
-    msg: '' 
+    msg: '' ,
+    access_token: '',
+    refresh_token: '',
   })
 
+  const [res1, setRes1] = useState({
+    status: 0,
+    msg: '' ,
+    access_token: '',
+    refresh_token: '',
+  })
   useEffect(() => {
     if (res.status > 300 & res.msg != ''){
       Alert.alert('Atenção!', res.msg)
       setRes('')
     } else if (res.status == 201){
       Alert.alert('Sucesso!', 'Cadastro finalizado com sucesso!')
-      navigation.navigate('Login')
+
+      useLogin({data, setRes1, setProfile, setLoading})
+      signIn(res1.access_token, res1.refresh_token)
+      navigation.navigate('GenreSelection')
     }
   }, [res])
   
@@ -41,6 +59,15 @@ const Register = ({ navigation }) => {
     confirmation_password: '',  
   })
 
+  const [loading, setLoading] = useState(false)
+
+  if (loading) {
+    return (
+      <View style={[spinner.container, spinner.horizontal]}>
+        <ActivityIndicator size="large" color="#00000" />
+      </View>
+    )
+  }
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <BackButton navigation={navigation} />
@@ -79,7 +106,6 @@ const Register = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 useRegister({ data, setRes })
-                // navigation.navigate('GenreSelection')
               }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
