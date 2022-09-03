@@ -14,21 +14,21 @@ function setValues({ setData, response, setProfile, self }) {
       photo: response.data.photo
     })
   }
-  setData({profile: response.data, loading: false})
+  setData({ profile: response.data, loading: false })
 }
 
-async function useProfile({setData, setProfile, id}){
+async function useProfile({ setData, setProfile, id }) {
   if (BRANCH == 'dev' & PROFILE == 1) {
-    setValues({ setProfile, response: CONTRACTS.profile.success})
+    setValues({ setProfile, response: CONTRACTS.profile.success })
     return
   }
 
-  await api.get(ROUTES.view_profile, { params: {id} })
+  await api.get(ROUTES.view_profile, { params: { id } })
     .then((response) => {
-      setValues({setData, setProfile, response, self: id})
+      setValues({ setData, setProfile, response, self: id })
     }).catch((error) => {
       Alert.alert('Atenção', error.response.data.detail)
-      setProfile({loading: false})
+      setData({ loading: false })
     })
 }
 
