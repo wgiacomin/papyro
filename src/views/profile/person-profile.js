@@ -60,7 +60,7 @@ const FriendProfile = ({ navigation, route }) => {
         <View style={styles.book_segment}>
           <Image source={booksReaded} style={styles.imageSize} />
           <TouchableOpacity
-            onPress={() => navigation.navigate('Livros', route.params?.id)}>
+            onPress={() => navigation.navigate('Livros', { params: { id: route.params?.id } })}>
             <Text style={styles.normal}>
               Ver Biblioteca
             </Text>

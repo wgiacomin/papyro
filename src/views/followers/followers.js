@@ -5,7 +5,6 @@ import useFollowing from './use-followers'
 import Entry from './entry'
 
 const Following = ({ navigation, route }) => {
-  console.log(JSON.stringify(route))
   const route_type = route.params.route_type
   const [refreshing, setRefreshing] = useState(false)
   const [data, setData] = useState({
