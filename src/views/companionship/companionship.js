@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { SafeAreaView, View, Text, StyleSheet, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import spinner from '../../styles/spinner'
-import useCompany from './use-company'
-import CompanyEntries from './company-entries'
+import useCompany from './use-companionship'
+import CompanyEntries from './companionship-entries'
 
 const Company = ({ navigation, route }) => {
 

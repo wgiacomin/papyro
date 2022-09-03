@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { SafeAreaView, View, StyleSheet, FlatList, Text } from 'react-native'
 import safeView from '../../styles/safe-view'
-import useFollowing from './use-friends'
+import useFollowing from './use-followers'
 import Entry from './entry'
 
 const Following = ({ navigation, route }) => {
@@ -15,7 +15,7 @@ const Following = ({ navigation, route }) => {
   const [following, setFollowing] = useState([])
 
   useEffect(() => {
-    useFollowing({ setFollowing, page: 0, refreshing, setRefreshing, setData, following, route_type })
+    useFollowing({ setFollowing, page: 0, refreshing, setRefreshing, setData, following, route_type, id: route.params?.id })
   }, [])
 
   return (
@@ -27,9 +27,9 @@ const Following = ({ navigation, route }) => {
           refreshing={data.loading}
           onRefresh={() => {
             setData({ loading: true })
-            useFollowing({ setFollowing, page: 0, refreshing, setRefreshing, setData, following, new_refresh: true, route_type })
+            useFollowing({ setFollowing, page: 0, refreshing, setRefreshing, setData, following, new_refresh: true, route_type, id: route.params?.id })
           }}
-          onEndReached={() => useFollowing({ setFollowing, page: data.page, refreshing, setRefreshing, setData, following, route_type })}
+          onEndReached={() => useFollowing({ setFollowing, page: data.page, refreshing, setRefreshing, setData, following, route_type, id: route.params?.id })}
           onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text>Não há nada aqui.</Text>}
           renderItem={(post) => {
@@ -37,6 +37,7 @@ const Following = ({ navigation, route }) => {
               nickname={post.item.nickname}
               photo={post.item.photo}
               navigation={navigation}
+              id={post.item.id}
             />
           }}
         />

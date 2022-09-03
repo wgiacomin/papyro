@@ -20,7 +20,7 @@ function setValues({ setBook, response, book, setData, new_refresh, setRefreshin
 }
 
 
-async function useBook({ setBook, page, refreshing, setRefreshing, setData, book, new_refresh, route_type }) {
+async function useBook({ setBook, page, refreshing, setRefreshing, setData, book, new_refresh, route_type, id }) {
   if (page == null) {
     return
   }
@@ -30,7 +30,7 @@ async function useBook({ setBook, page, refreshing, setRefreshing, setData, book
     return
   }
 
-  await api.get(ROUTES.books_by_status + route_type, { params: { page } })
+  await api.get(ROUTES.books_by_status + route_type, { params: { page, user_id: id } })
     .then((response) => {
       if (!refreshing) {
         setRefreshing(true)

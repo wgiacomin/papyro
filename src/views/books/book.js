@@ -14,7 +14,7 @@ const BookRead = ({ navigation, route }) => {
   const [book, setBook] = useState([])
 
   useEffect(() => {
-    useBook({ setBook, page: 0, refreshing, setRefreshing, setData, book, new_refresh: true, route_type })
+    useBook({ setBook, page: 0, refreshing, setRefreshing, setData, book, new_refresh: true, route_type, id: route.params?.id })
   }, [])
 
   return (
@@ -25,9 +25,9 @@ const BookRead = ({ navigation, route }) => {
           refreshing={data.loading}
           onRefresh={() => {
             setData({ loading: true })
-            useBook({ setBook, page: 0, refreshing, setRefreshing, setData, book, new_refresh: true, route_type })
+            useBook({ setBook, page: 0, refreshing, setRefreshing, setData, book, new_refresh: true, route_type, id: route.params?.id })
           }}
-          onEndReached={() => useBook({ setBook, page: data.page, refreshing, setRefreshing, setData, book, route_type })}
+          onEndReached={() => useBook({ setBook, page: data.page, refreshing, setRefreshing, setData, book, route_type, id: route.params?.id })}
           onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text>Não há nada aqui.</Text>}
           numColumns={1}
