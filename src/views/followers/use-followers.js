@@ -19,14 +19,14 @@ function setValues({ setFollowing, response, page, setRefreshing, setData, follo
   setRefreshing(false)
 }
 
-async function useFollowing({ setFollowing, page, refreshing, setRefreshing, setData, following, new_refresh, route_type }) {
+async function useFollowing({ setFollowing, page, refreshing, setRefreshing, setData, following, new_refresh, route_type, id }) {
 
   if (BRANCH == 'dev' & FOLLOWING == 1) {
     setValues({ setFollowing, response: CONTRACTS.get_following.success })
     return
   }
 
-  await api.get(ROUTES.get_following, { params: { page, friend_type: route_type } })
+  await api.get(ROUTES.get_following, { params: { page, friend_type: route_type, user_id: id } })
     .then((response) => {
       if (!refreshing) {
         setRefreshing(true)

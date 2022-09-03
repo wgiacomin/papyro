@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, Alert, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
-import styles from './friend-profile-style'
+import styles from './person-profile-style'
 import vertical from '../../../assets/lines/straight.png'
 import followers from '../../../assets/icons/followers.png'
 import booksReaded from '../../../assets/icons/books_readed.png'
 import followButton from '../../../assets/buttons/followButton.png'
 import followingButton from '../../../assets/buttons/followingButton.png'
-import talkButton from '../../../assets/buttons/talkButton.png'
 import UserProfileBar from '../../components/friend-profile-bar'
 import DescriptionBar from '../../components/description-bar'
 import spinner from '../../styles/spinner'
@@ -52,7 +51,7 @@ const FriendProfile = ({ navigation, route }) => {
         <View style={styles.book_segment}>
           <Image source={followers} style={styles.imageSize} />
           <TouchableOpacity
-            onPress={() => navigation.navigate('Seguidores')}>
+            onPress={() => navigation.navigate('Seguidores', { params: { id: route.params?.id } })}>
             <Text style={styles.normal}>
               {data.profile.followers} Seguidores
             </Text>
@@ -61,9 +60,9 @@ const FriendProfile = ({ navigation, route }) => {
         <View style={styles.book_segment}>
           <Image source={booksReaded} style={styles.imageSize} />
           <TouchableOpacity
-            onPress={() => navigation.navigate('Livros')}>
+            onPress={() => navigation.navigate('Livros', route.params?.id)}>
             <Text style={styles.normal}>
-              Ver Minha Biblioteca
+              Ver Biblioteca
             </Text>
           </TouchableOpacity>
         </View>

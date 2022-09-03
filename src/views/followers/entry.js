@@ -2,18 +2,18 @@ import React from 'react'
 import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({ nickname, photo, navigation }) => {
+const Entry = ({ nickname, photo, navigation, id }) => {
   return (
     <View style={styles.people_segment}>
       {/* <View> */}
       <TouchableOpacity
-        onPress={() => navigation.navigate('Friend')}>
+        onPress={() => navigation.navigate('Friend', { id })}>
         <Image source={{ uri: photo }} style={styles.user_image} />
       </TouchableOpacity>
       <View>
         <View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Friend')}>
+            onPress={() => navigation.navigate('Friend', { id })}>
             <Text style={styles.person}>{nickname}</Text>
           </TouchableOpacity>
         </View>
