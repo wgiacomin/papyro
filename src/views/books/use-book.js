@@ -21,6 +21,10 @@ function setValues({ setBook, response, book, setData, new_refresh, setRefreshin
 
 
 async function useBook({ setBook, page, refreshing, setRefreshing, setData, book, new_refresh, route_type }) {
+  if (page == null) {
+    return
+  }
+
   if (BRANCH == 'dev' & BOOKREAD == 1) {
     setValues({ setBook, response: CONTRACTS.book_read.success })
     return

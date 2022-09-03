@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { SafeAreaView, View, Text, StyleSheet, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import spinner from '../../styles/spinner'
-import ROUTES from '../../routes/routes'
 import useCompany from './use-company'
 import CompanyEntries from './company-entries'
 
-const Company = ({ navigation }) => {
+const Company = ({ navigation, route }) => {
 
   const [readers, setCompany] = useState({
     readers: [],
@@ -14,7 +13,7 @@ const Company = ({ navigation }) => {
   })
 
   useEffect(() => {
-    useCompany({ id: ROUTES.params?.id, id_status: ROUTES.params?.id_status, setCompany })
+    useCompany({ id: route.params?.id, id_status: route.params?.id_status, setCompany })
   }, [])
 
   if (readers.loading) {

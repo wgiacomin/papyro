@@ -1,26 +1,19 @@
 import React, { useState, useRef } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, TextInput, StyleSheet, TouchableWithoutFeedback, ScrollView, ActivityIndicator } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, TextInput, StyleSheet, TouchableWithoutFeedback, ScrollView } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './review-style'
-import bookImage from '../../../assets/icons/mocked_book_big.png'
 import { MaterialIcons } from '@expo/vector-icons'
-import spinner from '../../styles/spinner'
 import useReview from './use-review'
 
 
-const Review = ({ navigation }) => {
+const Review = ({ navigation, route }) => {
   const [starRating, setStarRating] = useState(null)
+  const [text, setText] = useState(null)
   const input_1 = useRef(null)
   const [characters, setCharacters] = useState(null)
-  const [loading, setLoading] = useState(false)
 
-  if (loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
+  const bookInfo = route.params
+
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
@@ -28,18 +21,18 @@ const Review = ({ navigation }) => {
         <View style={styles.container}>
           <View style={styles.segment}>
             <Text style={styles.title}>
-            O que você achou de...
+              O que você achou de...
             </Text>
           </View>
           <View style={styles.book_segment}>
             <View style={styles.image_segment}>
-              <Image source={bookImage} style={styles.bookImage}/>
+              <Image source={{ uri: bookInfo.cover }} style={styles.bookImage} />
             </View>
             <Text style={styles.book_title}>
-              Sankofa: A Novel
+              {bookInfo.book_title}
             </Text>
             <Text style={styles.book_autor}>
-              Chibundu Onuzo
+              {bookInfo.author}
             </Text>
             <View style={styles.star_container}>
               <View style={styles_star.stars}>
@@ -80,7 +73,7 @@ const Review = ({ navigation }) => {
                 </TouchableOpacity>
               </View>
               <Text style={styles.star_number}>
-              sua nota
+                sua nota
               </Text>
             </View>
           </View>
@@ -88,14 +81,18 @@ const Review = ({ navigation }) => {
             onPress={() => input_1.current.focus()}
           >
             <View style={styles.comment_segment}>
-              <TextInput style={styles.comment} 
+              <TextInput style={styles.comment}
                 ref={input_1}
                 placeholder='Espaço para sua avaliação'
                 multiline={true}
                 maxLength={5000}
-                onChangeText={(t) => setCharacters(t.length)}
+                onChangeText={(t) => {
+                  setText(t)
+                  setCharacters(t.length)
+                }}
                 autoCapitalize='sentences'
                 returnKeyType='done'
+                value={text}
               />
             </View>
           </TouchableWithoutFeedback>
@@ -104,13 +101,13 @@ const Review = ({ navigation }) => {
           </Text>
           <View style={styles.buttonSegment}>
             <TouchableOpacity
-              onPress={() => useReview({navigation, data: starRating, setLoading})}>
+              onPress={() => useReview({ navigation, rate: starRating, id: bookInfo.id, text })}>
               <View style={styles.buttonSaveSegment}>
                 <Text style={styles.buttonSave}> Salvar </Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate('ViewBook')}>
+              onPress={() => navigation.goBack()}>
               <View style={styles.buttonCancelSegment}>
                 <Text style={styles.buttonCancel}> Cancelar </Text>
               </View>
@@ -119,7 +116,7 @@ const Review = ({ navigation }) => {
         </View>
       </ScrollView>
     </SafeAreaView>
-     
+
   )
 }
 

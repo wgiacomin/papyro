@@ -20,6 +20,10 @@ function setValues({ setFeed, response, page, setRefreshing, setData, feed, new_
 }
 
 async function useFeed({ setFeed, setData, page, refreshing, setRefreshing, feed, new_refresh }) {
+  if (page == null) {
+    return
+  }
+
   if (BRANCH == 'dev' & FEED == 1) {
     setValues({ setFeed, response: CONTRACTS.feed.success })
     return

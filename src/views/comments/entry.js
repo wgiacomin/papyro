@@ -9,7 +9,7 @@ const Entry = ({ data, navigation }) => {
     <>
       <View style={styles.title}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Friend')}
+          onPress={() => navigation.navigate('Friend', { id: data.user.id })}
         >
           <Image source={{ uri: data.user.photo }} style={styles.person_image} />
         </TouchableOpacity>
