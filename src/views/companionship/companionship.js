@@ -1,33 +1,49 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, Text, StyleSheet, ActivityIndicator } from 'react-native'
+import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native'
 import safeView from '../../styles/safe-view'
-import spinner from '../../styles/spinner'
-import useCompany from './use-companionship'
-import CompanyEntries from './companionship-entries'
+import Entry from './entry'
+import useCompanionship from './use-companionship'
 
 const Company = ({ navigation, route }) => {
-
-  const [readers, setCompany] = useState({
-    readers: [],
+  const [refreshing, setRefreshing] = useState(false)
+  const [data, setData] = useState({
+    page: 0,
     loading: true,
   })
 
-  useEffect(() => {
-    useCompany({ id: route.params?.id, id_status: route.params?.id_status, setCompany })
-  }, [])
+  const [readers, setCompanionship] = useState([])
 
-  if (readers.loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
+  useEffect(() => {
+    useCompanionship({ setData, page: 0, setRefreshing, refreshing, id: route.params?.id, id_status: route.params?.id_status, setCompanionship, readers, new_refresh: true })
+  }, [])
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
-        <CompanyEntries data={readers.readers.list} navigation={navigation} />
+        <FlatList
+          keyExtractor={(item) => item.id}
+          data={readers}
+          numColumns={1}
+          onEndReached={() => {
+            if (readers.length % 20 == 0 & readers.length > 0) {
+              useCompanionship({ setData, page: data.page, setRefreshing, refreshing, id: route.params?.id, id_status: route.params?.id_status, setCompanionship, readers })
+            }
+          }}
+          onEndReachedThreshold={.5}
+          refreshing={data.loading}
+          onRefresh={() => {
+            setData({ loading: true })
+            useCompanionship({ setData, page: 0, setRefreshing, refreshing, id: route.params?.id, id_status: route.params?.id_status, setCompanionship, readers, new_refresh: true })
+          }}
+          ListEmptyComponent={() => <Text>Nenhum resultado!</Text>}
+          renderItem={(post) => {
+            return <Entry
+              nickname={post.item.nickname}
+              photo={post.item.photo}
+              navigation={navigation}
+            />
+          }}
+        />
       </View>
     </SafeAreaView>
   )

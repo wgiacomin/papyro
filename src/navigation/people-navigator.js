@@ -6,32 +6,36 @@ import Company from '../views/companionship/companionship'
 const Tab = createMaterialTopTabNavigator()
 
 
-const PeopleNavigator = () => (
-  <Tab.Navigator
-    initialRouteName='Já Leu'
-    screenOptions={{
-      tabBarActiveTintColor: 'black',
-      tabBarInactiveTintColor: 'gray',
-      tabBarActiveBackgroundColor: '#ededed',
-      tabBarInactiveBackgroundColor: '#dcdcdc',
-      tabBarStyle: [
-        {
-          display: 'flex',
-          margin: 0,
-          padding: 0
-        },
-        null
-      ]
-    }}
-  >
+const PeopleNavigator = (props) => {
+  const params = props.route.params.params
+  return (
+    <Tab.Navigator
+      initialRouteName='Já Leu'
+      lazy={false}
+      screenOptions={{
+        tabBarActiveTintColor: 'black',
+        tabBarInactiveTintColor: 'gray',
+        tabBarActiveBackgroundColor: '#ededed',
+        tabBarInactiveBackgroundColor: '#dcdcdc',
+        tabBarStyle: [
+          {
+            display: 'flex',
+            margin: 0,
+            padding: 0
+          },
+          null
+        ]
+      }}
+    >
 
-    <Tab.Screen name="Está Lendo" component={Company} initialParams={{ route_type: 'following' }} />
+      <Tab.Screen name="Estou Lendo" component={Company} initialParams={{ ...params, id_status: 1 }} />
 
-    <Tab.Screen name="Já Leu" component={Company} />
+      <Tab.Screen name="Já Li" component={Company} initialParams={{ ...params, id_status: 2 }} />
 
-    <Tab.Screen name="Irá Ler" component={Company} />
+      <Tab.Screen name="Quero Ler" component={Company} initialParams={{ ...params, id_status: 3 }} />
 
-  </Tab.Navigator>
-)
+    </Tab.Navigator>
+  )
+}
 
 export default PeopleNavigator

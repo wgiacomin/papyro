@@ -27,7 +27,11 @@ const BookRead = ({ navigation, route }) => {
             setData({ loading: true })
             useBook({ setBook, page: 0, refreshing, setRefreshing, setData, book, new_refresh: true, route_type, id: route.params?.id })
           }}
-          onEndReached={() => useBook({ setBook, page: data.page, refreshing, setRefreshing, setData, book, route_type, id: route.params?.id })}
+          onEndReached={() => {
+            if (book.length % 20 == 0 & book.length > 0) {
+              useBook({ setBook, page: data.page, refreshing, setRefreshing, setData, book, route_type, id: route.params?.id })
+            }
+          }}
           onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text>Não há nada aqui.</Text>}
           numColumns={1}

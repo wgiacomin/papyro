@@ -29,7 +29,11 @@ const Following = ({ navigation, route }) => {
             setData({ loading: true })
             useFollowing({ setFollowing, page: 0, refreshing, setRefreshing, setData, following, new_refresh: true, route_type, id: route.params?.id })
           }}
-          onEndReached={() => useFollowing({ setFollowing, page: data.page, refreshing, setRefreshing, setData, following, route_type, id: route.params?.id })}
+          onEndReached={() => {
+            if (following.length % 16 == 0 & following.length > 0) {
+              useFollowing({ setFollowing, page: data.page, refreshing, setRefreshing, setData, following, route_type, id: route.params?.id })
+            }
+          }}
           onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text>Não há nada aqui.</Text>}
           renderItem={(post) => {

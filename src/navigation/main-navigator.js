@@ -77,6 +77,7 @@ const StackNavigatorNotification = () => (
 const MainNavigator = () => (
   <Tab.Navigator
     initialRouteName='Feed'
+    lazy={false}
     screenOptions={{
       tabBarActiveTintColor: 'black',
       tabBarInactiveTintColor: 'gray',
