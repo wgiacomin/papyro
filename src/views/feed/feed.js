@@ -30,7 +30,11 @@ const Feed = ({ navigation }) => {
             useFeed({ setFeed, page: 0, refreshing, setRefreshing, setData, feed, new_refresh: true })
           }}
           numColumns={1}
-          onEndReached={() => useFeed({ setFeed, page: data.page, refreshing, setRefreshing, setData, feed })}
+          onEndReached={() => {
+            if (feed.length > 0) {
+              useFeed({ setFeed, page: data.page, refreshing, setRefreshing, setData, feed })
+            }
+          }}
           onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text>Sem Atualizações</Text>}
           renderItem={(post) => {

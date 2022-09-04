@@ -16,7 +16,7 @@ const SearchBook = ({ navigation, route }) => {
   const [term, setTerm] = useState(route.params?.term)
 
   useEffect(() => {
-    useSearch({ setData, page: 0, setBooks, books, data, setRefreshing, refreshing, term })
+    useSearch({ setData, page: 0, setBooks, books, data, setRefreshing, refreshing, term, new_refresh: true })
   }, [])
 
 
@@ -49,7 +49,11 @@ const SearchBook = ({ navigation, route }) => {
           data={books}
           numColumns={1}
           keyExtractor={(item) => item.id.toString()}
-          onEndReached={() => useSearch({ setData, data, setBooks, books, page: data.page, refreshing, setRefreshing, term })}
+          onEndReached={() => {
+            if (books.length % 16 == 0 & books.length > 0) {
+              useSearch({ setData, data, setBooks, books, page: data.page, refreshing, setRefreshing, term })
+            }
+          }}
           onEndReachedThreshold={.1}
           refreshing={data.loading}
           onRefresh={() => {
