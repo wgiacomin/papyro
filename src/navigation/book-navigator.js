@@ -10,6 +10,7 @@ const BookNavigator = (props) => {
   return (
     <Tab.Navigator
       initialRouteName='Lendo'
+      lazy={false}
       screenOptions={{
         tabBarActiveTintColor: 'black',
         tabBarInactiveTintColor: 'gray',
