@@ -11,6 +11,7 @@ import UserProfileBar from '../../components/friend-profile-bar'
 import DescriptionBar from '../../components/description-bar'
 import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
+import addFriend from './add-friends'
 
 const FriendProfile = ({ navigation, route }) => {
 
@@ -18,8 +19,10 @@ const FriendProfile = ({ navigation, route }) => {
 
   const handleClick = () => {
     if (image == followButton) {
+      addFriend({ id: route.params?.id, mode: true })
       setImage(followingButton)
     } else {
+      addFriend({ id: route.params?.id, mode: false })
       setImage(followButton)
     }
   }
@@ -30,7 +33,7 @@ const FriendProfile = ({ navigation, route }) => {
   })
 
   useEffect(() => {
-    useProfile({ setData, id: route.params?.id })
+    useProfile({ id: route.params?.id, setImage, setData })
   }, [])
 
   if (data.loading) {

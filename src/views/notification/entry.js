@@ -10,7 +10,7 @@ const Entry = ({ data, navigation }) => {
           case 'comment':
             navigation.navigate('Comments', { id: data.notification.id_rate })
             break
-          case 'follow':
+          case 'follower':
             navigation.navigate('Friend', { id: data.user.id })
             break
         }

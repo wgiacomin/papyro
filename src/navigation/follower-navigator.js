@@ -10,6 +10,7 @@ const FollowNavigator = (props) => {
   return (
     <Tab.Navigator
       initialRouteName='Seguidores'
+      lazy={false}
       screenOptions={{
         tabBarActiveTintColor: 'black',
         tabBarInactiveTintColor: 'gray',

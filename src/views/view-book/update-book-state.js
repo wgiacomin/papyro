@@ -5,6 +5,9 @@ import { BRANCH, GET_BOOK } from '@env'
 
 
 async function updateBookState({ id, status }) {
+  if (status == null) {
+    status = 0
+  }
   if (BRANCH == 'dev' & GET_BOOK == 1) {
     return
   }

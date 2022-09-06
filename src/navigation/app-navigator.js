@@ -13,11 +13,12 @@ import spinner from '../styles/spinner'
 import ROUTES from '../routes/routes'
 
 
-async function refresh_func(setLoading, refresh, logout){
+
+async function refresh_func(setLoading, refresh, logout) {
   const refresh_token = await AsyncStorage.getItem('refresh_token')
   if (refresh_token) {
     await axios.get(`${ROUTES.baseURL}/${ROUTES.refresh}`,
-      {headers : {'Authorization': `Bearer ${refresh_token}`}})
+      { headers: { 'Authorization': `Bearer ${refresh_token}` } })
       .then((response) => {
         if (response.status != 200) {
           logout()
@@ -62,10 +63,11 @@ export default function AppNavigator() {
           <Stack.Screen name='Welcome' component={WelcomeNavigator} options={{ headerShown: false }} />
         ) : (
           <Stack.Screen name="Home" component={MainNavigator}
-            options={{ 
-              headerShown: false, 
-              backBehavior: 'initialRoute', 
-              tabBarShowLabel: false}} /> )}
+            options={{
+              headerShown: false,
+              backBehavior: 'initialRoute',
+              tabBarShowLabel: false
+            }} />)}
       </Stack.Navigator>
     </NavigationContainer >
   )

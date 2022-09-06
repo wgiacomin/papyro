@@ -117,10 +117,10 @@ const ViewBook = ({ navigation, route }) => {
                   Procurando Companhia?
                 </Text>
                 <View style={styles.company}>
-                  <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?')}>
+                  <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?', { params: { id: route.params?.id } })}>
                     <Image source={profile} style={styles.person_image} />
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?')}>
+                  <TouchableOpacity onPress={() => navigation.navigate('Procurando Companhia?', { params: { id: route.params?.id } })}>
                     <Text style={styles.company_title}>
                       Pessoas ({book.book.company})
                     </Text>

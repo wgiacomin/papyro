@@ -1,7 +1,7 @@
 const READ_TYPE = {
-  1: 'Quero Ler',
+  1: 'Lendo',
   2: 'Já Li',
-  3: 'Lendo',
+  3: 'Quero Ler',
   null: 'Adicionar'
 }
 
