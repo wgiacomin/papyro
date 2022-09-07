@@ -1,6 +1,5 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
-import { Alert } from 'react-native'
 import { BRANCH, GET_BOOK } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
@@ -18,9 +17,7 @@ async function useGetBook({ id, setBook, navigation }) {
     .then((response) => {
       setValues({ setBook, response })
     }).catch((error) => {
-      navigation.goBack()
-      setBook({ loading: false })
-      Alert.alert('Atenção', error.response.data.detail)
+      useGetBook({ id, setBook, navigation })
     })
 
 }
