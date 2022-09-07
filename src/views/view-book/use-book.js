@@ -1,9 +1,7 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
-import { Alert } from 'react-native'
 import { BRANCH, GET_BOOK } from '@env'
 import CONTRACTS from '../../routes/contracts'
-import refresh_func from '../../routes/refresh'
 
 function setValues({ setBook, response }) {
   setBook({ book: response.data, loading: false })

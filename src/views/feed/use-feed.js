@@ -1,9 +1,7 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
-import { Alert } from 'react-native'
 import { BRANCH, FEED } from '@env'
 import CONTRACTS from '../../routes/contracts'
-import refresh_func from '../../routes/refresh'
 
 function setValues({ setFeed, response, page, setRefreshing, setData, feed, new_refresh }) {
   if (response.data.length > 0) {

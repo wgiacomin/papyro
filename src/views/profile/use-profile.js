@@ -1,11 +1,9 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
-import { Alert } from 'react-native'
 import { BRANCH, PROFILE } from '@env'
 import CONTRACTS from '../../routes/contracts'
 import followButton from '../../../assets/buttons/followButton.png'
 import followingButton from '../../../assets/buttons/followingButton.png'
-import refresh_func from '../../routes/refresh'
 
 function setValues({ setData, response, setProfile, self, setImage }) {
   if (self == null) {
