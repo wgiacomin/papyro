@@ -31,7 +31,6 @@ async function useProfile({ setData, setProfile, id, setImage }) {
     setValues({ setProfile, response: CONTRACTS.profile.success })
     return
   }
-  refresh_func()
   await api.get(ROUTES.view_profile, { params: { id } })
     .then((response) => {
       setValues({ setData, setProfile, response, self: id, setImage })

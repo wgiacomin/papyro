@@ -4,8 +4,10 @@ import DefaultBar from '../../components/default-bar'
 import safeView from '../../styles/safe-view'
 import useFeed from './use-feed'
 import Entry from './entry'
+import { useAuthState } from '../../context/auth-context'
 
 const Feed = ({ navigation }) => {
+  const { first_login } = useAuthState()
   const [refreshing, setRefreshing] = useState(false)
   const [data, setData] = useState({
     page: 0,
@@ -15,6 +17,9 @@ const Feed = ({ navigation }) => {
   const [feed, setFeed] = useState([])
 
   useEffect(() => {
+    if (first_login) {
+      navigation.navigate('Personalize')
+    }
     useFeed({ setFeed, page: 0, refreshing, setRefreshing, setData, feed, new_refresh: true })
   }, [])
 

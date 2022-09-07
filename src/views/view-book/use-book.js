@@ -14,7 +14,7 @@ async function useGetBook({ id, setBook, navigation }) {
     setValues({ setBook, response: CONTRACTS.get_book.success })
     return
   }
-  refresh_func()
+
   await api.get(ROUTES.get_book + id)
     .then((response) => {
       setValues({ setBook, response })
