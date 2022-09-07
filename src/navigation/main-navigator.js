@@ -33,7 +33,6 @@ import FollowNavigator from './follower-navigator'
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
-const StackN = createStackNavigator()
 
 const StackNavigator = () => (
   <Stack.Navigator
@@ -59,19 +58,6 @@ const StackNavigator = () => (
     <Stack.Screen name='ViewBook' component={viewBook} options={{ headerShown: false }} />
     <Stack.Screen name='Review' component={review} options={{ headerShown: false }} />
   </Stack.Navigator>
-)
-
-const StackNavigatorNotification = () => (
-  <StackN.Navigator
-    initialRouteName="Notifications"
-  >
-    <StackN.Screen name='Notifications' component={notification} options={{ headerShown: false }} />
-    <StackN.Screen name='Friend' component={friend} options={{ headerShown: false }} />
-    <StackN.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
-    <StackN.Screen name='Comments' component={comments} options={{ headerShown: false }} />
-    <StackN.Screen name='ViewBook' component={viewBook} options={{ headerShown: false }} />
-    <StackN.Screen name='Review' component={review} options={{ headerShown: false }} />
-  </StackN.Navigator>
 )
 
 const MainNavigator = () => {
@@ -105,7 +91,7 @@ const MainNavigator = () => {
         }} />
 
 
-      <Tab.Screen name="NotificationsTab" component={StackNavigatorNotification} options={{
+      <Tab.Screen name="NotificationsTab" component={notification} options={{
         headerShown: false,
         tabBarShowLabel: false,
         tabBarIcon: ({ focused, size }) => (

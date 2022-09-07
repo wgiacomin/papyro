@@ -2,28 +2,29 @@ import { Alert } from 'react-native'
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { BRANCH, SIGNUP } from '@env'
-import CONTRACTS from '../../routes/contracts'
 
-function setValues({ setRes, response }) {
+
+function setValues({ setProfile, setRes, response }) {
   setRes({
-    status: response.status
+    status: response.status,
+    access_token: response.data.access_token,
+    refresh_token: response.data.refresh_token
+  })
+
+  setProfile({
+    id: response.data.user.id,
+    name: response.data.user.name,
+    nickname: response.data.user.nickname,
+    description: response.data.user.description,
+    photo: response.data.user.photo
   })
 }
 
-async function useRegister({ data, setRes }) {
+async function useRegister({ data, setRes, setProfile }) {
 
-  if (BRANCH == 'dev') {
-    if (SIGNUP == 1) {
-      setRes({
-        status: CONTRACTS.signup.error.status,
-        msg: CONTRACTS.signup.error.data.detail
-      }) 
-    } else {
-      setValues({ setRes, response: CONTRACTS.signup.success })
-    }
+  if (BRANCH == 'dev' & SIGNUP == 1) {
     return
   }
-  
 
   if (data.name == '' || data.nickname == '' || data.email == '' || data.password == '' || data.confirmation_password == '') {
     Alert.alert('Atenção!', 'Preencha todos os campos!')
@@ -35,9 +36,7 @@ async function useRegister({ data, setRes }) {
       'password': data.password,
       'confirmation_password': data.confirmation_password,
     }).then((response) =>
-      setRes({
-        status: response.status
-      })
+      setValues({ setProfile, setRes, response })
     ).catch((error) => {
       setRes({
         status: error.response.status,

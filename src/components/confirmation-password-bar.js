@@ -27,9 +27,9 @@ const ConfirmationPasswordBar = ({ data, setData }) => {
             secureTextEntry
             enablesReturnKeyAutomatically
             style={styles.textInput}
-            onChangeText={text => setData({...data, 'confirmation_password': text})}
+            onChangeText={text => setData({ ...data, 'confirmation_password': text })}
             value={data.senha}
-            onEndEditing={() => validatePassword(data.password, data.confirmation_password)}
+            // onEndEditing={() => validatePassword(data.password, data.confirmation_password)}
             returnKeyType={'done'}
           />
         </View>

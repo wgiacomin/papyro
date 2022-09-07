@@ -27,9 +27,9 @@ const PasswordBar = ({ data, setData }) => {
             secureTextEntry
             enablesReturnKeyAutomatically
             style={styles.textInput}
-            onChangeText={text => setData({...data, 'password': text})}
+            onChangeText={text => setData({ ...data, 'password': text })}
             value={data.senha}
-            onEndEditing={() => validatePassword(data.password)}
+            // onEndEditing={() => validatePassword(data.password)}
             returnKeyType={'done'}
           />
         </View>

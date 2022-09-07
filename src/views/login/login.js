@@ -10,10 +10,8 @@ import { useAuthDispatch } from '../../context/auth-context'
 import useLogin from './use-login'
 import spinner from '../../styles/spinner'
 
-const Login = ({ navigation, route }) => {
-  const { setProfile } = useAuthDispatch()
-  const { signIn } = useAuthDispatch()
-  const first_login = route.params?.first_login != null
+const Login = ({ navigation }) => {
+  const { signIn, setProfile } = useAuthDispatch()
 
   const [res, setRes] = useState({
     status: 0,
@@ -32,7 +30,7 @@ const Login = ({ navigation, route }) => {
       Alert.alert('Atenção!', res.msg)
       setRes('')
     } else if (res.status == 200) {
-      signIn(res.access_token, res.refresh_token, first_login)
+      signIn(res.access_token, res.refresh_token, false)
     }
   }, [res])
 

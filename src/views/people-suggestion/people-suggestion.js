@@ -33,7 +33,7 @@ const PeopleSuggestion = ({ navigation }) => {
               nickname={post.item.nickname}
               interactions={post.item.interactions}
               photo={post.item.photo}
-              friend={post.item.id}
+              id={post.item.id}
               navigation={navigation}
             />
           }} />

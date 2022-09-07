@@ -4,6 +4,7 @@ import { BRANCH, PROFILE } from '@env'
 import CONTRACTS from '../../routes/contracts'
 import followButton from '../../../assets/buttons/followButton.png'
 import followingButton from '../../../assets/buttons/followingButton.png'
+import { Alert } from 'react-native'
 
 function setValues({ setData, response, setProfile, self, setImage }) {
   if (self == null) {
@@ -24,7 +25,10 @@ function setValues({ setData, response, setProfile, self, setImage }) {
   setData({ profile: response.data, loading: false })
 }
 
-async function useProfile({ setData, setProfile, id, setImage }) {
+async function useProfile({ setData, setProfile, id, setImage, times }) {
+  if (times == null) {
+    times = 0
+  }
   if (BRANCH == 'dev' & PROFILE == 1) {
     setValues({ setProfile, response: CONTRACTS.profile.success })
     return
@@ -33,7 +37,11 @@ async function useProfile({ setData, setProfile, id, setImage }) {
     .then((response) => {
       setValues({ setData, setProfile, response, self: id, setImage })
     }).catch((error) => {
-      useProfile({ setData, setProfile, id, setImage })
+      if (times < 1) {
+        useProfile({ setData, setProfile, id, setImage, times: times + 1 })
+      } else {
+        Alert.alert('Atenção!', error.msg)
+      }
     })
 }
 
