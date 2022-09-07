@@ -11,13 +11,10 @@ import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
 import useRegister from './use-register'
 import useLogin from '../login/use-login'
-import { useAuthDispatch } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 
 
 const Register = ({ navigation }) => {
-  const { setProfile } = useAuthDispatch()
-  const { signIn } = useAuthDispatch()
 
   const dateOffset = 24*60*60*1000
   let actual_date = new Date()
@@ -27,28 +24,21 @@ const Register = ({ navigation }) => {
   const [res, setRes] = useState({
     status: 0,
     msg: '' ,
-    access_token: '',
-    refresh_token: '',
   })
 
-  const [res1, setRes1] = useState({
-    status: 0,
-    msg: '' ,
-    access_token: '',
-    refresh_token: '',
-  })
-  useEffect(() => {
-    if (res.status > 300 & res.msg != ''){
-      Alert.alert('Atenção!', res.msg)
-      setRes('')
-    } else if (res.status == 201){
-      Alert.alert('Sucesso!', 'Cadastro finalizado com sucesso!')
 
-      useLogin({data, setRes1, setProfile, setLoading})
-      signIn(res1.access_token, res1.refresh_token)
-      navigation.navigate('GenreSelection')
-    }
-  }, [res])
+  //   useEffect(() => {
+  //     if (res.status > 300 & res.msg != ''){
+  //       Alert.alert('Atenção!', res.msg)
+  //       setRes('')
+  //     } else if (res.status == 201){
+  //       Alert.alert('Sucesso!', 'Cadastro finalizado com sucesso!')
+
+  //       useLogin({data, setRes1, setProfile, setLoading})
+  //       signIn(res1.access_token, res1.refresh_token)
+  //       navigation.navigate('GenreSelection')
+  //     }
+  //   }, [res])
   
 
   const [data, setData] = useState({ 
@@ -105,7 +95,8 @@ const Register = ({ navigation }) => {
           <View style={styles.continueSegment}>
             <TouchableOpacity
               onPress={() => {
-                useRegister({ data, setRes })
+                // useRegister({ data, setRes })
+                navigation.navigate('GenreSelection')
               }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
@@ -118,7 +109,7 @@ const Register = ({ navigation }) => {
             </View>
             <View>
               <TouchableOpacity
-                onPress={() => {console.log(data)}}
+                onPress={() => {navigation.navigate('Login')}}
               >
                 <Text style={styles.bold}>
                   Faça login.
