@@ -25,14 +25,9 @@ const ROUTES = {
   update_genre: 'genre/save/',
 
   feed: 'feed/',
-<<<<<<< HEAD
   book_search: 'getBook/search/',
   people_search: 'users/search',
   users: 'users/',
-=======
-
-  search_people: 'users/search',
->>>>>>> ad73acb (aa)
 
   rate: 'rate/'
 }
