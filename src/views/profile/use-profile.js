@@ -5,6 +5,7 @@ import { BRANCH, PROFILE } from '@env'
 import CONTRACTS from '../../routes/contracts'
 import followButton from '../../../assets/buttons/followButton.png'
 import followingButton from '../../../assets/buttons/followingButton.png'
+import refresh_func from '../../routes/refresh'
 
 function setValues({ setData, response, setProfile, self, setImage }) {
   if (self == null) {
@@ -30,13 +31,12 @@ async function useProfile({ setData, setProfile, id, setImage }) {
     setValues({ setProfile, response: CONTRACTS.profile.success })
     return
   }
-
+  refresh_func()
   await api.get(ROUTES.view_profile, { params: { id } })
     .then((response) => {
       setValues({ setData, setProfile, response, self: id, setImage })
     }).catch((error) => {
-      Alert.alert('Atenção', error.response.data.detail)
-      setData({ loading: false })
+      useProfile({ setData, setProfile, id, setImage })
     })
 }
 
