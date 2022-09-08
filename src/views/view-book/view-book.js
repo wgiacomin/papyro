@@ -139,7 +139,7 @@ const ViewBook = ({ navigation, route }) => {
               <View style={styles.edit_segment}>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('Comments', { id: route.params?.id })}>
-                  <Image source={editButton} style={styles.editButton} />
+                  {/* <Image source={editButton} style={styles.editButton} /> */}
                 </TouchableOpacity>
               </View>
             </>

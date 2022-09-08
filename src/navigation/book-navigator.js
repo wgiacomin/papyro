@@ -6,7 +6,7 @@ import Book from '../views/books/book'
 const Tab = createMaterialTopTabNavigator()
 
 const BookNavigator = (props) => {
-  const params = props.route.params.params
+  const params = props.route.params?.params
   return (
     <Tab.Navigator
       initialRouteName='Lendo'

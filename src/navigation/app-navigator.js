@@ -40,7 +40,6 @@ export default function AppNavigator() {
   const { access_token } = useAuthState()
   const { refresh, logout } = useAuthDispatch()
   const [loading, setLoading] = useState(true)
-
   useEffect(() => {
     refresh_func(setLoading, refresh, logout)
   }, [])

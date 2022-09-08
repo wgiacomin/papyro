@@ -1,6 +1,5 @@
 import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
-import { Alert } from 'react-native'
 import { BRANCH, PROFILE } from '@env'
 import CONTRACTS from '../../routes/contracts'
 import followButton from '../../../assets/buttons/followButton.png'
@@ -30,13 +29,11 @@ async function useProfile({ setData, setProfile, id, setImage }) {
     setValues({ setProfile, response: CONTRACTS.profile.success })
     return
   }
-
   await api.get(ROUTES.view_profile, { params: { id } })
     .then((response) => {
       setValues({ setData, setProfile, response, self: id, setImage })
     }).catch((error) => {
-      Alert.alert('Atenção', error.response.data.detail)
-      setData({ loading: false })
+      useProfile({ setData, setProfile, id, setImage })
     })
 }
 

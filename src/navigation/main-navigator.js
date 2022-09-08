@@ -74,62 +74,64 @@ const StackNavigatorNotification = () => (
   </StackN.Navigator>
 )
 
-const MainNavigator = () => (
-  <Tab.Navigator
-    initialRouteName='Feed'
-    lazy={false}
-    screenOptions={{
-      tabBarActiveTintColor: 'black',
-      tabBarInactiveTintColor: 'gray',
-      tabBarActiveBackgroundColor: '#ededed',
-      tabBarInactiveBackgroundColor: '#dcdcdc',
-      tabBarStyle: [
-        {
-          display: 'flex',
-          margin: 0,
-          padding: 0
-        },
-        null
-      ]
-    }}
-  >
+const MainNavigator = () => {
+  return (
+    <Tab.Navigator
+      initialRouteName="Feed"
+      lazy={false}
+      screenOptions={{
+        tabBarActiveTintColor: 'black',
+        tabBarInactiveTintColor: 'gray',
+        tabBarActiveBackgroundColor: '#ededed',
+        tabBarInactiveBackgroundColor: '#dcdcdc',
+        tabBarStyle: [
+          {
+            display: 'flex',
+            margin: 0,
+            padding: 0
+          },
+          null
+        ]
+      }}
+    >
 
-    <Tab.Screen name="FeedTab" component={StackNavigator}
-      options={{
+      <Tab.Screen name="FeedTab" component={StackNavigator}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused, size }) => (
+            <Image source={focused ? home_focused : home} style={{ width: size, height: size, }} />
+          ),
+        }} />
+
+
+      <Tab.Screen name="NotificationsTab" component={StackNavigatorNotification} options={{
         headerShown: false,
         tabBarShowLabel: false,
         tabBarIcon: ({ focused, size }) => (
-          <Image source={focused ? home_focused : home} style={{ width: size, height: size, }} />
+          <Image source={focused ? notifications_focused : notifications} style={{ width: size, height: size, }} />
         ),
       }} />
 
+      <Tab.Screen name="Books" component={bookSuggestion}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused, size }) => (
+            <Image source={focused ? books_focused : books} style={{ width: size, height: size, }} />
+          ),
+        }} />
 
-    <Tab.Screen name="NotificationsTab" component={StackNavigatorNotification} options={{
-      headerShown: false,
-      tabBarShowLabel: false,
-      tabBarIcon: ({ focused, size }) => (
-        <Image source={focused ? notifications_focused : notifications} style={{ width: size, height: size, }} />
-      ),
-    }} />
-
-    <Tab.Screen name="Books" component={bookSuggestion}
-      options={{
-        headerShown: false,
-        tabBarShowLabel: false,
-        tabBarIcon: ({ focused, size }) => (
-          <Image source={focused ? books_focused : books} style={{ width: size, height: size, }} />
-        ),
-      }} />
-
-    <Tab.Screen name="Profile" component={peopleSuggestion}
-      options={{
-        headerShown: false,
-        tabBarShowLabel: false,
-        tabBarIcon: ({ focused, size }) => (
-          <Image source={focused ? groups_focused : groups} style={{ width: size + 5, height: size + 5, }} />
-        ),
-      }} />
-  </Tab.Navigator>
-)
+      <Tab.Screen name="Profile" component={peopleSuggestion}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused, size }) => (
+            <Image source={focused ? groups_focused : groups} style={{ width: size + 5, height: size + 5, }} />
+          ),
+        }} />
+    </Tab.Navigator>
+  )
+}
 
 export default MainNavigator

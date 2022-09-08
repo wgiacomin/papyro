@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert, ActivityIndicator } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
@@ -10,13 +10,14 @@ import { useAuthDispatch } from '../../context/auth-context'
 import useLogin from './use-login'
 import spinner from '../../styles/spinner'
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation, route }) => {
   const { setProfile } = useAuthDispatch()
   const { signIn } = useAuthDispatch()
+  const first_login = route.params?.first_login != null
 
   const [res, setRes] = useState({
     status: 0,
-    msg: '' ,
+    msg: '',
     access_token: '',
     refresh_token: '',
   })
@@ -27,11 +28,11 @@ const Login = ({ navigation }) => {
   })
 
   useEffect(() => {
-    if (res.status > 300 & res.msg != ''){
+    if (res.status > 300 & res.msg != '') {
       Alert.alert('Atenção!', res.msg)
       setRes('')
-    } else if (res.status == 200){
-      signIn(res.access_token, res.refresh_token)
+    } else if (res.status == 200) {
+      signIn(res.access_token, res.refresh_token, first_login)
     }
   }, [res])
 
@@ -51,15 +52,15 @@ const Login = ({ navigation }) => {
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.title}>
-                Login
+            Login
           </Text>
           <Text style={styles.subtitle}>
-                Faça login com seu e-mail e senha
+            Faça login com seu e-mail e senha
           </Text>
         </View>
         <View style={styles.segment}>
-          <EmailBar data={data} setData={setData}/>
-          <PasswordBar data={data} setData={setData}/>
+          <EmailBar data={data} setData={setData} />
+          <PasswordBar data={data} setData={setData} />
         </View>
         <View>
           <TouchableOpacity
@@ -75,7 +76,7 @@ const Login = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 setLoading(true)
-                useLogin({data, setRes, setProfile, setLoading})
+                useLogin({ data, setRes, setProfile, setLoading })
               }}>
               <Image source={circleButton} style={styles.buttonSize} />
             </TouchableOpacity>
@@ -83,7 +84,7 @@ const Login = ({ navigation }) => {
           <View style={styles.signup}>
             <View>
               <Text style={styles.normal}>
-                Não tem login?  
+                Não tem login?
               </Text>
             </View>
             <View>

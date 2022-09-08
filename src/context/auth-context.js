@@ -6,41 +6,42 @@ const AuthDispatch = createContext()
 
 function authReducer(state, action) {
   switch (action.type) {
-  case 'signIn':
-    return {
-      ...state,
-      access_token: action.access,
-      refresh_token: action.refresh_token,
-      error: '',
-    }
-  case 'refresh':
-    return {
-      ...state,
-      access_token: action.access,
-      error: '',
-    }
-  case 'error':
-    return {
-      ...state,
-      access_token: null,
-      refresh_token: null,
-      error: action.payload,
-    }
-  case 'signOut':
-    return {
-      ...state,
-      access_token: null,
-      refresh_token: null,
-      error: '',
-      profile: null,
-    }
-  case 'profile':
-    return {
-      ...state,
-      profile: action.payload
-    }
-  default:
-    return { ...state }
+    case 'signIn':
+      return {
+        ...state,
+        access_token: action.access,
+        refresh_token: action.refresh_token,
+        error: '',
+        first_login: action.first_login,
+      }
+    case 'refresh':
+      return {
+        ...state,
+        access_token: action.access,
+        error: '',
+      }
+    case 'error':
+      return {
+        ...state,
+        access_token: null,
+        refresh_token: null,
+        error: action.payload,
+      }
+    case 'signOut':
+      return {
+        ...state,
+        access_token: null,
+        refresh_token: null,
+        error: '',
+        profile: null,
+      }
+    case 'profile':
+      return {
+        ...state,
+        profile: action.payload
+      }
+    default:
+      return { ...state }
   }
 }
 
@@ -50,14 +51,15 @@ function AuthProvider({ children }) {
     access_token: null,
     refresh_token: null,
     error: '',
-    profile: { description: '', name: '', nickname: '', id: 0, email: '', photo: '' }
+    profile: { description: '', name: '', nickname: '', id: 0, email: '', photo: '' },
+    first_login: false
   })
 
-  const signIn = async (access_token, refresh_token) => {
+  const signIn = async (access_token, refresh_token, first_login) => {
     try {
       await AsyncStorage.setItem('access_token', access_token)
       await AsyncStorage.setItem('refresh_token', refresh_token)
-      dispatch({ type: 'signIn', access: access_token, refresh: refresh_token })
+      dispatch({ type: 'signIn', access: access_token, refresh: refresh_token, first_login })
     } catch (err) {
       dispatch({
         type: 'error',
