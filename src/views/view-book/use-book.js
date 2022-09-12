@@ -23,7 +23,7 @@ async function useGetBook({ id, setBook, navigation, times }) {
       setValues({ setBook, response })
     }).catch((error) => {
       if (times < 1) {
-        useGetBook({ id, setBook, navigation })
+        useGetBook({ id, setBook, navigation, times: times + 1 })
       } else {
         Alert.alert('Atenção!', error.msg)
       }
