@@ -1,7 +1,5 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import add_button_list from '../../../assets/icons/add_button_list.png'
-import delete_button_list from '../../../assets/icons/delete_button_list.png'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
@@ -16,7 +14,7 @@ const Entry = ({ nickname, photo, interactions, navigation, id }) => {
         <View style={styles.name_block}>
           <View style={styles.name_title_container}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Friend')}>
+              onPress={() => navigation.navigate('Friend', { id })}>
               <Text style={styles.name_title}>{nickname}</Text>
             </TouchableOpacity>
           </View>

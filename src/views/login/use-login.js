@@ -12,7 +12,7 @@ function setValues({ setProfile, setRes, response }) {
   })
 
   setProfile({
-    id: response.data.user.id ? 0 : 1,
+    id: response.data.user.id,
     name: response.data.user.name,
     nickname: response.data.user.nickname,
     description: response.data.user.description,
@@ -25,7 +25,7 @@ async function useLogin({ data, setRes, setProfile, setLoading }) {
     setValues({ setProfile, setRes, response: CONTRACTS.login.success })
     return
   }
-  
+
   if (data.email == '' || data.senha == '') {
     Alert.alert('Atenção!', 'Preencha todos os campos!')
     setLoading(false)

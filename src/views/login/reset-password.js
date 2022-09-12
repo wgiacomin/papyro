@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert, ActivityIndicator } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './login-style'
-import EmailBar from '../../components/email-bar'
+import CodeOtp from '../../components/code-otp-bar'
+import PasswordBar from '../../components/password-bar'
+import ConfirmationPasswordBar from '../../components/confirmation-password-bar'
 import circleButton from '../../../assets/buttons/circleButton.png'
 import BackButton from '../../components/back-button'
-import useForgetPassword from './use-forget-password'
-import spinner from '../../styles/spinner'
+import useResetPassword from './use-reset-password'
 
-const ForgetPassword = ({ navigation }) => {
 
+const ResetPassword = ({ navigation, route }) => {
+	
   const [res, setRes] = useState({
     status: 0,
     msg: '' ,
   })
   
   const [data, setData] = useState({
-    email: '',
+    email: route.params?.email,
+    code_otp: '',
+    password: '',
+    confirmation_password: '',
   })
 
   useEffect(() => {
@@ -26,15 +31,6 @@ const ForgetPassword = ({ navigation }) => {
     }
   },[res])
 
-  const [loading, setLoading] = useState(false)
-
-  if (loading) {
-    return (
-      <View style={[spinner.container, spinner.horizontal]}>
-        <ActivityIndicator size="large" color="#00000" />
-      </View>
-    )
-  }
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
@@ -42,20 +38,22 @@ const ForgetPassword = ({ navigation }) => {
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.title}>
-            Esqueceu sua senha?
+            Recuperar Senha.
           </Text>
           <Text style={styles.subtitle}>
-            Digite seu e-mail para recuperar sua senha.
+            Preencha os campos.
           </Text>
         </View>
         <View style={styles.segment}>
-          <EmailBar data={data} setData={setData}/>
+          <CodeOtp data={data} setData={setData}/>
+          <PasswordBar data={data} setData={setData}/>
+          <ConfirmationPasswordBar data={data} setData={setData}/>
         </View>
         <View style={styles.buttonSegment}>
           <TouchableOpacity
             onPress={() => {
-              setLoading(true)
-              useForgetPassword({data, setRes, setLoading, navigation})
+              useResetPassword({data, setRes})
+              navigation.navigate('Login')
             }}>
             <Image source={circleButton} style={styles.buttonSize} />
           </TouchableOpacity>
@@ -65,4 +63,4 @@ const ForgetPassword = ({ navigation }) => {
   )
 }
 
-export default ForgetPassword
+export default ResetPassword

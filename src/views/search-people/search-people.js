@@ -60,6 +60,7 @@ const SearchPeople = ({ navigation }) => {
               commom_genre={post.item.common_genre}
               image={post.item.photo}
               navigation={navigation}
+              id={post.item.id}
             />
           }} />
       </View>
