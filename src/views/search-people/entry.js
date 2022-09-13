@@ -3,18 +3,18 @@ import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import horizontal from '../../../assets/lines/straight.png'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({name, commom_books, commom_genre, image, navigation}) => {
+const Entry = ({ name, commom_books, commom_genre, image, navigation, id }) => {
   return (
     <View style={styles.container}>
       <View style={styles.name}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Friend')}>
-          <Image source={{uri: image}} style={styles.person_image}/>
+          onPress={() => navigation.navigate('Friend', { id })}>
+          <Image source={{ uri: image }} style={styles.person_image} />
         </TouchableOpacity>
         <View style={styles.name_block}>
           <View style={styles.name_title_container}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Friend')}>
+              onPress={() => navigation.navigate('Friend', { id })}>
               <Text style={styles.name_title}>{name}</Text>
             </TouchableOpacity>
             <View style={styles.commom_container}>
@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
     width: 62,
     height: 60
   },
-  name_block:{
+  name_block: {
     marginLeft: 10
   },
-  name_title:{
+  name_title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontSize: 16,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
   },
-  commom:{
+  commom: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 14,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     marginTop: -5
   },
-  note:{
+  note: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontSize: 12,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     marginTop: 3
   },
-  line:{
+  line: {
     flex: 1,
     marginTop: 15,
     marginBottom: 8
@@ -105,11 +105,11 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     marginTop: -55
   },
-  button_size:{
+  button_size: {
     width: 24,
     height: 24,
     marginLeft: 9,
   }
 })
-  
+
 export default Entry

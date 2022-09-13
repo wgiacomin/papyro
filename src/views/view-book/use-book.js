@@ -2,12 +2,17 @@ import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { BRANCH, GET_BOOK } from '@env'
 import CONTRACTS from '../../routes/contracts'
+import { Alert } from 'react-native'
 
 function setValues({ setBook, response }) {
   setBook({ book: response.data, loading: false })
 }
 
-async function useGetBook({ id, setBook, navigation }) {
+async function useGetBook({ id, setBook, navigation, times }) {
+  if (times == null) {
+    times = 0
+  }
+
   if (BRANCH == 'dev' & GET_BOOK == 1) {
     setValues({ setBook, response: CONTRACTS.get_book.success })
     return
@@ -17,7 +22,11 @@ async function useGetBook({ id, setBook, navigation }) {
     .then((response) => {
       setValues({ setBook, response })
     }).catch((error) => {
-      useGetBook({ id, setBook, navigation })
+      if (times < 1) {
+        useGetBook({ id, setBook, navigation, times: times + 1 })
+      } else {
+        Alert.alert('Atenção!', error.msg)
+      }
     })
 
 }

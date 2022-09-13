@@ -7,7 +7,7 @@ const Tab = createMaterialTopTabNavigator()
 
 
 const PeopleNavigator = (props) => {
-  const params = props.route.params.params
+  const params = props.route.params?.params
   return (
     <Tab.Navigator
       initialRouteName='Já Leu'

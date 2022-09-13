@@ -2,6 +2,7 @@ import ROUTES from '../../routes/routes'
 import api from '../../routes/api'
 import { BRANCH, FEED } from '@env'
 import CONTRACTS from '../../routes/contracts'
+import { Alert } from 'react-native'
 
 function setValues({ setFeed, response, page, setRefreshing, setData, feed, new_refresh }) {
   if (response.data.length > 0) {
@@ -18,12 +19,14 @@ function setValues({ setFeed, response, page, setRefreshing, setData, feed, new_
   setRefreshing(false)
 }
 
-async function useFeed({ setFeed, setData, page, refreshing, setRefreshing, feed, new_refresh }) {
+async function useFeed({ setFeed, setData, page, refreshing, setRefreshing, feed, new_refresh, times }) {
   if (page == null) {
     return
   }
 
-
+  if (times == null) {
+    times = 0
+  }
 
   if (BRANCH == 'dev' & FEED == 1) {
     setValues({ setFeed, response: CONTRACTS.feed.success })
@@ -37,7 +40,11 @@ async function useFeed({ setFeed, setData, page, refreshing, setRefreshing, feed
         setValues({ setFeed, response, page, setRefreshing, setData, feed, new_refresh })
       }
     }).catch((error) => {
-      useFeed({ setFeed, setData, page, refreshing, setRefreshing, feed, new_refresh })
+      if (times < 1) {
+        useFeed({ setFeed, setData, page, refreshing, setRefreshing, feed, new_refresh })
+      } else {
+        Alert.alert('Atenção!', error.msg)
+      }
     })
 
 }

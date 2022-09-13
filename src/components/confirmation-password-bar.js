@@ -3,12 +3,12 @@ import { View, Image, TextInput, StyleSheet, Alert } from 'react-native'
 import lock from '../../assets/icons/lock.png'
 import vertical from '../../assets/lines/straight.png'
 
-const PasswordBar = ({ data, setData }) => {
-  function validatePassword(password) {
-    if (password.length >= 8 | password.length == 0) {
+const ConfirmationPasswordBar = ({ data, setData }) => {
+  function validatePassword(password, confirmation_password) {
+    if (confirmation_password == password) {
       return (true)
     }
-    Alert.alert('Atenção!', 'A senha deve conter ao menos 8 dígitos.')
+    Alert.alert('Atenção!', 'Senhas diferentes.')
     setData({ ...data, 'senha': '' })
     return (false)
   }
@@ -22,14 +22,14 @@ const PasswordBar = ({ data, setData }) => {
           <TextInput
             autoCapitalize="none"
             autoCorrect={false}
-            placeholder="Senha"
+            placeholder="Confirmar senha"
             textContentType='newPassword'
             secureTextEntry
             enablesReturnKeyAutomatically
             style={styles.textInput}
-            onChangeText={text => setData({ ...data, 'password': text })}
+            onChangeText={text => setData({ ...data, 'confirmation_password': text })}
             value={data.senha}
-            // onEndEditing={() => validatePassword(data.password)}
+            // onEndEditing={() => validatePassword(data.password, data.confirmation_password)}
             returnKeyType={'done'}
           />
         </View>
@@ -82,4 +82,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default PasswordBar
+export default ConfirmationPasswordBar

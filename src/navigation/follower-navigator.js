@@ -6,7 +6,7 @@ import Following from '../views/followers/followers'
 const Tab = createMaterialTopTabNavigator()
 
 const FollowNavigator = (props) => {
-  const params = props.route.params.params
+  const params = props.route.params?.params
   return (
     <Tab.Navigator
       initialRouteName='Seguidores'
@@ -27,8 +27,8 @@ const FollowNavigator = (props) => {
       }}
     >
 
-      <Tab.Screen name="Seguidores" component={Following} initialParams={{ ...params, route_type: 'following' }} />
-      <Tab.Screen name="Seguindo" component={Following} initialParams={{ ...params, route_type: 'followers', }} />
+      <Tab.Screen name="Seguidores" component={Following} initialParams={{ ...params, route_type: 'followers' }} />
+      <Tab.Screen name="Seguindo" component={Following} initialParams={{ ...params, route_type: 'following', }} />
 
     </Tab.Navigator>
   )
