@@ -72,10 +72,9 @@ export default SearchPeople
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginLeft: '7%',
     marginRight: '5%',
-    marginBottom: '5%'
+    marginBottom: '5%',
   },
   segment: {
     flexDirection: 'row',
@@ -124,18 +123,6 @@ const styles = StyleSheet.create({
   },
   search_segment_click: {
     marginRight: '5%'
-  },
-  line_selected: {
-    flex: 1,
-    marginTop: 10,
-    marginLeft: 60,
-    marginRight: 19
-  },
-  selectedLine: {
-    width: '163%',
-    backgroundColor: '#324A59',
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
   },
   line: {
     flex: 1,
