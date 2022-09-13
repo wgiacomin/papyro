@@ -76,7 +76,7 @@ const ViewBook = ({ navigation, route }) => {
                     {book.book.book_title}
                   </Text>
                   <Text style={styles.book_autor}>
-                    {book.book.author[0].name}
+                    {book.book.author[0]}
                   </Text>
                   <TouchableOpacity onPress={() => navigation.navigate('Review', {
                     book_title: book.book.book_title,
@@ -95,7 +95,7 @@ const ViewBook = ({ navigation, route }) => {
 
               <View style={styles.resume_segment}>
                 <Text style={styles.resume}>
-                  {book.book.description}
+                  {book.book.description.replace(/(<([^>]+)>)/ig, '')}
                 </Text>
                 <View style={styles.want_to_read_container}>
                   <Menu>
