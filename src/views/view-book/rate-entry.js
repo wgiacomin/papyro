@@ -8,6 +8,7 @@ import comments from '../../../assets/icons/chat.png'
 
 // eslint-disable-next-line react/prop-types
 const Entry = ({ post, navigation }) => {
+  console.log(post)
   return (<>
     <View style={styles.comment_title}
       key={post.item.id}>
@@ -36,7 +37,7 @@ const Entry = ({ post, navigation }) => {
       <View style={styles.like_and_comments}>
         <View>
           <View style={styles.like_and_comments}>
-            <Like liked={post.item.you_liked} size={20} likes={post.item.likes} type={'c'} id={post.item.id} />
+            <Like liked={post.item.you_liked} size={20} likes={post.item.likes} type={'r'} id={post.item.id} />
           </View>
         </View>
 
