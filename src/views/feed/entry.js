@@ -62,6 +62,7 @@ const Entry = ({id, nickname, type, book_title, you_liked, rates, rate, date, ph
   )
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

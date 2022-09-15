@@ -68,7 +68,7 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'name': text.replace(' ', '') } })}
+                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'name': text } })}
                     value={data.profile.name}
                   />
                 </View>
@@ -84,7 +84,7 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'nickname': text } })}
+                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'nickname': text.replace(' ', '') } })}
                     value={data.profile.nickname}
                   />
                 </View>
