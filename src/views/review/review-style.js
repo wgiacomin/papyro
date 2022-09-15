@@ -40,7 +40,8 @@ export default StyleSheet.create({
     lineHeight: 33,
     color: '#181D2D',
     textAlign: 'center',
-    marginLeft: 50,
+    marginLeft: 110,
+    marginRight: 20,
     marginTop: -120
   },
   book_autor: {
@@ -50,7 +51,8 @@ export default StyleSheet.create({
     lineHeight: 21,
     color: '#181D2D',
     textAlign: 'center',
-    marginLeft: 45,
+    marginLeft: 120,
+    marginRight: 20,
     marginTop: -6
   },
   star: {
@@ -67,6 +69,7 @@ export default StyleSheet.create({
     paddingTop: 0,
     marginTop: 4,
     alignSelf: 'center',
+    marginLeft: 60,
   },
   star_number: {
     fontFamily: 'Poppins',

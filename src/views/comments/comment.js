@@ -104,7 +104,7 @@ const Comment = ({ navigation, route }) => {
                 </View>
               </View>
               <Text style={styles.text}>
-                {extraInfo.review.review}
+                {extraInfo.review.text}
               </Text>
               <View style={styles.footer}>
                 <Text style={styles.date}>{extraInfo.review.date}</Text>
