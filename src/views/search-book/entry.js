@@ -5,18 +5,18 @@ import Rate from '../../components/rate-stars'
 
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({name, author, cover, navigation, rate}) => {
+const Entry = ({name, author, cover, navigation, rate, book_id}) => {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ViewBook')}>
+          onPress={() => navigation.navigate('ViewBook', { id: book_id })}>
           <Image source={{uri: cover}} style={styles.book_image}/>
         </TouchableOpacity>
         <View style={styles.book_block}>
           <View style={styles.book_title_container}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('ViewBook')}>
+              onPress={() => navigation.navigate('ViewBook', { id: book_id })}>
               <Text style={styles.book_title}>{name}</Text>
             </TouchableOpacity>
             <View style={styles.autor_container}>

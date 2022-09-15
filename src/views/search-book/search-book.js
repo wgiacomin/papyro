@@ -67,6 +67,7 @@ const SearchBook = ({ navigation, route }) => {
               cover={post.item.cover}
               author={post.item.author[0]}
               rate={post.item.rate}
+              book_id={post.item.id}
               navigation={navigation}
             />
           }} />

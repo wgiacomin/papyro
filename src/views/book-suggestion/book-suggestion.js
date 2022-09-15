@@ -38,6 +38,7 @@ const BookSuggestion = ({ navigation }) => {
               rate={post.item.rate}
               cover={post.item.cover}
               author={post.item.author[0]}
+              id={post.item.id}
               navigation={navigation}
             />
           }} />

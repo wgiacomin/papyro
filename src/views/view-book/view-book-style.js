@@ -199,7 +199,8 @@ export default StyleSheet.create({
     lineHeight: 24,
     color: '#181D2D',
     textAlign: 'center',
-    marginTop: 13
+    marginTop: 13,
+    paddingBottom: 13
   },
   company: {
     flex: 1,

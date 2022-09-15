@@ -4,18 +4,18 @@ import horizontal from '../../../assets/lines/straight.png'
 import Rate from '../../components/rate-stars'
 
 // eslint-disable-next-line react/prop-types
-const Entry = ({ name, rate, cover, author, navigation }) => {
+const Entry = ({ name, rate, cover, author, id, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.livro}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ViewBook')}>
+          onPress={() => navigation.navigate('ViewBook', { id })}>
           <Image source={{ uri: cover }} style={styles.livro_image} />
         </TouchableOpacity>
         <View style={styles.livro_block}>
           <View style={styles.livro_title_container}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('ViewBook')}>
+              onPress={() => navigation.navigate('ViewBook', { id })}>
               <Text style={styles.livro_title}>{name}</Text>
             </TouchableOpacity>
           </View>
