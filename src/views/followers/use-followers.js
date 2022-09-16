@@ -26,7 +26,7 @@ async function useFollowing({ setFollowing, page, refreshing, setRefreshing, set
     return
   }
 
-  await api.get(ROUTES.get_following, { params: { page, friend_type: route_type, user_id: id } })
+  await api.get(ROUTES.get_following, { params: { page, follow_type: route_type, user_id: id } })
     .then((response) => {
       if (!refreshing) {
         setRefreshing(true)
