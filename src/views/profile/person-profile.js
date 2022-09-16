@@ -44,6 +44,7 @@ const FriendProfile = ({ navigation, route }) => {
     )
   }
 
+  console.log(data)
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <UserProfileBar navigation={navigation} profile={data.profile.nickname} />

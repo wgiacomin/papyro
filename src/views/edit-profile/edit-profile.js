@@ -9,6 +9,8 @@ import personalizeButton from '../../../assets/buttons/personalizeButton.png'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useEditProfile from './use-edit-profile'
+import ImagePicker from 'react-native-image-picker'
+import { launchImageLibrary } from 'react-native-image-picker'
 
 const EditProfile = ({ navigation }) => {
   const { profile } = useAuthState()
@@ -32,6 +34,10 @@ const EditProfile = ({ navigation }) => {
     )
   }
 
+  function imageCallback(data){
+    console.log(data)
+  }
+
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.container}>
@@ -50,9 +56,9 @@ const EditProfile = ({ navigation }) => {
           <View style={styles.segment}>
             <Image source={{ uri: data.profile.photo }} style={styles.profileSize} />
             <TouchableOpacity
-              onPress={() => navigation.navigate('People')}>
+              onPress={() => launchImageLibrary(ImagePicker.photo, imageCallback())}>
               <Image source={editPhotoButton} style={styles.buttonSize} />
-            </TouchableOpacity>
+            </TouchableOpacity> 
           </View>
           <View style={styles.segment}>
             <Text style={styles.bold}>
@@ -68,7 +74,7 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'name': text.replace(' ', '') } })}
+                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'name': text } })}
                     value={data.profile.name}
                   />
                 </View>
@@ -84,7 +90,7 @@ const EditProfile = ({ navigation }) => {
                     autoCapitalize='none'
                     autoCorrect={false}
                     style={stylesInput.textInput}
-                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'nickname': text } })}
+                    onChangeText={text => setEditProfile({ ...data, profile: { ...data.profile, 'nickname': text.replace(' ', '') } })}
                     value={data.profile.nickname}
                   />
                 </View>
