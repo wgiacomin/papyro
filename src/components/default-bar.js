@@ -21,7 +21,7 @@ const DefaultBar = ({ navigation }) => {
             onChangeText={text => setTerm(text)}
           />
           <TouchableOpacity style={styles.search_segment}
-            onPress={() => navigation.navigate('Pesquisa', { screen: 'Livros', params: { term } })}
+            onPress={() => navigation.navigate('Pesquisa', { params: { term } })}
           >
             <Image source={search} style={styles.search} />
           </TouchableOpacity>

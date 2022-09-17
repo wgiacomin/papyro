@@ -1,6 +1,6 @@
 const ROUTES = {
   baseURL: 'http://10.0.2.2:8000',
-  // baseURL: 'http://192.168.0.110:8000',
+  // baseURL: 'http://192.168.1.7:8000',
 
   login: 'login/',
   refresh: 'login/refresh',
@@ -10,6 +10,7 @@ const ROUTES = {
   signup: 'users/',
 
   comments: 'rate/',
+  newComments: 'comments/',
   get_book: 'getBook/',
 
   get_persons_books: 'users/books',

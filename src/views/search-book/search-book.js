@@ -50,7 +50,7 @@ const SearchBook = ({ navigation, route }) => {
           numColumns={1}
           keyExtractor={(item) => item.id.toString()}
           onEndReached={() => {
-            if (books.length % 16 == 0 & books.length > 0) {
+            if (books.length % 16 == 0 & books.length > 0 & data.page > 0) {
               useSearch({ setData, data, setBooks, books, page: data.page, refreshing, setRefreshing, term })
             }
           }}
@@ -80,7 +80,6 @@ export default SearchBook
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginLeft: '7%',
     marginRight: '5%',
     marginBottom: '5%'

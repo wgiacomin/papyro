@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, TextInput, FlatList, Image, TouchableOpacity, Text } from 'react-native'
 import horizontal from '../../../assets/lines/straight.png'
 import useSearch from './use-search-people'
 import search from '../../../assets/icons/search.png'
 import Entry from './entry'
 
-const SearchPeople = ({ navigation }) => {
+const SearchPeople = ({ navigation, route }) => {
   const [refreshing, setRefreshing] = useState(false)
   const [data, setData] = useState({
     page: 0,
@@ -13,7 +13,11 @@ const SearchPeople = ({ navigation }) => {
   })
 
   const [people, setPeople] = useState([])
-  const [term, setTerm] = useState(null)
+  const [term, setTerm] = useState(route.params?.term)
+
+  useEffect(() => {
+    useSearch({ setData, page: 0, setPeople, people, data, setRefreshing, refreshing, term, new_refresh: true })
+  }, [])
 
 
   return (

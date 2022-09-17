@@ -7,7 +7,7 @@ import followers from '../../../assets/icons/followers.png'
 import booksReaded from '../../../assets/icons/books_readed.png'
 import UserProfileBar from '../../components/user-profile-bar'
 import DescriptionBar from '../../components/description-bar'
-import { useAuthDispatch, useAuthState } from '../../context/auth-context'
+import { useAuthDispatch } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useProfile from './use-profile'
 

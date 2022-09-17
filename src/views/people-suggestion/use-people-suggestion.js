@@ -26,7 +26,6 @@ async function usePeopleSuggestion({ setPeopleSuggestion, page, setRefreshing, s
     .then(async (response) => {
       setValues({ setPeopleSuggestion, response, page, setRefreshing, setData })
     }).catch((error) => {
-      Alert.alert('Atenção', error.response.data.detail)
       setData({ loading: false })
     })
 }

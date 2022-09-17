@@ -24,6 +24,7 @@ const PeopleSuggestion = ({ navigation }) => {
           data={peopleSuggestion}
           numColumns={1}
           refreshing={data.loading}
+          ListEmptyComponent={() => <Text>Sem Indicações</Text>}
           onRefresh={() => {
             setData({ loading: true })
             usePeopleSuggestion({ setPeopleSuggestion, page: data.page, setData })

@@ -11,8 +11,8 @@ const PeopleNavigator = (props) => {
   return (
     <Tab.Navigator
       initialRouteName='Já Leu'
-      lazy={false}
       screenOptions={{
+        lazy: false,
         tabBarActiveTintColor: 'black',
         tabBarInactiveTintColor: 'gray',
         tabBarActiveBackgroundColor: '#ededed',

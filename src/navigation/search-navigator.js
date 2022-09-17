@@ -7,30 +7,35 @@ import searchPeople from '../views/search-people/search-people'
 const Tab = createMaterialTopTabNavigator()
 
 
-const SearchNavigator = () => (
-  <Tab.Navigator
-    initialRouteName='Livros'
-    screenOptions={{
-      tabBarActiveTintColor: 'black',
-      tabBarInactiveTintColor: 'gray',
-      tabBarActiveBackgroundColor: '#ededed',
-      tabBarInactiveBackgroundColor: '#dcdcdc',
-      tabBarStyle: [
-        {
-          display: 'flex',
-          margin: 0,
-          padding: 0
-        },
-        null
-      ]
-    }}
-  >
+const SearchNavigator = (props) => {
+  const params = props.route.params?.params
+  return (
+    <Tab.Navigator
+      initialRouteName='Livros'
+      screenOptions={{
+        lazy: false,
+        tabBarActiveTintColor: 'black',
+        tabBarInactiveTintColor: 'gray',
+        tabBarActiveBackgroundColor: '#ededed',
+        tabBarInactiveBackgroundColor: '#dcdcdc',
+        tabBarStyle: [
+          {
+            display: 'flex',
+            margin: 0,
+            padding: 0
+          },
+          null
+        ]
+      }}
+    >
 
-    <Tab.Screen name="Pessoas" component={searchPeople} />
+      <Tab.Screen name="Pessoas" component={searchPeople} initialParams={{ ...params }} />
 
-    <Tab.Screen name="Livros" component={searchBook} />
+      <Tab.Screen name="Livros" component={searchBook} initialParams={{ ...params }} />
 
-  </Tab.Navigator>
-)
+    </Tab.Navigator>
+  )
+}
+
 
 export default SearchNavigator

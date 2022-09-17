@@ -64,8 +64,8 @@ const MainNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
-      lazy={false}
       screenOptions={{
+        lazy: false,
         tabBarActiveTintColor: 'black',
         tabBarInactiveTintColor: 'gray',
         tabBarActiveBackgroundColor: '#ededed',
