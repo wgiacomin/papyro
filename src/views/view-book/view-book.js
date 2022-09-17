@@ -5,7 +5,6 @@ import styles from './view-book-style'
 import shareButton from '../../../assets/icons/share.png'
 import horizontal from '../../../assets/lines/straight.png'
 import profile from '../../../assets/icons/profile.png'
-import editButton from '../../../assets/buttons/editButton.png'
 import spinner from '../../styles/spinner'
 import Rate from '../../components/rate-stars'
 import useGetBook from './use-book'
@@ -147,6 +146,11 @@ const ViewBook = ({ navigation, route }) => {
           data={book.book.reviews}
           keyExtractor={(item) => item.id.toString()}
           numColumns={1}
+          refreshing={book.loading}
+          onRefresh={() => {
+            setBook({ ...book, loading: true })
+            useGetBook({ id: route.params?.id, setBook, navigation })
+          }}
           renderItem={(post) => <Entry navigation={navigation} post={post} />} />
       </View >
     </SafeAreaView >

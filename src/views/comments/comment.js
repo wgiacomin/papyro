@@ -17,6 +17,7 @@ import {
 } from 'react-native-popup-menu'
 import READ_TYPE from '../../enum/READ_TYPE'
 import useNewComment from './use-new-comment'
+import updateBookState from '../view-book/update-book-state'
 
 const Comment = ({ navigation, route }) => {
   const [refreshing, setRefreshing] = useState(false)
@@ -35,13 +36,16 @@ const Comment = ({ navigation, route }) => {
     reviewer: {}
   })
 
+  const [status, setStatus] = useState(null)
+
   useEffect(() => {
-    useComment({ setComment, page: 0, refreshing, setRefreshing, setData, comments, setExtraInfo, id: route.params.id, new_refresh: true })
+    useComment({ setComment, page: 0, refreshing, setRefreshing, setData, comments, setExtraInfo, id: route.params.id, new_refresh: true, setStatus })
   }, [])
 
 
   function setNewState({ newState }) {
-    setComment({ ...extraInfo, book: { ...extraInfo.book, status: newState } })
+    updateBookState({ id: extraInfo.book.id, status: newState })
+    setStatus(newState)
   }
 
   if (extraInfo.loading) {
@@ -91,13 +95,13 @@ const Comment = ({ navigation, route }) => {
                   <View style={styles.want_to_read_container}>
                     <Menu>
                       <MenuTrigger>
-                        <Text style={extraInfo.book.status == null ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[extraInfo.book.status]} </Text>
+                        <Text style={status == null ? styles.want_to_read : styles.want_to_read_list}> {READ_TYPE[status]} </Text>
                       </MenuTrigger>
                       <MenuOptions style={styles.options_color}>
-                        <MenuOption onSelect={() => setNewState({ newState: null })} text={READ_TYPE[null]} disabled={extraInfo.book.status == null} />
-                        <MenuOption onSelect={() => setNewState({ newState: 1 })} text={READ_TYPE[1]} disabled={extraInfo.book.status == 1} />
-                        <MenuOption onSelect={() => setNewState({ newState: 2 })} text={READ_TYPE[2]} disabled={extraInfo.book.status == 2} />
-                        <MenuOption onSelect={() => setNewState({ newState: 3 })} text={READ_TYPE[3]} disabled={extraInfo.book.status == 3} />
+                        <MenuOption onSelect={() => setNewState({ newState: null })} text={READ_TYPE[null]} disabled={status == null} />
+                        <MenuOption onSelect={() => setNewState({ newState: 1 })} text={READ_TYPE[1]} disabled={status == 1} />
+                        <MenuOption onSelect={() => setNewState({ newState: 2 })} text={READ_TYPE[2]} disabled={status == 2} />
+                        <MenuOption onSelect={() => setNewState({ newState: 3 })} text={READ_TYPE[3]} disabled={status == 3} />
                       </MenuOptions>
                     </Menu>
                   </View>
@@ -128,13 +132,13 @@ const Comment = ({ navigation, route }) => {
           data={comments}
           keyExtractor={(item) => item.id.toString()}
           numColumns={1}
-          onEndReached={() => useComment({ setComment, page: data.page, refreshing, setRefreshing, setData, comments, id: route.params.id })}
+          onEndReached={() => useComment({ setComment, page: data.page, refreshing, setRefreshing, setData, comments, id: route.params.id, setStatus })}
           onEndReachedThreshold={.5}
           ListEmptyComponent={() => <Text></Text>}
           refreshing={data.loading}
           onRefresh={() => {
             setData({ loading: true })
-            useComment({ setComment, page: 0, refreshing, setRefreshing, setData, comments, new_refresh: true, id: route.params.id, setExtraInfo })
+            useComment({ setComment, page: 0, refreshing, setRefreshing, setData, comments, new_refresh: true, id: route.params.id, setExtraInfo, setStatus })
           }}
           renderItem={(post) => {
             return <Entry

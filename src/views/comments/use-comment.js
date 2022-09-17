@@ -4,9 +4,10 @@ import { Alert } from 'react-native'
 import { BRANCH, COMMENTS } from '@env'
 import CONTRACTS from '../../routes/contracts'
 
-function setValues({ setComment, response, page, setRefreshing, setData, comments, new_refresh, setExtraInfo }) {
+function setValues({ setComment, response, page, setRefreshing, setData, comments, new_refresh, setExtraInfo, setStatus }) {
   if (response.data.comments.length > 0) {
     if (new_refresh) {
+      setStatus(response.data.book?.status)
       setExtraInfo({
         loading: false,
         book: response.data.book,
@@ -20,6 +21,7 @@ function setValues({ setComment, response, page, setRefreshing, setData, comment
     setData({ loading: false, page: page + 1 })
   } else {
     if (page == 0) {
+      setStatus(response.data.book?.status)
       setExtraInfo({
         loading: false,
         book: response.data.book,
@@ -32,7 +34,7 @@ function setValues({ setComment, response, page, setRefreshing, setData, comment
   setRefreshing(false)
 }
 
-async function useComment({ id, setComment, setData, page, refreshing, setRefreshing, comments, new_refresh, setExtraInfo }) {
+async function useComment({ id, setComment, setData, page, refreshing, setRefreshing, comments, new_refresh, setExtraInfo, setStatus }) {
   if (page == null) {
     return
   }
@@ -44,7 +46,7 @@ async function useComment({ id, setComment, setData, page, refreshing, setRefres
   await api.get(ROUTES.comments + id, { params: { page } }).then((response) => {
     if (!refreshing) {
       setRefreshing(true)
-      setValues({ setComment, response, page, setRefreshing, setData, comments, new_refresh, setExtraInfo })
+      setValues({ setComment, response, page, setRefreshing, setData, comments, new_refresh, setExtraInfo, setStatus })
     }
   }).catch((error) => {
     Alert.alert('Atenção', error.response.detail)
