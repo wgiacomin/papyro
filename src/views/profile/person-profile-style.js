@@ -5,10 +5,10 @@ export default StyleSheet.create({
     flex: 1,
     marginTop: '1%',
   },
-  segment:{
+  segment: {
     paddingBottom: '5%'
   },
-  book_segment:{
+  book_segment: {
     paddingBottom: '5%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -21,7 +21,7 @@ export default StyleSheet.create({
     marginBottom: 2,
     marginTop: 20
   },
-  normal:{
+  normal: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -43,30 +43,30 @@ export default StyleSheet.create({
     width: 210,
     height: 220,
   },
-  continueSegment:{
+  continueSegment: {
     flex: 1,
     marginTop: -50
   },
-  buttonSegment:{
+  buttonSegment: {
     marginLeft: '7%',
     flex: 1,
     justifyContent: 'center',
   },
-  follow_segment:{
+  follow_segment: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 50
+    marginTop: 20
   },
-  talk_segment:{
+  talk_segment: {
     flexDirection: 'row',
     marginLeft: '52%',
     marginTop: -44
   },
-  followButton:{
+  followButton: {
     width: 104,
     height: 43.79,
   },
-  talkButton:{
+  talkButton: {
     width: 104,
     height: 47
   }
