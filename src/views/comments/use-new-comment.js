@@ -9,7 +9,7 @@ async function useNewComment({ id, text, setNewComment }) {
     return
   }
 
-  await api.post(ROUTES.newComments, {
+  await api.post(ROUTES.new_comments, {
     rate_id: id,
     text
   })

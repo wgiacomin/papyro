@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, TextInput, StyleSheet, ActivityIndicator } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ScrollView, TextInput, StyleSheet, ActivityIndicator, useWindowDimensions } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './edit-profile-style'
 import vertical from '../../../assets/lines/straight.png'
@@ -9,10 +9,20 @@ import personalizeButton from '../../../assets/buttons/personalizeButton.png'
 import { useAuthDispatch, useAuthState } from '../../context/auth-context'
 import spinner from '../../styles/spinner'
 import useEditProfile from './use-edit-profile'
-import ImagePicker from 'react-native-image-picker'
-import { launchImageLibrary } from 'react-native-image-picker'
+import uploadImageFromDevice from '../../utils/pics/upload-image-from-device'
+import manageFileUpload from '../../utils/pics/manage-file-upload'
+import getBlobFromUri from '../../utils/pics/get-blob-from-uri'
+import uploadPic from './upload-pic'
+import { Feather } from '@expo/vector-icons'
 
-const EditProfile = ({ navigation }) => {
+
+const EditProfile = ({ navigation, route }) => {
+  const [imgURI, setImageURI] = useState(null)
+  const [isUploading, setIsUploading] = useState(false)
+  const [progress, setProgress] = useState(0)
+  const [remoteURL, setRemoteURL] = useState('')
+  const [error, setError] = useState(null)
+
   const { profile } = useAuthState()
   const { setProfile } = useAuthDispatch()
   const { logout } = useAuthDispatch()
@@ -26,6 +36,12 @@ const EditProfile = ({ navigation }) => {
     setEditProfile({ loading: false, profile })
   }, [])
 
+  useEffect(() => {
+    if (remoteURL != null & remoteURL != '') {
+      uploadPic({ remoteURL, profile, setProfile })
+    }
+  }, [remoteURL])
+
   if (data.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
@@ -34,8 +50,39 @@ const EditProfile = ({ navigation }) => {
     )
   }
 
-  function imageCallback(data){
-    console.log(data)
+  const handleLocalImageUpload = async () => {
+    const fileURI = await uploadImageFromDevice()
+
+    if (fileURI) {
+      setImageURI(fileURI)
+    }
+  }
+
+  const onStart = () => {
+    setIsUploading(true)
+  }
+
+  const onProgress = (progress) => {
+    setProgress(progress)
+  }
+  const onComplete = (fileUrl) => {
+    setRemoteURL(fileUrl)
+    setIsUploading(false)
+    setImageURI(null)
+    setEditProfile({ ...data, profile: { ...data.profile, 'photo': fileUrl } })
+
+  }
+
+  const onFail = (error) => {
+    setError(error)
+    setIsUploading(false)
+  }
+
+  const handleCloudImageUpload = async () => {
+    if (!imgURI) return
+    let fileToUpload = null
+    const blob = await getBlobFromUri(imgURI)
+    await manageFileUpload(blob, { onStart, onProgress, onComplete, onFail })
   }
 
   return (
@@ -54,11 +101,32 @@ const EditProfile = ({ navigation }) => {
       <ScrollView>
         <View style={styles.standard}>
           <View style={styles.segment}>
-            <Image source={{ uri: data.profile.photo }} style={styles.profileSize} />
-            <TouchableOpacity
-              onPress={() => launchImageLibrary(ImagePicker.photo, imageCallback())}>
-              <Image source={editPhotoButton} style={styles.buttonSize} />
-            </TouchableOpacity> 
+            <Image source={{ uri: imgURI == null ? data.profile.photo : imgURI }} style={styles.profileSize} />
+            <View style={{ flex: 1, flexDirection: 'row', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+              <TouchableOpacity
+                onPress={handleLocalImageUpload}>
+                <Image source={editPhotoButton} style={styles.buttonSize} />
+              </TouchableOpacity>
+              <View style={{ paddingTop: 20, paddingLeft: 20 }}>
+                {Boolean(imgURI) && (
+                  <Feather
+                    name="upload-cloud"
+                    size={26}
+                    color="black"
+                    onPress={handleCloudImageUpload}
+                  />
+                )}
+              </View>
+            </View>
+            <View style={{ flex: 1, alignContent: 'center', alignItems: 'center', justifyContent: 'center', paddingTop: 20 }}>
+              {isUploading && (
+                <Text style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}> {progress}% </Text>
+              )}
+            </View>
           </View>
           <View style={styles.segment}>
             <Text style={styles.bold}>
@@ -96,7 +164,7 @@ const EditProfile = ({ navigation }) => {
                 </View>
               </View>
             </View>
-            
+
             <Text style={styles.normal}>
               Descrição
             </Text>
@@ -123,6 +191,7 @@ const EditProfile = ({ navigation }) => {
               <TouchableOpacity
                 onPress={() => {
                   useEditProfile({ setEditProfile, data: data.profile, setProfile })
+                  route.params?.reload(true)
                   navigation.goBack()
                 }}>
                 <View style={styles.continueSegment}>
@@ -171,7 +240,7 @@ const stylesInput = StyleSheet.create({
     color: '#000000',
     width: 266
   },
-  descriptionInput:{
+  descriptionInput: {
     width: 266,
     height: 266,
     fontFamily: 'Poppins-Medium',
@@ -181,7 +250,7 @@ const stylesInput = StyleSheet.create({
     color: '#000000',
     marginTop: 9,
     marginLeft: 10,
-    marginRight: 12, 
+    marginRight: 12,
     marginBottom: 20,
     textAlignVertical: 'top'
   },

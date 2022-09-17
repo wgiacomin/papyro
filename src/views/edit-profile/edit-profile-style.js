@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
     marginTop: '1%',
   },
-  segment:{
+  segment: {
     paddingBottom: '5%'
   },
   container: {
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     marginTop: 10,
     alignItems: 'center'
   },
-  barSegment:{
+  barSegment: {
     flexDirection: 'row',
     left: '5%',
   },
@@ -26,7 +26,7 @@ export default StyleSheet.create({
     marginBottom: 15,
     marginTop: 2
   },
-  title: {  
+  title: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -36,7 +36,7 @@ export default StyleSheet.create({
     color: '#181D2D',
     marginTop: '-3%'
   },
-  normal:{
+  normal: {
     fontFamily: 'Poppins',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -47,7 +47,7 @@ export default StyleSheet.create({
     marginBottom: 6,
     marginTop: 21
   },
-  bold:{
+  bold: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -76,19 +76,19 @@ export default StyleSheet.create({
     alignSelf: 'center',
     marginTop: 27
   },
-  buttonSegment:{
+  buttonSegment: {
     alignSelf: 'center',
     marginTop: 30,
     flexDirection: 'row',
   },
-  continueSegment:{
+  continueSegment: {
     borderRadius: 50,
     backgroundColor: '#324A59',
     width: 104,
     height: 43.79,
     marginRight: 33
   },
-  buttonSave:{
+  buttonSave: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -98,14 +98,14 @@ export default StyleSheet.create({
     color: '#FFFFFF',
     marginTop: '10%',
   },
-  logoutSegment:{
+  logoutSegment: {
     borderRadius: 50,
     borderColor: 'red',
     backgroundColor: '#FFFFFF',
     width: 104,
     height: 43.79
   },
-  buttonLogout:{
+  buttonLogout: {
     fontFamily: 'Poppins-Medium',
     fontStyle: 'normal',
     fontWeight: 'normal',

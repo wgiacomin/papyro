@@ -13,6 +13,7 @@ import useProfile from './use-profile'
 
 const UserProfile = ({ navigation }) => {
   const { setProfile } = useAuthDispatch()
+  const [reload, setReload] = useState(null)
 
   const [data, setData] = useState({
     profile: {},
@@ -21,7 +22,7 @@ const UserProfile = ({ navigation }) => {
 
   useEffect(() => {
     useProfile({ setData, setProfile })
-  }, [])
+  }, [reload])
 
   if (data.loading) {
     return (
@@ -33,7 +34,7 @@ const UserProfile = ({ navigation }) => {
 
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
-      <UserProfileBar navigation={navigation} />
+      <UserProfileBar navigation={navigation} reload={setReload} />
       <View style={styles.standard}>
         <View style={styles.segment}>
           <Text style={styles.user}>

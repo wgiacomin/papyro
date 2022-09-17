@@ -7,10 +7,11 @@ const ROUTES = {
   forget_password: '/login/forgotPassword',
   reset_password: '/login/resetPassword',
 
+  add_image: 'users/updatePhoto',
   signup: 'users/',
 
   comments: 'rate/',
-  newComments: 'comments/',
+  new_comments: 'comments/',
   get_book: 'getBook/',
 
   get_persons_books: 'users/books',
