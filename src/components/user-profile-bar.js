@@ -4,7 +4,7 @@ import vertical from '../../assets/lines/straight.png'
 import editButton from '../../assets/buttons/editButton.png'
 import BackButton from './back-button'
 
-const UserProfileBar = ({ navigation }) => {
+const UserProfileBar = ({ navigation, reload }) => {
   return (
     <View>
       <View style={styles.container}>
@@ -17,7 +17,7 @@ const UserProfileBar = ({ navigation }) => {
             Meu Perfil
           </Text>
           <TouchableOpacity
-            onPress={() => navigation.navigate('EditProfile')}>
+            onPress={() => navigation.navigate('EditProfile', { reload })}>
             <Image source={editButton} style={styles.buttonEdit} />
           </TouchableOpacity>
         </View>

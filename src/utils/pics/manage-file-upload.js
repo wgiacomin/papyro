@@ -10,8 +10,6 @@ const manageFileUpload = async (
 
   const storageRef = ref(storage, uuidv4() + '.jpg')
 
-  console.log('uploading file', imgName)
-
   // Create file metadata including the content type
   const metadata = {
     contentType: 'image/jpeg',

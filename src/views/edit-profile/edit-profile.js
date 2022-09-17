@@ -16,7 +16,7 @@ import uploadPic from './upload-pic'
 import { Feather } from '@expo/vector-icons'
 
 
-const EditProfile = ({ navigation }) => {
+const EditProfile = ({ navigation, route }) => {
   const [imgURI, setImageURI] = useState(null)
   const [isUploading, setIsUploading] = useState(false)
   const [progress, setProgress] = useState(0)
@@ -36,6 +36,12 @@ const EditProfile = ({ navigation }) => {
     setEditProfile({ loading: false, profile })
   }, [])
 
+  useEffect(() => {
+    if (remoteURL != null & remoteURL != '') {
+      uploadPic({ remoteURL, profile, setProfile })
+    }
+  }, [remoteURL])
+
   if (data.loading) {
     return (
       <View style={[spinner.container, spinner.horizontal]}>
@@ -43,7 +49,6 @@ const EditProfile = ({ navigation }) => {
       </View>
     )
   }
-
 
   const handleLocalImageUpload = async () => {
     const fileURI = await uploadImageFromDevice()
@@ -63,9 +68,9 @@ const EditProfile = ({ navigation }) => {
   const onComplete = (fileUrl) => {
     setRemoteURL(fileUrl)
     setIsUploading(false)
-    uploadPic({ fileUrl, profile })
     setImageURI(null)
     setEditProfile({ ...data, profile: { ...data.profile, 'photo': fileUrl } })
+
   }
 
   const onFail = (error) => {
@@ -186,6 +191,7 @@ const EditProfile = ({ navigation }) => {
               <TouchableOpacity
                 onPress={() => {
                   useEditProfile({ setEditProfile, data: data.profile, setProfile })
+                  route.params?.reload(true)
                   navigation.goBack()
                 }}>
                 <View style={styles.continueSegment}>
