@@ -28,7 +28,7 @@ async function useCompanionship({ setData, page, setRefreshing, refreshing, id, 
   }
 
 
-  await api.get(ROUTES.users + `${id}/${id_status}`, { params: { page } })
+  await api.get(ROUTES.user_book + `${id}/${id_status}`, { params: { page } })
     .then((response) => {
       if (!refreshing) {
         setRefreshing(true)

@@ -12,7 +12,7 @@ async function updateBookState({ id, status }) {
     return
   }
 
-  await api.patch(ROUTES.get_book + `${id}/${status}`)
+  await api.patch(ROUTES.user_book + `${id}/${status}`)
     .then((response) => {
       return
     }).catch((error) => {
