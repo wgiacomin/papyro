@@ -5,7 +5,6 @@ import Like from '../../components/heart'
 
 // eslint-disable-next-line react/prop-types
 const Entry = ({ data, navigation }) => {
-  console.log(data)
   return (
     <>
       <View style={styles.title}>

@@ -1,18 +1,19 @@
 import React from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './welcome-style'
 import circleButton from '../../../assets/buttons/circleButton.png'
+import logo from '../../../assets/logo.png'
 
 const Welcome = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <View style={styles.standard}>
-        <View style={styles.logo}>
+        <ImageBackground source={logo} resizeMode="cover" style={styles.logo}>
           <Text style={styles.title}>
             Papyro
           </Text>
-        </View>
+        </ImageBackground>
         <View style={styles.bottomLogo}>
           <Text style={styles.welcome}>
             Bem-vindo ao{'\n'}Papyro!

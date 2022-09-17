@@ -8,7 +8,6 @@ import comments from '../../../assets/icons/chat.png'
 
 // eslint-disable-next-line react/prop-types
 const Entry = ({ post, navigation }) => {
-  console.log(post)
   return (<>
     <View style={styles.comment_title}
       key={post.item.id}>

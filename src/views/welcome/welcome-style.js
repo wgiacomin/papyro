@@ -5,10 +5,10 @@ export default StyleSheet.create({
     flex: 1,
     top: 100,
   },
-  segment:{
+  segment: {
     flex: 1,
   },
-  buttonSegment:{
+  buttonSegment: {
     marginRight: '10%',
     marginBottom: '10%'
   },
@@ -16,7 +16,6 @@ export default StyleSheet.create({
     flex: .4,
     width: '100%',
     marginLeft: 0,
-    backgroundColor: '#324A59',
     borderRadius: 0,
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -33,7 +32,9 @@ export default StyleSheet.create({
     lineHeight: 76,
     textAlign: 'center',
     color: '#FFFFFF',
-    bottom:'5%'
+    bottom: '5%',
+    textShadowColor: 'black',
+    textShadowRadius: 20,
   },
   welcome: {
     flex: .3,
@@ -55,7 +56,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: '#AAAAAA',
   },
-  button:{
+  button: {
     alignItems: 'flex-start',
   },
   buttonSize: {
