@@ -9,7 +9,7 @@ const ROUTES = {
 
   signup: 'users/',
 
-  comments: 'comments/',
+  comments: 'rate/',
   get_book: 'getBook/',
 
   get_persons_books: 'users/books',
