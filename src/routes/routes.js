@@ -1,8 +1,6 @@
-import { BASE_URL } from '@env'
-
 const ROUTES = {
   //baseURL: 'http://10.0.2.2:8000',
-  baseURL: BASE_URL,
+  baseURL: 'http://192.168.0.110:8000',
 
   login: 'login/',
   refresh: 'login/refresh',
