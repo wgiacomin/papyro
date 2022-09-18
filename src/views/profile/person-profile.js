@@ -33,8 +33,12 @@ const FriendProfile = ({ navigation, route }) => {
   })
 
   useEffect(() => {
+    setData({
+      data: {},
+      loading: true,
+    })
     useProfile({ id: route.params?.id, setImage, setData })
-  }, [])
+  }, [route.params?.id])
 
   if (data.loading) {
     return (
