@@ -14,7 +14,6 @@ import groups from '../../assets/icons/groups.png'
 import groups_focused from '../../assets/icons/groups_focused.png'
 import people from '../views/profile/user-profile'
 import friend from '../views/profile/person-profile'
-import conversations from '../views/chat/conversations'
 import comments from '../views/comments/comment'
 import notification from '../views/notification/notification'
 import editProfile from '../views/edit-profile/edit-profile'
@@ -41,7 +40,6 @@ const StackNavigator = () => (
     <Stack.Screen name='Feed' component={feed} options={{ headerShown: false }} />
     <Stack.Screen name='People' component={people} options={{ headerShown: false }} />
     <Stack.Screen name='Friend' component={friend} options={{ headerShown: false }} />
-    <Stack.Screen name='Conversations' component={conversations} options={{ headerShown: false }} />
     <Stack.Screen name='Comments' component={comments} options={{ headerShown: false }} />
     <Stack.Screen name='EditProfile' component={editProfile} options={{ headerShown: false }} />
     <Stack.Screen name='Personalize' component={genreSelection} options={{ headerShown: false }} />
