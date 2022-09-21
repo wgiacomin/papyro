@@ -192,7 +192,7 @@ const EditProfile = ({ navigation, route }) => {
                 onPress={() => {
                   useEditProfile({ setEditProfile, data: data.profile, setProfile })
                   route.params?.reload(true)
-                  navigation.goBack()
+                  navigation.navigate('People')
                 }}>
                 <View style={styles.continueSegment}>
                   <Text style={styles.buttonSave}> Salvar </Text>

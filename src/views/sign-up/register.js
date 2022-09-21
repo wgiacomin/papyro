@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert, ActivityIndicator } from 'react-native'
+import { Text, SafeAreaView, View, TouchableOpacity, Image, Alert, ActivityIndicator, ScrollView } from 'react-native'
 import safeView from '../../styles/safe-view'
 import styles from './register-style'
 import ProfileBar from '../../components/profile-bar'
@@ -47,63 +47,65 @@ const Register = ({ navigation }) => {
   return (
     <SafeAreaView style={safeView.AndroidSafeArea}>
       <BackButton navigation={navigation} />
-      <View style={styles.standard}>
-        <View style={styles.segment}>
-          <Text style={styles.title}>
-            Cadastro
-          </Text>
-          <Text style={styles.subtitle}>
-            Cadastre uma nova conta
-          </Text>
-        </View>
-        <View style={styles.segment}>
-          <ProfileBar data={data} setData={setData} />
-          <NicknameBar data={data} setData={setData} />
-          <EmailBar data={data} setData={setData} />
-          <PasswordBar data={data} setData={setData} />
-          <ConfirmationPasswordBar data={data} setData={setData} />
-        </View>
-        <View style={styles.term}>
-          <View>
-            <Text style={styles.terms}>
-              Ao continuar, você aceita os nossos
+      <ScrollView>
+        <View style={styles.standard}>
+          <View style={styles.segment}>
+            <Text style={styles.title}>
+              Cadastro
+            </Text>
+            <Text style={styles.subtitle}>
+              Cadastre uma nova conta
             </Text>
           </View>
-          <View>
-            <TouchableOpacity>
-              <Text style={styles.termsBold}>
-                termos de uso.
-              </Text>
-            </TouchableOpacity>
+          <View style={styles.segment}>
+            <ProfileBar data={data} setData={setData} />
+            <NicknameBar data={data} setData={setData} />
+            <EmailBar data={data} setData={setData} />
+            <PasswordBar data={data} setData={setData} />
+            <ConfirmationPasswordBar data={data} setData={setData} />
           </View>
-        </View>
-        <View style={styles.buttonSegment}>
-          <View style={styles.continueSegment}>
-            <TouchableOpacity
-              onPress={() => {
-                useRegister({ data, setRes, setProfile })
-              }}>
-              <Image source={circleButton} style={styles.buttonSize} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.login}>
+          <View style={styles.term}>
             <View>
-              <Text style={styles.normal}>
-                Já tem cadastro?
+              <Text style={styles.terms}>
+                Ao continuar, você aceita os nossos
               </Text>
             </View>
             <View>
-              <TouchableOpacity
-                onPress={() => { navigation.navigate('Login') }}
-              >
-                <Text style={styles.bold}>
-                  Faça login.
+              <TouchableOpacity>
+                <Text style={styles.termsBold}>
+                  termos de uso.
                 </Text>
               </TouchableOpacity>
             </View>
           </View>
+          <View style={styles.buttonSegment}>
+            <View style={styles.continueSegment}>
+              <TouchableOpacity
+                onPress={() => {
+                  useRegister({ data, setRes, setProfile })
+                }}>
+                <Image source={circleButton} style={styles.buttonSize} />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.login}>
+              <View>
+                <Text style={styles.normal}>
+                  Já tem cadastro?
+                </Text>
+              </View>
+              <View>
+                <TouchableOpacity
+                  onPress={() => { navigation.navigate('Login') }}
+                >
+                  <Text style={styles.bold}>
+                    Faça login.
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }

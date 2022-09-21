@@ -106,7 +106,7 @@ const MainNavigator = () => {
           ),
         }} />
 
-      <Tab.Screen name="Profile" component={peopleSuggestion}
+      <Tab.Screen name="Suggestions" component={peopleSuggestion}
         options={{
           headerShown: false,
           tabBarShowLabel: false,
