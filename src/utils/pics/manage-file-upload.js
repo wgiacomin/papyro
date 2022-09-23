@@ -1,6 +1,6 @@
 import { uuidv4 } from '@firebase/util'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
-import storage from '../../../firebase_credentials'
+import storage from '../../../firebase'
 
 const manageFileUpload = async (
   fileBlob,
